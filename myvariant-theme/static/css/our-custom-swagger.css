@@ -1,0 +1,43 @@
+.swagger-ui .global-server-container .servers-title{
+  font-weight: lighter;
+  font-size: 9px;
+  margin-left: 10px;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary-method{
+  background-color: var(--green-medium);
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method{
+  background-color:var(--green-dark);
+}
+
+.swagger-ui .opblock.opblock-delete .opblock-summary-method{
+  background-color: var(--green-light);
+}
+
+.swagger-ui .opblock.opblock-put .opblock-summary-method{
+  background-color: var(--green-light);
+}
+
+.swagger-ui .info .title{
+  color: var(--green-dark);
+}
+
+.swagger-ui select{
+  border: var(--green-medium) solid 2px;
+  color: var(--green-light);
+  font-weight: lighter;
+}
+
+.swagger-ui .info{
+  text-align: center;
+}
+
+.swagger-ui .info hgroup.main a:hover{
+  color: var(--green-medium) !important;
+}
+
+.swagger-ui .info a:hover{
+  color: var(--green-medium) !important;
+}

@@ -1,0 +1,26 @@
+{% for post in posts %}
+<div>
+  <article class="box post_box">
+    {% if post.primary_tag %}
+    <span class="primary_tag"><i class="fas fa-tag text-blue"></i> {{post.primary_tag.name}}</span>
+    {% endif %}
+    <div class="content">
+      <a href="/blog/{{post.slug}}">
+      <h3>{{post.title}}</h3>
+      <p>{{post.html|striptags|truncate(100)}}</p>
+      </a>
+      <div>
+        {%if post.author.profile_image %}
+          <img class="post_author_img" src={{post.author.profile_image}} />
+            {% else %}
+            <img class="post_author_img" src='/static/img/mygene-default-user.png' />
+        {% endif %}
+        <span class="post_author text-blue"><a href="/author/{{post.author.slug}}">{{post.author.name}}</a></span>
+        <ul class="actions">
+          <li><a href="/blog/{{post.slug}}" class="btn btn-dark text-blue">More</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</div>
+{% endfor %}

@@ -1,0 +1,178 @@
+{% extends "main.html" %}
+{% block content %}
+<style>
+	a:hover{
+		color:white !important;
+		border-bottom:  none !important;
+		text-decoration: none !important;
+	}
+	a{
+		border: none !important;
+		text-decoration: none !important;
+	}
+	a img{
+		border: none !important;
+		text-decoration: none !important;
+	}
+
+	#animation_container {
+		margin:auto;
+		left:0;right:0;
+		top:0;bottom:0;
+  }
+
+</style>
+<div class="bg-dark">
+	<div id="particles-js" class="jumbotron container-fluid bg-dark text-center bioHero" style="border-radius: 0px;">
+		<div id="animation_container" style="background-color:rgba(0,0,0,0); width:200px; height:200px">
+			<canvas id="canvas" width="200" height="200" style="position: absolute; display: block; background-color:rgba(0,0,0,0);"></canvas>
+			<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:200px; height:200px; position: absolute; left: 0px; top: 0px; display: block;">
+			</div>
+		</div>
+		<h1 class="text-light lighter lighter noMargin textShadow logoFont" style="font-size: 8vw;"><span class="text-warning">BioThings</span> API</h1>
+		<h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
+			Making High Performance Data APIs in Biology
+		</h3>
+	</div>
+	<div class="row text-center container-fluid marginFix apiBack">
+		<div class="col-sm-6 col-md-6 col-lg-6 text-center padding40" >
+			<object id="sdk" width="100" height="100" class="margin20" data="/static/img/sdk-icon.svg"></object>
+			<br />
+			<a href="http://biothingsapi.readthedocs.io/" target="_blank" class="themeButton draw margin20">SDK</a>
+			<p class="text-light smallCaps margin20">
+				To help you build your own BioThings API
+			</p>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-6 text-center padding40" >
+			<object id="specs" width="100" height="100" class="margin20" data="/static/img/specs-icon.svg"></object>
+			<br />
+			<a href="/specs/" class="themeButton draw margin20">SPECS</a>
+			<p class="text-light smallCaps margin20">
+				Guidelines to follow when building a BioThings API
+			</p>
+		</div>
+	</div>
+	<div class="text-center fullWidth">
+		<object width="20%" class="margin20" data="/static/img/all-apis.svg"></object>
+	</div>
+	<div class="container-fluid row marginFix noPadding" >
+		<div class="col-sm-12 col-md-12 col-lg-12 text-center container" >
+			<h2 class="text-light lighter padding40 smallCaps" style="font-size: 4vw;">
+				Build Apps Like These:
+			</h2>
+		</div>
+		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-blue">
+			<a href="http://mygene.info/" target="_blank" >
+				<object width="50%" class="float" data="/static/img/mygene-logo-shiny.svg"></object>
+				<br />
+				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
+				<h3 class="padding20 text-light lighter no-decoration textShadow logoFont">My<span class="text-blue">Gene</span>.info</h3>
+				<p class="text-blue smallCaps">
+					Gene Annotation Query as a Service
+				</p>
+			</a>
+		</div>
+		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-green">
+			<a href="http://myvariant.info/" target="_blank" >
+				<object width="50%" class="float" data="/static/img/myvariant-logo-shiny.svg"></object>
+				<br />
+				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
+				<h3 class="padding20 text-light lighter no-decoration textShadow logoFont">My<span class="text-green">Variant</span>.info</h3>
+				<p class="text-green smallCaps">
+					Variant Annotation as a Service
+				</p>
+			</a>
+		</div>
+		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-orange" id="chem">
+			<a href="http://mychem.info/" target="_blank" >
+				<object width="50%" class="float" data="/static/img/mychem-logo-shiny.svg"></object>
+				<br />
+				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
+				<h3 class="padding20 text-light lighter no-decoration textShadow logoFont">My<span class="text-orange">Chem</span>.info</h3>
+				<p class="text-orange smallCaps">
+					Chemicals and Drugs Annotation as a Service
+				</p>
+			</a>
+		</div>
+		<div class="text-center fullWidth padding20">
+			<h4 class="smallCaps text-light lighter">
+				AND MORE!
+			</h4>
+			<table class="table table-dark text-center">
+			  <thead>
+			    <tr>
+						<th class="text-center">
+							API Name
+						</th>
+			      <th class="text-center">
+							Description
+						</th>
+			      <th class="text-center">
+							Link
+						</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+						<td class="text-warning">
+							Taxonomy API
+						</td>
+			      <td class="smallFont">
+							Taxonomy API provides simple-to-use REST web services to query/retrieve Taxonomy annotation information.</td>
+			      <td>
+							<a target="_blank" href="http://t.biothings.io/" class="btn btn-warning">Try it out</a>
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+
+<!-- Section -->
+	<section id="four" class="main accent bg-dark">
+		<a name="news"></a>
+		<header>
+			<h2 class="text-muted lighter">News</h2>
+		</header>
+		<div class="inner">
+			<div class="posts">
+				{% for post in posts %}
+				<div>
+					<article class="box">
+						<div class="content">
+							{%if post.author.profile_image %}
+			        <img class="post_author_img" src={{post.author.profile_image}} />
+			        {% else %}
+			        <img class="post_author_img" src='/static/img/default-user.png' />
+			        {% endif %}
+							<span class="post_author text-muted smallFont">{{post.author.name}}</span>
+							<h4 class="text-warning">{{post.title}}</h4>
+							<p class="text-muted">{{post.html|striptags|truncate(100)}}</p>
+							<ul class="actions">
+								<li><a href="/blog/{{post.slug}}" class="btn btn-dark btn-sm text-warning small">More</a></li>
+							</ul>
+						</div>
+					</article>
+				</div>
+				{% endfor %}
+			</div>
+			<p class="more_news" style="padding-bottom:40px;"><a href="/blog" class="btn btn-warning">More&nbspNews</a></p>
+		</div>
+	</section>
+
+</div>
+
+
+{% endblock %}
+			{% block extra_scripts %}
+			<script>
+				$(document).ready(function() {
+
+						new Vivus('sdk', {duration: 120, type: 'oneByOne'});
+						new Vivus('specs', {duration: 120, type: 'oneByOne'});
+
+	      });
+			</script>
+			{% endblock %}

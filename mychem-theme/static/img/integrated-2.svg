@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	:root {
+	  --blue-dark: #3366CC;
+	  --blue-medium: #2A7FE2;
+	  --blue-light: #669BE8;
+
+	  --green-dark: #40B307;
+	  --green-medium: #67CF2E;
+	  --green-light: #85D958;
+
+	  --orange-dark: #CC6633;
+	  --orange-medium: #FD7400;
+	  --orange-light: #FF8E39;
+	}
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:url(#SVGID_2_);}
+	.white{fill: #ffffff}
+	@keyframes Ani {
+    0% {
+        -webkit-transform: translateY(0px);
+				-ms-transform: translateY(0px);
+				transform: translateY(0px);
+				opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(300px);
+				-ms-transform: translateY(300px);
+				transform: translateY(300px);
+				opacity: 0;
+    }
+}
+
+		.Ani {
+		    animation: Ani 4s linear;
+		    -webkit-animation: Ani 4s linear;
+				-webkit-animation-iteration-count: 5; /* Safari 4.0 - 8.0 */
+				animation-iteration-count: 5;
+		}
+
+</style>
+<defs>
+	<mask id='dna'>
+		<g>
+		<path class="white" d="M51.5,54.8c30.6-10.3,38.2-37.1,38-51.1h-19c0,4.2,3.8,40.2-20.5,48.3C19.7,62.2,7.5,74,7.8,87.8l62.7,6.8
+			l17.3-6.5l-63.3-6.5C24.4,77.4,27.7,62.8,51.5,54.8z"/>
+		<path class="white" d="M26.8,3.7c0,4.5-3.3,42.7,21,51.5c30.3,11,40.3,18.1,40,33l-17.3,6.5c0.1-4.7-0.9-27.1-24.7-35.7
+			C15.2,47.8,7.6,18.9,7.8,3.7H26.8z"/>
+		</g>
+	</mask>
+</defs>
+<g mask="url('#dna')">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="48.6684" y1="94.6667" x2="48.6684" y2="3.6667">
+	<stop  offset="3.782051e-02" style="stop-color:var(--orange-dark)"/>
+	<stop  offset="0.2254" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="0.4659" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="0.734" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="1" style="stop-color:var(--orange-light)"/>
+</linearGradient>
+<path class="st0" d="M51.5,54.8c30.6-10.3,38.2-37.1,38-51.1h-19c0,4.2,3.8,40.2-20.5,48.3C19.7,62.2,7.5,74,7.8,87.8l62.7,6.8
+	l17.3-6.5l-63.3-6.5C24.4,77.4,27.7,62.8,51.5,54.8z"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="47.8081" y1="94.6667" x2="47.8081" y2="3.6667">
+	<stop  offset="3.782051e-02" style="stop-color:var(--orange-dark)"/>
+	<stop  offset="0.3237" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="0.5625" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="0.7888" style="stop-color:var(--orange-medium)"/>
+	<stop  offset="0.9782" style="stop-color:var(--orange-light)"/>
+</linearGradient>
+<path class="st1" d="M26.8,3.7c0,4.5-3.3,42.7,21,51.5c30.3,11,40.3,18.1,40,33l-17.3,6.5c0.1-4.7-0.9-27.1-24.7-35.7
+	C15.2,47.8,7.6,18.9,7.8,3.7H26.8z"/>
+	<rect class="Ani" width="300" height="10" style="fill:rgb(94, 194, 250);" />
+</g>
+</svg>

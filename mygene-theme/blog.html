@@ -1,0 +1,94 @@
+{% extends "main.html" %}
+{% block content %}
+<!-- Section -->
+  <section class="main accent bg-dark">
+    <header style="padding-top: 10vh;">
+      <div style="width: 100px;"><object id="my-svg" type="image/svg+xml" data="/static/img/mygene-api.svg"></object></div>
+      <h2 class="text-blue smallCaps">What's new</h2>
+      {% if tag %}
+      <div>
+        Filtered by <a href="/blog?tag={{tag.slug}}" class="smallButton"><i class="fas fa-tag text-blue"></i> {{tag.name}}</a>
+      </div>
+      {% endif %}
+      {% if author %}
+      <div>
+        {% if author.website %}
+          Authored by <a href="{{author.website}}">{{author.name}}</a>
+        {% else %}
+          Authored by {{author.name}}
+        {% endif %}
+      </div>
+      {% endif %}
+    </header>
+    <div class="inner">
+      <div class="posts">
+        {% include "post_list.html" %}
+      </div>
+    </div>
+    <div class="loading">
+      <div class="wrapper">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-1a"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-3"></div>
+      </div>
+      <p>Loading&hellip;</p>
+    </div>
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+      <script>
+      var current_page = 1;
+      var end_of_posts = false;
+      var current_tag;
+      var current_author;
+      {% if tag %}
+      current_tag = "{{tag.slug}}";
+      {% endif %}
+      {% if author %}
+      current_author = "{{author.slug}}";
+      {% endif %}
+
+      $(document).ready(function() {
+        // set nav bar highlighting
+        $("#nav>ul>li").removeClass('current');
+        $("#nav3").addClass('current');
+
+        new Vivus('my-svg', {duration: 100, type: 'oneByOne'});
+
+      	var win = $(window);
+        var scroll_offset = 25;
+        if (skel.vars.os == "android" && skel.vars.browser == "chrome"){
+          scroll_offset = 60;
+        }
+
+      	// Each time the user scrolls
+      	win.scroll(function() {
+      		// End of the document reached?
+      		if (!end_of_posts && $(document).height() - win.height() - scroll_offset <= win.scrollTop()) {
+      			$('.loading').show();
+            current_page += 1;
+            var url = '/post?limit=9&html=1&page=' + current_page.toString();
+            if (current_tag) url += "&tag=" + current_tag;
+            if (current_author) url += "&author=" + current_author;
+      			$.ajax({
+      				url: url,
+      				dataType: 'html',
+      				success: function(html) {
+                if(html.trim()){
+        					$('.posts').append(html);
+                  $('.loading').hide();
+                }else{
+                  end_of_posts = true;
+                  $('.loading .wrapper').remove();
+                  $('.loading p').html("You reached the end.");
+                }
+      				}
+      			});
+      		}
+      	});
+      });
+
+      </script>
+{% endblock %}

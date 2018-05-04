@@ -1,0 +1,29 @@
+{% set post_url_for_share |urlencode %}{{blog_url + "/blog/" + post.slug}}{% endset %}
+{% set post_title_for_share|urlencode %}{{post.title}}{% endset %}
+<ul class="icons">
+    <li class="hvr-grow-rotate">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{post_url_for_share}}&t={{post_title_for_share}}" target="_blank" title="Share on Facebook">
+            <i class="fab fa-2x fa-facebook-square text-blue"></i>
+        </a>
+    </li>
+    <li class="hvr-grow-rotate">
+        <a href="https://twitter.com/intent/tweet?source={{post_url_for_share}}&text={{post_title_for_share}}:{{post_url_for_share}}" target="_blank" title="Tweet">
+            <i class="fab fa-2x fa-twitter-square text-blue"></i>
+        </a>
+    </li>
+    <li class="hvr-grow-rotate">
+        <a href="https://plus.google.com/share?url={{post_url_for_share}}" target="_blank" title="Share on Google+">
+            <i class="fab fa-2x fa-google-plus-square text-blue"></i>
+        </a>
+    </li>
+    <li class="hvr-grow-rotate">
+        <a href="http://www.reddit.com/submit?url={{post_url_for_share}}&title={{post_title_for_share}}" target="_blank" title="Submit to Reddit">
+            <i class="fab fa-2x fa-reddit-square text-blue"></i>
+        </a>
+    </li>
+    <li class="hvr-grow-rotate">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url={{post_url_for_share}}&title={{post_title_for_share}}&source={{post_url_for_share}}" target="_blank" title="Share on LinkedIn">
+            <i class="fab fa-2x fa-linkedin text-blue"></i>
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://biothings.io">
+    <meta property="og:site_name" content="BioThings.io">
+    <meta property="og:title" content="BioThings.io" />
+    <meta name="description" content="Making High Performance Data APIs in Biology" />
+    <meta property="og:image" content="https://s17.postimg.cc/jov6ogptb/featured.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Making High Performance Data APIs in Biology">
+    <meta property="fb:app_id" content="" />
+    <meta name="twitter:title" content="BioThings.io" />
+    <meta name="twitter:image" content="/static/img/Biothings.png" />
+    <meta name="twitter:url" content="http://biothings.io" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="Making High Performance Data APIs in Biology" />
+    <link rel="apple-touch-icon" href="/static/img/Biothings.png" />
+		<!-- Tab Favicon -->
+		<link rel="shortcut icon" type="image/png" href="/static/img/biothings-favicon.png"/>
+    <title>BioThings.io</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<link rel="stylesheet" href="/static/css/app.css" />
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<link rel="stylesheet" href="/static/css/academicons.min.css" />
+  </head>
+  <style>
+  a{
+    border: none !important;
+  }
+  .swatchParent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  h3{
+    font-weight: lighter;
+  }
+
+  .dont{
+    flex: 1;
+    flex-basis: 100px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  .swatch{
+    flex: 1;
+    max-width: 128px;
+    padding: 20px 10px;
+    border: white solid 1px;
+    border-radius: 5px;
+    width: auto;
+    margin: 10px;
+  }
+  .backGrey{
+    background-color: rgb(207, 207, 207);
+  }
+
+  .link img:hover{
+    transform: rotate(5deg);
+  }
+  </style>
+  <body class="bg-dark">
+    <script src="/static/js/jquery.min.js"></script>
+    <nav class="navbar navbar-light bg-light blackBack fixed-top" style="height: 50px;">
+      <a class="navbar-brand logoFont text-light float-none" href="/">
+        <img width="15px;" src="/static/img/biothings-logo.svg" alt="biothings" />
+        <span class="logoFont textShadow"><span class="text-warning">BioThings</span> API</span>
+      </a>
+    </nav>
+
+    <section class="bg-light padding20 text-center">
+      <h1>Branding</h1>
+      <hr />
+      <h3 class="padding20">Terms of Use</h3>
+      <p style="margin:10px 10%;">
+        If you use any of the BioThings API logos, illustrations or any other images approved for use under these brand guidelines, you agree that you will do so in compliance with the terms and conditions indicated on this page. If you do so, BioThings and its partners grant you a non-transferable, non-exclusive, royalty-free limited license to use its creative assets, and only in accordance with these brand guidelines. This is not a trademark license.
+      </p>
+      <p style="margin:10px 10%;">
+        Please refer to these guidelines to achieve consistency and make sure the branded elements of BioThings are used correctly across every application. We reserve the right to terminate or modify your permission to display our creative assets.
+      </p>
+      <hr />
+      <h3 class="padding20">Don't Do This</h3>
+      <div class="swatchParent">
+        <div class="dont">
+          <img width="100px" src="/static/img/dont1.png" alt="dont do this"/>
+          <p>
+            Don't distort our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont2.png" alt="dont do this"/>
+          <p>
+            Don't change the original colors.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont3.png" alt="dont do this"/>
+          <p>
+            Don't overlay text or images on top of our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont4.png" alt="dont do this"/>
+          <p>
+            Don't apply filters to our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont5.png" alt="dont do this"/>
+          <p>
+            Don't add borders or strokes.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont6.png" alt="dont do this"/>
+          <p>
+            Don't crop or alter the original images in any way.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont7.png" alt="dont do this"/>
+          <p>
+            Don't rotate our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img width="100px" src="/static/img/dont8.png" alt="dont do this"/>
+          <p>
+            We love creativeness but don't recreate our logo.
+          </p>
+        </div>
+      </div>
+      <div class="text-center backGrey margin20">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20">BioThings.io</h2>
+            <hr />
+            <p>
+              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+            </p>
+            <h3 class="text-muted padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--yellow-dark);">#CE952B</div>
+              <div class="swatch" style="background-color:var(--yellow-medium);">#FCCA52</div>
+              <div class="swatch" style="background-color:var(--yellow-light);">#FCBE38</div>
+              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
+              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
+              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+            </div>
+
+            <h3 class="text-muted padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-logo.svg" download="/static/img/biothings-logo.svg">
+              <img width="25%" src="/static/img/biothings-logo.svg" alt='biothings logo'/>
+            </a>
+            <p>
+              SVG
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-logo-lg.png" download="/static/img/biothings-logo-lg.png">
+              <img width="25%" src="/static/img/biothings-logo-lg.png" alt='biothings logo'/>
+            </a>
+            <p>
+              PNG LG 512x512
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-logo-md.png" download="/static/img/biothings-logo-md.png">
+              <img width="25%" src="/static/img/biothings-logo-md.png" alt='biothings logo'/>
+            </a>
+            <p>
+              PNG MD 256x256
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-logo-sm.png" download="/static/img/biothings-logo-sm.png">
+              <img width="25%" src="/static/img/biothings-logo-sm.png" alt='biothings logo'/>
+            </a>
+            <p>
+              PNG SM 128x128
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="link" href="/static/img/biothings-logos.zip" download="/static/img/biothings-logos.zip">
+              <i class="fas fa-3x fa-download text-warning"></i>
+            </a>
+            <p class="padding20 noMargin">
+              Download Full Image Package
+            </p>
+            <p class="smallFont text-muted">
+              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- MyGene -->
+      <div class="text-center backGrey margin20">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20">MyGene.info</h2>
+            <hr />
+            <p>
+              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+            </p>
+            <h3 class="text-muted padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--blue-dark);">#3366CC</div>
+              <div class="swatch" style="background-color:var(--blue-medium);">#2A7FE2</div>
+              <div class="swatch" style="background-color:var(--blue-light);">#669BE8</div>
+              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
+              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
+              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+            </div>
+            <h3 class="text-muted padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mygene-logo-shiny.svg" download="/static/img/mygene-logo-shiny.svg">
+              <img width="25%" src="/static/img/mygene-logo-shiny.svg" alt='mygene logo'/>
+            </a>
+            <p>
+              SVG Shiny
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mygene-logo.svg" download="/static/img/mygene-logo.svg">
+              <img width="25%" src="/static/img/mygene-logo.svg" alt='mygene logo'/>
+            </a>
+            <p>
+              SVG Flat
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mygene-logo-shiny-md.png" download="/static/img/mygene-logo-shiny-md.png">
+              <img width="25%" src="/static/img/mygene-logo-shiny-md.png" alt='mygene logo'/>
+            </a>
+            <p>
+              PNG Shiny 256x256
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mygene-logo-md.png" download="/static/img/mygene-logo-md.png">
+              <img width="25%" src="/static/img/mygene-logo-md.png" alt='mygene logo'/>
+            </a>
+            <p>
+              PNG Flat 256x256
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="link" href="/static/img/mygene-logos.zip" download="/static/img/mygene-logos.zip">
+              <i class="fas fa-3x fa-download text-blue"></i>
+            </a>
+            <p class="padding20 noMargin">
+              Download Full Image Package
+            </p>
+            <p class="smallFont text-muted">
+              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- MyVariant -->
+      <div class="text-center backGrey margin20">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20">MyVariant.info</h2>
+            <hr />
+            <p>
+              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+            </p>
+            <h3 class="text-muted padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--green-dark);">#40B307</div>
+              <div class="swatch" style="background-color:var(--green-medium);">#67CF2E</div>
+              <div class="swatch" style="background-color:var(--green-light);">#85D958</div>
+              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
+              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
+              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+            </div>
+            <h3 class="text-muted padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/myvariant-logo-shiny.svg" download="/static/img/myvariant-logo-shiny.svg">
+              <img width="25%" src="/static/img/myvariant-logo-shiny.svg" alt='Mychem logo'/>
+            </a>
+            <p>
+              SVG Shiny
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/myvariant-logo.svg" download="/static/img/myvariant-logo.svg">
+              <img width="25%" src="/static/img/myvariant-logo.svg" alt='Mychem logo'/>
+            </a>
+            <p>
+              SVG Flat
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/myvariant-logo-shiny-md.png" download="/static/img/myvariant-logo-shiny-md.png">
+              <img width="25%" src="/static/img/myvariant-logo-shiny-md.png" alt='Mychem logo'/>
+            </a>
+            <p>
+              PNG Shiny 256x256
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/myvariant-logo-md.png" download="/static/img/myvariant-logo-md.png">
+              <img width="25%" src="/static/img/myvariant-logo-md.png" alt='Mychem logo'/>
+            </a>
+            <p>
+              PNG Flat 256x256
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="link" href="/static/img/myvariant-logos.zip" download="/static/img/myvariant-logos.zip">
+              <i class="fas fa-3x fa-download text-green"></i>
+            </a>
+            <p class="padding20 noMargin">
+              Download Full Image Package
+            </p>
+            <p class="smallFont text-muted">
+              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- MyChem -->
+      <div class="text-center backGrey margin20">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20">MyChem.info</h2>
+            <hr />
+            <p>
+              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+            </p>
+            <h3 class="text-muted padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--orange-dark);">#CC6633</div>
+              <div class="swatch" style="background-color:var(--orange-medium);">#FD7400</div>
+              <div class="swatch" style="background-color:var(--orange-light);">#FF8E39</div>
+              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
+              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
+              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+            </div>
+            <h3 class="text-muted padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mychem-logo-shiny.svg" download="/static/img/mychem-logo-shiny.svg">
+              <img width="25%" src="/static/img/mychem-logo-shiny.svg" alt='Mychem logo'/>
+            </a>
+            <p>
+              SVG Shiny
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mychem-logo.svg" download="/static/img/mychem-logo.svg">
+              <img width="25%" src="/static/img/mychem-logo.svg" alt='Mychem logo'/>
+            </a>
+            <p>
+              SVG Flat
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mychem-logo-shiny-md.png" download="/static/img/mychem-logo-shiny-md.png">
+              <img width="25%" src="/static/img/mychem-logo-shiny-md.png" alt='Mychem logo'/>
+            </a>
+            <p>
+              PNG Shiny 256x256
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/mychem-logo-md.png" download="/static/img/mychem-logo-md.png">
+              <img width="25%" src="/static/img/mychem-logo-md.png" alt='Mychem logo'/>
+            </a>
+            <p>
+              PNG Flat 256x256
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="link" href="/static/img/mychem-logos.zip" download="/static/img/mychem-logos.zip">
+              <i class="fas fa-3x fa-download text-orange"></i>
+            </a>
+            <p class="padding20 noMargin">
+              Download Full Image Package
+            </p>
+            <p class="smallFont text-muted">
+              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-dark" style="bottom:0;">
+      <div class="copyright text-center text-muted">
+        <ul class="noListStyle listBlock">
+          <li>
+            <a class="link text-muted" href="http://mygene.info/rss/" target="_blank">
+              <i class="fas fa-rss fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="link text-muted" href="http://twitter.com/mygeneinfo" target="_blank">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="link text-muted" href="https://github.com/biothings/mygene.info" target="_blank">
+              <i class="fab fa-github-alt fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <hr />
+        <p class="smallFont">
+          All content copyright <a href="http://mygene.info/" class="link text-muted">MyGene.info</a> © 2018
+          <br /> All rights reserved.
+          <a target="_blank" href="http://mygene.info/terms" class="link text-muted">Terms of use.</a>
+          <a target="_blank" href="http://mygene.info/citation/" class="link text-muted">How To Cite</a>
+        </p>
+      </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script>
+
+    </script>
+  </body>
+</html>

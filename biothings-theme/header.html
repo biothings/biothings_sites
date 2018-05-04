@@ -1,0 +1,38 @@
+<!-- Header -->
+<style>
+/* Background Color of Side Nav */
+#navPanel{
+  background-color: var(--yellow-medium) !important;
+}
+/* B-C of small header */
+ #header.alt{
+  background-color: var(--yellow-dark);
+}
+/* small header menu icon */
+#header.alt > .navPanelToggle{
+  color: white;
+  top:5px;
+}
+</style>
+<!-- Header -->
+<header id="header" class="alt" style="height:50px">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark blackBack fullWidth sticky-top" style="top:0; right:0; height: 50px;">
+    <a class="navbar-brand" href="/" class="logoFont">
+      <img width="15px;" src="/static/img/biothings-logo.svg" alt="mygene.info" />
+      <span class="logoFont textShadow"><span class="text-warning">BioThings</span> API</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a> -->
+        <a class="nav-item nav-link" href="http://biothingsapi.readthedocs.io/" target="_blank">SDK</a>
+        <a class="nav-item nav-link" href="/specs/">Specs</a>
+        <a class="nav-item nav-link" href="/blog/">News</a>
+        <a class="nav-item nav-link" href="/static/html/branding.html">Branding</a>
+      </div>
+    </div>
+  </nav>
+
+</header>

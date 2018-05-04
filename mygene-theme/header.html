@@ -1,0 +1,103 @@
+<!-- Header -->
+<style>
+/* Background Color of Side Nav */
+#navPanel{
+  background-color: var(--blue-light) !important;
+}
+
+#header{
+  background-color: var(--blue-dark) !important;
+  box-shadow: 0px 5px 10px black;
+}
+/* B-C of small header */
+#nav.navbar{
+  background-color: var(--blue-dark);
+  box-shadow: 0px 5px 10px black;
+}
+/* small header menu icon */
+#header.alt > .navPanelToggle{
+  color: white !important;
+  top:5px;
+}
+
+#header.alt > .navPanelToggle:hover{
+  color: white !important;
+  top:5px;
+}
+
+#moreApisButton{
+	position: absolute;
+	right: 3%;
+}
+
+body{
+  padding-top: 0 !important;
+}
+</style>
+<header id="header" style="height: 50px;">
+  <nav id="nav" class="navbar  navbar-expand-lg navbar-dark blueBackGradient fullWidth" style="top:0; right:0; height: 50px; z-index: 1;">
+    <a class="navbar-brand noPadding" href="/">
+      <img src="/static/img/mygene-logo.svg" width="15" alt="MyVariant">
+      <span class="logoFont">My<span class="text-blue">Gene</span>.info</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/about">About</a>
+        <a class="nav-item nav-link" href="#APIStatusInterface">Status</a>
+        <!-- <a class="nav-item nav-link" href="/#tryapi">Try Live API</a> -->
+        <a class="nav-item nav-link" href="/static/html/index.html">Try Live API</a>
+        <a class="nav-item nav-link" href="/faq">FAQ</a>
+        <a class="nav-item nav-link" href="/blog">News</a>
+        <a class="nav-item nav-link" href="http://biothings.io/branding" target="_blank">Branding</a>
+        <a class="nav-item nav-link" id="moreApisButton">More BioThings APIs</a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mygene.info/">MyGene.info <i class="fas fa-chevron-right"></i></a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mychem.info/">MyChem.info <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div id="moreAPIS" class="fullWidth" style="display: none; padding-top: 6%; background-color: rgba(0,0,0,.5); overflow: auto; z-index:-1;">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-yellow">
+        <a href="http://biothings.io/">
+					<img style="margin: 0 auto;" class="d-xs-none d-sm-none d-lg-block d-md-block d-xl-block" width="30%;" src="/static/img/biothings-logo.svg"/>
+					<p class="text-light logoFont lighter textShadow" style="margin-bottom: 10px;">
+						BioThings.io
+					</p>
+				</a>
+  		</div>
+			<div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-blue">
+				<a href="http://mygene.info/">
+					<img style="margin: 0 auto;" class="d-xs-none d-sm-none d-lg-block d-md-block d-xl-block" width="30%;" src="/static/img/mygene-logo.svg"/>
+					<p class="text-light logoFont lighter textShadow" style="margin-bottom: 10px;">
+						My<span class="text-blue">Gene</span>.info
+					</p>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-orange">
+				<a href="http://mychem.info/">
+					<img style="margin: 0 auto;" class="d-xs-none d-sm-none d-lg-block d-md-block d-xl-block" width="30%;" src="/static/img/mychem-logo.svg"/>
+					<p class="text-light logoFont lighter textShadow" style="margin-bottom: 10px;">
+						My<span class="text-orange">Chem</span>.info
+					</p>
+				</a>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-green">
+				<a href="http://myvariant.info/">
+					<img style="margin: 0 auto;" class="d-xs-none d-sm-none d-lg-block d-md-block d-xl-block" width="30%;" src="/static/img/myvariant-logo.svg"/>
+					<p class="text-light logoFont lighter textShadow" style="margin-bottom: 10px;">
+						My<span class="text-green">Variant</span>.info
+					</p>
+				</a>
+			</div>
+		</div>
+  </div>
+</header>
+<script src="/static/js/jquery.min.js"></script>
+<script>
+  $('#moreApisButton').on('click', function(){
+    $('#moreAPIS').slideToggle();
+  })
+</script>
