@@ -24,12 +24,16 @@
         -webkit-transform: translateY(0px);
 				-ms-transform: translateY(0px);
 				transform: translateY(0px);
+			  -moz-transform:translateY(0px); /* Firefox */
+			  -o-transform:translateY(0px); /* Opera */
 				opacity: 1;
     }
     100% {
         -webkit-transform: translateY(300px);
 				-ms-transform: translateY(300px);
 				transform: translateY(300px);
+				moz-transform:translateY(300px); /* Firefox */
+			  -o-transform:translateY(300px); /* Opera */
 				opacity: 0;
     }
 }
@@ -71,6 +75,6 @@
 </linearGradient>
 <path class="st1" d="M26.8,3.7c0,4.5-3.3,42.7,21,51.5c30.3,11,40.3,18.1,40,33l-17.3,6.5c0.1-4.7-0.9-27.1-24.7-35.7
 	C15.2,47.8,7.6,18.9,7.8,3.7H26.8z"/>
-	<rect class="Ani" width="300" height="10" style="fill:rgb(94, 194, 250);" />
+	<rect class="Ani" width="300" height="10" style="fill:rgb(255, 184, 91);" />
 </g>
 </svg>

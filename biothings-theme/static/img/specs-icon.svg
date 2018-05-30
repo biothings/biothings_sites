@@ -25,11 +25,17 @@
 		.Ani {
 		    animation: Ani 3s ease-in-out infinite;
 		    -webkit-animation: Ani 3s ease-in-out infinite;
-				animation-play-state: paused;
+				animation-play-state: running;
+		}
+
+		.Ani2 {
+		    animation: Ani 4s ease-in-out infinite;
+		    -webkit-animation: Ani 4s ease-in-out infinite;
+				animation-play-state: running;
 		}
 
 		#Layer_1:hover > .Ani{
-		animation-play-state: running;
+		animation-play-state: paused;
 		}
 </style>
 <polygon class="st0" points="51.2,45.4 25,30.2 50.5,15.7 77.4,30.2 "/>
@@ -42,6 +48,6 @@
 <line class="st3" x1="9.8" y1="48.9" x2="20.8" y2="48.9"/>
 <line class="st3" x1="9.8" y1="55.8" x2="20.8" y2="55.8"/>
 <rect x="83.6" y="29.5" class="st2 Ani" width="6.9" height="6.9"/>
-<rect x="83.6" y="39.9" class="st0 Ani" width="6.9" height="6.9"/>
+<rect x="83.6" y="39.9" class="st0 Ani2" width="6.9" height="6.9"/>
 <rect x="83.6" y="51" class="st1 Ani" width="6.9" height="6.9"/>
 </svg>

@@ -1,9 +1,24 @@
 {% extends "main.html" %}
 {% block content %}
 <style type="text/css">
+.renderjson a              { text-decoration: none; }
+.renderjson .disclosure    { color: var(--green-medium);
+                             font-size: 150%; }
+.renderjson .syntax        { color: grey; }
+.renderjson .string        { color: var(--blue-dark); }
+.renderjson .number        { color: grey; }
+.renderjson .boolean       { color: var(--blue-light); }
+.renderjson .key           { color: var(--orange-medium) }
+.renderjson .keyword       { color: var(--orange-dark); }
+.renderjson .object.syntax { color: var(--blue-light) }
+.renderjson .array.syntax  { color: var(--orange-light); }
 
-
-
+.btn-orange{
+	background-color: var(--orange-medium);
+}
+.btn-orange:hover{
+	background-color: var(--orange-light);
+}
 </style>
 
 <section>
@@ -19,105 +34,117 @@
 			<h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
 				Chemical and Drug Annotation as a Service.
 			</h3>
+			<h1 id="testNum" class="text-light" style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--orange-medium);">0</h1>
+			<p class="text-light smallCaps" style="font-size: 1.5em;">
+				Requests in the last 30 days
+			</p>
 			<p class="text-center text-orange">
-				Last Updated <span id="buildDateTarget" class="text-light"></span>
+				Last Updated <a href="http://mychem.info/v1/metadata" target="_blank"><span id="buildDateTarget" class="text-light"></span></a>
 			</p>
 		</div>
 		<div class="text-center padding40 container-fluid">
-				<a href="/static/html/index.html" class="mainButton margin20">Try Live API Now</a>
+				<a href="/v1/api" class="mainButton margin20">Try Live API Now</a>
 		</div>
 		<div class="text-center">
 			<a class="smallButton" href="http://docs.myvariant.info/en/latest/index.html" target="_blank">Docs <i class="fas fa-external-link-square-alt"></i></a>
 			<a class="smallButton" href="https://stats.uptimerobot.com/polzSx91" target="_blank">API Status <i class="fas fa-external-link-square-alt"></i></a>
 		</div>
 <!-- Stats -->
-		<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
-			<h1 id="testNum" class="text-light" style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--orange-medium);">0</h1>
-			<p class="text-light smallCaps">
-				Requests in the last 30 days
-			</p>
-			<section id="APIStatusInterface" class="transparent">
-				<div class="transparent">
-					<div>
-						<h2 class="text-orange noMargin lighter"><img width="35px" src="/static/img/mychem-favicon.png" alt="logo"/> UpTime Quick Stats</h2>
-					</div>
-					<div class="row justify-content-md-center">
-						<div class="col-md-auto">
-							<table class="table transparent table-sm noMargin">
-								<thead class="noBorder">
-									<th class="text-muted text-center">
-										<span class="text-light" id="yesterday">1 day ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange2">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days2">2 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange3">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days3">3 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange4">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days4">4 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange5">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days5">5 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange6">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days6">6 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange7">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days7">7 days ago</span>
-										<br />
-							      <span class="text-orange"><span id="daysRange8">0</span>%</span>
-									</th>
-								</thead>
-						</table>
-						</div>
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
-							<ul class="list-group">
-								<li class="list-group-item bg-dark text-center text-light transparent">
-							  	UpTime Last 24 hours: <span id="daysRange1">0</span>%
-							  </li>
-							  <li class="list-group-item text-center transparent">
-							  	<h3 class="text-light noMargin">API Status: <span id="apiStatus"></span></h3>
-							  </li>
-								<li class="list-group-item bg-dark text-center text-muted transparent">
-									<div class="row justify-content-md-center">
-										<div class="col-md-auto">
-									  	<table class="table table-sm table-dark noMargin noBorder transparent">
-												<thead class="noBorder">
-													<th class="text-center text-light">Last 7 Days</th>
-													<th class="text-center text-light">This Month</th>
-													<th class="text-center text-light">Last Month</th>
-												</thead>
+<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
 
-												<tbody>
-													<tr>
-														<td><h3 class="text-orange noMargin"><span id="daysRange9">0</span>%</h3></td>
-														<td><h3 class="text-orange noMargin"><span id="daysRange10">0</span>%</h3></td>
-														<td><h3 class="text-orange noMargin"><span id="daysRange11">0</span>%</h3></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-							  </li>
-							</ul>
-						</div>
-					</div>
+	<section id="APIStatusInterface" class="transparent">
+		<div class="transparent">
+			<div>
+				<h2 class="text-orange noMargin lighter">UpTime Quick Stats</h2>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-auto">
+					<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus"></span></h3>
+					<p class="text-light">
+						UpTime Last 24 hours: <span id="daysRange1">0</span>%
+					</p>
+					<table class="table transparent table-sm noMargin">
+						<thead>
+							<th colspan="7" class="text-center text-light">
+								Uptime: Last 7 Days
+							</th>
+						</thead>
+						<tbody class="noBorder">
+							<tr>
+							<td class="text-muted text-center">
+								<span class="text-light" id="yesterday">1 day ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange2">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days2">2 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange3">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days3">3 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange4">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days4">4 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange5">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days5">5 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange6">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days6">6 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange7">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days7">7 days ago</span>
+								<br />
+								<span class="text-orange"><span id="daysRange8">0</span>%</span>
+							</td>
+						</tr>
+						</tbody>
+				</table>
 				</div>
-			</section>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
+					<ul class="list-group">
+						<!-- <li class="list-group-item text-center transparent">
+							<h3 class="text-light noMargin">API Status: <span id="apiStatus"></span></h3>
+						</li> -->
+						<!-- <li class="list-group-item bg-dark text-center text-light transparent">
+							UpTime Last 24 hours: <span id="daysRange1">0</span>%
+						</li> -->
+						<li class="list-group-item bg-dark text-center text-muted transparent">
+							<div class="row justify-content-md-center">
+								<div class="col-md-auto">
+									<table class="table table-sm table-dark noMargin noBorder transparent">
+										<thead class="noBorder">
+											<th class="text-center text-light">This Week</th>
+											<th class="text-center text-light">This Month</th>
+											<th class="text-center text-light">Last Month</th>
+										</thead>
+
+										<tbody>
+											<tr class="transparent">
+												<td><h3 class="text-orange noMargin"><span id="daysRange9">0</span>%</h3></td>
+												<td><h3 class="text-orange noMargin"><span id="daysRange10">0</span>%</h3></td>
+												<td><h3 class="text-orange noMargin"><span id="daysRange11">0</span>%</h3></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
+	</section>
+</div>
 
 		<div class="bg-dark fullWidth padding40 row marginFix" >
 			  <div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
@@ -153,7 +180,7 @@
 </section>
 
 <!-- Examples for large and medium devices -->
-<!-- <section class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
+<section class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light" style="max-height: 800px; overflow: scroll; position: relative;">
 			<ul class="list-group" >
@@ -161,35 +188,22 @@
 					<h2 class="text-muted lighter noMargin">Query Examples</h2>
 				</li>
 			  <li class="list-group-item">
-					<h4 class="noMargin">Retreiving by Entrz or Enesmbl gene id</h4>
+					<h4 class="noMargin">Retrieve chemical objects based on ID</h4>
 					<br />
-					http://mygene.info/v3/gene/<span class="text-blue">1017</span>
-					<button data-url='http://mygene.info/v3/gene/1017' type="button" class="btn btn-primary float-right text-light callButton">Run</button>
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
+					<button data-url='http://mychem.info/v1/chem/USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
 				<li class="list-group-item">
-					<h4 class="noMargin">Retreive all where symbol is CDK2</h4>
+					<h4 class="noMargin">Make chemical queries and return matching chemical hits</h4>
 					<br />
-					http://mygene.info/v3/<span class="text-blue">query?q=symbol:cdk2</span>
-					<button data-url='http://mygene.info/v3/query?q=symbol:cdk2' type="button" class="btn btn-primary float-right text-light callButton">Run</button>
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/query/<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
+					<button data-url='http://mychem.info/v1/query?q=USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
-				<li class="list-group-item">
-					<h4 class="noMargin">Get gene summary text for Insulin</h4>
-					<br />
-					http://mygene.info/v3/<span class="text-blue">query?q=summary:insulin</span>
-					<button data-url='http://mygene.info/v3/query?q=summary:insulin' type="button" class="btn btn-primary float-right text-light callButton">Run</button>
-				</li>
-				<li class="list-group-item">
-					<h4 class="noMargin">Retreive by UniProt id</h4>
-					<br />
-					http://mygene.info/v3/<span class="text-blue">query?q=uniprot:P24941</span>
-					<button data-url='http://mygene.info/v3/query?q=uniprot:P24941' type="button" class="btn btn-primary float-right text-light callButton">Run</button>
-				</li>
-				<li class="list-group-item">
+				<li>
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
-					<span class="text-blue">POST</span> http://mygene.info/v3/gene
-					<a target="_blank" href='http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post' type="button" class="btn btn-primary float-right text-light">Learn More</a>
-
+					<span class="text-orange bold">POST</span> http://mygene.info/v1/chem
+					<!-- <a target="_blank" href='http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post' type="button" class="btn btn-dark float-right">Learn More</a> -->
 				</li>
 			</ul>
 		</div>
@@ -202,12 +216,12 @@
 			</pre>
 		</div>
 	</div>
-</section> -->
+</section>
 
 <!-- Table display for small devices -->
-<!-- <section class="text-center text-light d-block d-sm-block d-md-none d-lg-none d-xl-none bg-dark">
+<section class="text-center text-light d-block d-sm-block d-md-none d-lg-none d-xl-none bg-dark">
 	<h2 class="text-muted lighter noMargin">Query Examples</h2>
-  <span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-blue Ani"></i></span>
+  <span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-orange Ani"></i></span>
 	<table class="table table-dark table-responsive">
   <thead>
     <tr>
@@ -217,31 +231,24 @@
   </thead>
   <tbody>
     <tr>
-      <td><h4 class="noMargin text-muted">Retreiving by Entrz or Enesmbl gene id</h4></td>
-      <td>http://mygene.info/v3/gene/<span class="text-blue">1017</span></td>
+      <td><h4 class="noMargin text-muted">Retrieve chemical objects based on ID</h4></td>
+      <td><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted">Retreive all where symbol is CDK2</h4></td>
-      <td>http://mygene.info/v3/<span class="text-blue">query?q=symbol:cdk2</span></td>
-    </tr>
-		<tr>
-      <td><h4 class="noMargin text-muted">Get gene summary text for Insulin</h4></td>
-      <td>http://mygene.info/v3/<span class="text-blue">query?q=summary:insulin</span></td>
-    </tr>
-		<tr>
-      <td><h4 class="noMargin text-muted">Retreive by UniProt id</h4></td>
-      <td>http://mygene.info/v3/<span class="text-blue">query?q=uniprot:P24941</span></td>
+      <td><h4 class="noMargin text-muted">Make chemical queries and return matching chemical hits</h4></td>
+      <td><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/query<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">Batch queries? Yes, supported!</h4>
       <td>
-				<span class="text-blue">POST</span> http://mygene.info/v3/gene
-				<a target="_blank" href='http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post' type="button" class="btn btn-primary float-right text-light">Learn More</a>
+				<span class="text-orange">POST</span> http://mygene.info/v1/chem
+				<br />
+				<a target="_blank" href='http://mychem.info/v1/api' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
 			</td>
     </tr>
   </tbody>
 </table>
-</section> -->
+</section>
 
 <!-- Section -->
 	<section id="four" class="main accent bg-dark">
@@ -286,7 +293,14 @@
 		</div>
 	</section>
 
-
+	<section class="text-light" style="background-color: var(--orange-dark); padding: 20px 10%;">
+		<p class="noMargin padding20">
+			<b class="text-light">Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
+		</p>
+		<p class="noMargin padding20">
+			The MyChem.info website does not provide any medical or healthcare products, services or advice, and is not for medical emergencies or urgent situations. IF YOU THINK YOU MAY HAVE A MEDICAL EMERGENCY, CALL YOUR DOCTOR OR 911 IMMEDIATELY. Information contained on this website is not a substitute for a doctor's medical judgment or advice. We recommend that you discuss your specific, individual health concerns with your doctor or health care professional.
+		</p>
+	</section>
 
 
 {% endblock %}
@@ -296,16 +310,17 @@
 			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
 			<script src="/static/js/app.js"></script>
 			<script src="/static/js/moment.js"></script>
+			<script src="/static/js/renderjson.js"></script>
 			<script>
 
 			$( document ).ready(function() {
-					var yesterday = moment().subtract(1, 'days').format('MM-DD');
-					var days2 = moment().subtract(2, 'days').format('MM-DD');
-					var days3 = moment().subtract(3, 'days').format('MM-DD');
-					var days4 = moment().subtract(4, 'days').format('MM-DD');
-					var days5 = moment().subtract(5, 'days').format('MM-DD');
-					var days6 = moment().subtract(6, 'days').format('MM-DD');
-					var days7 = moment().subtract(7, 'days').format('MM-DD');
+					var yesterday = moment().subtract(1, 'days').format('MMM DD');
+					var days2 = moment().subtract(2, 'days').format('MMM DD');
+					var days3 = moment().subtract(3, 'days').format('MMM DD');
+					var days4 = moment().subtract(4, 'days').format('MMM DD');
+					var days5 = moment().subtract(5, 'days').format('MMM DD');
+					var days6 = moment().subtract(6, 'days').format('MMM DD');
+					var days7 = moment().subtract(7, 'days').format('MMM DD');
 					$('#yesterday').html(yesterday);
 					$('#days2').html(days2);
 					$('#days3').html(days3);
@@ -315,19 +330,26 @@
 					$('#days7').html(days7);
 			});
 
-			// $('.callButton').on('click', function(){
-			// 	var myUrl = $(this).data('url');
-			// 	$('#callResults').html('');
-			// 	$('#loading').show();
-			// 	$.ajax({
-			// 		url: myUrl,
-			// 		dataType: 'JSON',
-     	// 		contentType: 'application/json;charset=UTF-8',
-			// 		success:function(result){
-			// 			$('#loading').hide();
-			// 			$('#callResults').html( JSON.stringify(result, undefined, 2) );
-			// 	}});
-			// })
+			$('.callButton').on('click', function(){
+				var myUrl = $(this).data('url');
+				$('#callResults').html('');
+				$('#loading').show();
+				$.ajax({
+					url: myUrl,
+					dataType: 'JSON',
+     			contentType: 'application/json;charset=UTF-8',
+					success:function(result){
+						$('#loading').hide();
+						renderjson.set_show_to_level(7);
+						$('#callResults').html( renderjson(result) );
+				}});
+			})
+
+			$(document).on('click','a',function(e){
+				if (e.target.href.slice(-1) === '#') {
+					return false;
+				}
+			})
 
 			</script>
 			{% endblock %}

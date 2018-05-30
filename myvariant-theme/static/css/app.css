@@ -233,7 +233,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 }
 
 .text-green{
-  color: var(--green-light);
+  color: var(--green-medium);
 }
 
 .text-orange{
@@ -246,7 +246,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 
 @font-face {
     font-family: logoFont;
-    src: url('../fonts/Quadrangle.ttf');
+    src: url('../fonts/recharge.ttf');
   }
 
 .logoFont{
@@ -629,4 +629,8 @@ border: none !important;
     color: white;
     text-decoration: none;
     cursor: pointer;
+}
+
+.bold{
+  font-weight: bold !important;
 }

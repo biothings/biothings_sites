@@ -262,7 +262,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 
 @font-face {
     font-family: bioFont;
-    src: url('../fonts/Quadrangle.ttf');
+    src: url('../fonts/recharge.ttf');
   }
 
 .logoFont{
@@ -413,6 +413,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
   border: #737373 1px solid;
   transition: 1s all;
   word-break:keep-all;
+  line-height: 3em;
 }
 
 .smallButton:hover{
@@ -423,6 +424,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
   font-weight: lighter;
   font-size: 12px;
   border: white 1px solid;
+  line-height: 3em;
   transition: 1s all;
 }
 

@@ -246,8 +246,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 
 @font-face {
     font-family: logoFont;
-    src: url('../fonts/Quadrangle.ttf');
+    src: url('../fonts/recharge.ttf');
   }
+
+.bold{
+  font-weight: bold;
+}
 
 .logoFont{
   font-family: logoFont;

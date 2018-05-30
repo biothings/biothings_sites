@@ -78,24 +78,24 @@
 }
 
 		.Ani {
-		    animation: Ani 3s ease-in-out;
-		    -webkit-animation: Ani 3s ease-in-out;
-				-webkit-animation-iteration-count: 3; /* Safari 4.0 - 8.0 */
-				animation-iteration-count: 3;
+		    animation: Ani 2.5s ease-in-out;
+		    -webkit-animation: Ani 2.5s ease-in-out;
+				-webkit-animation-iteration-count: 10; /* Safari 4.0 - 8.0 */
+				animation-iteration-count: 10;
 		}
 
 		.Ani2 {
 		    animation: Ani2 3s ease-in-out;
 		    -webkit-animation: Ani2 3s ease-in-out;
-				-webkit-animation-iteration-count: 3; /* Safari 4.0 - 8.0 */
-				animation-iteration-count: 3;
+				-webkit-animation-iteration-count: 10; /* Safari 4.0 - 8.0 */
+				animation-iteration-count: 10;
 		}
 
 		.Ani3 {
-		    animation: Ani3 3s ease-in-out;
-		    -webkit-animation: Ani3 3s ease-in-out;
-				-webkit-animation-iteration-count: 3; /* Safari 4.0 - 8.0 */
-				animation-iteration-count: 3;
+		    animation: Ani3 3.5s ease-in-out;
+		    -webkit-animation: Ani3 3.5s ease-in-out;
+				-webkit-animation-iteration-count: 10; /* Safari 4.0 - 8.0 */
+				animation-iteration-count: 10;
 		}
 
 </style>

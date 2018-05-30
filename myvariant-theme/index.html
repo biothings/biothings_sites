@@ -2,7 +2,44 @@
 {% block content %}
 <style type="text/css">
 
+.renderjson a              { text-decoration: none; }
+.renderjson .disclosure    { color: purple;
+                             font-size: 150%; }
+.renderjson .syntax        { color: grey; }
+.renderjson .string        { color: var(--blue-dark); }
+.renderjson .number        { color: grey; }
+.renderjson .boolean       { color: var(--green-medium); }
+.renderjson .key           { color: var(--green-dark) }
+.renderjson .keyword       { color: var(--orange-dark); }
+.renderjson .object.syntax { color: var(--blue-light) }
+.renderjson .array.syntax  { color: #e356b3; }
 
+.heroAnimated {
+  background: url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+  background-color: green !important;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-animation: slide 20s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -400px 0; }
+}
+
+.grayBack{
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  min-height: 100px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#363a40+0,363a40+100&0+0,1+100 */
+background: -moz-linear-gradient(top, rgba(54,58,64,0) 0%, rgba(54,58,64,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(54,58,64,0) 0%,rgba(54,58,64,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(54,58,64,0) 0%,rgba(54,58,64,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', endColorstr='#363a40',GradientType=0 ); /* IE6-9 */
+}
 
 </style>
 
@@ -10,114 +47,134 @@
 </div>
 	<div class="bg-dark">
 		<div class="jumbotron container-fluid bg-dark text-center variantHero" style="padding-bottom: 10px;">
-			<object class="float" width="20%" data="/static/img/myvariant-logo-shiny.svg" style="padding-top:100px;"></object>
-			<br />
-			<div class="logo-shadow blur" style="width: 15%; height: 15px; background: rgb(40, 60, 45); opacity:.4; border-radius:100%; margin: 0 auto;" ></div>
-			<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
-				My<span class="text-green">Variant</span>.info
-			</h1>
+			<div class="d-none d-sm-block">
+        <object class="float" width="20%" data="/static/img/myvariant-logo-shiny.svg" style="padding-top:100px;"></object>
+  			<br />
+  			<div class="logo-shadow blur" style="width: 15%; height: 15px; background: rgb(41, 47, 48); opacity:.4; border-radius:100%; margin: 0 auto;" ></div>
+  			<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
+  				My<span style="color: var(--green-light)">Variant</span>.info
+  			</h1>
+      </div>
+      <div class="d-sm-none d-block">
+        <object class="float" width="60%" data="/static/img/myvariant-logo.svg" style="padding-top:100px;"></object>
+        <h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
+  				My<span style="color: var(--green-light)">Variant</span>.info
+  			</h1>
+      </div>
 			<h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
 				Variant Annotation as a Service.
 			</h3>
+			<h1 id="testNum" class="text-light" style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--green-medium);">0</h1>
+			<p class="text-light smallCaps" style="font-size: 1.5em;">
+				Requests in the last 30 days
+			</p>
 			<p class="text-center text-green">
-				Last Updated <span id="buildDateTarget" class="text-light"></span>
+				Last Updated <a href="http://myvariant.info/v1/metadata" target="_blank"><span id="buildDateTarget" class="text-light"></span></a>
 			</p>
 		</div>
 		<div class="text-center padding40 container-fluid">
-				<a href="/static/html/index.html" class="mainButton margin20">Try Live API Now</a>
+				<a href="/v1/api" class="mainButton margin20">Try Live API Now</a>
 		</div>
 		<div class="text-center">
 			<a class="smallButton" href="http://docs.myvariant.info/en/latest/index.html" target="_blank">Docs <i class="fas fa-external-link-square-alt"></i></a>
 			<a class="smallButton" href="https://stats.uptimerobot.com/polzSx91" target="_blank">API Status <i class="fas fa-external-link-square-alt"></i></a>
 		</div>
 <!-- Stats -->
-		<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
-			<h1 id="testNum" class="text-light" style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--green-medium);">0</h1>
-			<p class="text-light smallCaps">
-				Requests in the last 30 days
-			</p>
-			<section id="APIStatusInterface" class="transparent">
-				<div class="transparent">
-					<div>
-						<h2 class="text-green noMargin lighter"><img width="35px" src="/static/img/myvariant-favicon.png" alt="logo"/> UpTime Quick Stats</h2>
-					</div>
-					<div class="row justify-content-md-center">
-						<div class="col-md-auto">
-							<table class="table transparent table-sm noMargin">
-								<thead class="noBorder">
-									<th class="text-muted text-center">
-										<span class="text-light" id="yesterday">1 day ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange2">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days2">2 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange3">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days3">3 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange4">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days4">4 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange5">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days5">5 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange6">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days6">6 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange7">0</span>%</span>
-									</th>
-									<th class="text-muted text-center">
-										<span class="text-light" id="days7">7 days ago</span>
-										<br />
-							      <span class="text-green"><span id="daysRange8">0</span>%</span>
-									</th>
-								</thead>
-						</table>
-						</div>
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
-							<ul class="list-group">
-								<li class="list-group-item bg-dark text-center text-light transparent">
-							  	UpTime Last 24 hours: <span id="daysRange1">0</span>%
-							  </li>
-							  <li class="list-group-item text-center transparent">
-							  	<h3 class="text-light noMargin">API Status: <span id="apiStatus"></span></h3>
-							  </li>
-								<li class="list-group-item bg-dark text-center text-muted transparent">
-									<div class="row justify-content-md-center">
-										<div class="col-md-auto">
-									  	<table class="table table-sm table-dark noMargin noBorder transparent">
-												<thead class="noBorder">
-													<th class="text-center text-light">Last 7 Days</th>
-													<th class="text-center text-light">This Month</th>
-													<th class="text-center text-light">Last Month</th>
-												</thead>
+<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
 
-												<tbody>
-													<tr>
-														<td><h3 class="text-green noMargin"><span id="daysRange9">0</span>%</h3></td>
-														<td><h3 class="text-green noMargin"><span id="daysRange10">0</span>%</h3></td>
-														<td><h3 class="text-green noMargin"><span id="daysRange11">0</span>%</h3></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-							  </li>
-							</ul>
-						</div>
-					</div>
+	<section id="APIStatusInterface" class="transparent">
+		<div class="transparent">
+			<div>
+				<h2 class="text-green noMargin lighter">UpTime Quick Stats</h2>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-auto">
+					<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus"></span></h3>
+					<p class="text-light">
+						UpTime Last 24 hours: <span id="daysRange1">0</span>%
+					</p>
+					<table class="table transparent table-sm noMargin">
+						<thead>
+							<th colspan="7" class="text-center text-light">
+								Uptime: Last 7 Days
+							</th>
+						</thead>
+						<tbody class="noBorder">
+							<tr>
+							<td class="text-muted text-center">
+								<span class="text-light" id="yesterday">1 day ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange2">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days2">2 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange3">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days3">3 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange4">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days4">4 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange5">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days5">5 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange6">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days6">6 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange7">0</span>%</span>
+							</td>
+							<td class="text-muted text-center">
+								<span class="text-light" id="days7">7 days ago</span>
+								<br />
+								<span class="text-green"><span id="daysRange8">0</span>%</span>
+							</td>
+						</tr>
+						</tbody>
+				</table>
 				</div>
-			</section>
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
+					<ul class="list-group">
+						<!-- <li class="list-group-item text-center transparent">
+							<h3 class="text-light noMargin">API Status: <span id="apiStatus"></span></h3>
+						</li> -->
+						<!-- <li class="list-group-item bg-dark text-center text-light transparent">
+							UpTime Last 24 hours: <span id="daysRange1">0</span>%
+						</li> -->
+						<li class="list-group-item bg-dark text-center text-muted transparent">
+							<div class="row justify-content-md-center">
+								<div class="col-md-auto">
+									<table class="table table-sm table-dark noMargin noBorder transparent">
+										<thead class="noBorder">
+											<th class="text-center text-light">This Week</th>
+											<th class="text-center text-light">This Month</th>
+											<th class="text-center text-light">Last Month</th>
+										</thead>
+
+										<tbody>
+											<tr class="transparent">
+												<td><h3 class="text-green noMargin"><span id="daysRange9">0</span>%</h3></td>
+												<td><h3 class="text-green noMargin"><span id="daysRange10">0</span>%</h3></td>
+												<td><h3 class="text-green noMargin"><span id="daysRange11">0</span>%</h3></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
+	</section>
+</div>
 
 		<div class="bg-dark fullWidth padding40 row marginFix" >
 			  <div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
@@ -163,40 +220,40 @@
 			  <li class="list-group-item">
 					<h4 class="noMargin">Retreiving by HGVS id</h4>
 					<br />
-					http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/variant/<span class="text-green bold">chr1:g.35367G>A</span>
 					<button data-url='http://myvariant.info/v1/variant/chr1:g.35367G>A' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants with clinvar annotation</h4>
 					<br />
-					http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:clinvar</span>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:clinvar</span>
 					<button data-url='http://myvariant.info/v1/query?q=_exists_:clinvar' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All non-synonymous variants on gene "BTK"</h4>
 					<br />
-					http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=dbnsfp.genename:BTK</span>
 					<button data-url='http://myvariant.info/v1/query/?q=dbnsfp.genename:BTK' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants within a genomic range</h4>
 					<br />
-					http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=chr1:69000-70000</span>
 					<button data-url='http://myvariant.info/v1/query/?q=chr1:69000-70000' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Query Wellderly variants together with other annotation sources</h4>
 					<br />
-					http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
 					<button data-url='http://myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
-					<span class="text-green">POST</span> http://myvariant.info/v1/variant/
-					<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' type="button" class="btn btn-success float-right text-light">Learn More</a>
+					<span class="text-green bold">POST</span> http://myvariant.info/v1/variant/
+					<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' type="button" class="btn btn-success float-right text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
 					<br />
-					<span class="text-green">POST</span> http://myvariant.info/v1/query/
+					<span class="text-green bold">POST</span> http://myvariant.info/v1/query/
 				</li>
 			</ul>
 		</div>
@@ -225,23 +282,23 @@
   <tbody>
     <tr>
       <td><h4 class="noMargin text-muted">Retreiving by HGVS id</h4></td>
-      <td>http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span></td>
+      <td><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">All variants with dbNSFP annotation</h4>
-      <td>http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:dbnsfp</span></td>
+      <td><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:dbnsfp</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">All non-synonymous variants on gene "BTK"</h4>
-      <td>http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span></td>
+      <td><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">All variants within a genomic range</h4>
-      <td>http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span></td>
+      <td><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">Query Wellderly variants together with other annotation sources</h4>
-      <td>http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
+      <td><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted">Batch queries? Yes, supported!</h4>
@@ -249,6 +306,8 @@
 				<span class="text-green">POST</span> http://myvariant.info/v1/variant/
 				<br />
 				<span class="text-green">POST</span> http://myvariant.info/v1/query/
+				<br />
+				<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
 			</td>
     </tr>
   </tbody>
@@ -298,7 +357,14 @@
 		</div>
 	</section>
 
-
+  <section class="text-dark" style="background-color: var(--green-light); padding: 20px 10%;">
+    <p class="noMargin padding20">
+      <b class="text-dark">Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
+    </p>
+    <p class="noMargin padding20">
+      The MyVariant.info website does not provide any medical or healthcare products, services or advice, and is not for medical emergencies or urgent situations. IF YOU THINK YOU MAY HAVE A MEDICAL EMERGENCY, CALL YOUR DOCTOR OR 911 IMMEDIATELY. Information contained on this website is not a substitute for a doctor's medical judgment or advice. We recommend that you discuss your specific, individual health concerns with your doctor or health care professional.
+    </p>
+  </section>
 
 
 {% endblock %}
@@ -308,16 +374,17 @@
 			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
 			<script src="/static/js/app.js"></script>
 			<script src="/static/js/moment.js"></script>
+			<script src="/static/js/renderjson.js"></script>
 			<script>
 
 			$( document ).ready(function() {
-					var yesterday = moment().subtract(1, 'days').format('MM-DD');
-					var days2 = moment().subtract(2, 'days').format('MM-DD');
-					var days3 = moment().subtract(3, 'days').format('MM-DD');
-					var days4 = moment().subtract(4, 'days').format('MM-DD');
-					var days5 = moment().subtract(5, 'days').format('MM-DD');
-					var days6 = moment().subtract(6, 'days').format('MM-DD');
-					var days7 = moment().subtract(7, 'days').format('MM-DD');
+					var yesterday = moment().subtract(1, 'days').format('MMM DD');
+					var days2 = moment().subtract(2, 'days').format('MMM DD');
+					var days3 = moment().subtract(3, 'days').format('MMM DD');
+					var days4 = moment().subtract(4, 'days').format('MMM DD');
+					var days5 = moment().subtract(5, 'days').format('MMM DD');
+					var days6 = moment().subtract(6, 'days').format('MMM DD');
+					var days7 = moment().subtract(7, 'days').format('MMM DD');
 					$('#yesterday').html(yesterday);
 					$('#days2').html(days2);
 					$('#days3').html(days3);
@@ -337,9 +404,16 @@
      			contentType: 'application/json;charset=UTF-8',
 					success:function(result){
 						$('#loading').hide();
-						$('#callResults').html( JSON.stringify(result, undefined, 2) );
+						renderjson.set_show_to_level(7);
+						$('#callResults').html( renderjson(result) );
 				}});
-			})
+			});
+
+			$(document).on('click','a',function(e){
+				if (e.target.href.slice(-1) === '#') {
+					return false;
+				}
+			});
 
 			</script>
 			{% endblock %}

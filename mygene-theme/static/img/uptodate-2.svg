@@ -25,9 +25,15 @@
 	@-webkit-keyframes rotation {
 	from {
 			-webkit-transform: rotate(0deg);
+			-ms-transform:rotate(0deg); /* IE 9 */
+		  -moz-transform:rotate(0deg); /* Firefox */
+		  -o-transform:rotate(0deg); /* Opera */
 	}
 	to {
 			-webkit-transform: rotate(359deg);
+			-ms-transform:rotate(359deg); /* IE 9 */
+		  -moz-transform:rotate(359deg); /* Firefox */
+		  -o-transform:rotate(359deg); /* Opera */
 	}
 }
 

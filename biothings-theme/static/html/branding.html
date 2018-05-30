@@ -59,26 +59,76 @@
     border-radius: 5px;
     width: auto;
     margin: 10px;
+    transition: 1s all;
   }
   .backGrey{
     background-color: rgb(207, 207, 207);
   }
 
   .link img:hover{
-    transform: rotate(5deg);
+    transform: translateY(-5px);
+    transition: 1s all;
   }
+
+  .copyButton{
+  background-color: rgba(0,0,0,.1);
+  color:#afafaf;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 12px;
+  border: #737373 1px solid;
+  border-radius: 10%;
+  transition: 1s all;
+  word-break:keep-all;
+}
+
+.copyButton:hover{
+  background-color: rgba(0,0,0,.4);
+  color:white !important;
+  text-decoration: none;
+  font-weight: lighter;
+  font-size: 12px;
+  border: white 1px solid;
+  border-radius: 10%;
+  transition: 1s all;
+}
+
+.brandBack{
+    background-image: url('../img/devices.jpg');
+    background-size: cover;
+    background-attachment:scroll;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30vh;
+  }
+
+.link{
+  cursor: pointer !important;
+}
+
   </style>
   <body class="bg-dark">
     <script src="/static/js/jquery.min.js"></script>
-    <nav class="navbar navbar-light bg-light blackBack fixed-top" style="height: 50px;">
-      <a class="navbar-brand logoFont text-light float-none" href="/">
-        <img width="15px;" src="/static/img/biothings-logo.svg" alt="biothings" />
-        <span class="logoFont textShadow"><span class="text-warning">BioThings</span> API</span>
+    <header id="header" class="alt" style="height:50px">
+    <nav id="nav" class="navbar navbar-expand-lg navbar-dark blackBack fullWidth sticky-top" style="top:0; right:0; height: 50px;">
+      <a class="navbar-brand" href="/" class="logoFont">
+        <img width="200px;" src="/static/img/biothings-text.png" alt="mygene.info" />
+        <!-- <span class="logoFont textShadow"><span class="text-warning">BioThings</span> API</span> -->
       </a>
     </nav>
+  </header>
 
     <section class="bg-light padding20 text-center">
+      <div class="brandBack fullWidth">
+
+      </div>
       <h1>Branding</h1>
+      <hr />
+      <a class="smallButton text-dark" href="#biothings-branding">Biothings API</a>
+      <a class="smallButton text-dark" href="#biothings-studio-branding">Biothings Studio</a>
+      <a class="smallButton text-dark" href="#mygene-branding">MyGene.info</a>
+      <a class="smallButton text-dark" href="#myvariant-branding">MyVariant.info</a>
+      <a class="smallButton text-dark" href="#mychem-branding">MyChem.info</a>
       <hr />
       <h3 class="padding20">Terms of Use</h3>
       <p style="margin:10px 10%;">
@@ -93,308 +143,420 @@
         <div class="dont">
           <img width="100px" src="/static/img/dont1.png" alt="dont do this"/>
           <p>
-            Don't distort our logo.
+            <i class="fas fa-ban text-danger"></i> Don't distort our logo.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont2.png" alt="dont do this"/>
           <p>
-            Don't change the original colors.
+            <i class="fas fa-ban text-danger"></i> Don't change the original colors.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont3.png" alt="dont do this"/>
           <p>
-            Don't overlay text or images on top of our logo.
+            <i class="fas fa-ban text-danger"></i> Don't overlay text or images on top of our logo.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont4.png" alt="dont do this"/>
           <p>
-            Don't apply filters to our logo.
+            <i class="fas fa-ban text-danger"></i> Don't apply filters to our logo.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont5.png" alt="dont do this"/>
           <p>
-            Don't add borders or strokes.
+            <i class="fas fa-ban text-danger"></i> Don't add borders or strokes.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont6.png" alt="dont do this"/>
           <p>
-            Don't crop or alter the original images in any way.
+            <i class="fas fa-ban text-danger"></i> Don't crop or alter the original images in any way.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont7.png" alt="dont do this"/>
           <p>
-            Don't rotate our logo.
+            <i class="fas fa-ban text-danger"></i> Don't rotate our logo.
           </p>
         </div>
         <div class="dont">
           <img width="100px" src="/static/img/dont8.png" alt="dont do this"/>
           <p>
-            We love creativeness but don't recreate our logo.
+            <i class="fas fa-ban text-danger"></i> We love creativeness but don't recreate our logo.
           </p>
         </div>
       </div>
-      <div class="text-center backGrey margin20">
+      <!-- BioThings -->
+      <div class="text-center backGrey margin20" id="biothings-branding">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <h2 class="logoFont padding20">BioThings.io</h2>
+            <h2 class="logoFont padding20">BioThings API</h2>
             <hr />
             <p>
-              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+              We use the <b>Recharge</b> font by TypoDermicFonts. <a target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
             </p>
             <h3 class="text-muted padding20">Colors</h3>
             <div class="swatchParent">
-              <div class="swatch" style="background-color:var(--yellow-dark);">#CE952B</div>
-              <div class="swatch" style="background-color:var(--yellow-medium);">#FCCA52</div>
-              <div class="swatch" style="background-color:var(--yellow-light);">#FCBE38</div>
-              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
-              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
-              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+              <div class="swatch" style="background-color:var(--yellow-dark);" id="bt1" value="#CE952B">#CE952B
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt1"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--yellow-medium);" id="bt2" value="#FCCA52">#FCCA52
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt2"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--yellow-light);" id="bt3" value="#FCBE38">#FCBE38
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt3"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="bt4" value="#808080">#808080
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt4"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="bt5" value="#B3B3B3">#B3B3B3
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt5"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="bt6" value="#E6E6E6">#E6E6E6
+                <button class="copyButton swatchCopy" data-clipboard-target="#bt6"><i class="fas fa-copy"></i></button>
+              </div>
             </div>
 
             <h3 class="text-muted padding20">Logos</h3>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/biothings-logo.svg" download="/static/img/biothings-logo.svg">
-              <img width="25%" src="/static/img/biothings-logo.svg" alt='biothings logo'/>
+            <a class="link text-warning" href="/static/img/biothings-text-2.png" download="/static/img/biothings-text-2.png">
+              <img width="60%" src="/static/img/biothings-text-2.png" alt='biothings logo' title="Download"/>
+            </a>
+            <p>
+              PNG
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-text-2.svg" download="/static/img/biothings-text-2.svg">
+              <img width="60%" src="/static/img/biothings-text-2.svg" alt='biothings logo' title="Download"/>
             </a>
             <p>
               SVG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/biothings-logo-lg.png" download="/static/img/biothings-logo-lg.png">
-              <img width="25%" src="/static/img/biothings-logo-lg.png" alt='biothings logo'/>
+            <a class="link text-warning" href="/static/img/biothings-text-3.png" download="/static/img/biothings-text-3.png">
+              <img width="60%" src="/static/img/biothings-text-3.png" alt='biothings logo' title="Download"/>
             </a>
             <p>
-              PNG LG 512x512
-            </p>
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/biothings-logo-md.png" download="/static/img/biothings-logo-md.png">
-              <img width="25%" src="/static/img/biothings-logo-md.png" alt='biothings logo'/>
-            </a>
-            <p>
-              PNG MD 256x256
+              PNG
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/biothings-logo-sm.png" download="/static/img/biothings-logo-sm.png">
-              <img width="25%" src="/static/img/biothings-logo-sm.png" alt='biothings logo'/>
+            <a class="link text-warning" href="/static/img/biothings-text-3.svg" download="/static/img/biothings-text-3.svg">
+              <img width="60%" src="/static/img/biothings-text-3.svg" alt='biothings logo' title="Download"/>
             </a>
             <p>
-              PNG SM 128x128
+              SVG
             </p>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <a class="link" href="/static/img/biothings-logos.zip" download="/static/img/biothings-logos.zip">
-              <i class="fas fa-3x fa-download text-warning"></i>
+            <a class="btn btn-dark" href="/static/img/biothings-logos.zip" download="/static/img/biothings-logos.zip">
+              <i class="fas fa-download" style="color:var(--yellow-medium)"></i> Download Full Image Package
             </a>
-            <p class="padding20 noMargin">
-              Download Full Image Package
-            </p>
             <p class="smallFont text-muted">
-              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- BioThings Studio -->
+      <div class="text-center backGrey margin20" id="biothings-studio-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20">BioThings Studio</h2>
+            <hr />
+            <p>
+              We use the <b>Recharge</b> font by TypoDermicFonts. <a target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-muted padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:#208CBC;" id="bts1" value="#208CBC">#208CBC
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:#5ECAEF;" id="bts2" value="#5ECAEF">#5ECAEF
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:#9EDAEF;" id="bts3" value="#9EDAEF">#9EDAEF
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="bts4" value="#808080">#808080
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="bts5" value="#B3B3B3">#B3B3B3
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="bts6" value="#E6E6E6">#E6E6E6
+              <button class="copyButton swatchCopy" data-clipboard-target="#bts6"><i class="fas fa-copy"></i></button>
+            </div>
+            </div>
+
+            <h3 class="text-muted padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-studtext-2.png" download="/static/img/biothings-studtext-2.png">
+              <img width="60%" src="/static/img/biothings-studio-text-2.png" alt='biothings studio logo'/>
+            </a>
+            <p>
+              PNG
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-studio-text-2.svg" download="/static/img/biothings-studio-text-2.svg">
+              <img width="60%" src="/static/img/biothings-studio-text-2.svg" alt='biothings studio logo'/>
+            </a>
+            <p>
+              SVG
+            </p>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-studio-text-3.png" download="/static/img/biothings-studio-text-3.png">
+              <img width="60%" src="/static/img/biothings-studio-text-3.png" alt='biothings studio logo'/>
+            </a>
+            <p>
+              PNG
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+            <a class="link text-warning" href="/static/img/biothings-studio-text-3.svg" download="/static/img/biothings-studio-text-3.svg">
+              <img width="60%" src="/static/img/biothings-studio-text-3.svg" alt='biothings studio logo'/>
+            </a>
+            <p>
+              SVG
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-dark" href="/static/img/biothings-studio-logos.zip" download="/static/img/biothings-studio-logos.zip">
+              <i class="fas fa-download" style="color:#5ECAEF;"></i> Download Full Image Package
+            </a>
+            <p class="smallFont text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
             </p>
           </div>
         </div>
       </div>
       <!-- MyGene -->
-      <div class="text-center backGrey margin20">
+      <div class="text-center backGrey margin20" id="mygene-branding">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
             <h2 class="logoFont padding20">MyGene.info</h2>
             <hr />
             <p>
-              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+              We use the <b>Recharge</b> font by TypoDermicFonts. <a target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
             </p>
             <h3 class="text-muted padding20">Colors</h3>
             <div class="swatchParent">
-              <div class="swatch" style="background-color:var(--blue-dark);">#3366CC</div>
-              <div class="swatch" style="background-color:var(--blue-medium);">#2A7FE2</div>
-              <div class="swatch" style="background-color:var(--blue-light);">#669BE8</div>
-              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
-              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
-              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+              <div class="swatch" style="background-color:var(--blue-dark);" id="mg1" value="#3366CC">#3366CC
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--blue-medium);" id="mg2" value="#2A7FE2">#2A7FE2
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--blue-light);" id="mg3" value="#669BE8">#669BE8
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mg4" value="#808080">#808080
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mg5" value="#B3B3B3">#B3B3B3
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mg6" value="#E6E6E6">#E6E6E6
+              <button class="copyButton swatchCopy" data-clipboard-target="#mg6"><i class="fas fa-copy"></i></button>
+            </div>
             </div>
             <h3 class="text-muted padding20">Logos</h3>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mygene-logo-shiny.svg" download="/static/img/mygene-logo-shiny.svg">
-              <img width="25%" src="/static/img/mygene-logo-shiny.svg" alt='mygene logo'/>
+            <a class="link text-warning" href="/static/img/mygene-text-3.png" download="/static/img/mygene-text-3.png">
+              <img width="60%" src="/static/img/mygene-text-3.png" alt='mygene logo'/>
             </a>
             <p>
-              SVG Shiny
+              PNG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mygene-logo.svg" download="/static/img/mygene-logo.svg">
-              <img width="25%" src="/static/img/mygene-logo.svg" alt='mygene logo'/>
+            <a class="link text-warning" href="/static/img/mygene-text-3.svg" download="/static/img/mygene-text-3.svg">
+              <img width="60%" src="/static/img/mygene-text-3.svg" alt='mygene logo'/>
             </a>
             <p>
-              SVG Flat
+              SVG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mygene-logo-shiny-md.png" download="/static/img/mygene-logo-shiny-md.png">
-              <img width="25%" src="/static/img/mygene-logo-shiny-md.png" alt='mygene logo'/>
+            <a class="link text-warning" href="/static/img/mygene-text-2.png" download="/static/img/mygene-text-2.png">
+              <img width="60%" src="/static/img/mygene-text-2.png" alt='mygene logo'/>
             </a>
             <p>
-              PNG Shiny 256x256
+              PNG
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mygene-logo-md.png" download="/static/img/mygene-logo-md.png">
-              <img width="25%" src="/static/img/mygene-logo-md.png" alt='mygene logo'/>
+            <a class="link text-warning" href="/static/img/mygene-text-2.svg" download="/static/img/mygene-text-2.svg">
+              <img width="60%" src="/static/img/mygene-text-2.svg" alt='mygene logo'/>
             </a>
             <p>
-              PNG Flat 256x256
+              SVG
             </p>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <a class="link" href="/static/img/mygene-logos.zip" download="/static/img/mygene-logos.zip">
-              <i class="fas fa-3x fa-download text-blue"></i>
+            <a class="btn btn-dark" href="/static/img/mygene-logos.zip" download="/static/img/mygene-logos.zip">
+              <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download Full Image Package
             </a>
-            <p class="padding20 noMargin">
-              Download Full Image Package
-            </p>
             <p class="smallFont text-muted">
-              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
             </p>
           </div>
         </div>
       </div>
       <!-- MyVariant -->
-      <div class="text-center backGrey margin20">
+      <div class="text-center backGrey margin20" id="myvariant-branding">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
             <h2 class="logoFont padding20">MyVariant.info</h2>
             <hr />
             <p>
-              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+              We use the <b>Recharge</b> font by TypoDermicFonts. <a target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
             </p>
             <h3 class="text-muted padding20">Colors</h3>
             <div class="swatchParent">
-              <div class="swatch" style="background-color:var(--green-dark);">#40B307</div>
-              <div class="swatch" style="background-color:var(--green-medium);">#67CF2E</div>
-              <div class="swatch" style="background-color:var(--green-light);">#85D958</div>
-              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
-              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
-              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+              <div class="swatch" style="background-color:var(--green-dark);" id="mv1" value="#40B307">#40B307
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--green-medium);" id="mv2" value="#67CF2E">#67CF2E
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--green-light);" id="mv3" value="#85D958">#85D958
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mv4" value="#808080">#808080
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mv5" value="#B3B3B3">#B3B3B3
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mv6" value="#E6E6E6">#E6E6E6
+              <button class="copyButton swatchCopy" data-clipboard-target="#mv6"><i class="fas fa-copy"></i></button>
+            </div>
             </div>
             <h3 class="text-muted padding20">Logos</h3>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/myvariant-logo-shiny.svg" download="/static/img/myvariant-logo-shiny.svg">
-              <img width="25%" src="/static/img/myvariant-logo-shiny.svg" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/myvariant-text-3.svg" download="/static/img/myvariant-text-3.svg">
+              <img width="60%" src="/static/img/myvariant-text-3.png" alt='Mychem logo'/>
             </a>
             <p>
-              SVG Shiny
+              PNG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/myvariant-logo.svg" download="/static/img/myvariant-logo.svg">
-              <img width="25%" src="/static/img/myvariant-logo.svg" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/myvariant-text-3.svg" download="/static/img/myvariant-text-3.svg">
+              <img width="60%" src="/static/img/myvariant-text-3.svg" alt='Mychem logo'/>
             </a>
             <p>
-              SVG Flat
+              SVG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/myvariant-logo-shiny-md.png" download="/static/img/myvariant-logo-shiny-md.png">
-              <img width="25%" src="/static/img/myvariant-logo-shiny-md.png" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/myvariant-text-2.png" download="/static/img/myvariant-text-2.png">
+              <img width="60%" src="/static/img/myvariant-text-2.png" alt='Mychem logo'/>
             </a>
             <p>
-              PNG Shiny 256x256
+              PNG
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/myvariant-logo-md.png" download="/static/img/myvariant-logo-md.png">
-              <img width="25%" src="/static/img/myvariant-logo-md.png" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/myvariant-text-2.svg" download="/static/img/myvariant-text-2.svg">
+              <img width="60%" src="/static/img/myvariant-text-2.svg" alt='Mychem logo'/>
             </a>
             <p>
-              PNG Flat 256x256
+              SVG
             </p>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <a class="link" href="/static/img/myvariant-logos.zip" download="/static/img/myvariant-logos.zip">
-              <i class="fas fa-3x fa-download text-green"></i>
+            <a class="btn btn-dark" href="/static/img/myvariant-logos.zip" download="/static/img/myvariant-logos.zip">
+              <i class="fas fa-download" style="color:var(--green-medium)"></i> Download Full Image Package
             </a>
-            <p class="padding20 noMargin">
-              Download Full Image Package
-            </p>
             <p class="smallFont text-muted">
-              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
             </p>
           </div>
         </div>
       </div>
       <!-- MyChem -->
-      <div class="text-center backGrey margin20">
+      <div class="text-center backGrey margin20" id="mychem-branding">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
             <h2 class="logoFont padding20">MyChem.info</h2>
             <hr />
             <p>
-              We use the <b>Quadrangle</b> font by TypoDermicFonts. <a target="_blank" href="http://typodermicfonts.com/quadrangle/">More Info</a>
+              We use the <b>Recharge</b> font by TypoDermicFonts. <a target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
             </p>
             <h3 class="text-muted padding20">Colors</h3>
             <div class="swatchParent">
-              <div class="swatch" style="background-color:var(--orange-dark);">#CC6633</div>
-              <div class="swatch" style="background-color:var(--orange-medium);">#FD7400</div>
-              <div class="swatch" style="background-color:var(--orange-light);">#FF8E39</div>
-              <div class="swatch" style="background-color:var(--grey-dark);">#808080</div>
-              <div class="swatch" style="background-color:var(--grey-medium);">#B3B3B3</div>
-              <div class="swatch" style="background-color:var(--grey-light);">#E6E6E6</div>
+              <div class="swatch" style="background-color:var(--orange-dark);" id="mc1" value="#CC6633">#CC6633
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--orange-medium);" id="mc2" value="#FD7400">#FD7400
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--orange-light);" id="mc3" value="#FF8E39">#FF8E39
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mc4" value="#808080">#808080
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mc5" value="#B3B3B3">#B3B3B3
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mc6" value="#E6E6E6">#E6E6E6
+              <button class="copyButton swatchCopy" data-clipboard-target="#mc6"><i class="fas fa-copy"></i></button>
+            </div>
             </div>
             <h3 class="text-muted padding20">Logos</h3>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mychem-logo-shiny.svg" download="/static/img/mychem-logo-shiny.svg">
-              <img width="25%" src="/static/img/mychem-logo-shiny.svg" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/mychem-text-3.png" download="/static/img/mychem-text-3.png">
+              <img width="60%" src="/static/img/mychem-text-3.png" alt='Mychem logo'/>
             </a>
             <p>
-              SVG Shiny
+              PNG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mychem-logo.svg" download="/static/img/mychem-logo.svg">
-              <img width="25%" src="/static/img/mychem-logo.svg" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/mychem-text-3.svg" download="/static/img/mychem-text-3.svg">
+              <img width="60%" src="/static/img/mychem-text-3.svg" alt='Mychem logo'/>
             </a>
             <p>
-              SVG Flat
+              SVG
             </p>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mychem-logo-shiny-md.png" download="/static/img/mychem-logo-shiny-md.png">
-              <img width="25%" src="/static/img/mychem-logo-shiny-md.png" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/mychem-text-2.png" download="/static/img/mychem-text-2.png">
+              <img width="60%" src="/static/img/mychem-text-2.png" alt='Mychem logo'/>
             </a>
             <p>
-              PNG Shiny 256x256
+              PNG
             </p>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
-            <a class="link text-warning" href="/static/img/mychem-logo-md.png" download="/static/img/mychem-logo-md.png">
-              <img width="25%" src="/static/img/mychem-logo-md.png" alt='Mychem logo'/>
+            <a class="link text-warning" href="/static/img/mychem-text-2.svg" download="/static/img/mychem-text-2.svg">
+              <img width="60%" src="/static/img/mychem-text-2.svg" alt='Mychem logo'/>
             </a>
             <p>
-              PNG Flat 256x256
+              SVG
             </p>
           </div>
           <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <a class="link" href="/static/img/mychem-logos.zip" download="/static/img/mychem-logos.zip">
-              <i class="fas fa-3x fa-download text-orange"></i>
+            <a class="btn btn-dark" href="/static/img/mychem-logos.zip" download="/static/img/mychem-logos.zip">
+              <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download Full Image Package
             </a>
-            <p class="padding20 noMargin">
-              Download Full Image Package
-            </p>
             <p class="smallFont text-muted">
-              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG, FAVICON)
+              (LOGO SVG (IMG), LOGO SVG (TEXT), LOGO PNG (TEXT), PNG SM, PNG MD, PNG LG)
             </p>
           </div>
         </div>
@@ -432,7 +594,11 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script src="../js/clipboard.js"></script>
     <script>
+
+      new ClipboardJS('.swatchCopy');
+      ClipboardJS.isSupported();
 
     </script>
   </body>

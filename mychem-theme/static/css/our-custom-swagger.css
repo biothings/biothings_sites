@@ -5,28 +5,28 @@
 }
 
 .swagger-ui .opblock.opblock-post .opblock-summary-method{
-  background-color: var(--blue-medium);
+  background-color: var(--orange-medium);
 }
 
 .swagger-ui .opblock.opblock-get .opblock-summary-method{
-  background-color:var(--blue-dark);
+  background-color:var(--orange-dark);
 }
 
 .swagger-ui .opblock.opblock-delete .opblock-summary-method{
-  background-color: var(--blue-light);
+  background-color: var(--orange-light);
 }
 
 .swagger-ui .opblock.opblock-put .opblock-summary-method{
-  background-color: var(--blue-light);
+  background-color: var(--orange-light);
 }
 
 .swagger-ui .info .title{
-  color: var(--blue-dark);
+  color: var(--orange-dark);
 }
 
 .swagger-ui select{
-  border: var(--blue-medium) solid 2px;
-  color: var(--blue-light);
+  border: var(--orange-medium) solid 2px;
+  color: var(--orange-light);
   font-weight: lighter;
 }
 
@@ -35,9 +35,9 @@
 }
 
 .swagger-ui .info hgroup.main a:hover{
-  color: var(--blue-medium) !important;
+  color: var(--orange-medium) !important;
 }
 
 .swagger-ui .info a:hover{
-  color: var(--blue-medium) !important;
+  color: var(--orange-medium) !important;
 }
