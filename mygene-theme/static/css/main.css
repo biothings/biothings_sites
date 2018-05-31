@@ -3229,7 +3229,7 @@
 	}
 
 	body {
-		padding-top: 3.25rem;
+		/* padding-top: 3.25rem; */
 	}
 
 		@media screen and (max-width: 736px) {
