@@ -1,7 +1,7 @@
 let lastUpdated='';
 $.ajax({
   type: 'GET',
-  url:'http://mygene.info/v3/metadata',
+  url:'//mygene.info/v3/metadata',
   dataType: 'json',
   success: function(data){
     //console.log(data.build_date);

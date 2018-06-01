@@ -1,7 +1,7 @@
 let lastUpdated='';
 $.ajax({
   type: 'GET',
-  url:'http://myvariant.info/v1/metadata',
+  url:'//myvariant.info/v1/metadata',
   dataType: 'json',
   success: function(data){
     //console.log(data.build_date);
