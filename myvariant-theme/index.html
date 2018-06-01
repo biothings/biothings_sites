@@ -225,31 +225,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 					<h4 class="noMargin">Retreiving by HGVS id</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/variant/<span class="text-green bold">chr1:g.35367G>A</span>
-					<button data-url='http://myvariant.info/v1/variant/chr1:g.35367G>A' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://myvariant.info/v1/variant/chr1:g.35367G>A' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants with clinvar annotation</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:clinvar</span>
-					<button data-url='http://myvariant.info/v1/query?q=_exists_:clinvar' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://myvariant.info/v1/query?q=_exists_:clinvar' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All non-synonymous variants on gene "BTK"</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=dbnsfp.genename:BTK</span>
-					<button data-url='http://myvariant.info/v1/query/?q=dbnsfp.genename:BTK' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://myvariant.info/v1/query/?q=dbnsfp.genename:BTK' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants within a genomic range</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=chr1:69000-70000</span>
-					<button data-url='http://myvariant.info/v1/query/?q=chr1:69000-70000' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://myvariant.info/v1/query/?q=chr1:69000-70000' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Query Wellderly variants together with other annotation sources</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
-					<button data-url='http://myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
@@ -398,7 +398,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 					$('#days7').html(days7);
 			});
 
-			$('.callButton').on('click', function(){
+			$('.callButton').on('click tap', function(){
 				var myUrl = $(this).data('url');
 				$('#callResults').html('');
 				$('#loading').show();

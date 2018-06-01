@@ -203,13 +203,13 @@
 					<h4 class="noMargin">Retrieve chemical objects based on ID</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
-					<button data-url='http://mychem.info/v1/chem/USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/chem/USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Make chemical queries and return matching chemical hits</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/query/<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
-					<button data-url='http://mychem.info/v1/query?q=USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
 				<li>
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
@@ -342,7 +342,7 @@
 					$('#days7').html(days7);
 			});
 
-			$('.callButton').on('click', function(){
+			$('.callButton').on('click tap', function(){
 				var myUrl = $(this).data('url');
 				$('#callResults').html('');
 				$('#loading').show();
