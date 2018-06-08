@@ -34,6 +34,9 @@ $.ajax({url: geneURL, success:function(result){
     } else {
         console.error(demo.error);
     }
+},
+error: function(err){
+  $('#apiStatus').html('Not Available');
 }});
 
 // API status via UpTime Robot API

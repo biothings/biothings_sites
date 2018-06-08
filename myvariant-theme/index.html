@@ -41,6 +41,10 @@ background: linear-gradient(to bottom, rgba(54,58,64,0) 0%,rgba(54,58,64,1) 100%
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', endColorstr='#363a40',GradientType=0 ); /* IE6-9 */
 }
 
+.asterisk{
+    vertical-align:sub;
+}
+
 </style>
 
 <section>
@@ -89,13 +93,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 	<section id="APIStatusInterface" class="transparent">
 		<div class="transparent">
 			<div>
-				<h2 class="text-green noMargin lighter">UpTime Quick Stats</h2>
+				<h2 class="text-green noMargin lighter">UpTime Quick Stats<span class="asterisk">*</span></h2>
 			</div>
 			<div class="row justify-content-md-center">
 				<div class="col-md-auto">
-					<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus"></span></h3>
+					<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus">Status Unavailable</span></h3>
 					<p class="text-light">
-						UpTime Last 24 hours: <span id="daysRange1">0</span>%
+						UpTime Last 24 hours: <span id="daysRange1">?</span>%
 					</p>
 					<table class="table transparent table-sm noMargin">
 						<thead>
@@ -108,37 +112,37 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 							<td class="text-muted text-center">
 								<span class="text-light" id="yesterday">1 day ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange2">0</span>%</span>
+								<span class="text-green"><span id="daysRange2">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days2">2 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange3">0</span>%</span>
+								<span class="text-green"><span id="daysRange3">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days3">3 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange4">0</span>%</span>
+								<span class="text-green"><span id="daysRange4">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days4">4 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange5">0</span>%</span>
+								<span class="text-green"><span id="daysRange5">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days5">5 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange6">0</span>%</span>
+								<span class="text-green"><span id="daysRange6">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days6">6 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange7">0</span>%</span>
+								<span class="text-green"><span id="daysRange7">?</span>%</span>
 							</td>
 							<td class="text-muted text-center">
 								<span class="text-light" id="days7">7 days ago</span>
 								<br />
-								<span class="text-green"><span id="daysRange8">0</span>%</span>
+								<span class="text-green"><span id="daysRange8">?</span>%</span>
 							</td>
 						</tr>
 						</tbody>
@@ -146,12 +150,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
 					<ul class="list-group">
-						<!-- <li class="list-group-item text-center transparent">
-							<h3 class="text-light noMargin">API Status: <span id="apiStatus"></span></h3>
-						</li> -->
-						<!-- <li class="list-group-item bg-dark text-center text-light transparent">
-							UpTime Last 24 hours: <span id="daysRange1">0</span>%
-						</li> -->
 						<li class="list-group-item bg-dark text-center text-muted transparent">
 							<div class="row justify-content-md-center">
 								<div class="col-md-auto">
@@ -161,13 +159,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 											<th class="text-center text-light">This Month</th>
 											<th class="text-center text-light">Last Month</th>
 										</thead>
-
 										<tbody>
 											<tr class="transparent">
-												<td><h3 class="text-green noMargin"><span id="daysRange9">0</span>%</h3></td>
-												<td><h3 class="text-green noMargin"><span id="daysRange10">0</span>%</h3></td>
-												<td><h3 class="text-green noMargin"><span id="daysRange11">0</span>%</h3></td>
+												<td><h3 class="text-green noMargin"><span id="daysRange9">?</span>%</h3></td>
+												<td><h3 class="text-green noMargin"><span id="daysRange10">?</span>%</h3></td>
+												<td><h3 class="text-green noMargin"><span id="daysRange11">?</span>%</h3></td>
 											</tr>
+                      <tr>
+                        <td colspan="3">
+                          <p class="smallFont text-light">
+                            * Monitored every 5 minutes
+                          </p>
+                        </td>
+                      </tr>
 										</tbody>
 									</table>
 								</div>
@@ -364,9 +368,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
   <section class="text-dark" style="background-color: var(--green-light); padding: 20px 10%;">
     <p class="noMargin padding20">
       <b class="text-dark">Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
-    </p>
-    <p class="noMargin padding20">
-      The MyVariant.info website does not provide any medical or healthcare products, services or advice, and is not for medical emergencies or urgent situations. IF YOU THINK YOU MAY HAVE A MEDICAL EMERGENCY, CALL YOUR DOCTOR OR 911 IMMEDIATELY. Information contained on this website is not a substitute for a doctor's medical judgment or advice. We recommend that you discuss your specific, individual health concerns with your doctor or health care professional.
     </p>
   </section>
 

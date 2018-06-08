@@ -34,7 +34,7 @@
 		<link rel="stylesheet" href="/static/css/app.css" />
 		<link rel="stylesheet" href="/static/css/main.css" />
 		<link rel="stylesheet" href="/static/css/academicons.min.css" />
-    <link type="text/css" rel="stylesheet" href="/static/css/swagger-news.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/swagger-ui.css"/>
 		<link type="text/css" rel="stylesheet" href="/static/css/our-custom-swagger.css"/>
   </head>
   <style>
@@ -46,18 +46,23 @@
     }
     .navbar{
       box-shadow: 0px 5px 10px black;
+      padding: 0 !important;
+      border-radius: 0px;
     }
 
     body{
       padding-top: 10vh;
     }
+    .navbar-dark .navbar-brand{
+      border: none !important;
+    }
+
   </style>
-  <body class="">
-    <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/jquery.min.js"></script>
     <header>
       <nav class="navbar navbar-light bg-light blueBackGradient fixed-top">
         <a class="navbar-item nav-link" href="/">
-          <img src="/static/img/mygene-text.png" width="200px" alt="MyGene">
+          <img src="/static/img/mygene-text.png" width="180px" alt="MyGene">
         </a>
       </nav>
     </header>

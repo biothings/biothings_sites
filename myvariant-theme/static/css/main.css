@@ -15,7 +15,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: baseline;
+		/* vertical-align: baseline; */
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -3229,7 +3229,7 @@
 	}
 
 	body {
-		padding-top: 3.25rem;
+		/* padding-top: 3.25rem; */
 	}
 
 		@media screen and (max-width: 736px) {
@@ -3240,90 +3240,89 @@
 
 		}
 
-	#header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 3.25rem;
-		line-height: 3.25rem;
-		background-color: #ffffff;
-		box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.125);
-		cursor: default;
-		z-index: 10000;
-	}
-
-		#header a {
-			display: block;
-			height: inherit;
-			line-height: inherit;
-			border-bottom: 0;
+		#header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 3.25rem;
+			/* line-height: 3.25rem; */
+			background-color: #ffffff;
+			box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.125);
+			cursor: default;
+			z-index: 10000;
 		}
 
-		#header > .logo {
-			position: absolute;
-			left: 1rem;
-		}
-
-			#header > .logo strong {
-				font-weight: 700;
+			#header a {
+				display: block;
+				height: inherit;
+				line-height: inherit;
 			}
 
-		#header > nav {
-			position: absolute;
-			right: 0;
-		}
-
-			#header > nav > ul {
-				list-style: none;
-				padding: 0;
-				margin: 0;
+			#header > .logo {
+				position: absolute;
+				left: 1rem;
 			}
 
-				#header > nav > ul > li {
-					position: relative;
-					display: inline-block;
-					margin: 0 1.5rem;
-					padding: 0;
+				#header > .logo strong {
+					font-weight: 700;
 				}
 
-					#header > nav > ul > li > a {
-						overflow: hidden;
+			#header > nav {
+				position: absolute;
+				right: 0;
+			}
+
+				#header > nav > ul {
+					list-style: none;
+					padding: 0;
+					margin: 0;
+				}
+
+					#header > nav > ul > li {
+						position: relative;
+						display: inline-block;
+						margin: 0 1.5rem;
+						padding: 0;
 					}
 
-						#header > nav > ul > li > a.icon:before {
-							float: right;
-							margin-left: 0.75rem;
-							line-height: inherit;
-							color: #acacac;
+						#header > nav > ul > li > a {
+							overflow: hidden;
 						}
 
-						#header > nav > ul > li > a.icon:hover:before {
-							color: inherit;
+							#header > nav > ul > li > a.icon:before {
+								float: right;
+								margin-left: 0.75rem;
+								line-height: inherit;
+								color: #acacac;
+							}
+
+							#header > nav > ul > li > a.icon:hover:before {
+								color: inherit;
+							}
+
+						#header > nav > ul > li > ul {
+							display: none;
 						}
 
-					#header > nav > ul > li > ul {
-						display: none;
-					}
+						#header > nav > ul > li.current:after {
+							content: '';
+							display: block;
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 3px;
+							background-color: #23b1ec;
+						}
 
-					#header > nav > ul > li.current:after {
-						content: '';
-						display: block;
-						position: absolute;
-						bottom: 0;
-						left: 0;
-						width: 100%;
-						height: 3px;
-						background-color: #23b1ec;
-					}
+						#header > nav > ul > li.current > a {
+							font-weight: 400;
+						}
 
-					#header > nav > ul > li.current > a {
-						font-weight: 400;
-					}
-
-					#header > nav > ul > li.active > a {
-						color: #23b1ec;
-					}
+						#header > nav > ul > li.active > a {
+							color: #23b1ec;
+						}
 
 			.dropotron {
 				background-color: #ffffff;

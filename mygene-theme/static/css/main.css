@@ -15,7 +15,7 @@
 		border: 0;
 		font-size: 100%;
 		font: inherit;
-		vertical-align: baseline;
+		/* vertical-align: baseline; */
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -3246,7 +3246,7 @@
 		left: 0;
 		width: 100%;
 		height: 3.25rem;
-		line-height: 3.25rem;
+		/* line-height: 3.25rem; */
 		background-color: #ffffff;
 		box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.125);
 		cursor: default;
@@ -3257,7 +3257,6 @@
 			display: block;
 			height: inherit;
 			line-height: inherit;
-			border-bottom: 0;
 		}
 
 		#header > .logo {
