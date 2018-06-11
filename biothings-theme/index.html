@@ -57,10 +57,10 @@
 		</div>
 	</div>
 	<div class="text-center fullWidth d-none d-sm-block">
-		<object width="20%" class="margin20" data="/static/img/all-apis.svg"></object>
+		<object id="allApis" width="20%" class="margin20" data="/static/img/all-apis.svg"></object>
 	</div>
 	<div class="text-center fullWidth d-block d-sm-none">
-		<object width="50%" class="margin20 " data="/static/img/all-apis.svg"></object>
+		<object id="allApis" width="50%" class="margin20 " data="/static/img/all-apis.svg"></object>
 	</div>
 	<div class="container-fluid row marginFix noPadding" >
 		<div class="col-sm-12 col-md-12 col-lg-12 text-center container" >
@@ -194,6 +194,7 @@
 
 						new Vivus('sdk', {duration: 120, type: 'oneByOne'});
 						new Vivus('specs', {duration: 120, type: 'oneByOne'});
+						new Vivus('allApis', {duration: 200, type: 'scenario'});
 
 	      });
 			</script>
