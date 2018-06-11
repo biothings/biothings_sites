@@ -82,6 +82,23 @@
   border: none !important;
 }
 
+/* hides 'More API's' button in mobile view */
+#navPanel a:not([href]):not([tabindex]){
+  display: none !important;
+}
+
+#navPanel a.depth-0:nth-last-child(3){
+  color: #FCBE38 !important;
+}
+
+#navPanel a.depth-0:nth-last-child(2){
+  color: var(--green-light) !important;
+}
+
+#navPanel a.depth-0:last-child{
+  color: var(--orange-light) !important;
+}
+
 </style>
 <header id="header" class="alt transparent">
   <nav id="nav" class="navbar  navbar-expand-lg navbar-dark blueBackGradient fullWidth sticky-top" >
@@ -106,31 +123,31 @@
     </div>
   </div>
 </nav>
-<div id="moreAPIS" class="fullWidth" style="display: none; padding-top: 10%; background-color: rgba(0,0,0,.5); overflow: auto; z-index:-1; clear: both; position: fixed; top: 0;">
+<div id="moreAPIS" class="fullWidth" style="display: none; padding-top: 8%; background-color: rgba(0,0,0,.5); overflow: auto; z-index:-1; clear: both; position: fixed; top: 0;">
   <div class="row transparent">
     <div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-yellow noPadding">
-        <img style="margin: 0 auto;"  width="30%;" src="/static/img/biothings-logo.svg"/>
+        <a href="http://biothings.io/"><img style="margin: 0 auto;"  width="30%;" src="/static/img/biothings-logo.svg"/></a>
         <p class="text-light logoFont textShadow noMargin">
           BioThings.io
         </p>
         <a href="http://biothings.io/" class="smallButton" style="background-color: rgba(0,0,0,.8);">Learn More <i class="fas fa-chevron-circle-right text-warning"></i></a>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-blue noPadding">
-        <img style="margin: 0 auto;" width="30%;" src="/static/img/mygene-logo.svg"/>
+        <a href="http://mygene.info/"><img style="margin: 0 auto;" width="30%;" src="/static/img/mygene-logo.svg"/></a>
         <p class="text-light logoFont textShadow noMargin">
           My<span class="text-blue">Gene</span>.info
         </p>
       <a href="http://mygene.info/" class="smallButton">Try It Out <i class="fas fa-chevron-circle-right text-blue"></i></a>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-green noPadding">
-        <img style="margin: 0 auto;" width="30%;" src="/static/img/myvariant-logo.svg"/>
+        <a href="http://myvariant.info/"><img style="margin: 0 auto;" width="30%;" src="/static/img/myvariant-logo.svg"/></a>
         <p class="text-light logoFont textShadow noMargin">
           My<span class="text-green">Variant</span>.info
         </p>
       <a href="http://myvariant.info/" class="smallButton">Try It Out <i class="fas fa-chevron-circle-right text-green"></i></a>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-12 text-center blackTransBack-orange noPadding">
-        <img style="margin: 0 auto;" width="30%;" src="/static/img/mychem-logo.svg"/>
+        <a href="http://mychem.info/"><img style="margin: 0 auto;" width="30%;" src="/static/img/mychem-logo.svg"/></a>
         <p class="text-light logoFont textShadow noMargin">
           My<span class="text-orange">Chem</span>.info
         </p>
