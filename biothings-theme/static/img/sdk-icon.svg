@@ -7,7 +7,7 @@
 	.st1{fill:#FFCC3E;}
 	.st2{fill:#D19705;}
 	.st3{fill:#FFE36C;}
-	@keyframes Ani {
+	<!-- @keyframes Ani {
     0% {
         transform: scale(1);
 				transform-origin: center;
@@ -30,7 +30,7 @@
 
 		#Layer_1:hover > .Ani{
 		animation-play-state: paused;
-		}
+		} -->
 </style>
 <polyline class="st0" points="9.5,72.5 49.5,49.5 89.5,72.5 49.5,49.5 49.5,3.5 "/>
 <polygon class="st1 Ani" points="49.5,49.5 31.2,38.9 49.5,28.5 68.8,39 "/>

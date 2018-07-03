@@ -60,7 +60,17 @@ a.link{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-image: url('../img/biothings-hero.jpg');
+  background-image: url('../img/biothings-api.svg');
+}
+
+@media only screen and (max-width: 600px) {
+  .bioHero{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-image: url('../img/biothings-api.svg');
+    height: 90vh;
+  }
 }
 
 .textShadow{
@@ -518,4 +528,251 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 .logo-shadow {
   animation: logo-shadow 3s ease-in-out infinite alternate;
   -webkit-animation: logo-shadow 3s ease-in-out infinite alternate;
+}
+
+a:hover{
+  color:white !important;
+  border-bottom:  none !important;
+  text-decoration: none !important;
+}
+a{
+  border: none !important;
+  text-decoration: none !important;
+}
+a img{
+  border: none !important;
+  text-decoration: none !important;
+}
+
+#animation_container {
+  margin:auto;
+  left:0;right:0;
+  top:0;bottom:0;
+}
+
+.neon{
+	pointer-events: all;
+}
+
+.neon:hover {
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes neon3 {
+  from {
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #FFDD1B, 0 0 7px #FFDD1B, 0 0 8px #FFDD1B, 0 0 10px #FFDD1B, 0 0 15px #FFDD1B;
+  }
+  to {
+    text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 6px #FFDD1B, 0 0 9px #FFDD1B, 0 0 10px #FFDD1B, 0 0 12px #FFDD1B, 0 0 17px #FFDD1B;
+  }
+}
+
+.backSDk{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fccd4d+50,f8b500+51,f9c94d+100 */
+background: rgb(252,205,77); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(249,201,77,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(249,201,77,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(249,201,77,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fccd4d', endColorstr='#f9c94d',GradientType=0 ); /* IE6-9 */
+}
+
+.border-black{
+  text-shadow:
+     2px   0  0   #4d4d4d,
+    -2px   0  0   #4d4d4d,
+     0    2px 0   #4d4d4d,
+     0   -2px 0   #4d4d4d,
+     1px  1px 0   #4d4d4d,
+    -1px -1px 0   #4d4d4d,
+     1px -1px 0   #4d4d4d,
+    -1px  1px 0   #4d4d4d,
+     1px  1px 5px #4d4d4d;
+}
+
+.yellowShapeClip{
+	-webkit-clip-path: polygon(49% 94%, 100% 16%, 100% 100%, 0 100%, 0 12%);
+	clip-path: polygon(49% 94%, 100% 16%, 100% 100%, 0 100%, 0 12%);
+	background-color: var(--yellow-medium);
+	position: absolute;
+	opacity: .6;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 200px;
+}
+
+.greyShapeClip{
+  -webkit-clip-path: polygon(100% 64%, 84% 88%, 0 100%, 100% 100%);
+clip-path: polygon(100% 64%, 84% 88%, 0 100%, 100% 100%);
+	background-color: var(--yellow-light);
+	position: absolute;
+	opacity: 1;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	z-index: 1;
+}
+
+.border-black-thick{
+  text-shadow:
+     4px   0  0   #26282B,
+    -4px   0  0   #26282B,
+     0    4px 0   #26282B,
+     0   -4px 0   #26282B,
+     3px  3px 0   #26282B,
+    -3px -3px 0   #26282B,
+     3px -3px 0   #26282B,
+    -3px  3px 0   #26282B,
+     3px  3px 5px #26282B;
+}
+
+.underlined{
+	border-bottom: 1px grey dotted !important;
+}
+
+.dynamicBackground{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	background-clip: border-box;
+}
+
+.table-sm td, .table-sm th{
+	text-align: left;
+}
+
+.flexContent{
+	-webkit-perspective: 140px; /* Safari 4-8  */
+  perspective: 130px;
+}
+
+.perspectiveText{
+	font-size: 9vh;
+	max-width: 900px;
+	margin: 0 auto;
+	-webkit-transform-style: preserve-3d; /* Safari 3-8  */
+	-webkit-transform: rotateY(-5deg); /* Safari 3-8  */
+	transform-style: preserve-3d;
+	transform: rotateY(-5deg);
+	text-shadow: 0px 0px 10px var(--yellow-light),
+	7px 7px 10px rgba(0,0,0,.5),
+	3px 3px 0px black;
+	padding: 20px;
+}
+
+.perspectiveText2{
+	font-size: 9vh;
+	max-width: 900px;
+	margin: 0 auto;
+	-webkit-transform-style: preserve-3d; /* Safari 3-8  */
+	-webkit-transform: rotateY(10deg); /* Safari 3-8  */
+	transform-style: preserve-3d;
+	transform: rotateY(10deg);
+	text-shadow: 0px 0px 10px #5ECAEF ,
+	-7px 7px 10px rgba(0,0,0,.5),
+	-3px 3px 0px black;
+	padding: 20px;
+}
+
+.perspectiveWrapper{
+	-webkit-perspective: 140px; /* Safari 4-8  */
+  perspective: 200px;
+	display: flex;
+	width: 100%;
+	pointer-events: all;
+}
+
+.perspectiveBox1{
+	flex: 1;
+	-webkit-transform-style: preserve-3d; /* Safari 3-8  */
+	-webkit-transform: rotateY(10deg); /* Safari 3-8  */
+	transform-style: preserve-3d;
+	transform: rotateY(10deg);
+	padding: 20px;
+	transition: 1s transform;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.5);
+}
+
+.perspectiveBox2{
+	flex: 1;
+	-webkit-transform-style: preserve-3d; /* Safari 3-8  */
+	-webkit-transform: rotateY(-10deg); /* Safari 3-8  */
+	transform-style: preserve-3d;
+	transform: rotateY(-10deg);
+	padding: 20px;
+	transition: 1s transform;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.5);
+}
+
+.perspectiveBox1:hover, .perspectiveBox2:hover{
+	-webkit-transform-style: preserve-3d; /* Safari 3-8  */
+	-webkit-transform: rotateY(0deg); /* Safari 3-8  */
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+
+.perspectiveBox1 h5, .perspectiveBox2 h5{
+	margin: 10px 10vw;
+}
+
+.perspectiveBox1 a, .perspectiveBox2 a{
+	opacity: 0;
+	transition: 1s all;
+}
+
+.perspectiveBox1:hover a, .perspectiveBox2:hover a{
+	opacity: 1;
+}
+
+.hexBack{
+	background-color: rgba(0, 0, 0,.5);
+
+}
+
+.three-d-text{
+	text-shadow:     0 1px 0 hsl(0, 0%,40%),
+	                 0 2px 0 hsl(0, 0%,40%),
+	                 0 3px 0 hsl(0, 0%,40%),
+	                 0 4px 0 hsl(0, 0%,40%),
+	                 0 5px 0 hsl(0, 0%,40%),
+	                 0 6px 0 hsl(0, 0%,40%),
+	                 0 7px 0 hsl(0, 0%,40%),
+	                 0 8px 0 hsl(0, 0%, 40%),
+
+	                 0 0 5px rgba(0,0,0,.05),
+	                0 1px 3px rgba(0,0,0,.2),
+	                0 3px 5px rgba(0,0,0,.2),
+	               0 5px 6px rgba(0,0,0,.2),
+	              0 7px 7px rgba(0,0,0,.2),
+	              0 12px 10px rgba(0,0,0,.3);
+}
+
+.yellowShapeClipTop{
+	-webkit-clip-path: polygon(100% 1%, 100% 50%, 51% 16%, 0 34%, 0% 0%);
+clip-path: polygon(100% 1%, 100% 50%, 51% 16%, 0 34%, 0% 0%);
+	background-color: var(--yellow-dark);
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	height: 500px;
+}
+
+.text3d{
+	font-size: 9vh;
+	max-width: 900px;
+	margin: 0 auto;
+	text-shadow: 0px 0px 10px var(--yellow-light),
+	7px 7px 10px rgba(0,0,0,.5),
+	3px 3px 0px black;
+	padding: 20px;
+}
+
+
+.png-drop-shadow{
+	-webkit-filter: drop-shadow(2px 2px 4px #222 ) !important;
+	filter: drop-shadow(2px 2px 4px #222) !important;
 }

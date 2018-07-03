@@ -1,78 +1,361 @@
 {% extends "main.html" %}
 {% block content %}
 <style>
-	a:hover{
-		color:white !important;
-		border-bottom:  none !important;
-		text-decoration: none !important;
+/* SVG CSS */
+.st0{fill:#FCCA52;}
+.st1{fill:#808080;}
+.st2{fill:#E6E6E6;}
+.st3{fill:#B3B3B3;}
+.st4{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+.st5{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+.st6{fill:none;stroke:#FFFFFF;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;}
+
+@font-face {
+		font-family: logoRecharge;
+		src: url('/static/fonts/recharge.ttf');
 	}
-	a{
-		border: none !important;
-		text-decoration: none !important;
+.font { font: 2.5em logoRecharge}
+
+@keyframes Ani {
+	0% {
+			transform: scale(1);
+			transform-origin: center;
+			stroke:#FFFFFF;
 	}
-	a img{
-		border: none !important;
-		text-decoration: none !important;
+	50% {
+			transform: scale(1.3);
+			transform-origin: center;
+			stroke: #FCBE38;
+	}
+	100% {
+			transform: scale(1);
+			transform-origin: center;
+			stroke:#FFFFFF;
+	}
+}
+
+@keyframes AniSmall {
+0% {
+		transform: scale(1);
+		transform-origin: center;
+}
+50% {
+		transform: scale(.6);
+		transform-origin: center;
+}
+100% {
+		transform: scale(1);
+		transform-origin: center;
+}
+}
+
+	.Ani {
+			animation: Ani 5s ease-in-out infinite;
+			-webkit-animation: Ani 5s ease-in-out infinite;
+		animation-play-state: paused;
 	}
 
-	#animation_container {
-		margin:auto;
-		left:0;right:0;
-		top:0;bottom:0;
-  }
+	.Ani2 {
+			animation: Ani 3s ease-in-out infinite;
+			-webkit-animation: Ani 3s ease-in-out infinite;
+		animation-play-state: paused;
+	}
+
+	.Ani3 {
+			animation: AniSmall 4s ease-in-out infinite;
+			-webkit-animation: AniSmall 4s ease-in-out infinite;
+		animation-play-state: paused;
+	}
+
+#Layer_1:hover > .Ani, #Layer_1:hover > .Ani2{
+	animation-play-state: running;
+}
+
+.font{
+	text-shadow: 1px 1px 3px black;
+	transition: all 1s;
+	fill: white;
+}
+
+.font:hover{
+	fill: #FCBE38;
+	cursor: pointer !important;
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media (min-width:320px)  {
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
+}
+@media (min-width:480px)  {
+/* smartphones, Android phones, landscape iPhone */
+
+}
+@media (min-width:600px)  {
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+	#Layer_1{
+		width: 40vw;
+	}
+}
+@media (min-width:801px)  {
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+#Layer_1{
+	width: 40vw;
+}
+}
+@media (min-width:1025px) {
+/* big landscape tablets, laptops, and desktops */
+#Layer_1{
+	width: 30vw;
+}
+}
+@media (min-width:1281px) {
+/* hi-res laptops and desktops */
+	#Layer_1{
+		width: 20vw;
+	}
+}
+
+
 
 
 </style>
+<div id="app">
 <div class="bg-dark">
 	<div id="particles-js" class="jumbotron container-fluid bg-dark text-center bioHero" style="border-radius: 0px;">
-		<div id="animation_container" style="background-color:rgba(0,0,0,0); width:200px; height:200px; margin-top:100px;">
+		<div id="animation_container" style="background-color:rgba(0,0,0,0); width:200px; height:200px; margin-top:20vh;">
 			<canvas id="canvas" width="200" height="200" style="position: absolute; display: block; background-color:rgba(0,0,0,0);"></canvas>
 			<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:200px; height:200px; position: absolute; left: 0px; top: 0px; display: block;">
 			</div>
 		</div>
-		<h1 class="text-light lighter lighter noMargin textShadow logoFont" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
-		<h3 class="text-light lighter smallCaps d-none d-sm-block" style="font-size: 3vw;">
-			Making High Performance Data APIs in Biology
-		</h3>
-		<h3 class="text-light lighter smallCaps d-block d-sm-none">
-			Making High Performance Data APIs in Biology
-		</h3>
-	</div>
-	<div class="row text-center container-fluid marginFix apiBack">
-		<div class="col-sm-6 col-md-6 col-lg-6 text-center padding40" >
-			<object id="sdk" width="40%" height="40%" class="margin20" data="/static/img/sdk-icon.svg"></object>
-			<br />
-			<a href="http://biothingsapi.readthedocs.io/" target="_blank" class="themeButton draw margin20">SDK</a>
-			<h3 class="text-light smallCaps margin20">
-				To help you build your own BioThings API
+			<h1 class="margin20 three-d-text text-light lighter lighter noMargin textShadow logoFont" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
+			<h3 class="text-light lighter smallCaps d-none d-sm-block" style="font-size: 3vw;">
+				Building a <a title="Learn More About The FAIR Principles" class="underlined" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
 			</h3>
+			<h3 class="text-light lighter smallCaps d-block d-sm-none">
+				Building a <a title="Learn More About The FAIR Principles" class="underlined" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
+			</h3>
+			<div class="greyShapeClip d-block d-sm-none">
+
+			</div>
+			<div class="yellowShapeClip d-block d-sm-none">
+
+			</div>
+			<div class="yellowShapeClipTop d-block d-sm-none">
+
+			</div>
+	</div>
+
+
+	<div :style="{ backgroundImage: 'url(' + background + ')' }" style="position: relative; padding-bottom: 15%;" class="bg-dark text-center d-none d-md-block dynamicBackground">
+		<svg style="max-width: 80%;" width="30vw" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+		<defs>
+			<linearGradient id="Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+		      <stop offset="0" stop-color="#FCCA52 " stop-opacity="0" />
+		      <stop offset="1" stop-color="#CE952B " stop-opacity="1" />
+		    </linearGradient>
+		  <linearGradient id="Gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+		      <stop offset="0" stop-color="#CE952B" stop-opacity="0" />
+		      <stop offset="1" stop-color="#CE952B " stop-opacity="1" />
+		    </linearGradient>
+		</defs>
+		<g>
+		  <polygon  points="333.5,93.2 152.5,93.2 62,250 152.5,406.8 333.5,406.8 424,250 " fill="url(#Gradient)"/>
+		  <polygon points="318.7,119 167.3,119 91.7,250 167.3,381.1 318.7,381.1 394.3,250 " fill="url(#Gradient2)"/>
+		</g>
+		<g>
+			<polygon class="st1" points="300.7,150 185.3,150 127.5,250 185.3,350 300.7,350 358.5,250 	"/>
+			<polygon class="st2" points="243,250 301,150 358.5,250 301,350 	"/>
+			<polygon class="st3" points="127.5,250 243,250 301,150 185,150 	"/>
+		</g>
+		<polygon class="st4 Ani" points="318.7,119 167.3,119 91.7,250 167.3,381.1 318.7,381.1 394.3,250 "/>
+		<polygon class="st5 Ani2" points="333.5,93.2 152.5,93.2 62,250 152.5,406.8 333.5,406.8 424,250 "/>
+		<g class="">
+			<line class="st6" x1="243" y1="249.9" x2="370.8" y2="31"/>
+			<line class="st6" x1="0" y1="249.9" x2="243" y2="249.9"/>
+			<line class="st6" x1="243" y1="249.9" x2="370.5" y2="469"/>
+		</g>
+		  <a xlink:href="#access">
+		    <text @mouseenter="changeBackground('access')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="20" y="170">Access</text>
+		  </a>
+		  <a xlink:href="#build">
+		    <text @mouseenter="changeBackground('build')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="300" y="270">Build</text>
+		  </a>
+		  <a xlink:href="#explore">
+		    <text @mouseenter="changeBackground('explore')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="20" y="350">Explore</text>
+		  </a>
+		</svg>
+		<div class="greyShapeClip">
+
 		</div>
-		<div class="col-sm-6 col-md-6 col-lg-6 text-center padding40" >
-			<object id="specs" width="40%" height="40%" class="margin20" data="/static/img/specs-icon.svg"></object>
+		<div class="yellowShapeClip">
+
+		</div>
+	</div>
+
+
+
+	<div style="margin-top: 0px;" id="access" data-relative-input="true" class="text-center parallaxBack parallaxBox">
+		<div class="flexContent padding40">
+			<h1 style="margin-top: 4vh;" class="logoFont text-light textShadow noMargin border-black text3d">Access</h1>
+			<h3 class="text-light margin20 padding20 textShadow">
+				WE BUILD HIGH PERFORMANCE APIS IN BIOLOGY
+			</h3>
+			<div class="row" style="width: 70%; margin: 0 auto;">
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[0])'>
+						<img width="70%" src="/static/img/mygene-text-2.png" alt="logo"/>
+					</a>
+					<h4 class="text-light textShadow">Gene Annotation <br /> As A Service</h4>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[1])'>
+						<img width="70%" src="/static/img/myvariant-text-2.png" alt="logo"/>
+					</a>
+					<h4 class="text-light textShadow">Variant Annotation <br /> As A Service</h4>
+				</div>
+				<div class="col-sm-12 col-md-4 col-lg-4">
+					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[2])'>
+						<img width="70%" src="/static/img/mychem-text-2.png" alt="logo"/>
+					</a>
+					<h4 class="text-light textShadow">Chemical and Drug Annotation <br /> As A Service</h4>
+				</div>
+			</div>
+
+			<div class="col-lg-6" style="margin: 0 auto;">
+				<table class="table text-center margin20">
+				  <tbody>
+						<tr>
+							<td class="text-warning font-weight-bold textShadow">
+								MyDisease.info
+							</td>
+				      <td class="smallFont text-light">
+								MyDisease.info provides simple-to-use REST web services to query/retrieve disease annotation information.</td>
+				      <td>
+								<a style="pointer-events: all;" target="_blank" href="http://MyDisease.info/" class="font-weight-bold text-warning link">Try&nbsp;It</a>
+				      </td>
+				    </tr>
+				    <tr>
+							<td class="text-warning font-weight-bold textShadow">
+								Taxonomy API
+							</td>
+				      <td class="smallFont text-light">
+								Taxonomy API provides simple-to-use REST web services to query/retrieve Taxonomy annotation information.</td>
+				      <td>
+								<a style="pointer-events: all;" target="_blank" href="http://mytaxon.smart-api.info/" class="font-weight-bold text-warning link">Try&nbsp;It</a>
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+
+
+			<!-- <a class="text-light" href="#apis" style="pointer-events: all;">And more!</a> -->
+			<object width="200px" alt="Host Our APIs" data="/static/img/host-api.svg"></object>
 			<br />
-			<a href="/specs/" class="themeButton draw margin20">SPECS</a>
-			<h3 class="text-light smallCaps margin20">
+			<h2 class="text-light noMargin smallCaps">
+				Want to host our APIs within your organization?
+			</h2>
+			<a class="btn btn-dark text-warning margin20" @click='popUpInfo(moreInfo[0])'>Learn More</a>
+		</div>
+		<img class="d-none d-md-block" data-depth="0.9" width="80%" src="/static/img/a-hand.png"/>
+		<img style="opacity: .7;" data-depth="0.5" height="60%" src="/static/img/a-cubes.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/a-logo.svg" alt='biothings logo' title="Download"/>
+	</div>
+
+	<div id="build" data-relative-input="true" class="text-center parallaxBack2 parallaxBox">
+		<div class="flexContent padding40">
+			<h1 class="logoFont text-warning textShadow noMargin border-black text3d">Build</h1>
+			<h3 class="text-light margin20 padding20 textShadow">
+				BUILD YOUR OWN API WITH
+			</h3>
+			<div class="perspectiveWrapper">
+				<div class="bg-warning perspectiveBox1">
+					<img width="150px" src="/static/img/sdk-icon.svg" alt="logo"/>
+					<h3 class="logoFont text-light textShadow">BioThings SDK</h3>
+					<h5 class="text-dark">A Python-Based Software Development Kit To Build High-Performance Data APIs</h5>
+					<a class="btn btn-dark text-warning" @click='popUp(sites[6])'>Learn More</a>
+				</div>
+				<div class="bg-dark perspectiveBox2">
+					<img width="150px" src="/static/img/biothings-studio-color.svg" alt="logo"/>
+					<h3 class="logoFont text-light textShadow">BioThings Studio</h3>
+					<h5 class="text-warning">A Pre-configured Environment Used To Build And Administer BioThings API</h5>
+					<a class="btn btn-warning" @click='popUp(sites[5])'>Learn More</a>
+				</div>
+			</div>
+			<br />
+			<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>BioThings API Specifications <i class="fas fa-arrow-circle-down"></i></a>
+		</div>
+		<img class="d-none d-md-block" data-depth="0.8" width="100%" src="/static/img/c-comp.png"/>
+		<img style="opacity: .7;" data-depth="0.5" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
+	</div>
+
+	<div v-if="showContributeDetails" class="row text-center container-fluid marginFix backSDk">
+		<div class="col-sm-12 col-md-12 col-lg-12 text-center padding40" >
+			<img id="specs" width="150px" class="margin20" src="/static/img/specs-icon.svg"/>
+			<h3 class="text-dark smallCaps margin20">
 				Guidelines to follow when building a BioThings API
 			</h3>
+			<a href="/specs/" class="themeButton draw margin20">SPECS</a>
 		</div>
+		<!-- <div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
+			<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/auth-icon.svg"/>
+			<br />
+			<a href="/specs/" class="themeButton draw margin20">API AUTHORIZATION</a>
+			<h3 class="text-dark smallCaps margin20">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit
+			</h3>
+		</div>
+		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
+			<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/track-icon.svg"/>
+			<br />
+			<a href="/specs/" class="themeButton draw margin20">API TRACKING</a>
+			<h3 class="text-dark smallCaps margin20">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit
+			</h3>
+		</div> -->
 	</div>
-	<div class="text-center fullWidth d-none d-sm-block">
-		<object id="allApis" width="20%" class="margin20" data="/static/img/all-apis.svg"></object>
+
+	<div id="explore" data-relative-input="true" class="text-center parallaxBack parallaxBox">
+		<div class="flexContent padding40">
+			<h1 class="logoFont text-light textShadow noMargin border-black text3d">Explore</h1>
+			<h3 class="text-light padding20 margin20 textShadow">
+				EXPLORE THE NETWORK OF BIOMEDICAL KNOLEDGE WITH APIS BUILT BY THE COMMUNITY
+			</h3>
+			<div class="d-flex justify-content-center">
+				<div style="border-top-left-radius: 20px; border-bottom-left-radius: 20px;" class="padding40 bg-dark col-lg-3 col-md-12 col-sm-12">
+					<img class="png-drop-shadow" width="100%" src="/static/img/smartapi-logo.png" alt="logo"/>
+					<h4 class="text-light smallCaps margin20">Register Your Semantically Annotated API And Discover APIs From Others</h4>
+					<a style="pointer-events: all" class="btn btn-warning" @click='popUp(sites[4])'>Learn More</a>
+				</div>
+				<div style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;" class="padding40 bg-warning col-lg-3 col-md-12 col-sm-12">
+					<img class="png-drop-shadow" width="100%" src="/static/img/biothings-explorer-text.png" alt="logo"/>
+					<h4 class="text-dark smallCaps margin20">Explore Biomedical Knowledge Through Semantically Linked APIs</h4>
+					<a style="pointer-events: all" class="btn btn-dark text-warning" @click='popUp(sites[3])'>Learn More</a>
+				</div>
+			</div>
+			<br />
+		</div>
+		<img class="d-none d-md-block" data-depth="0.8" width="80%" src="/static/img/e-cubes.png"/>
+		<img style="opacity: .4;" data-depth="0.5" height="60%" src="/static/img/e-logo.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/e-map.svg" alt='biothings logo' title="Download"/>
 	</div>
-	<div class="text-center fullWidth d-block d-sm-none">
-		<object id="allApis" width="50%" class="margin20 " data="/static/img/all-apis.svg"></object>
-	</div>
-	<div class="container-fluid row marginFix noPadding" >
+
+	<!-- <div class="container-fluid row marginFix noPadding" >
 		<div class="col-sm-12 col-md-12 col-lg-12 text-center container" >
-			<h2 class="text-light lighter smallCaps d-none d-sm-block" style="font-size: 3vw;">
+			<h2 class="text-light lighter smallCaps d-block d-sm-none margin20">
 				Build APIs Like These
 			</h2>
-			<h2 class="text-light lighter smallCaps d-block d-sm-none">
-				Build APIs Like These
-			</h2>
+			<div class="d-none d-sm-block">
+				<img style="pointer-events: none;"  width="50%" src="/static/img/bio-banner.jpg" alt="Build Apis Like These" />
+			</div>
 		</div>
-		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-blue">
-			<!-- <a href="http://mygene.info/" target="_blank" > -->
+		<div id="apis" class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-blue">
 				<object width="50%" class="float" data="/static/img/mygene-logo-shiny.svg"></object>
 				<br />
 				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
@@ -81,10 +364,8 @@
 					Gene Annotation as a Service
 				</p>
 				<a class="themeButton draw margin20" href="http://mygene.info/" target="_blank">Try It Out</a>
-			<!-- </a> -->
 		</div>
 		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-green">
-			<!-- <a href="http://myvariant.info/" target="_blank" > -->
 				<object width="50%" class="float" data="/static/img/myvariant-logo-shiny.svg"></object>
 				<br />
 				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
@@ -93,10 +374,8 @@
 					Variant Annotation as a Service
 				</p>
 				<a class="themeButton draw margin20" href="http://myvariant.info/" target="_blank">Try It Out</a>
-			<!-- </a> -->
 		</div>
 		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-orange" id="chem">
-			<!-- <a href="http://mychem.info/" target="_blank" > -->
 				<object width="50%" class="float" data="/static/img/mychem-logo-shiny.svg"></object>
 				<br />
 				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
@@ -105,7 +384,6 @@
 					Chemical and Drug Annotation as a Service
 				</p>
 				<a class="themeButton draw margin20" href="http://mychem.info/" target="_blank">Try It Out</a>
-			<!-- </a> -->
 		</div>
 		<div class="text-center fullWidth padding20">
 			<h4 class="smallCaps text-light lighter">
@@ -126,6 +404,16 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+					<tr>
+						<td class="text-warning">
+							MyDisease.info
+						</td>
+			      <td >
+							MyDisease.info provides simple-to-use REST web services to query/retrieve disease annotation information.</td>
+			      <td>
+							<a target="_blank" href="http://MyDisease.info/" class="btn btn-warning">Try It Out</a>
+			      </td>
+			    </tr>
 			    <tr>
 						<td class="text-warning">
 							Taxonomy API
@@ -133,22 +421,23 @@
 			      <td >
 							Taxonomy API provides simple-to-use REST web services to query/retrieve Taxonomy annotation information.</td>
 			      <td>
-							<a target="_blank" href="http://t.biothings.io/" class="btn btn-warning">Try It Out</a>
+							<a target="_blank" href="http://mytaxon.smart-api.info/" class="btn btn-warning">Try It Out</a>
 			      </td>
 			    </tr>
 			  </tbody>
 			</table>
 		</div>
+	</div> -->
 
-	</div>
 </div>
+
+
 
 <!-- Section -->
 	<section id="four" class="main accent bg-dark">
-		<a name="news"></a>
-		<header>
-			<h2 class="text-muted lighter">News</h2>
-		</header>
+		<div class="text-center text-warning padding40 logoFont">
+			NEWS
+		</div>
 		<div class="inner">
 			<div class="posts">
 				{% for post in posts %}
@@ -179,23 +468,234 @@
 		<p class="margin20">
 			<b>Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
 		</p>
-		<!-- <p>
-			The BioThings API website does not provide any medical or healthcare products, services or advice, and is not for medical emergencies or urgent situations. IF YOU THINK YOU MAY HAVE A MEDICAL EMERGENCY, CALL YOUR DOCTOR OR 911 IMMEDIATELY. Information contained on this website is not a substitute for a doctor's medical judgment or advice. We recommend that you discuss your specific, individual health concerns with your doctor or health care professional.
-		</p> -->
 	</section>
 
 </div>
 
+</div>
 
 {% endblock %}
 			{% block extra_scripts %}
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+			<script src="/static/js/cube.js"></script>
+			<script src="/static/js/feature.js"></script>
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 			<script>
-				$(document).ready(function() {
 
-						new Vivus('sdk', {duration: 120, type: 'oneByOne'});
-						new Vivus('specs', {duration: 120, type: 'oneByOne'});
-						new Vivus('allApis', {duration: 200, type: 'scenario'});
+			var app = new Vue({
+            el: '#app',
+						data: function(){
+							return {
+								background: '',
+								showContributeDetails: false,
+								sites:[
+									{
+										'title': 'MyGene.info',
+										'tagline': 'Gene Annotation As A Service',
+										'img' : '/static/img/mygene-text-2.png',
+										'website' : 'http://mygene.info/',
+										'description' : 'MyGene.info provides simple-to-use REST web services to query/retrieve gene annotation data. It’s designed with simplicity and performance emphasized. A typical use case is to use it to power a web application which requires querying genes and obtaining common gene annotations.',
+										'color' : 'var(--blue-light)'
+									},
+									{
+										'title': 'MyVariant.info',
+										'tagline': 'Variant Annotation As A Service',
+										'img' : '/static/img/myvariant-text-2.png',
+										'website' : 'http://myvariant.info/',
+										'description' : 'MyVariant.info provides simple-to-use REST web services to query/retrieve variant annotation data. It’s designed with an emphasis on simplicity and performance.',
+										'color' : 'var(--green-light)'
+									},
+									{
+										'title': 'MyChem.info',
+										'tagline': 'Chemical and Drug Annotation As A Service',
+										'img' : '/static/img/mychem-text-2.png',
+										'website' : 'http://mychem.info/',
+										'description' : 'MyChem.info provides simple-to-use REST web services to query/retrieve chemical or drug annotation data. It’s designed with an emphasis on simplicity and performance.',
+										'color' : 'var(--orange-light)'
+									},
+									{
+										'title': 'BioThings Explorer',
+										'tagline': 'Exploring Biological Data Through Linked API Services',
+										'img' : '/static/img/biothings-explorer-text.png',
+										'website' : '/explorer',
+										'description' : 'BioThings Explorer is the "Google Maps" for biologists. It utilizes SmartAPI Specifications to build a network of APIs. And by traversing through the network, BioThings Explorer could help user identify potential paths connecting two biological entities through multiple API calls.',
+										'color' : '#ff8e39'
+									},
+									{
+										'title': 'SmartAPI',
+										'tagline': 'Register Your Semantically Annotated API And Discover APIs From Others',
+										'img' : '/static/img/smartapi-logo.png',
+										'website' : 'http://smart-api.info/',
+										'description' : 'The SmartAPI project aims to maximize the FAIRness (Findability, Accessibility, Interoperability, and Reusability) of web-based Application Programming Interfaces (APIs). Rich metadata is essential to properly describe your API so that it becomes discoverable, connected, and reusable.',
+										'color' : '#B2E3F5'
+									},
+									{
+										'title': 'BioThings Studio',
+										'tagline': 'A Pre-configured Environment Used To Build And Administer BioThings API',
+										'img' : '/static/img/biothings-studio-text-2.png',
+										'website' : 'http://docs.biothings.io/en/latest/doc/studio.html',
+										'description' : 'Built on top of BioThings SDK, BioThings Studio is a pre-configured, ready-to-use development environment including everything you need to build and manage your own BioThings API from an intuitive web interface.',
+										'color' : '#5ECAEF'
+									},
+									{
+										'title': 'BioThings SDK',
+										'tagline': 'A Python-Based Software Development Kit To Build High-Performance Data APIs',
+										'img' : '/static/img/sdk-logo.svg',
+										'website' : 'http://biothingsapi.readthedocs.io/en/latest/',
+										'description' : 'BioThings SDK provides a Python-based toolkit to build high-performance data APIs (or web services) from a single data source or multiple data sources. It has the particular focus on building data APIs for biomedical-related entities, a.k.a “BioThings”, though it’s not necessarily limited to the biomedical scope. For any given “BioThings” type, BioThings SDK helps developers to aggregate annotations from multiple data sources, and expose them as a clean and high-performance web API.',
+										'color' : '#FCCA52'
+									}
+								],
+								moreInfo: [
+									{
+										'title' : "BioThings API",
+										'description' : `<hr/><h3 class='text-light'>Benefits</h3>
+																		<ul class='text-left'>
+																		<li>Keep all APIs requests private and local to your own server</li>
+																		<li>Enriching existing and publicly available data found on our APIs with some private data</li>
+																		<li>Run API on your own architecture to perform heavy queries that would sometimes be throttled out from online services</li>
+																		</ul>
+																		<table class="table table-sm table-striped table-dark">
+																	  <thead>
+																	    <tr>
+																				<th scope="col" class="text-warning smallCaps">Versions Available:</th>
+																	      <th scope="col" class="text-warning smallCaps">PRODUCTION</th>
+																	      <th scope="col" class="text-warning smallCaps">DEMO</th>
+																	      <th scope="col" class="text-warning smallCaps">OLD</th>
+																	    </tr>
+																			<tr>
+																				<th scope="col" class="text-light smallFont">What's Included?</th>
+																	      <th scope="col" class="text-light smallFont">Up-to-date live production data</th>
+																	      <th scope="col" class="text-light smallFont">Small subset of production data</th>
+																	      <th scope="col" class="text-light smallFont">1 year or older production data</th>
+																	    </tr>
+																	  </thead>
+																	  <tbody>
+																	    <tr>
+																				<td>
+																					<a href="http://mygene.info/" target="_blank" class="link text-muted smallFont"><img alt="logo" src="/static/img/mygene-text.png"  width="150px"/></a>
+																				</td>
+																	      <td><a class="link text-blue" href="mailto:help@biothings.io">Contact Us <i class="fas fa-envelope"></i> </a></td>
+																				<td>Available <i class="fas fa-check text-blue"></i></td>
+																				<td>Available <i class="fas fa-check text-blue"></i></td>
+																	    </tr>
+																	    <tr>
+																				<td>
+																					<a href="http://myvariant.info/" target="_blank" class="link text-muted smallFont"><img alt="logo" src="/static/img/myvariant-text.png"  width="150px"/></a>
+																				</td>
+																	      <td><a class="link text-green" href="mailto:help@biothings.io">Contact Us <i class="fas fa-envelope"></i> </a></td>
+																				<td>Available <i class="fas fa-check text-green"></i></td>
+																				<td>Available <i class="fas fa-check text-green"></i></td>
+																	    </tr>
+																	    <tr>
+																				<td>
+																					<a href="http://mychem.info/" target="_blank" class="link text-muted smallFont"><img alt="logo" src="/static/img/mychem-text.png"  width="150px"/></a>
+																				</td>
+																				<td><a class="link text-orange" href="mailto:help@biothings.io">Contact Us <i class="fas fa-envelope"></i> </a></td>
+																				<td>Available <i class="fas fa-check text-orange"></i></td>
+																				<td class="text-muted">Coming Soon!</td>
+																	    </tr>
+																	  </tbody>
+																	</table>
+																	<p><a target='_blank' class='btn btn-light' href='http://docs.biothings.io/en/latest/doc/standalone.html/#quick-links'>Download Information <i class="fas fa-chevron-right"></i></a></p>
+																	<p><a target='_blank' class='text-warning link' href='http://docs.biothings.io/en/latest/doc/standalone.html#prerequisites'>Installation Guide <i class='fas fa-external-link-square-alt'></i></a></p>`
+									},
+									{
+										'title' : "BioThings API",
+										'description' : `<hr/>
+																		 <h3 class='text-light'>SCHEMA</h3>
+																		 <p>Coming Soon!</p>`
+									}
+								]
+							}
+						},
+						methods:{
+							changeBackground: function(name){
+								switch (name) {
+									case 'access':
+										this.background = '/static/img/spinner-access.svg';
+										break;
+									case 'build':
+										this.background = '/static/img/spinner-build.svg';
+										break;
+									case 'explore':
+										this.background = '/static/img/spinner-explore.svg';
+										break;
+									default:
+									return false;
+								}
+							},
+							toggleDetails: function(){
+								this.showContributeDetails = ! this.showContributeDetails;
+									// new Vivus('sdk', {duration: 120, type: 'oneByOne'});
+									// new Vivus('specs', {duration: 120, type: 'oneByOne'});
+							},
+							popUp: function(info){
+								swal({
+									imageUrl: info.img,
+									imageWidth: '300px',
+									title: '<h4 style="color:'+info.color+'">'+info.tagline+'</h4>',
+									imageAlt: info.title,
+									confirmButtonColor : info.color,
+									confirmButtonClass : 'btn btn-dark',
+									html: "<p>"+info.description+"</p>Learn more about <b><a target='_blank' style='color:"+info.color+"' href='"+info.website+"'>"+info.title+" <i class='fas fa-external-link-square-alt'></i></a></b>"
+								})
+							},
+							popUpInfo: function(info){
+								swal({
+									imageUrl: '/static/img/biothings-text.png',
+									imageWidth: '200px',
+									imageAlt: info.title,
+									background: '#31353A',
+									confirmButtonColor : '#FCCA52',
+									html: info.description
+								})
+							}
+						},
+						mounted:function(){
 
-	      });
+							// var cube = new Cube();
+							// var cube = new Cube({
+							//     cubeWrapperSelector: '.CubeWrapper',
+							//     cubeSelector: '.Cube',
+							//     frontSideClass: 'Cube-side--front',
+							//     secondSideClass: 'Cube-side--second',
+							//     transitionTime: 300
+							// });
+
+
+								var scene = document.getElementById('access');
+								var parallaxInstance = new Parallax(scene,{
+									hoverOnly: true,
+									relativeInput: true
+								});
+
+								var scene = document.getElementById('build');
+								var parallaxInstance = new Parallax(scene,{
+									invertY: false,
+									invertX: false,
+									hoverOnly: true,
+									relativeInput: true
+								});
+
+								var scene = document.getElementById('explore');
+								var parallaxInstance = new Parallax(scene, {
+								  relativeInput: true,
+									clipRelativeInput: true,
+									hoverOnly: true
+								});
+						}
+					});
+
+					document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+					    anchor.addEventListener('click', function (e) {
+					        e.preventDefault();
+					        document.querySelector(this.getAttribute('href')).scrollIntoView({
+					            behavior: 'smooth'
+					        });
+					    });
+					});
+
 			</script>
 			{% endblock %}

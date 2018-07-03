@@ -1,0 +1,149 @@
+
+.Cubes {
+width: 100%;
+max-width: 1000px;
+position: relative;
+margin: 0 auto;
+}
+.Cubes img {
+display: block;
+max-width: 100%;
+}
+.Cubes * {
+box-sizing: border-box;
+margin: auto 0;
+}
+.Cubes::after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+
+.CubeWrapper {
+backface-visibility: hidden;
+display: block;
+float: left;
+height: 0;
+padding-bottom: 50%;
+perspective: 1000px;
+position: relative;
+text-align: center;
+width: 50%;
+z-index: 1;
+}
+.CubeWrapper:hover {
+z-index: 10;
+}
+
+@media (min-width: 600px) {
+.CubeWrapper {
+  padding-bottom: 33.3333333333%;
+  width: 33.3333333333%;
+}
+}
+@media (min-width: 1000px) {
+.CubeWrapper {
+  padding-bottom: 25%;
+  width: 25%;
+}
+}
+.Cube {
+backface-visibility: hidden;
+display: inline-block;
+height: 100%;
+left: 0;
+position: absolute;
+text-align: center;
+top: 0;
+transform-style: preserve-3d;
+width: 100%;
+}
+
+.Cube-side {
+backface-visibility: hidden;
+height: 100%;
+overflow: hidden;
+position: absolute;
+width: 100%;
+text-align: center;
+font-size: 40px;
+}
+
+.Cube-side--second {
+display: none;
+}
+
+
+.Cube-side {
+line-height: 100%;
+}
+.Cube-side a {
+text-decoration: none;
+color: #fff;
+border: 0;
+}
+.Cube-side > div {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+}
+
+.Cube-side--invert {
+
+}
+
+/*
+<div class="Cubes">
+	<div class="CubeWrapper">
+		<div class="Cube">
+			<div class="Cube-side Cube-side--front" style="background-color:#232529">
+				<div class="text-light smallCaps logoFont"><i class="fab fa-twitter-square"></i></div>
+			</div>
+			<div class="Cube-side Cube-side--second Cube-side--invert bg-warning">
+				<div>
+					<a class='link' target="_blank" href='https://twitter.com/biothingsapi'>Follow Us</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="CubeWrapper">
+		<div class="Cube">
+			<div class="Cube-side Cube-side--front bg-warning">
+				<div class="text-light smallCaps logoFont"><i class='fas fa-envelope-square'></i></div>
+			</div>
+			<div class="Cube-side Cube-side--second Cube-side--invert" style="background-color:#232529">
+				<div>
+					<a class='link' href='mailto:help@biothings.io'>Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="CubeWrapper">
+		<div class="Cube">
+			<div class="Cube-side Cube-side--front" style="background-color:#232529">
+				<div class="text-light smallCaps logoFont"><i class="fab fa-github-square"></i></div>
+			</div>
+			<div class="Cube-side Cube-side--second Cube-side--invert bg-warning">
+				<div>
+					<a class='link' target="_blank" href='https://github.com/biothings/biothings.api'>GitHub</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="CubeWrapper">
+		<div class="Cube">
+			<div class="Cube-side Cube-side--front bg-warning">
+				<div class="text-light smallCaps logoFont"><i class="fas fa-square"></i></div>
+			</div>
+			<div class="Cube-side Cube-side--second Cube-side--invert" style="background-color:#232529">
+				<div>
+					<a class='link' href='/branding'>Brand</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> */
