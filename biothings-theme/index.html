@@ -119,7 +119,14 @@
 	}
 }
 
-
+.hostBack{
+	background-image: url('/static/img/host-back.png');
+	background-position: left bottom;
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding: 40px;
+	position: relative;
+}
 
 
 </style>
@@ -134,10 +141,10 @@
 			<h1 class="margin20 three-d-text text-light lighter lighter noMargin textShadow logoFont d-none d-sm-block" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
 			<h1 class="margin20 text-light lighter lighter noMargin textShadow logoFont d-block d-sm-none" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
 			<h3 class="text-light lighter smallCaps d-none d-sm-block" style="font-size: 3vw;">
-				Building a <a title="Learn More About The FAIR Principles" class="underlined" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
+				Building a <a title="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
 			</h3>
 			<h2 class="text-light smallCaps d-block d-sm-none">
-				Building a <a title="Learn More About The FAIR Principles" class="underlined" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
+				Building a <a title="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
 			</h2>
 			<div class="greyShapeClip d-block d-sm-none">
 
@@ -180,13 +187,13 @@
 			<line class="st6" x1="0" y1="249.9" x2="243" y2="249.9"/>
 			<line class="st6" x1="243" y1="249.9" x2="370.5" y2="469"/>
 		</g>
-		  <a xlink:href="#access">
+		  <a href="#access">
 		    <text @mouseenter="changeBackground('access')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="20" y="170">Access</text>
 		  </a>
-		  <a xlink:href="#build">
+		  <a href="#build">
 		    <text @mouseenter="changeBackground('build')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="300" y="270">Build</text>
 		  </a>
-		  <a xlink:href="#explore">
+		  <a href="#explore">
 		    <text @mouseenter="changeBackground('explore')" @mouseleave="changeBackground('none')" class="font logoFont neon" x="20" y="350">Explore</text>
 		  </a>
 		</svg>
@@ -254,16 +261,20 @@
 
 
 			<!-- <a class="text-light" href="#apis" style="pointer-events: all;">And more!</a> -->
-			<object width="200px" alt="Host Our APIs" data="/static/img/host-api.svg"></object>
-			<br />
-			<h2 class="text-light noMargin smallCaps">
-				Want to host our APIs within your organization?
-			</h2>
-			<a class="btn btn-dark text-warning margin20" @click='popUpInfo(moreInfo[0])'>Learn More</a>
+
 		</div>
-		<img class="d-none d-md-block" data-depth="0.9" width="80%" src="/static/img/a-hand.png"/>
-		<img style="opacity: .7;" data-depth="0.5" height="60%" src="/static/img/a-cubes.svg" alt='biothings logo' title="Download"/>
-		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/a-logo.svg" alt='biothings logo' title="Download"/>
+		<img class="d-none d-md-block" data-depth="0.1" width="80%" src="/static/img/a-hand.png"/>
+		<img style="opacity: .7;" data-depth="0.3" height="60%" src="/static/img/a-cubes.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.2" height="100%" src="/static/img/a-logo.svg" alt='biothings logo' title="Download"/>
+	</div>
+
+	<div class="text-center bg-dark hostBack">
+		<object width="200px" alt="Host Our APIs" data="/static/img/all-apis.svg"></object>
+		<br />
+		<h2 class="text-light noMargin smallCaps bold textShadow">
+			Want to host our APIs within your organization?
+		</h2>
+		<a class="btn btn-warning margin20" @click='popUpInfo(moreInfo[0])'>Learn More</a>
 	</div>
 
 	<div id="build" data-relative-input="true" class="text-center parallaxBack2 parallaxBox">
@@ -289,9 +300,9 @@
 			<br />
 			<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>BioThings API Specifications <i class="fas fa-arrow-circle-down"></i></a>
 		</div>
-		<img class="d-none d-md-block" data-depth="0.8" width="100%" src="/static/img/c-comp.png"/>
-		<img style="opacity: .7;" data-depth="0.5" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
-		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
+		<img class="d-none d-md-block" data-depth="0.1" width="100%" src="/static/img/c-comp.png"/>
+		<img style="opacity: .7;" data-depth="0.3" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.2" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
 	</div>
 
 	<div v-if="showContributeDetails" class="row text-center container-fluid marginFix backSDk">
@@ -340,8 +351,8 @@
 			</div>
 			<br />
 		</div>
-		<img class="d-none d-md-block" data-depth="0.8" width="80%" src="/static/img/e-cubes.png"/>
-		<img style="opacity: .4;" data-depth="0.5" height="60%" src="/static/img/e-logo.svg" alt='biothings logo' title="Download"/>
+		<img class="d-none d-md-block" data-depth="0.1" width="80%" src="/static/img/e-cubes.png"/>
+		<img style="opacity: .4;" data-depth="0.2" height="60%" src="/static/img/e-logo.svg" alt='biothings logo' title="Download"/>
 		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/e-map.svg" alt='biothings logo' title="Download"/>
 	</div>
 
@@ -486,6 +497,7 @@
             el: '#app',
 						data: function(){
 							return {
+								fair : false,
 								background: '',
 								showContributeDetails: false,
 								sites:[
@@ -559,9 +571,9 @@
 																	  <thead>
 																	    <tr>
 																				<th scope="col" class="text-warning smallCaps">Versions Available:</th>
-																	      <th scope="col" class="text-warning smallCaps">PRODUCTION</th>
-																	      <th scope="col" class="text-warning smallCaps">DEMO</th>
-																	      <th scope="col" class="text-warning smallCaps">OLD</th>
+																	      <th scope="col" class="text-warning smallCaps">PRODUCTION *</th>
+																	      <th scope="col" class="text-warning smallCaps">DEMO *</th>
+																	      <th scope="col" class="text-warning smallCaps">OLD *</th>
 																	    </tr>
 																			<tr>
 																				<th scope="col" class="text-light smallFont">What's Included?</th>
@@ -597,6 +609,9 @@
 																	    </tr>
 																	  </tbody>
 																	</table>
+																	<p class="text-warning">
+																		* Not for commercial use. Please contact us if you want to use the data commercially.
+																	</p>
 																	<p><a target='_blank' class='btn btn-light' href='http://docs.biothings.io/en/latest/doc/standalone.html#quick-links'>Download Information <i class="fas fa-chevron-right"></i></a></p>
 																	<p><a target='_blank' class='text-warning link' href='http://docs.biothings.io/en/latest/doc/standalone.html#prerequisites'>Installation Guide <i class='fas fa-external-link-square-alt'></i></a></p>`
 									},
@@ -662,7 +677,6 @@
 							//     secondSideClass: 'Cube-side--second',
 							//     transitionTime: 300
 							// });
-
 
 								var scene = document.getElementById('access');
 								var parallaxInstance = new Parallax(scene,{
