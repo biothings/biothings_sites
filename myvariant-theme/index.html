@@ -45,6 +45,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
     vertical-align:sub;
 }
 
+.vertical-align{
+  vertical-align: middle;
+}
+
 </style>
 
 <section>
@@ -289,28 +293,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
   </thead>
   <tbody>
     <tr>
-      <td><h4 class="noMargin text-muted smallFont">Retreiving by HGVS id</h4></td>
-      <td style="vertical-align:middle;"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Retreiving by HGVS id</h4></td>
+      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">All variants with dbNSFP annotation</h4>
-      <td style="vertical-align:middle;"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:dbnsfp</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All variants with dbNSFP annotation</h4>
+      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:dbnsfp</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">All non-synonymous variants on gene "BTK"</h4>
-      <td style="vertical-align:middle;"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All non-synonymous variants on gene "BTK"</h4>
+      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">All variants within a genomic range</h4>
-      <td style="vertical-align:middle;"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All variants within a genomic range</h4>
+      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">Query Wellderly variants together with other annotation sources</h4>
-      <td style="vertical-align:middle;"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Query Wellderly variants together with other annotation sources</h4>
+      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
-      <td style="vertical-align:middle;">
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
+      <td class="vertical-align smallFont">
 				<span class="text-green">POST</span> http://myvariant.info/v1/variant/
 				<br />
 				<span class="text-green">POST</span> http://myvariant.info/v1/query/

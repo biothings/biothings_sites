@@ -17,6 +17,9 @@
 .asterisk{
     vertical-align:sub;
 }
+.vertical-align{
+  vertical-align: middle;
+}
 </style>
 
 <section>
@@ -243,8 +246,8 @@
 
 <!-- Table display for small devices -->
 <section class="text-center text-light d-block d-sm-block d-md-none d-lg-none d-xl-none bg-dark">
-	<h2 class="text-muted lighter noMargin">Query Examples</h2>
-  <span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-blue Ani"></i></span>
+	<h2 class="text-muted lighter">Query Examples</h2>
+  <!-- <span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-blue Ani"></i></span> -->
 	<table class="table table-dark table-responsive">
   <thead>
     <tr>
@@ -254,20 +257,20 @@
   </thead>
   <tbody>
     <tr>
-      <td><h4 class="noMargin text-muted smallFont">Retreiving by Entrz or Enesmbl gene id</h4></td>
-      <td style="vertical-align:middle;"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/gene/<span class="text-blue bold">1017</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Retreiving by Entrz or Enesmbl gene id</h4></td>
+      <td class="vertical-align smallFont"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/gene/<span class="text-blue bold">1017</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">Retreive all where symbol is CDK2</h4></td>
-      <td style="vertical-align:middle;"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=symbol:cdk2</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Retreive all where symbol is CDK2</h4></td>
+      <td class="vertical-align smallFont"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=symbol:cdk2</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">Get gene summary text for Insulin</h4></td>
-      <td style="vertical-align:middle;"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=summary:insulin</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Get gene summary text for Insulin</h4></td>
+      <td class="vertical-align smallFont"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=summary:insulin</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted smallFont">Retreive by UniProt id</h4></td>
-      <td style="vertical-align:middle;"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=uniprot:P24941</span></td>
+      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Retreive by UniProt id</h4></td>
+      <td class="vertical-align smallFont"><span class="text-blue">GET</span>&nbsp;http://mygene.info/v3/<span class="text-blue bold">query?q=uniprot:P24941</span></td>
     </tr>
 		<tr>
       <td><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
