@@ -32,7 +32,7 @@
         <object class="float" width="20%" data="/static/img/mychem-logo-shiny.svg" style="padding-top:100px;"></object>
   			<br />
   			<div class="logo-shadow blur" style="width: 15%; height: 15px; background: rgb(41, 47, 48); opacity:.4; border-radius:100%; margin: 0 auto;" ></div>
-  			<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
+  			<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 6em;">
   				My<span style="color: var(--orange-light)">Chem</span>.info
   			</h1>
         <h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
@@ -205,16 +205,34 @@
 			  <li class="list-group-item">
 					<h4 class="noMargin">Retrieve chemical objects based on ID</h4>
 					<br />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
 					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/chem/USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Make chemical queries and return matching chemical hits</h4>
 					<br />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/query/<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/query/<span class="text-orange bold">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span>
 					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=USNINKBPBVKHHZ-CYUUQNCZSA-L' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
-				<li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Retrieve by Drug Name</h4>
+					<br />
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugbank.name:riluzole</span>
+					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugbank.name:riluzole' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Retrieve chemicals targeting protein P24942(uniprot id)</h4>
+					<br />
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugbank.targets.uniprot:P24941</span>
+					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugbank.targets.uniprot:P24941' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Retrieve drugs having indication C0419527 (UMLS CUI)</h4>
+					<br />
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugcentral.drug_use.indication.umls_cui:C0419527</span>
+					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0419527' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+				</li>
+				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
 					<span class="text-orange bold">POST</span> http://mygene.info/v1/chem
@@ -246,16 +264,24 @@
   </thead>
   <tbody>
     <tr>
-      <td><h4 class="noMargin text-muted">Retrieve chemical objects based on ID</h4></td>
-      <td><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
+      <td><h4 class="noMargin text-muted smallFont">Retrieve chemical objects based on ID</h4></td>
+      <td style="vertical-align:middle;"><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/chem/<span class="text-orange">USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted">Make chemical queries and return matching chemical hits</h4></td>
-      <td><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/query<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
+      <td><h4 class="noMargin text-muted smallFont">Make chemical queries and return matching chemical hits</h4></td>
+      <td style="vertical-align:middle;"><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/query<span class="text-orange">?q=drugbank.name:riluzole</span></td>
+    </tr>
+    <tr>
+      <td><h4 class="noMargin text-muted smallFont">Retrieve by Drug Name</h4></td>
+      <td style="vertical-align:middle;"><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/query<span class="text-orange">?q=USNINKBPBVKHHZ-CYUUQNCZSA-L</span></td>
+    </tr>
+    <tr>
+      <td><h4 class="noMargin text-muted smallFont">Retrieve chemicals targeting protein P24942(uniprot id)</h4></td>
+      <td style="vertical-align:middle;"><span class="text-orange">GET</span>&nbsp;http://mychem.info/v1/query<span class="text-orange">?q=drugbank.targets.uniprot:P24941</span></td>
     </tr>
 		<tr>
-      <td><h4 class="noMargin text-muted">Batch queries? Yes, supported!</h4>
-      <td>
+      <td><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
+      <td style="vertical-align:middle;">
 				<span class="text-orange">POST</span> http://mygene.info/v1/chem
 				<br />
 				<a target="_blank" href='http://mychem.info/v1/api' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
