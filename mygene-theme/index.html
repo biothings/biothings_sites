@@ -20,6 +20,59 @@
 .vertical-align{
   vertical-align: middle;
 }
+
+.usingBox img{
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  padding: 10px;
+  transition: all .5s;
+}
+.usingBox img:hover{
+  filter: none;
+}
+
+.usingContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .usingBox{
+    flex:1;
+    flex-basis: 250px;
+    max-width: 250px;
+    padding: 10px;
+    vertical-align: middle;
+  }
+
+  .usingBox img{
+    width: 90%;
+  }
+
+
+@media only screen and (max-width: 600px) {
+
+  .usingContainer{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+    }
+
+    .usingBox{
+      flex:1;
+      flex-basis: 40%;
+      max-width: 40%;
+      padding: 2px;
+      vertical-align: middle;
+    }
+}
+
+
+
 </style>
 
 <section>
@@ -159,6 +212,71 @@
 				</div>
 			</section>
 		</div>
+
+    <!-- <section class="fullWidth usingContainer bg-light" style="margin: 0px;">
+      <div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
+        <h1 class="noMargin">Who is using <span class="logoFont text-blue">MyGene.info</span></h1>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using9.svg"  alt="logo"/>
+        <p class="center text-muted">
+          9,554,890 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using8.png"  alt="logo"/>
+        <p class="center text-muted">
+          6,596,392 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using2.png"  alt="logo"/>
+        <p class="center text-muted">
+          2,614,978 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using7.png"  alt="logo"/>
+        <p class="center text-muted">
+          2,209,111 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using10.png"  alt="logo"/>
+        <p class="center text-muted">
+          1,487,177 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using1.png"  alt="logo"/>
+        <p class="center text-muted">
+          1,371,065 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using3.png"  alt="logo"/>
+        <p class="center text-muted">
+          782,376 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using5.png"  alt="logo"/>
+        <p class="center text-muted">
+          699,552 requests
+        </p>
+      </div>
+      <div class="usingBox">
+        <img src="/static/img/using4.png" alt="logo"/>
+        <p class="center text-muted">
+          626,766 requests
+        </p>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
+        <p class="text-muted">
+          *Requests made from 01/01/2017-12/31/2017
+        </p>
+      </div>
+    </section> -->
 
 		<div class="bg-dark fullWidth padding40 row marginFix" >
 			  <div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">

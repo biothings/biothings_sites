@@ -23,7 +23,7 @@
 			<g>
 				<g>
 					
-						<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="102.6" y1="864.95" x2="231.8" y2="864.95" gradientTransform="matrix(1 0 0 -1 420 1026.5)">
+						<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="102.6" y1="-792.95" x2="231.8" y2="-792.95" gradientTransform="matrix(1 0 0 1 420 954.5)">
 						<stop  offset="0" style="stop-color:#FD7400"/>
 						<stop  offset="1" style="stop-color:#FF8E39"/>
 					</linearGradient>
@@ -36,7 +36,7 @@
 			<g>
 				<g>
 					
-						<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="178" y1="825.3" x2="286.2" y2="825.3" gradientTransform="matrix(1 0 0 -1 420 1026.5)">
+						<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="178" y1="-753.3" x2="286.2" y2="-753.3" gradientTransform="matrix(1 0 0 1 420 954.5)">
 						<stop  offset="0" style="stop-color:#FF8E39;stop-opacity:0"/>
 						<stop  offset="0.1239" style="stop-color:#FF913E;stop-opacity:0.1239"/>
 						<stop  offset="0.2664" style="stop-color:#FF994C;stop-opacity:0.2664"/>
@@ -119,7 +119,7 @@
 			<g>
 				<g>
 					
-						<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-26" y1="943.25" x2="103.2" y2="943.25" gradientTransform="matrix(1 0 0 -1 420 1026.5)">
+						<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-26" y1="-871.25" x2="103.2" y2="-871.25" gradientTransform="matrix(1 0 0 1 420 954.5)">
 						<stop  offset="0" style="stop-color:#FD7400"/>
 						<stop  offset="1" style="stop-color:#FF8E39"/>
 					</linearGradient>
@@ -132,7 +132,7 @@
 			<g>
 				<g>
 					
-						<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="49.4" y1="903.7" x2="157.6" y2="903.7" gradientTransform="matrix(1 0 0 -1 420 1026.5)">
+						<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="49.4" y1="-831.7" x2="157.6" y2="-831.7" gradientTransform="matrix(1 0 0 1 420 954.5)">
 						<stop  offset="0" style="stop-color:#FF8E39;stop-opacity:0"/>
 						<stop  offset="0.1239" style="stop-color:#FF913E;stop-opacity:0.1239"/>
 						<stop  offset="0.2664" style="stop-color:#FF994C;stop-opacity:0.2664"/>
