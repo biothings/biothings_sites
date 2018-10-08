@@ -4,7 +4,9 @@ $.ajax({
   url:'//mygene.info/v3/metadata',
   dataType: 'json',
   success: function(data){
-    //console.log(data.build_date);
+    console.log(data);
+    document.getElementById("sources").innerHTML= Object.keys(data.src).length;
+
     var date = new Date(data.build_date);
     var formattedTime = (date.getMonth()+1)+'-'+date.getDate()+'-'+date.getFullYear();
     document.getElementById("buildDateTarget").innerHTML= formattedTime;

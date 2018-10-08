@@ -4,10 +4,13 @@ $.ajax({
   url:'//myvariant.info/v1/metadata',
   dataType: 'json',
   success: function(data){
-    //console.log(data.build_date);
+    // sources
+    // console.log('src', data)
+    document.getElementById("sources").innerHTML= Object.keys(data.src).length;
+    // last updated
     var date = new Date(data.build_date);
     var formattedTime = (date.getMonth()+1)+'-'+date.getDate()+'-'+date.getFullYear();
-    document.getElementById("buildDateTarget").innerHTML= formattedTime;
+    document.getElementById("buildDateTarget").text= formattedTime;
   }
 });
 
