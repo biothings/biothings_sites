@@ -148,10 +148,10 @@
 			<h1 class="margin20 three-d-text text-light lighter lighter noMargin textShadow logoFont d-none d-sm-block" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
 			<h1 class="margin20 text-light lighter lighter noMargin textShadow logoFont d-block d-sm-none" style="font-size: 7vw;"><span class="text-warning">BioThings</span> API</h1>
 			<h3 class="text-light lighter smallCaps d-none d-sm-block" style="font-size: 3vw;">
-				Building a <a title="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
+				Building a <a data-tippy="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
 			</h3>
 			<h2 class="text-light smallCaps d-block d-sm-none">
-				Building a <a title="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
+				Building a <a data-tippy="Learn More About The FAIR Principles" class="underlined neon" href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for Biomedical Knowledge
 			</h2>
 			<div class="greyShapeClip d-block d-sm-none">
 
@@ -214,8 +214,8 @@
 
 	<div id="who-is-using" class="jumbotron usingBox text-center" style="margin: 0px;">
 			<a href="/who-is-using">
-				<h1 class="noMargin text-light">Who is using</h1>
-				<h1 class="noMargin text-warning logoFont">BioThings API</h1>
+				<h1 class="noMargin text-light ">Who is using</h1>
+				<h1 class="noMargin text-warning logoFont ">BioThings API</h1>
 			</a>
 	</div>
 
@@ -225,8 +225,23 @@
 			<h3 class="text-light margin20 padding20 textShadow">
 				WE BUILD HIGH PERFORMANCE APIS IN BIOLOGY
 			</h3>
-			<div class="row" style="width: 70%; margin: 0 auto;">
-				<div class="col-sm-12 col-md-4 col-lg-4">
+			<div class="row apiBlock" style="width: 70%; margin: 0 auto;">
+				<div class="padding20 col-sm-12 col-md-4 col-lg-4 mgBlock" @click='popUp(sites[0])'>
+					<img width="70%" src="/static/img/mygene-text-2.png" alt="logo"/>
+					<h4 class="text-light textShadow">Gene Annotation <br /> As A Service</h4>
+					<span class="badge badge-dark">Learn More</span>
+				</div>
+				<div class="padding20 col-sm-12 col-md-4 col-lg-4 mvBlock" @click='popUp(sites[1])'>
+					<img width="70%" src="/static/img/myvariant-text-2.png" alt="logo"/>
+					<h4 class="text-light textShadow">Variant Annotation <br /> As A Service</h4>
+					<span class="badge badge-dark">Learn More</span>
+				</div>
+				<div class="padding20 col-sm-12 col-md-4 col-lg-4 mcBlock" @click='popUp(sites[2])'>
+					<img width="70%" src="/static/img/mychem-text-2.png" alt="logo"/>
+					<h4 class="text-light textShadow">Chemical and Drug Annotation <br /> As A Service</h4>
+					<span class="badge badge-dark">Learn More</span>
+				</div>
+				<!-- <div class="col-sm-12 col-md-4 col-lg-4">
 					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[0])'>
 						<img width="70%" src="/static/img/mygene-text-2.png" alt="logo"/>
 					</a>
@@ -243,7 +258,7 @@
 						<img width="70%" src="/static/img/mychem-text-2.png" alt="logo"/>
 					</a>
 					<h4 class="text-light textShadow">Chemical and Drug Annotation <br /> As A Service</h4>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="col-lg-6" style="margin: 0 auto;">
@@ -278,8 +293,8 @@
 
 		</div>
 		<img class="d-none d-md-block" data-depth="0.1" width="80%" src="/static/img/a-hand.png"/>
-		<img style="opacity: .7;" data-depth="0.3" height="60%" src="/static/img/a-cubes.svg" alt='biothings logo' title="Download"/>
-		<img style="opacity: .2;" data-depth="0.2" height="100%" src="/static/img/a-logo.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .7;" data-depth="0.2" height="60%" src="/static/img/a-cubes.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.1" height="100%" src="/static/img/a-logo.svg" alt='biothings logo' title="Download"/>
 	</div>
 
 	<div id="stand-alone" class="text-center bg-dark hostBack">
@@ -291,20 +306,20 @@
 		<a class="btn btn-warning margin20" @click='popUpInfo(moreInfo[0])'>Learn More</a>
 	</div>
 
-	<div id="build" data-relative-input="true" class="text-center parallaxBack2 parallaxBox">
+	<div id="build" data-relative-input="true" class="text-center parallaxBack2 parallaxBox" style="margin-bottom:0px;">
 		<div class="flexContent padding40">
 			<h1 class="logoFont text-warning textShadow noMargin border-black text3d">Build</h1>
 			<h3 class="text-light margin20 padding20 textShadow">
 				BUILD YOUR OWN API WITH
 			</h3>
-			<div class="perspectiveWrapper">
-				<div class="bg-warning perspectiveBox1">
+			<div class="row perspectiveWrapper" style="width: 70%; margin: 0 auto;">
+				<div class="bg-warning perspectiveBox1 padding20">
 					<img width="150px" src="/static/img/sdk-icon.svg" alt="logo"/>
 					<h3 class="logoFont text-light textShadow">BioThings SDK</h3>
 					<h5 class="text-dark">A Python-Based Software Development Kit To Build High-Performance Data APIs</h5>
 					<a class="btn btn-dark text-warning" @click='popUp(sites[6])'>Learn More</a>
 				</div>
-				<div class="bg-dark perspectiveBox2">
+				<div class="bg-dark perspectiveBox2 padding20">
 					<img width="150px" src="/static/img/biothings-studio-color.svg" alt="logo"/>
 					<h3 class="logoFont text-light textShadow">BioThings Studio</h3>
 					<h5 class="text-warning">A Pre-configured Environment Used To Build And Administer BioThings API</h5>
@@ -312,14 +327,16 @@
 				</div>
 			</div>
 			<br />
-			<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>BioThings API Specifications <i class="fas fa-arrow-circle-down"></i></a>
+			<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>
+				BioThings API Specifications <i class="fas fa-plus"></i>
+			</a>
 		</div>
 		<img class="d-none d-md-block" data-depth="0.1" width="100%" src="/static/img/c-comp.png"/>
-		<img style="opacity: .7;" data-depth="0.3" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
-		<img style="opacity: .2;" data-depth="0.2" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .7;" data-depth="0.2" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.1" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
 	</div>
 
-	<div v-if="showContributeDetails" class="row text-center container-fluid marginFix backSDk">
+	<div v-if="showContributeDetails" class="row text-center container-fluid marginFix bg-warning slide-in-elliptic-top-fwd">
 		<div class="col-sm-12 col-md-12 col-lg-12 text-center padding40" >
 			<img id="specs" width="150px" class="margin20" src="/static/img/specs-icon.svg"/>
 			<h3 class="text-dark smallCaps margin20">
@@ -367,7 +384,7 @@
 		</div>
 		<img class="d-none d-md-block" data-depth="0.1" width="80%" src="/static/img/e-cubes.png"/>
 		<img style="opacity: .4;" data-depth="0.2" height="60%" src="/static/img/e-logo.svg" alt='biothings logo' title="Download"/>
-		<img style="opacity: .2;" data-depth="0.3" height="100%" src="/static/img/e-map.svg" alt='biothings logo' title="Download"/>
+		<img style="opacity: .2;" data-depth="0.1" height="100%" src="/static/img/e-map.svg" alt='biothings logo' title="Download"/>
 	</div>
 
 	<!-- <div class="container-fluid row marginFix noPadding" >
@@ -525,6 +542,7 @@
 			<script src="/static/js/cube.js"></script>
 			<script src="/static/js/feature.js"></script>
 			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+			<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 			<script>
 
 			var app = new Vue({

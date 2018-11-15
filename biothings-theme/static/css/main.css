@@ -59,7 +59,7 @@
 /* Grid */
 
 	.row {
-		border-bottom: solid 1px transparent;
+		/* border-bottom: solid 1px transparent; */
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
