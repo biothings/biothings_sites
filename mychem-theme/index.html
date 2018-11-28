@@ -204,42 +204,43 @@
 			<ul class="list-group" >
 				<li class="list-group-item center" style="border-radius: 0px !important;">
 					<h2 class="text-muted lighter noMargin">Query Examples</h2>
+          <small>All queries work on both Http and Https!</small>
 				</li>
 			  <li class="list-group-item">
 					<h4 class="noMargin">Retrieve chemical/drug objects based on common IDs</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">ZRALSGWEFCBTJO-UHFFFAOYSA-N </span>(InChIKey)
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/drug/ZRALSGWEFCBTJO-UHFFFAOYSA-N' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/ZRALSGWEFCBTJO-UHFFFAOYSA-N' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">DB00551 </span>(Drugbank ID)
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/drug/DB00551' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/DB00551' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEMBL1308 </span>(ChEMBL Compound ID)
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/drug/CHEMBL1308' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/CHEMBL1308' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">7AXV542LZ4 </span>(UNII Compound ID)
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/drug/7AXV542LZ4' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/7AXV542LZ4' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEBI:6431 </span>(CHEBI ID)
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/drug/CHEBI:6431' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/CHEBI:6431' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
         <li class="list-group-item">
 					<h4 class="noMargin">Retrieve by Drug Name</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugbank.name:monobenzone</span>
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugbank.name:monobenzone' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/query?q=drugbank.name:monobenzone' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
         <li class="list-group-item">
 					<h4 class="noMargin">Retrieve chemicals/drugs targeting protein P24942(uniprot id)</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugbank.targets.uniprot:P34981</span>
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugbank.targets.uniprot:P34981' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/query?q=drugbank.targets.uniprot:P34981' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
         <li class="list-group-item">
 					<h4 class="noMargin">Retrieve chemicals/drugs having indication C0419527 (UMLS CUI)</h4>
 					<br />
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugcentral.drug_use.indication.umls_cui:C0242339</span>
-					<button style="cursor: pointer !important;" data-url='http://mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
