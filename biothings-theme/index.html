@@ -214,7 +214,7 @@
 
 	<div id="who-is-using" class="jumbotron usingBox text-center" style="margin: 0px;">
 			<a href="/who-is-using">
-				<h1 class="noMargin text-light ">Who is using</h1>
+				<h1 class="noMargin text-light ">Who is using <a style="font-size:small !important;" href="./#who-is-using"><i class="fas fa-tiny fa-link"></i></a></h1>
 				<h1 class="noMargin text-warning logoFont ">BioThings API</h1>
 			</a>
 	</div>
@@ -241,24 +241,6 @@
 					<h4 class="text-light textShadow">Chemical and Drug Annotation <br /> As A Service</h4>
 					<span class="badge badge-dark">Learn More</span>
 				</div>
-				<!-- <div class="col-sm-12 col-md-4 col-lg-4">
-					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[0])'>
-						<img width="70%" src="/static/img/mygene-text-2.png" alt="logo"/>
-					</a>
-					<h4 class="text-light textShadow">Gene Annotation <br /> As A Service</h4>
-				</div>
-				<div class="col-sm-12 col-md-4 col-lg-4">
-					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[1])'>
-						<img width="70%" src="/static/img/myvariant-text-2.png" alt="logo"/>
-					</a>
-					<h4 class="text-light textShadow">Variant Annotation <br /> As A Service</h4>
-				</div>
-				<div class="col-sm-12 col-md-4 col-lg-4">
-					<a class="btn btn-dark btn-theme margin20" @click='popUp(sites[2])'>
-						<img width="70%" src="/static/img/mychem-text-2.png" alt="logo"/>
-					</a>
-					<h4 class="text-light textShadow">Chemical and Drug Annotation <br /> As A Service</h4>
-				</div> -->
 			</div>
 
 			<div class="col-lg-6" style="margin: 0 auto;">
@@ -287,9 +269,6 @@
 				  </tbody>
 				</table>
 			</div>
-
-
-			<!-- <a class="text-light" href="#apis" style="pointer-events: all;">And more!</a> -->
 
 		</div>
 		<img class="d-none d-md-block" data-depth="0.1" width="80%" src="/static/img/a-hand.png"/>
@@ -387,89 +366,6 @@
 		<img style="opacity: .2;" data-depth="0.1" height="100%" src="/static/img/e-map.svg" alt='biothings logo' title="Download"/>
 	</div>
 
-	<!-- <div class="container-fluid row marginFix noPadding" >
-		<div class="col-sm-12 col-md-12 col-lg-12 text-center container" >
-			<h2 class="text-light lighter smallCaps d-block d-sm-none margin20">
-				Build APIs Like These
-			</h2>
-			<div class="d-none d-sm-block">
-				<img style="pointer-events: none;"  width="50%" src="/static/img/bio-banner.jpg" alt="Build Apis Like These" />
-			</div>
-		</div>
-		<div id="apis" class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-blue">
-				<object width="50%" class="float" data="/static/img/mygene-logo-shiny.svg"></object>
-				<br />
-				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
-				<h3 style="cursor: pointer;" class="padding20 text-light lighter no-decoration textShadow logoFont noMargin">My<span class="text-blue">Gene</span>.info</h3>
-				<p class="text-blue smallCaps" style="font-weight: bold;">
-					Gene Annotation as a Service
-				</p>
-				<a class="themeButton draw margin20" href="http://mygene.info/" target="_blank">Try It Out</a>
-		</div>
-		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-green">
-				<object width="50%" class="float" data="/static/img/myvariant-logo-shiny.svg"></object>
-				<br />
-				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
-				<h3 style="cursor: pointer;" class="padding20 text-light lighter no-decoration textShadow logoFont noMargin">My<span class="text-green">Variant</span>.info</h3>
-				<p class="text-green smallCaps" style="font-weight: bold;">
-					Variant Annotation as a Service
-				</p>
-				<a class="themeButton draw margin20" href="http://myvariant.info/" target="_blank">Try It Out</a>
-		</div>
-		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40 blackTransBack-orange" id="chem">
-				<object width="50%" class="float" data="/static/img/mychem-logo-shiny.svg"></object>
-				<br />
-				<div class="logo-shadow blur" style="width: 35%; height: 15px; background: black; opacity:.2; border-radius:100%; margin: 0 auto;" ></div>
-				<h3 style="cursor: pointer;" class="padding20 text-light lighter no-decoration textShadow logoFont noMargin">My<span class="text-orange">Chem</span>.info</h3>
-				<p class="text-orange smallCaps" style="font-weight: bold;">
-					Chemical and Drug Annotation as a Service
-				</p>
-				<a class="themeButton draw margin20" href="http://mychem.info/" target="_blank">Try It Out</a>
-		</div>
-		<div class="text-center fullWidth padding20">
-			<h4 class="smallCaps text-light lighter">
-				AND MORE!
-			</h4>
-			<table class="table table-dark text-center">
-			  <thead>
-			    <tr>
-						<th class="text-center">
-							API Name
-						</th>
-			      <th class="text-center">
-							Description
-						</th>
-			      <th class="text-center">
-							Link
-						</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-					<tr>
-						<td class="text-warning">
-							MyDisease.info
-						</td>
-			      <td >
-							MyDisease.info provides simple-to-use REST web services to query/retrieve disease annotation information.</td>
-			      <td>
-							<a target="_blank" href="http://MyDisease.info/" class="btn btn-warning">Try It Out</a>
-			      </td>
-			    </tr>
-			    <tr>
-						<td class="text-warning">
-							Taxonomy API
-						</td>
-			      <td >
-							Taxonomy API provides simple-to-use REST web services to query/retrieve Taxonomy annotation information.</td>
-			      <td>
-							<a target="_blank" href="http://mytaxon.smart-api.info/" class="btn btn-warning">Try It Out</a>
-			      </td>
-			    </tr>
-			  </tbody>
-			</table>
-		</div>
-	</div> -->
-
 </div>
 
 
@@ -477,7 +373,7 @@
 <!-- Section -->
 	<section id="four" class="main accent bg-dark">
 		<div id="news" class="text-center text-warning padding40 logoFont">
-			NEWS
+			NEWS <a href="./#news"><i class="fas fa-link text-light"></i></a>
 		</div>
 		<div class="inner">
 			<div class="posts">
@@ -512,7 +408,7 @@
 	</section>
 
 	<section id="need-help" class="text-light" style="background-color: var(--yellow-dark); padding: 20px 10%;">
-    <h4 class="text-light padding20">Need Help?</h4>
+    <h4 class="text-light padding20">Need Help? <a href="./#need-help"><i class="fas fa-link"></i></a></h4>
     <ul>
       <li>
         Email us <a class="text-light" href='mailto:biothings@googlegroups.com'><i class="fa fa-envelope" aria-hidden="true"></i> biothings@googlegroups.com</a>
