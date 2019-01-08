@@ -27,6 +27,14 @@
   filter: blur(2px);
 }
 
+.anchorLink  a{
+	transition: .4s all;
+}
+
+.anchorLink:hover a{
+	opacity: 1 !important;
+}
+
 @keyframes Ani {
   0% {
       -webkit-transform: translateX(0px);

@@ -19,6 +19,14 @@
   color: white;
 }
 
+.anchorLink  a{
+	transition: .4s all;
+}
+
+.anchorLink:hover a{
+	opacity: 1 !important;
+}
+
 .usingBox img{
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
