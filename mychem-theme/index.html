@@ -242,11 +242,27 @@
 					<span class="text-orange bold">GET</span> http://mychem.info/v1/query<span class="text-orange bold">?q=drugcentral.drug_use.indication.umls_cui:C0242339</span>
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Get data source metadata:</h4>
+					<br />
+					<span class="text-orange bold">GET</span> http://mychem.info/metadata
+					<button style="cursor: pointer !important;" data-url='//mychem.info/metadata' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Get the list of all fields:</h4>
+					<br />
+					<span class="text-orange bold">GET</span> http://mychem.info/metadata/fields
+					<button style="cursor: pointer !important;" data-url='//mychem.info/metadata/fields' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
+				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
-					<span class="text-orange bold">POST</span> http://mygene.info/v1/chem
-					<!-- <a target="_blank" href='http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post' type="button" class="btn btn-dark float-right">Learn More</a> -->
+					<span class="text-orange bold">POST</span> http://mychem.info/v1/chem
+					<a target="_blank" href='http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post' role="button" class="btn btn-orange text-dark float-right">Learn More</a>
+				</li>
+        <li class="list-group-item">
+					<span class="text-orange bold">POST</span> http://mychem.info/v1/query
+					<a target="_blank" href='http://docs.mychem.info/en/latest/doc/chem_annotation_service.html#batch-queries-via-post' role="button" class="btn btn-orange text-dark float-right">Learn More</a>
 				</li>
 			</ul>
 		</div>
@@ -303,9 +319,13 @@
 		<tr>
       <td style="vertical-align:middle;"><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
       <td style="vertical-align:middle;" class="smallFont">
-				<span class="text-orange bold">POST</span> http://mygene.info/v1/chem
+				<span class="text-orange bold">POST</span> http://mychem.info/v1/chem
 				<br />
-				<a target="_blank" href='http://mychem.info/v1/api' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
+				<a target="_blank" href='//docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
+        <hr />
+        <span class="text-orange bold">POST</span> http://mychem.info/v1/query
+				<br />
+				<a target="_blank" href='//docs.mychem.info/en/latest/doc/chem_annotation_service.html#batch-queries-via-post' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
 			</td>
     </tr>
   </tbody>

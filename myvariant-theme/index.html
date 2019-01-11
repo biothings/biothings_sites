@@ -296,11 +296,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
 					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen' type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Get data source metadata:</h4>
+					<br />
+					<span class="text-green bold">GET</span> http://myvariant.info/metadata
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+				</li>
+        <li class="list-group-item">
+					<h4 class="noMargin">Get the list of all fields:</h4>
+					<br />
+					<span class="text-green bold">GET</span> http://myvariant.info/metadata/fields
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata/fields' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
 					<span class="text-green bold">POST</span> http://myvariant.info/v1/variant/
-					<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' class="btn btn-success float-right text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
+					<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' class="btn btn-success float-right text-light">Learn More</a>
 					<br />
 					<span class="text-green bold">POST</span> http://myvariant.info/v1/query/
 				</li>
