@@ -19,9 +19,15 @@
     </ul>
     <hr />
     <p class="smallFont">
-      All content copyright <a href="http://myvariant.info/" class="link text-green">MyVariant.info</a> © 2018 <br /> All rights reserved.
+      All content copyright <a href="http://myvariant.info/" class="link text-green">MyVariant.info</a> © <span id="year"></span> <br /> All rights reserved.
       <a href="/terms" class="link text-green">Terms of use.</a>
       <a href="/citation/" class="link text-green">How To Cite</a>
     </p>
   </div>
 </footer>
+<script>
+var currentTime = new Date()
+var year = currentTime.getFullYear()
+var myelement = document.getElementById("year");
+    myelement.innerHTML= year;
+</script>

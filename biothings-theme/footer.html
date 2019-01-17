@@ -19,10 +19,16 @@
     </ul>
     <hr />
     <p class="smallFont">
-      All content copyright <a href="http://biothings.io/" class="link text-muted">BioThings.io</a> © 2018
+      All content copyright <a href="http://biothings.io/" class="link text-muted">BioThings.io</a> © <span id="year"></span>
       <br /> All rights reserved.
       <a target="_blank" href="http://biothings.io/terms" class="link text-muted">Terms of use.</a>
       <a target="_blank" href="http://biothings.io/citation/" class="link text-muted">How To Cite</a>
     </p>
   </div>
 </footer>
+<script>
+var currentTime = new Date()
+var year = currentTime.getFullYear()
+var myelement = document.getElementById("year");
+    myelement.innerHTML= year;
+</script>
