@@ -406,7 +406,6 @@
       <script async defer src="https://buttons.github.io/buttons.js"></script>
 			<script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
 			<script src="/static/js/countUp.js"></script>
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
 			<script src="/static/js/app.js"></script>
 			<script src="/static/js/moment.js"></script>
 			<script src="/static/js/renderjson.js"></script>
@@ -430,7 +429,7 @@
 			});
 
 			$('.callButton').on('click tap', function(){
-				var myUrl = $(this).data('url');
+				// var myUrl = $(this).data('url');
 				$('#callResults').html('');
 				$('#loading').show();
 				$.ajax({

@@ -444,9 +444,8 @@
       <script async defer src="https://buttons.github.io/buttons.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-			<script src="/static/js/cube.js"></script>
 			<script src="/static/js/feature.js"></script>
-			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+			<script src="/static/js/sweetalert.js"></script>
 			<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 			<script>
 
@@ -603,7 +602,7 @@
 									// new Vivus('specs', {duration: 120, type: 'oneByOne'});
 							},
 							popUp: function(info){
-								swal({
+								Swal.fire({
 									imageUrl: info.img,
 									imageWidth: '300px',
 									title: '<h4 style="color:'+info.color+'">'+info.tagline+'</h4>',
@@ -614,7 +613,7 @@
 								})
 							},
 							popUpInfo: function(info){
-								swal({
+								Swal.fire({
 									imageUrl: '/static/img/biothings-text.png',
 									imageWidth: '200px',
 									imageAlt: info.title,
