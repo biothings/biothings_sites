@@ -315,39 +315,42 @@
 				</div>
 			</div>
 			<br />
-			<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>
-				BioThings API Specifications <i class="fas fa-plus"></i>
-			</a>
+
 		</div>
 		<img class="d-none d-md-block" data-depth="0.1" width="100%" src="/static/img/c-comp.png"/>
 		<img style="opacity: .7;" data-depth="0.2" height="100%" src="/static/img/biothings-studio-white.svg" alt='biothings logo' title="Download"/>
 		<img style="opacity: .2;" data-depth="0.1" height="100%" src="/static/img/c-wire.svg" alt='biothings logo' title="Download"/>
 	</div>
 
-	<div v-if="showContributeDetails" class="row text-center container-fluid marginFix bg-warning slide-in-elliptic-top-fwd">
-		<div class="col-sm-12 col-md-12 col-lg-12 text-center padding40" >
-			<img id="specs" width="150px" class="margin20" src="/static/img/specs-icon.svg"/>
-			<h3 class="text-dark smallCaps margin20">
-				Guidelines to follow when building a BioThings API
-			</h3>
-			<a href="/specs/" class="themeButton draw margin20">SPECS</a>
+	<div class="padding20 text-center">
+		<a class="btn btn-dark text-warning margin20" @click='toggleDetails()'>
+			BioThings API Specifications <i class="fas fa-plus"></i>
+		</a>
+		<div v-if="showContributeDetails" class="row text-center container-fluid marginFix bg-warning slide-in-elliptic-top-fwd">
+			<div class="col-sm-12 col-md-12 col-lg-12 text-center padding40" >
+				<img id="specs" width="150px" class="margin20" src="/static/img/specs-icon.svg"/>
+				<h3 class="text-dark smallCaps margin20">
+					Guidelines to follow when building a BioThings API
+				</h3>
+				<a href="/specs/" class="themeButton draw margin20">SPECS</a>
+			</div>
+			<!-- <div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
+				<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/auth-icon.svg"/>
+				<br />
+				<a href="/specs/" class="themeButton draw margin20">API AUTHORIZATION</a>
+				<h3 class="text-dark smallCaps margin20">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit
+				</h3>
+			</div>
+			<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
+				<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/track-icon.svg"/>
+				<br />
+				<a href="/specs/" class="themeButton draw margin20">API TRACKING</a>
+				<h3 class="text-dark smallCaps margin20">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit
+				</h3>
+			</div> -->
 		</div>
-		<!-- <div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
-			<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/auth-icon.svg"/>
-			<br />
-			<a href="/specs/" class="themeButton draw margin20">API AUTHORIZATION</a>
-			<h3 class="text-dark smallCaps margin20">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit
-			</h3>
-		</div>
-		<div class="col-sm-12 col-md-4 col-lg-4 text-center padding40" >
-			<img id="specs" width="40%" height="40%" class="margin20" src="/static/img/track-icon.svg"/>
-			<br />
-			<a href="/specs/" class="themeButton draw margin20">API TRACKING</a>
-			<h3 class="text-dark smallCaps margin20">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit
-			</h3>
-		</div> -->
 	</div>
 
 	<div id="explore" data-relative-input="true" class="text-center parallaxBack parallaxBox">
