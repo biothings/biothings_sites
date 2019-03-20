@@ -209,19 +209,19 @@
 			  <li class="list-group-item">
 					<h4 class="noMargin">Retrieve chemical/drug objects based on common IDs</h4>
 					<br />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">ZRALSGWEFCBTJO-UHFFFAOYSA-N </span>(InChIKey)
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">ZRALSGWEFCBTJO-UHFFFAOYSA-N </span>(InChIKey)
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/ZRALSGWEFCBTJO-UHFFFAOYSA-N' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">DB00551 </span>(Drugbank ID)
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">DB00551 </span>(Drugbank ID)
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/DB00551' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEMBL1308 </span>(ChEMBL Compound ID)
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">CHEMBL1308 </span>(ChEMBL Compound ID)
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/CHEMBL1308' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">7AXV542LZ4 </span>(UNII Compound ID)
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">7AXV542LZ4 </span>(UNII Compound ID)
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/7AXV542LZ4' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
           <hr />
-					<span class="text-orange bold">GET</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEBI:6431 </span>(CHEBI ID)
+					<span class="text-orange bold">GET</span> http://mychem.info/v1/chem/<span class="text-orange bold">CHEBI:6431 </span>(CHEBI ID)
 					<button style="cursor: pointer !important;" data-url='//mychem.info/v1/drug/CHEBI:6431' type="button" class="btn btn-orange float-right text-orange callButton">Run</button>
 				</li>
         <li class="list-group-item">
@@ -292,19 +292,19 @@
     <tr>
       <td style="vertical-align:middle;"><h4 class="noMargin text-muted smallFont">Retrieve chemical objects based on common IDs</h4></td>
       <td style="vertical-align:middle;" class="smallFont">
-        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/drug/<span class="text-orange bold">FTALBRSUTCGOEG-UHFFFAOYSA-N </span>
+        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/chem/<span class="text-orange bold">FTALBRSUTCGOEG-UHFFFAOYSA-N </span>
         <span class="bold">(InChIKey)</span>
         <hr />
-        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/drug/<span class="text-orange bold">DB00740 </span>
+        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/chem/<span class="text-orange bold">DB00740 </span>
         <span class="bold">(Drugbank ID)</span>
         <hr />
-        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEMBL744 </span>
+        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/chem/<span class="text-orange bold">CHEMBL744 </span>
         <span class="bold">(ChEMBL Compound ID)</span>
         <hr />
-        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/drug/<span class="text-orange bold">7LJ087RS6F </span>
+        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/chem/<span class="text-orange bold">7LJ087RS6F </span>
         <span class="bold">(UNII Compound ID)</span>
         <hr />
-        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/drug/<span class="text-orange bold">CHEBI:8863 </span>
+        <span class="text-orange bold">GET&nbsp;</span> http://mychem.info/v1/chem/<span class="text-orange bold">CHEBI:8863 </span>
         <br /><span class="bold">(CHEBI ID)</span>
       </td>
     </tr>
@@ -429,7 +429,7 @@
 			});
 
 			$('.callButton').on('click tap', function(){
-				// var myUrl = $(this).data('url');
+				var myUrl = $(this).data('url');
 				$('#callResults').html('');
 				$('#loading').show();
 				$.ajax({
