@@ -101,7 +101,7 @@ $.ajax({
     custom_uptime_ratios: '1-7'
   },
   success: function(data){
-    //console.log(data);
+    // console.log(data);
     //display api status in API Status Button
     displayStatus(data.monitors[0].status);
     var parts = data.monitors[0].custom_uptime_ranges.split('-');
@@ -113,8 +113,8 @@ $.ajax({
         separator: ',',
         decimal: '.',
       };
-
-      var demo = new CountUp('daysRange'+(i+1), 0, parts[0], 0, 1.5, options);
+      // console.log(parts[i],i);
+      var demo = new CountUp('daysRange'+(i+1), 0, Math.trunc(parts[i]) , 0, 1.5, options);
       if (!demo.error) {
           demo.start();
       } else {

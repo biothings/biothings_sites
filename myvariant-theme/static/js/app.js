@@ -111,7 +111,7 @@ $.ajax({
         decimal: '.',
       };
 
-      var demo = new CountUp('daysRange'+(i+1), 0, parts[0], 0, 1.5, options);
+      var demo = new CountUp('daysRange'+(i+1), 0, Math.trunc(parts[i]), 0, 1.5, options);
       if (!demo.error) {
           demo.start();
       } else {
