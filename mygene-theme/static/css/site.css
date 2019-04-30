@@ -68,6 +68,11 @@
 	padding: 1rem 3rem 1rem 3rem !important;
 }
 
+.post-inner .content img, .post-inner .content video{
+	display: block;
+  margin: 1.5em auto;
+  max-width: 1040px;
+}
 
 .share {
 	font-size: 1em;
