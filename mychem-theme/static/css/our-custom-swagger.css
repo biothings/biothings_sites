@@ -41,3 +41,10 @@
 .swagger-ui .info a:hover{
   color: var(--orange-medium) !important;
 }
+
+.swagger-ui .servers>label {
+    font-size: 12px;
+    margin: auto !important;
+    font-family: sans-serif;
+    color: #3b4151;
+}
