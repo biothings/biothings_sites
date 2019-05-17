@@ -642,7 +642,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#353a40', end
 }
 
 a:hover{
-  color:white !important;
+  color:var(--yellow-light) !important;
   border-bottom:  none !important;
   text-decoration: none !important;
 }

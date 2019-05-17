@@ -1718,7 +1718,7 @@
 		a:hover {
 			text-decoration: none;
 			border-bottom-color: transparent;
-			color: white !important;
+			color:var(--yellow-light) !important;
 		}
 
 		#header > .navPanelToggle{
