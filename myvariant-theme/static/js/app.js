@@ -10,7 +10,7 @@ $.ajax({
     // last updated
     var date = new Date(data.build_date);
     var formattedTime = (date.getMonth()+1)+'-'+date.getDate()+'-'+date.getFullYear();
-    document.getElementById("buildDateTarget").text= formattedTime;
+    document.getElementById("buildDateTarget").innerHTML= formattedTime;
   }
 });
 
