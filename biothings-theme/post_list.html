@@ -10,12 +10,12 @@
       <p>{{post.html|striptags|truncate(100)}}</p>
       </a>
       <div>
-        {%if post.author.profile_image %}
-          <img class="post_author_img" src={{post.author.profile_image}} />
+        {%if post.primary_author.profile_image %}
+          <img class="post_author_img" src={{post.primary_author.profile_image}} />
             {% else %}
             <img class="post_author_img" src='/static/img/default-user.png' />
         {% endif %}
-        <span class="post_author text-warning"><a href="/author/{{post.author.slug}}">{{post.author.name}}</a></span>
+        <span class="post_author text-warning"><a href="/author/{{post.author.slug}}">{{post.primary_author.name}}</a></span>
         <ul class="actions">
           <li><a href="/blog/{{post.slug}}" class="btn btn-dark text-warning">More</a></li>
         </ul>

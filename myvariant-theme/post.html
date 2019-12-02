@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="{{(post.twitter_description or post_desc)|e}}" />
     <meta name="twitter:url" content="{{post_url}}" />
     <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="{{post.author.name}}" />
+    <meta name="twitter:data1" content="{{post.primary_author.name}}" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="{{post.tags|join(', ', attribute='name')}}" />
     <!--<meta name="twitter:site" content="@biothingsapi" />-->
@@ -42,7 +42,7 @@
 		    },
 		    "author": {
 		        "@type": "Person",
-		        "name": "{{post.author.name}}",
+		        "name": "{{post.primary_author.name}}",
 		        //"url": "http://wulab.io/author/cyrus-afrasiabi/",
 		        "sameAs": []
 		    },
@@ -69,10 +69,10 @@
 							<section class="post-full-meta text-light smallFont">
 									<time class="post-full-meta-date" datetime="{{post.published_at|datetimeformat("%Y-%m-%d")}}">{{post.published_at|datetimeformat("%b %d %Y")}}</time>
 									<span class="date-divider"> by
-										{% if post.author.slug %}
-						          <a class="text-green link" href="/author/{{post.author.slug}}">{{post.author.name}}</a>
+										{% if post.primary_author.slug %}
+						          <a class="text-green link" href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
 						        {% else %}
-						          {{post.author.name}}
+						          {{post.primary_author.name}}
 						        {% endif %}
 									</span>
 									<ul class="actions margin20">
