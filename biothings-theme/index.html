@@ -368,12 +368,12 @@
 				<div>
 					<article class="box">
 						<div class="content">
-							{%if post.author.profile_image %}
-			        <img class="post_author_img" src={{post.author.profile_image}} />
+							{%if post.primary_author.profile_image %}
+			        <img class="post_author_img" src={{post.primary_author.profile_image}} />
 			        {% else %}
 			        <img class="post_author_img" src='/static/img/default-user.png' />
 			        {% endif %}
-							<span class="post_author text-muted smallFont">{{post.author.name}}</span>
+							<span class="post_author text-muted smallFont">{{post.primary_author.name}}</span>
 							<h4 class="text-warning">{{post.title}}</h4>
 							<p class="text-muted">{{post.html|striptags|truncate(100)}}</p>
 							<ul class="actions">
