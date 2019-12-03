@@ -30,7 +30,7 @@
     <meta name="twitter:description" content="{{(post.twitter_description or post_desc)|e}}" />
     <meta name="twitter:url" content="{{post_url}}" />
     <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="{{post.author.name}}" />
+    <meta name="twitter:data1" content="{{post.primary_author.name}}" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="{{post.tags|join(', ', attribute='name')}}" />
     <!--<meta name="twitter:site" content="@biothingsapi" />-->
@@ -46,7 +46,7 @@
 		    },
 		    "author": {
 		        "@type": "Person",
-		        "name": "{{post.author.name}}",
+		        "name": "{{post.primary_author.name}}",
 		        //"url": "http://wulab.io/author/cyrus-afrasiabi/",
 		        "sameAs": []
 		    },
@@ -80,7 +80,7 @@
 							<section class="post-full-meta">
 								  <span class="date-divider text-muted"> last updated: </span>
 									<time class="post-full-meta-date text-muted" datetime="{{post.updated_at|datetimeformat("%Y-%m-%d")}}">{{post.updated_at|datetimeformat("%b %d %Y")}}</time>
-									<!--<span class="date-divider"> by {{post.author.name}}</span>
+									<!--<span class="date-divider"> by {{post.primary_author.name}}</span>
 									<ul class="actions">
 										{% for tag in post.tags %}
 										<li>
