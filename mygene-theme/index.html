@@ -411,19 +411,19 @@
 				<div>
 					<article class="box">
 						<div class="content">
-							{%if post.author.profile_image %}
-			        <img class="post_author_img" src={{post.author.profile_image}} />
-              {% if post.author.slug %}
-                <a href="/author/{{post.author.slug}}">{{post.author.name}}</a>
+							{%if post.primary_author.profile_image %}
+			        <img class="post_author_img" src={{post.primary_author.profile_image}} />
+              {% if post.primary_author.slug %}
+                <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
               {% else %}
-                {{post.author.name}}
+                {{post.primary_author.name}}
               {% endif %}
 							{% else %}
 							<img class="post_author_img" src='/static/img/mygene-default-user.png' />
-              {% if post.author.slug %}
-                <a href="/author/{{post.author.slug}}">{{post.author.name}}</a>
+              {% if post.primary_author.slug %}
+                <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
               {% else %}
-                {{post.author.name}}
+                {{post.primary_author.name}}
               {% endif %}
 			        {% endif %}
 							<a href="/blog/{{post.slug}}">
