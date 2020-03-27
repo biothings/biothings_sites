@@ -1,0 +1,204 @@
+<!-- Header -->
+<header id="headerComp">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark w-100 fixed-top">
+    <a class="navbar-brand logoFont" href="/" id="headlogo">
+      <span class="d-none d-md-block">My<span class="text-main" v-text="snType"></span>.info</span>
+      <i class="fas fa-home d-block d-md-none"></i>
+    </a>
+    <li class="nav-item dropup d-block d-md-none">
+      <a class="nav-link dropdown-toggle font-weight-bold text-light btn btn-main btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More APIs</a>
+      <div class="dropdown-menu bg-dark pb-0">
+        <div class="dropdown-item">
+          <a target="_blank" href="https://mygene.info/" v-on:mouseover="handleHover('MyGene.info')" class=" text-light">My<span class="text-blue">Gene</span>.info <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="dropdown-item">
+          <a target="_blank" href="https://myvariant.info/" v-on:mouseover="handleHover('MyVariant.info')" class=" text-light">My<span class="text-green">Variant</span>.info <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="dropdown-item">
+          <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class=" text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item">
+          <a target="_blank" href="https://biothings.io/" v-on:mouseover="handleHover('BioThings')" class=" text-light">BioThings.io <i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </li>
+    <a role="button" class="nav-item nav-link text-light btn btn-main btn-sm d-block d-md-none" :href="tryItLink">Try It <i class="fas fa-cube"></i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-plus text-light"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/about">About</a>
+        <a class="nav-item nav-link" :href="uptimeLink" target="_blank">Status <i class="fas fa-external-link-square-alt text-main"></i></a>
+        <a class="nav-item nav-link" :href="tryItLink">Try Live API</a>
+        <a class="nav-item nav-link" :href="docsLink" target="_blank">Docs <i class="fas fa-external-link-square-alt text-main"></i></a>
+        <a class="nav-item nav-link" href="/faq">FAQ</a>
+        <a class="nav-item nav-link" href="/blog">News</a>
+        <a class="nav-item nav-link" :href="brandingLink" target="_blank">Branding <i class="fas fa-external-link-square-alt text-main"></i></a>
+        <a class="nav-item nav-link" href="/support-us">Support Us</a>
+        <li class="nav-item dropdown d-none d-md-block">
+          <a class="nav-link dropdown-toggle dropright font-weight-bold text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More BioThings APIs</a>
+          <div class="dropdown-menu bg-dark pb-0">
+            <div class="dropdown-item">
+              <a target="_blank" href="https://mygene.info/" v-on:mouseover="handleHover('MyGene.info')" class="logoFont bg-transparent text-light">My<span class="text-blue">Gene</span>.info <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="dropdown-item">
+              <a target="_blank" href="https://myvariant.info/" v-on:mouseover="handleHover('MyVariant.info')" class="logoFont bg-transparent text-light">My<span class="text-green">Variant</span>.info <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="dropdown-item">
+              <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class="logoFont bg-transparent text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <a target="_blank" href="https://biothings.io/" v-on:mouseover="handleHover('BioThings')" class="logoFont bg-transparent text-light">BioThings.io <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="dropdown-item" :class="backgroundclss">
+              <img width="200" :src="imglink" :alt="hovered"/>
+              <h5 :class="textclss" v-text="hovered" class="text-center logoFont"></h5>
+            </div>
+          </div>
+        </li>
+        <a class="nav-item nav-link text-warning font-weight-bold neon pointer" data-toggle="modal" data-target="#exampleModal">
+          Stay Updated <i class="fas fa-bolt text-main"></i>
+        </a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://biothings.io/">BioThings API <i class="fas fa-chevron-right text-main"></i></a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mygene.info/">MyGene.info <i class="fas fa-chevron-right text-main"></i></a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://myvariant.info/">MyVariant.info <i class="fas fa-chevron-right text-main"></i></a>
+        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mychem.info/">MyChem.info <i class="fas fa-chevron-right text-main"></i></a>
+      </div>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark p-0">
+      <div class="modal-header bg-dark text-light no-border">
+        <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-dark text-light no-border">
+        <a target="_blank" href="http://groups.google.com/group/biothings/boxsubscribe" rel="noreferrer">
+          <img width="100%" class="join" src="/static/img/join.jpg" alt="Google Group"/>
+        </a>
+        <h3 class="text-light mt-2 text-center">Join our group! It's easy!</h3>
+
+        <ul>
+          <li>
+            Get notified about new version releases
+          </li>
+          <li>
+            Contribute and report bugs/ suggest improvements
+          </li>
+          <li>
+            Be the first to learn about new products and updates
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer text-light no-border bg-main-medium">
+        <small>Need Help? <a href="/#need-help">Click Here</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script>
+var app = new Vue({
+  el: '#headerComp',
+  data: function(){
+    return {
+      textclss:'',
+      backgroundclss:'',
+      hovered:'',
+      sn:'',
+      snType:'',
+      tryItLink:'',
+      brandingLink:'',
+      docsLink:'',
+      uptimeLink:'',
+      imglink:''
+    }
+  },
+  watch:{
+  },
+  methods:{
+    handleHover(item){
+      var self = this;
+      self.hovered = item;
+      switch (item) {
+        case "MyGene.info":
+          self.imglink= "/static/img/mygene-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-blue';
+          this.textclss='text-blue';
+
+          break;
+        case "MyVariant.info":
+          self.imglink= "/static/img/myvariant-logo-shiny-md.png";;
+          self.backgroundclss='blackTransBack-green';
+          this.textclss='text-green';
+
+          break;
+        case "MyChem.info":
+          self.imglink= "/static/img/mychem-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-orange';
+          this.textclss='text-orange';
+
+          break;
+        case "BioThings":
+          self.imglink= "/static/img/biothings-logo.svg";
+          self.backgroundclss='blackTransBack-yellow';
+          this.textclss='text-warning';
+
+          break;
+        default:
+          this.textclss='';
+          this.backgroundclss=''
+      }
+    },
+
+},
+mounted:function(){
+  var self = this;
+
+  self.sn = "{{site_name}}"
+  // site specific classes and settings
+  if (self.sn) {
+    switch (self.sn) {
+      case "MyGene.info":
+        self.tryItLink='/v3/api';
+        self.snType='Gene';
+        self.brandingLink = 'http://biothings.io/branding#mygene-branding';
+        self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+        break;
+      case "MyChem.info":
+        self.tryItLink='/v1/api';
+        self.snType='Chem';
+        self.brandingLink = 'http://biothings.io/branding#mychem-branding';
+        self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
+        break;
+      case "MyVariant.info":
+        self.tryItLink='/v1/api';
+        self.snType='Variant';
+        self.brandingLink = 'http://biothings.io/branding#myvariant-branding';
+        self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
+        break;
+      default:
+        // default is Mygene
+        self.tryItLink='/v3/api';
+        self.snType='Gene';
+        self.brandingLink = 'http://biothings.io/branding#mygene-branding';
+        self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+    }
+  }
+
+}
+})
+</script>

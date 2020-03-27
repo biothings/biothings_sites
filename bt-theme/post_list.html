@@ -1,0 +1,26 @@
+<div class="row d-flex justify-content-center row-cols-1 row-cols-md-3">
+    {% for post in posts %}
+    <div class="card col-sm-6 col-md-3 col-lg-4 m-2 alert-light card-news">
+      <article>
+        {% if post.primary_tag %}
+        <span class="badge badge-secondary"><i class="fas fa-tag text-main"></i> {{post.primary_tag.name}}</span>
+        {% endif %}
+        <div class="card-body">
+          <a href="/blog/{{post.slug}}">
+            <h3 class="card-title">{{post.title}}</h3>
+          </a>
+          <p class="card-text">{{post.html|striptags|truncate(100)}}</p>
+          <div class="blockquote-footer">
+            {%if post.primary_author.profile_image %}
+              <img class="post_author_img" src={{post.primary_author.profile_image}} />
+                {% else %}
+                <img class="post_author_img" src='/static/img/mygene-default-user.png' />
+            {% endif %}
+            <span class="post_author text-main"><a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a></span>
+          </div>
+          <a href="/blog/{{post.slug}}" class="btn btn-dark text-main mt-2">More</a>
+        </div>
+      </article>
+    </div>
+    {% endfor %}
+</div>

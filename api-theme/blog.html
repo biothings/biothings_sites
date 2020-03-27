@@ -1,0 +1,140 @@
+{% extends "main.html" %}
+{% block content %}
+<section class="jumbotron carbonfiber" id="blogapp">
+  <div class="blogBack">
+    <header class="d-flex justify-content-center align-items-center">
+      <div class="w-100 text-center">
+        <div class="logoBox m-auto bg-dark p-2 d-none d-md-block">
+          <object id="my-svg" type="image/svg+xml" data="/static/img/mygene-api.svg" style="max-width:100px;"></object>
+        </div>
+        <h2 class="text-light smallCaps lighter">What's new</h2>
+        {% if tag %}
+        <div class="text-light">
+          Filtered by <a href="/blog?tag={{tag.slug}}" class="badge badge-secondary"><i class="fas fa-tag text-main"></i> {{tag.name}}</a>
+        </div>
+        {% endif %}
+        {% if author %}
+        <div class="text-light">
+          {% if author.website %}
+            Authored by <a class="text-main link" href="{{author.website}}">{{author.name}}</a>
+          {% else %}
+            Authored by {{author.name}}
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </header>
+    <div class="container-fluid">
+      {% include "post_list.html" %}
+    </div>
+    <div class="loading">
+      <div class="wrapper">
+          <div class="circle circle-1"></div>
+          <div class="circle circle-1a"></div>
+          <div class="circle circle-2"></div>
+          <div class="circle circle-3"></div>
+      </div>
+      <p>Loading&hellip;</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  var current_page = 1;
+  var end_of_posts = false;
+  var current_tag;
+  var current_author;
+  {% if tag %}
+  current_tag = "{{tag.slug}}";
+  {% endif %}
+  {% if author %}
+  current_author = "{{author.slug}}";
+  {% endif %}
+
+  $(document).ready(function() {
+    // set nav bar highlighting
+    $("#nav>ul>li").removeClass('current');
+    $("#nav3").addClass('current');
+
+    new Vivus('my-svg', {duration: 100, type: 'oneByOne'});
+
+  	var win = $(window);
+    var scroll_offset = 25;
+    if (typeof skel !== 'undefined') {
+      if (skel.vars.os == "android" && skel.vars.browser == "chrome"){
+        scroll_offset = 60;
+      }
+    }
+
+  	// Each time the user scrolls
+  	win.scroll(function() {
+  		// End of the document reached?
+  		if (!end_of_posts && $(document).height() - win.height() - scroll_offset <= win.scrollTop()) {
+  			$('.loading').show();
+        current_page += 1;
+        var url = '/post?limit=9&html=1&page=' + current_page.toString();
+        if (current_tag) url += "&tag=" + current_tag;
+        if (current_author) url += "&author=" + current_author;
+  			$.ajax({
+  				url: url,
+  				dataType: 'html',
+  				success: function(html) {
+            if(html.trim()){
+    					$('.posts').append(html);
+              $('.loading').hide();
+            }else{
+              end_of_posts = true;
+              $('.loading .wrapper').remove();
+              $('.loading p').html("You reached the end.");
+            }
+  				}
+  			});
+  		}
+  	});
+  });
+
+</script>
+<script>
+	var app = new Vue({
+	  el: '#blogapp',
+	  data: function(){
+	    return {
+	      sn:'',
+	    }
+	  },
+		mounted:function(){
+		  var self = this;
+
+			$(document).ready(function() {
+				new Vivus('my-svg', {duration: 100, type: 'oneByOne'});
+			});
+
+		  self.sn = "{{site_name}}"
+		  // site specific classes and settings
+      if (self.sn) {
+				let ltag = document.createElement( 'link' );
+				ltag.setAttribute( 'rel', "stylesheet" );
+
+		    switch (self.sn) {
+		      case "MyGene.info":
+					  ltag.setAttribute( 'href', "/static/css/gene.css" );
+					  document.head.appendChild( ltag );
+		        break;
+		      case "MyChem.info":
+						ltag.setAttribute( 'href', "/static/css/chem.css" );
+						document.head.appendChild( ltag );
+		        break;
+		      case "MyVariant.info":
+						ltag.setAttribute( 'href', "/static/css/variant.css" );
+						document.head.appendChild( ltag );
+		        break;
+		      default:
+		    }
+		  }
+
+		}
+	})
+</script>
+{% endblock %}

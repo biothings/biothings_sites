@@ -1,0 +1,66 @@
+<footer id="footer" class="bg-dark p-0" style="bottom:0;">
+  <div class="copyright text-center text-muted">
+    <ul class="noListStyle">
+      <li class="d-inline m-2">
+        <a class="link text-main" :href="twitterLink" target="_blank" rel="noreferrer">
+          <i class="fab fa-twitter fa-2x"></i>
+        </a>
+      </li>
+      <li class="d-inline m-2">
+        <a class="link text-main" :href="ghLink" target="_blank" rel="noreferrer">
+          <i class="fab fa-github-alt fa-2x"></i>
+        </a>
+      </li>
+    </ul>
+    <hr />
+    <p class="smallFont">
+      All content copyright <a href="/" class="link text-main" target="_blank" rel="noreferrer"><span v-text="sn"></span></a> © <span v-text="year"></span> <br /> All rights reserved.
+      <a href="/terms" class="link text-main" target="_blank" rel="noreferrer">Terms of use.</a>
+      <a href="/citation/" class="link text-main" target="_blank" rel="noreferrer">How To Cite</a>
+    </p>
+  </div>
+</footer>
+<script>
+
+  var app = new Vue({
+    el: '#footer',
+    data: function(){
+      return {
+        twitterLink:'',
+        ghLink:'',
+        sn:'',
+        year:""
+      }
+    },
+    mounted:function(){
+      var self = this;
+
+      var currentTime = new Date()
+      self.year = currentTime.getFullYear()
+
+      self.sn = "{{site_name}}"
+      // site specific classes and settings
+      if (self.sn) {
+        switch (self.sn) {
+          case "MyGene.info":
+            self.twitterLink='http://twitter.com/mygeneinfo';
+            self.ghLink="https://github.com/biothings/mygene.info"
+            break;
+          case "MyChem.info":
+            self.twitterLink='http://twitter.com/mycheminfo';
+            self.ghLink="https://github.com/biothings/mychem.info"
+            break;
+          case "MyVariant.info":
+            self.twitterLink='http://twitter.com/myvariantinfo';
+            self.ghLink="https://github.com/biothings/myvariant.info"
+            break;
+          default:
+            // default is Mygene
+            self.twitterLink='http://twitter.com/mygeneinfo';
+            self.ghLink="https://github.com/biothings/mygene.info"
+        }
+      }
+
+    }
+  })
+</script>

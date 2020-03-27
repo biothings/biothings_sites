@@ -1,0 +1,312 @@
+/* ****************************************** */
+/* ************   SITE COLORS *************** */
+/* ****************************************** */
+
+:root {
+
+  /* MYDISEASE*/
+  --main-dark: #552481;
+  --main-medium: #8045B5;
+  --main-light: #9e6acc;
+
+}
+
+
+/* **************************************************** */
+/* ************************ images ******************** */
+/* **************************************************** */
+
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: none;
+}
+
+@media only screen and (min-width: 992px) {
+  .hero {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('../img/newDiseaseHero-01.svg');
+  }
+}
+
+/* **************************************************** */
+/* *********** classes that depend on site colors ***** */
+/* **************************************************** */
+.navbar{
+  background: var(--dark);
+}
+
+.bg-gray{
+  background: var(--gray-dark);
+}
+
+.themeGradient {
+  background: rgb(42, 127, 226);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, var(--main-medium) 0%, var(--main-dark) 52%, rgba(0, 0, 0, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--main-medium) 0%, var(--main-dark) 52%, rgba(0, 0, 0, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--main-medium) 0%, var(--main-dark) 52%, rgba(0, 0, 0, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2a7fe2', endColorstr='#343a40', GradientType=0);
+  /* IE6-9 */
+}
+
+.circleBox{
+  clip-path: circle(50% at 50% 50%);
+  width: 50px;
+  height: 50px;
+}
+
+.blueBack {
+  background-color: var(--main-medium);
+}
+
+.blueBackGradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#353a40+0,2a7fe2+100 */
+  background: rgb(53, 58, 64);
+  /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(42, 127, 226, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(42, 127, 226, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(53, 58, 64, 1) 0%, rgba(42, 127, 226, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353a40', endColorstr='#2a7fe2', GradientType=1);
+  /* IE6-9 */
+}
+
+.chartBackground {
+  background-image: url('../img/mygene-chart.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.greenBack {
+  background-color: var(--main-medium);
+}
+
+.greenBackGradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#353a40+0,40b307+100 */
+  background: rgb(53, 58, 64);
+  /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(64, 179, 7, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(64, 179, 7, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(53, 58, 64, 1) 0%, rgba(64, 179, 7, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353a40', endColorstr='#40b307', GradientType=1);
+  /* IE6-9 */
+}
+
+.orangeBack {
+  background-color: var(--main-medium);
+}
+
+.orangeBackGradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#353a40+0,fd7400+100 */
+  background: rgb(53, 58, 64);
+  /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(253, 116, 0, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(53, 58, 64, 1) 0%, rgba(253, 116, 0, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(53, 58, 64, 1) 0%, rgba(253, 116, 0, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#353a40', endColorstr='#fd7400', GradientType=1);
+  /* IE6-9 */
+}
+
+.text-main{
+  color: var(--main-light);
+}
+
+a{
+  color: var(--main-dark);
+}
+
+a:visited{
+  color: var(--main-medium);
+}
+
+a:hover{
+  color: var(--main-medium);
+}
+
+.bg-main-light{
+  background-color: var(--main-light);
+}
+.bg-main-medium{
+  background-color: var(--main-medium);
+}
+.bg-main-dark{
+  background-color: var(--main-dark);
+}
+
+.btn-main:hover{
+  background-color: var(--main-light);
+}
+.btn-main{
+  transition: 1s all;
+  background-color: var(--main-medium);
+}
+
+::selection {
+  background-color: var(--main-dark);
+  color: white;
+}
+
+#navPanel .link.depth-0 {
+  color: var(--main-light) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  border: none !important;
+}
+
+.navbar-dark .navbar-brand {
+  border: none !important;
+}
+
+#nav{
+  box-shadow: 0px 0px 20px var(--main-medium);
+}
+
+/* hides 'More API's' button in mobile view */
+#navPanel a:not([href]):not([tabindex]) {
+  display: none !important;
+}
+
+#navPanel a.depth-0:nth-last-child(3) {
+  color: #FCBE38 !important;
+}
+
+#navPanel a.depth-0:nth-last-child(2) {
+  color: var(--main-light) !important;
+}
+
+#navPanel a.depth-0:last-child {
+  color: var(--orange-light) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-medium);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-light);
+}
+
+div.content a:hover {
+  color: var(--main-medium) !important;
+}
+
+.mainButton {
+  /* light #669BE8  */
+  /* dark #2A7FE2 */
+  padding: 15px;
+  margin: 20px;
+  background-color: rgba(42, 137, 226, 0.1);
+  color: white;
+  text-decoration: none;
+  font-weight: lighter;
+  border: var(--main-light) 2px solid;
+  transition: 1s all;
+  word-break: keep-all;
+}
+
+.mainButton:hover {
+  /* light #669BE8  */
+  /* dark #2A7FE2 */
+  padding: 15px;
+  margin: 20px;
+  background-color: rgba(42, 137, 226, 0.4);
+  color: white !important;
+  text-decoration: none;
+  font-weight: lighter;
+  border: white 2px solid;
+  transition: 1s all;
+}
+
+.renderjson a {
+  text-decoration: none;
+}
+
+.renderjson .disclosure {
+  color: var(--main-dark);
+  font-size: 150%;
+}
+
+.renderjson .key {
+  color: var(--main-medium)
+}
+
+.asterisk {
+  vertical-align: sub;
+}
+
+/* The Close Button */
+.close {
+  color: var(--main-medium);
+  float: right;
+  clear: both;
+  font-size: 28px;
+  font-weight: bold;
+  transition: 1s all;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logoBox{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--main-dark);
+}
+
+
+.card-news{
+  border-right: 5px var(--main-light) solid;
+  box-shadow: rgb(73, 73, 73) 5px 5px;
+}
+
+.card-hover .reveal {
+    opacity: 0;
+}
+
+#moreApisButton {
+  position: fixed;
+  right: 0;
+  margin-right: 20px;
+  border: var(--main-light) 2px solid !important;
+  transition: 1s all;
+}
+
+#moreApisButton:hover {
+  border: white 2px solid !important;
+}

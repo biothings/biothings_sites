@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /query
+Disallow: /gene
+Disallow: /v1
+Disallow: /v2
+Disallow: /v3
+Allow: /v3/api

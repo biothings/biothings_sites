@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="HandheldFriendly" content="True" />
+    <title>BioThings Uptime</title>
+    <link rel="shortcut icon" type="image/png" href="https://biothings.io/static/favicon.ico"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fugaz+One&display=swap" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <style>
+
+      .cont{
+        clip-path: polygon(20% 0, 80% 0, 95% 100%, 5% 100%);
+      }
+
+      .cont2{
+        clip-path: polygon(5% 0, 95% 0, 95% 100%, 5% 100%);
+      }
+
+      @-webkit-keyframes scale-in-center {
+        0% {
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes scale-in-center {
+        0% {
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .jello {
+      	-webkit-animation: jello-horizontal 0.9s both;
+      	        animation: jello-horizontal 0.9s both;
+      }
+
+      @-webkit-keyframes jello-horizontal {
+        0% {
+          -webkit-transform: scale3d(1, 1, 1);
+                  transform: scale3d(1, 1, 1);
+        }
+        30% {
+          -webkit-transform: scale3d(1.25, 0.75, 1);
+                  transform: scale3d(1.25, 0.75, 1);
+        }
+        40% {
+          -webkit-transform: scale3d(0.75, 1.25, 1);
+                  transform: scale3d(0.75, 1.25, 1);
+        }
+        50% {
+          -webkit-transform: scale3d(1.15, 0.85, 1);
+                  transform: scale3d(1.15, 0.85, 1);
+        }
+        65% {
+          -webkit-transform: scale3d(0.95, 1.05, 1);
+                  transform: scale3d(0.95, 1.05, 1);
+        }
+        75% {
+          -webkit-transform: scale3d(1.05, 0.95, 1);
+                  transform: scale3d(1.05, 0.95, 1);
+        }
+        100% {
+          -webkit-transform: scale3d(1, 1, 1);
+                  transform: scale3d(1, 1, 1);
+        }
+      }
+      @keyframes jello-horizontal {
+        0% {
+          -webkit-transform: scale3d(1, 1, 1);
+                  transform: scale3d(1, 1, 1);
+        }
+        30% {
+          -webkit-transform: scale3d(1.25, 0.75, 1);
+                  transform: scale3d(1.25, 0.75, 1);
+        }
+        40% {
+          -webkit-transform: scale3d(0.75, 1.25, 1);
+                  transform: scale3d(0.75, 1.25, 1);
+        }
+        50% {
+          -webkit-transform: scale3d(1.15, 0.85, 1);
+                  transform: scale3d(1.15, 0.85, 1);
+        }
+        65% {
+          -webkit-transform: scale3d(0.95, 1.05, 1);
+                  transform: scale3d(0.95, 1.05, 1);
+        }
+        75% {
+          -webkit-transform: scale3d(1.05, 0.95, 1);
+                  transform: scale3d(1.05, 0.95, 1);
+        }
+        100% {
+          -webkit-transform: scale3d(1, 1, 1);
+                  transform: scale3d(1, 1, 1);
+        }
+      }
+
+
+      .scale-in-center {
+      	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+
+      .main{
+        overflow: hidden !important;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#75afea+1,4a408e+100 */
+        background: rgb(117,175,234); /* Old browsers */
+        background: -moz-linear-gradient(left,  rgba(117,175,234,1) 1%, rgba(74,64,142,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(117,175,234,1) 1%,rgba(74,64,142,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(117,175,234,1) 1%,rgba(74,64,142,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75afea', endColorstr='#4a408e',GradientType=1 ); /* IE6-9 */
+      }
+      .apibox{
+        clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%);
+      }
+      .spFont{
+        font-family: 'Fugaz One', cursive;
+      }
+      .text-info{
+        color: #c586f6 !important;
+      }
+      .text-light{
+        color: white !important;
+      }
+      .bg-carb{
+        background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+        background-color: #131313;
+        background-size: 20px 20px;
+      }
+      .mainContent{
+        z-index: 1000;
+      }
+      .text-shadow{
+        text-shadow: 0px 2px 3px black;
+      }
+      .bg-dark{
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,45484d+100 */
+      background: rgb(0,0,0); /* Old browsers */
+      background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(69,72,77,1) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(69,72,77,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#45484d',GradientType=0 ); /* IE6-9 */
+
+      }
+      .glow{
+        text-shadow:0px 0px 3px #fff, 0px 0px 10px yellow;
+      }
+      .bg-black{
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="jumbotron rounded-0 bg-carb text-light text-center m-0 p-0" style="height:100vh;">
+      <div class="mainContent">
+        <div class="rom m-0">
+          <div class="col-sm-12 bg-black d-flex justify-content-around align-items-center py-5 mb-2">
+            <div class="p-1">
+              <h1 class="spFont text-shadow">BioThings <span class="text-info">Stats</span></h1>
+            </div>
+          </div>
+          <div class="col-sm-12 d-flex align-items-stretch p-0">
+            <template v-for="(api,i) in apis" :key="i">
+              <apibox class="m-1" :name="i" :info="api"></apibox>
+            </template>
+          </div>
+          <div class="col-sm-12 py-5 mb-2">
+            <h5 class="spFont">Uptime API</h5>
+            <small class="d=block">Get uptime info for a particular core BioThings API at any given date. Eg <a class="font-weight-bold text-info" href="/date-status/01302020mygene.info" rel="noreferrer">01302020mygene.info</a></small>
+            <p class="d=block">USAGE: <span>/date-status/<b class="text-info">MMDDYYYY+site_name</b></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script>
+
+      Vue.component('apibox', {
+        data: function () {
+          return {
+            rtusers:'',
+            loading:false,
+            timer:null,
+            top5Loc:[],
+            top5Pages:[],
+            top5Actions:[],
+            status:'',
+            perc:''
+          }
+        },
+        props: ['name','info'],
+        methods:{
+          getRT: function(){
+            var self = this;
+            self.loading = true;
+            axios.get(self.info.realtime).then(res=>{
+              self.loading = false;
+              self.rtusers = parseInt(res.data.totalsForAllResults['rt:activeUsers']).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }).catch(err=>{
+              self.loading = false;
+              self.rtusers ="N/A";
+              throw err;
+            });
+          },
+          getTop5Locations(){
+            var self = this;
+            axios.get(self.info.locationUrl).then(res=>{
+              if (res.data.rows) {
+                let arr = []
+                for (var i = 0; 5 > arr.length; i++) {
+                  if (res.data.rows[i][1] !== '(not set)') {
+                    let long = parseFloat(res.data.rows[i][2]);
+                    let lat = parseFloat(res.data.rows[i][3]);
+                    let obj ={'name': res.data.rows[i][1],'coordinates':[lat,long],'users': parseInt(res.data.rows[i][4]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") };
+                    arr.push(obj);
+                  }
+                }
+                self.top5Loc = arr;
+              }
+            }).catch(err=>{
+              throw err;
+            });
+          },
+          getTop5Pages(){
+            var self = this;
+            axios.get(self.info.pagesURL).then(res=>{
+              if (res.data.rows) {
+                let arr = []
+                for (var i = 0; i < 3; i++) {
+                  let long = parseFloat(res.data.rows[i][2]);
+                  let lat = parseFloat(res.data.rows[i][3]);
+                  let obj ={'name': res.data.rows[i][0],'hits':parseInt(res.data.rows[i][1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")};
+                  arr.push(obj);
+                }
+                self.top5Pages = arr;
+              }
+            }).catch(err=>{
+              throw err;
+            });
+          },
+          getTop5Actions(){
+            var self = this;
+            axios.get(self.info.actionsURL).then(res=>{
+              if (res.data.rows) {
+                let arr = []
+                for (var i = 0; i < 3; i++) {
+                  let long = parseFloat(res.data.rows[i][2]);
+                  let lat = parseFloat(res.data.rows[i][3]);
+                  let obj ={'name': res.data.rows[i][0],'hits':parseInt(res.data.rows[i][1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")};
+                  arr.push(obj);
+                }
+                self.top5Actions = arr;
+              }
+            }).catch(err=>{
+              throw err;
+            });
+          },
+          getStatus(){
+            var self = this;
+
+            var today = new Date();
+
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = mm + dd+ yyyy;
+
+            axios.get("/date-status/"+today+self.name.toLowerCase()).then(res=>{
+              if (res.data.status) {
+                self.status = res.data.status;
+                self.perc = parseFloat(res.data.percentage);
+              }
+            }).catch(err=>{
+              throw err;
+            });
+          }
+        },mounted:function(){
+          var self= this;
+          self.getStatus();
+          self.getRT();
+          self.getTop5Locations();
+          self.getTop5Pages();
+          self.getTop5Actions();
+
+          self.timer =setInterval(function(){
+            self.getRT();
+          }, 60000);
+
+          setInterval(function(){
+            self.top5Loc =[];
+            self.top5Pages =[];
+            self.top5Actions =[];
+            self.getStatus();
+            self.getTop5Locations();
+            self.getTop5Pages();
+            self.getTop5Actions();
+          }, 1000 * 60 * 60);
+        },
+        template: `<div class="flex-fill py-2 apibox d-flex flex-column" :style="{backgroundColor:info.color}">
+                    <div class="bg-dark p-2 shadow-sm flex-grow-1 cont">
+                      <img width="50px" :src="info.logo" :alt="name"/>
+                      <h4 v-text="name" class="text-shadow spFont"></h4>
+                      <template v-if="status">
+                        <span class="badge" :style="{backgroundColor:info.color}" v-text="'Status: '+status"></span>
+                        <span class="badge badge-secondary" v-text="perc+'%'"></span>
+                      </template>
+                      <h4 class="font-weight-light my-2" :class="{'jello':!loading}">
+                        <template v-if="rtusers && rtusers !== '0' ">
+                          <i class="fas fa-users" :style="{color:info.color}"></i>
+                          <span :id="name" class="text-light" v-text="rtusers" :style="{textShadow:'0px 0px 6px #fff, 0px 0px 20px '+info.color}"></span>
+                        </template>
+                      </h4>
+                      <template v-if="top5Loc.length">
+                        <hr />
+                        <div class="text-center">
+                          <template v-for="(loc,i) in top5Loc" :key="i">
+                            <div class="scale-in-center ">
+                              <small>
+                                <i class="fas fa-map-marker-alt text-muted"></i>
+                                <span v-text="loc.name"></span>
+                                <i class="fas fa-chevron-right text-muted"></i>
+                                <span v-text="loc.users" :style="{color:info.color}"></span>
+                              </small>
+                            </div>
+                          </template>
+                        </div>
+                      </template>
+                      <template v-if="top5Pages.length">
+                        <hr />
+                        <div class="text-center">
+                          <template v-for="(item,i) in top5Pages" :key="i">
+                            <div class="scale-in-center ">
+                              <small>
+                                <i class="fas fa-laptop text-muted"></i>
+                                <span v-text="item.name"></span>
+                                <i class="fas fa-chevron-right text-muted"></i>
+                                <span v-text="item.hits" :style="{color:info.color}"></span>
+                              </small>
+                            </div>
+                          </template>
+                        </div>
+                      </template>
+                      <template v-if="top5Actions.length">
+                        <hr />
+                        <div class="text-center">
+                          <template v-for="(item,i) in top5Actions" :key="i">
+                            <div class="scale-in-center ">
+                              <small>
+                                <i class="fas fa-mouse-pointer text-muted"></i>
+                                <span v-text="item.name"></span>
+                                <i class="fas fa-chevron-right text-muted"></i>
+                                <span v-text="item.hits" :style="{color:info.color}"></span>
+                              </small>
+                            </div>
+                          </template>
+                        </div>
+                      </template>
+                    </div>
+                    <div class="bg-dark p-2 shadow-sm flex-grow-1 cont2">
+
+                    </div>
+                  </div>`
+      });
+
+
+      var app = new Vue({
+        el: '#app',
+        data: function(){
+          return {
+            apis:{
+              'MyGene.info':{
+                color:"#669BE8",
+                logo:"https://biothings.io/static/img/mygene-logo.svg",
+                realtime:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDAsbqFCgw',
+                locationUrl : 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAmdKFCgw',
+                pagesURL: 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAq_OHCgw',
+                actionsURL: 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDA8puGCgw',
+              },
+              "MyVariant.info":{
+                color:"#85D958",
+                logo:"https://biothings.io/static/img/myvariant-logo.svg",
+                realtime:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICgwteGCgw',
+                locationUrl : '	https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDA05CWCQw',
+                pagesURL:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDAk4eHCgw',
+                actionsURL:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDA05CWCgw',
+              },
+              "MyChem.info":{
+                color:"#FF8E39",
+                logo:"https://biothings.io/static/img/mychem-logo.svg",
+                realtime:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDAyN6VCgw',
+                locationUrl : 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICggemUCgw',
+                pagesURL:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDAk4eHCgw',
+                actionsURL:'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAuqiOCgw',
+              },
+            }
+          }
+        },
+        watch:{
+        },
+        methods:{
+
+
+        },
+        mounted:function(){
+          var self = this;
+
+        }
+      })
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FCCA52;}
+	.st1{fill:#808080;}
+	.st2{fill:#E6E6E6;}
+	.st3{fill:#B3B3B3;}
+	.st4{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#FFFFFF;stroke-width:4;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#FFFFFF;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;}
+
+	@font-face {
+			font-family: logoRecharge;
+			src: url('/static/fonts/recharge.ttf');
+		}
+	.font { font: 2.5em logoRecharge}
+
+	@keyframes Ani {
+		0% {
+				transform: scale(1);
+				transform-origin: center;
+				stroke:#FFFFFF;
+		}
+		50% {
+				transform: scale(1.3);
+				transform-origin: center;
+				stroke: #FCBE38;
+		}
+		100% {
+				transform: scale(1);
+				transform-origin: center;
+				stroke:#FFFFFF;
+		}
+	}
+
+	@keyframes AniSmall {
+	0% {
+			transform: scale(1);
+			transform-origin: center;
+	}
+	50% {
+			transform: scale(.6);
+			transform-origin: center;
+	}
+	100% {
+			transform: scale(1);
+			transform-origin: center;
+	}
+	}
+
+		.Ani {
+				animation: Ani 5s ease-in-out infinite;
+				-webkit-animation: Ani 5s ease-in-out infinite;
+			animation-play-state: paused;
+		}
+
+		.Ani2 {
+				animation: Ani 3s ease-in-out infinite;
+				-webkit-animation: Ani 3s ease-in-out infinite;
+			animation-play-state: paused;
+		}
+	
+		.Ani3 {
+				animation: AniSmall 4s ease-in-out infinite;
+				-webkit-animation: AniSmall 4s ease-in-out infinite;
+			animation-play-state: paused;
+		}
+
+	#Layer_1:hover > .Ani, #Layer_1:hover > .Ani2{
+		animation-play-state: running;
+	}
+
+	.font{
+		text-shadow: 1px 1px 3px black;
+		transition: all 1s;
+		fill: white;
+	}
+
+	.font:hover{
+		fill: #FCBE38;
+	}
+
+
+	a {
+	cursor: pointer;
+	color: white;
+	}
+
+	a text {
+	text-decoration: none;
+	}
+
+	a:hover,a:active {
+	color: #FCBE38;
+	color: #FCBE38;
+	outline: none;
+	}
+
+</style>
+<defs>
+	<linearGradient id="Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" stop-color="#FCCA52 " stop-opacity="0" />
+      <stop offset="1" stop-color="#CE952B " stop-opacity="1" />
+    </linearGradient>
+  <linearGradient id="Gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0" stop-color="#CE952B" stop-opacity="0" />
+      <stop offset="1" stop-color="#CE952B " stop-opacity="1" />
+    </linearGradient>
+</defs>
+<g>
+<!-- 	<circle class="st000" cx="250" cy="250" r="250" fill="url(#Gradient)"/> -->
+  <polygon  points="333.5,93.2 152.5,93.2 62,250 152.5,406.8 333.5,406.8 424,250 " fill="url(#Gradient)"/>
+  <polygon points="318.7,119 167.3,119 91.7,250 167.3,381.1 318.7,381.1 394.3,250 " fill="url(#Gradient2)"/>
+</g>
+<g>
+	<polygon class="st1" points="300.7,150 185.3,150 127.5,250 185.3,350 300.7,350 358.5,250 	"/>
+	<polygon class="st2" points="243,250 301,150 358.5,250 301,350 	"/>
+	<polygon class="st3" points="127.5,250 243,250 301,150 185,150 	"/>
+</g>
+<polygon class="st4 Ani" points="318.7,119 167.3,119 91.7,250 167.3,381.1 318.7,381.1 394.3,250 "/>
+<polygon class="st5 Ani2" points="333.5,93.2 152.5,93.2 62,250 152.5,406.8 333.5,406.8 424,250 "/>
+<g class="">
+	<line class="st6" x1="243" y1="249.9" x2="370.8" y2="31"/>
+	<line class="st6" x1="0" y1="249.9" x2="243" y2="249.9"/>
+	<line class="st6" x1="243" y1="249.9" x2="370.5" y2="469"/>
+</g>
+  <a xlink:href="#access">
+    <text class="font logoFont" x="20" y="170">Access</text>
+  </a>
+  <a xlink:href="#build">
+    <text class="font logoFont" x="300" y="270">Build</text>
+  </a>
+  <a xlink:href="#explore">
+    <text class="font logoFont" x="20" y="350">Explore</text>
+  </a>
+</svg>

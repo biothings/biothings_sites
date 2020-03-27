@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="bg-dark">
+  <head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://MyGene.info/">
+    <meta property="og:site_name" content="MyGene.info">
+    <meta property="og:title" content="MyGene.info | Gene Annotation as a Service." />
+    <meta name="description" content="Gene Annotation as a Service." />
+    <!-- Variant -->
+    <!-- <meta property="og:image" content="https://s17.postimg.cc/wrqt8039b/featured.jpg"> -->
+    <!-- Gene -->
+    <meta property="og:image" content="https://s17.postimg.cc/rvsa0xr27/mygene-featured.jpg">
+    <!-- Chem -->
+    <!-- <meta property="og:image" content="https://s17.postimg.cc/v2mtkl6db/mychem-featured.jpg"> -->
+
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Gene Annotation as a Service.">
+    <meta property="fb:app_id" content="" />
+    <meta name="twitter:title" content="MyGene.info | Gene Annotation as a Service." />
+    <meta name="twitter:image" content="/static/img/mygene-favicon.png" />
+    <meta name="twitter:url" content="http://MyGene.info" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="Gene Annotation as a Service." />
+    <link rel="apple-touch-icon" href="/static/img/mygene-favicon.png" />
+		<link rel="shortcut icon" type="image/png" href="/static/img/mygene-favicon.png"/>
+    <title>MyGene.info | Try API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<link rel="stylesheet" href="/static/css/app.css" />
+    <link type="text/css" rel="stylesheet" href="/static/css/swagger-ui.css"/>
+    <style>
+    .swagger-ui .info{
+      padding-top: 100px;
+      margin: auto;
+      text-align: center;
+    }
+    </style>
+  </head>
+    <header>
+      <nav id="nav" class="navbar navbar-dark fixed-top">
+        <a class="navbar-item nav-link logoFont text-light" href="/">
+          <span class="d-none d-md-block">My<span class="text-main">Gene</span>.info</span>
+          <i class="fas fa-home d-block d-md-none"></i>
+        </a>
+      </nav>
+    </header>
+    <body>
+      <div id="swagger-ui"></div>
+    </body>
+    <footer id="footer" class="bg-dark" style="bottom:0; padding: none !important;">
+      <div class="copyright text-center text-muted">
+        <ul class="noListStyle listBlock">
+          <li>
+            <a class="link text-blue" href="http://mygene.info/rss/" target="_blank">
+              <i class="fas fa-rss fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="link text-blue" href="http://twitter.com/mygeneinfo" target="_blank">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="link text-blue" href="https://github.com/biothings/mygene.info" target="_blank">
+              <i class="fab fa-github-alt fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <hr />
+        <p class="smallFont">
+          All content copyright <a href="http://mygene.info/" class="link text-blue">MyGene.info</a> © <span id="year"></span>  <br /> All rights reserved.
+          <a href="/terms" class="link text-blue">Terms of use. </a>
+          <a href="/citation/" class="link text-blue">How To Cite</a>
+        </p>
+      </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script>
+    var currentTime = new Date()
+    var year = currentTime.getFullYear()
+    var myelement = document.getElementById("year");
+        myelement.innerHTML= year;
+      // Plug-in to hide empty tags in Swagger UI
+      const HideEmptyTagsPlugin = () => {
+        return {
+          statePlugins: {
+            spec: {
+              wrapSelectors: {
+                taggedOperations: (ori) => (...args) => {
+                  return ori(...args)
+                    .filter(tagMeta => tagMeta.get("operations") && tagMeta.get("operations").size > 0)
+                }
+              }
+            }
+          }
+        }
+      };
+
+      // SwaggerUI Bundle
+      const ui = SwaggerUIBundle({
+        url: "https://smart-api.info/api/metadata/59dce17363dce279d389100834e43648?format=yaml",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          // SwaggerUIStandalonePreset
+          // disables TopBar
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl,
+          // plug-in to hide empty tags
+          HideEmptyTagsPlugin
+        ],
+        // layout: "StandaloneLayout"
+        // disables TopBar
+      })
+      window.ui = ui;
+    </script>
+  </body>
+</html>

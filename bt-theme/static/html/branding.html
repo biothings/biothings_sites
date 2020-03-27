@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://biothings.io">
+    <meta property="og:site_name" content="BioThings.io">
+    <meta property="og:title" content="BioThings.io" />
+    <meta name="description" content="Making High Performance Data APIs in Biology" />
+    <meta property="og:image" content="https://s17.postimg.cc/jov6ogptb/featured.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Making High Performance Data APIs in Biology">
+    <meta property="fb:app_id" content="" />
+    <meta name="twitter:title" content="BioThings.io" />
+    <meta name="twitter:image" content="/static/img/Biothings.png" />
+    <meta name="twitter:url" content="http://biothings.io" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="Making High Performance Data APIs in Biology" />
+    <link rel="apple-touch-icon" href="/static/img/Biothings.png" />
+		<!-- Tab Favicon -->
+		<link rel="shortcut icon" type="image/png" href="/static/img/biothings-favicon.png"/>
+    <title>BioThings.io</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<link rel="stylesheet" href="/static/css/app.css" />
+    <link rel="stylesheet" href="/static/css/branding.css" />
+  </head>
+  <style>
+  .anchorLink  a{
+  	transition: .4s all;
+  }
+
+  .anchorLink:hover a{
+  	opacity: 1 !important;
+  }
+  .bg-darker{
+    background: #252a2e;
+  }
+  .row{
+    margin: 0!important;
+    padding: 0!important;
+  }
+  </style>
+  <body class="bg-dark">
+    <header id="header" class="alt">
+      <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark fullWidth blackBack fixed-top">
+      <a class="navbar-brand" href="/">
+        <img src="/static/img/biothings-text.png" alt="logo" style="width:180px;">
+      </a>
+    </nav>
+    </header>
+
+    <section class="bg-light padding20 text-center">
+      <div id="hero" class="fullWidth text-center bg-warning">
+        <img data-depth="0.2" width="100%" src="/static/img/device-xl.png" alt="device"/>
+        <img data-depth="0.3" width="100%" src="/static/img/device-l.png" alt="device"/>
+        <img data-depth="0.4" width="100%" src="/static/img/device-m.png" alt="device"/>
+        <img data-depth="0.6" width="100%" src="/static/img/device-s.png" alt="device"/>
+      </div>
+      <h1 class="text-muted margin20">Branding</h1>
+      <hr />
+      <h5>
+        Quick Links
+      </h5>
+      <a class="smallButton text-dark" href="#biothings-branding">Biothings&nbsp;API&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color: var(--yellow-medium)"></i></a>
+      <a class="smallButton text-dark" href="#biothings-studio-branding">Biothings&nbsp;Studio&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color:#5ECAEF;"></i></a>
+      <a class="smallButton text-dark" href="#biothings-explorer-branding">BioThings&nbsp;Explorer&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color:black;"></i></a>
+      <a class="smallButton text-dark" href="#mygene-branding">MyGene.info&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color: var(--blue-medium)"></i></a>
+      <a class="smallButton text-dark" href="#myvariant-branding">MyVariant.info&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color: var(--green-medium)"></i></a>
+      <a class="smallButton text-dark" href="#mychem-branding">MyChem.info&nbsp;<i class="fas fa-arrow-alt-circle-right" style="color: var(--orange-medium)"></i></a>
+      <hr />
+      <h3 class="padding20">Terms of Use</h3>
+      <p style="margin:10px 10%;">
+        If you use any of the BioThings API logos, illustrations or any other images approved for use under these brand guidelines, you agree that you will do so in compliance with the terms and conditions indicated on this page. If you do so, BioThings and its partners grant you a non-transferable, non-exclusive, royalty-free limited license to use its creative assets, and only in accordance with these brand guidelines. This is not a trademark license.
+      </p>
+      <p style="margin:10px 10%;">
+        Please refer to these guidelines to achieve consistency and make sure the branded elements of BioThings are used correctly across every application. We reserve the right to terminate or modify your permission to display our creative assets.
+      </p>
+      <hr />
+      <h3 class="padding20">Credit</h3>
+      <p style="margin:10px 10%;">
+        If you use our service within your web resource, include our 'powered by' badges, link our site, and let us know so we can share about your web resource on our blog.
+      </p>
+      <div class="row">
+        <div class="col-sm-4 text-center padding20">
+          <img height="30px" src="/static/img/powered-by-mygene-mini.svg" alt="powered by MyGene"/>
+          <p class="noMargin">
+            or
+          </p>
+          <img width="200px" src="/static/img/powered-by-mygene.svg" alt="powered by MyGene"/>
+        </div>
+        <div class="col-sm-4 text-center padding20">
+          <img height="30px" src="/static/img/powered-by-myvariant-mini.svg" alt="powered by MyVariant"/>
+          <p class="noMargin">
+            or
+          </p>
+          <img width="200px" src="/static/img/powered-by-myvariant.svg" alt="powered by MyVariant"/>
+        </div>
+        <div class="col-sm-4 text-center padding20">
+          <img height="30px" src="/static/img/powered-by-mychem-mini.svg" alt="powered by MyChem"/>
+          <p class="noMargin">
+            or
+          </p>
+          <img width="200px" src="/static/img/powered-by-mychem.svg" alt="powered by MyChem"/>
+        </div>
+        <div class="text-center col-sm-12 padding20">
+          <a class="btn btn-secondary margin20" href="/static/img/powered-by-badges.zip" download="/static/img/powered-by-badges.zip">
+            <i class="fas fa-download text-light"></i> Download All Badges
+          </a>
+        </div>
+      </div>
+      <hr />
+      <h3 class="padding20">Don't Do This</h3>
+      <div class="swatchParent">
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont1.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't distort our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont2.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't change the original colors.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont3.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't overlay text or images on top of our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont4.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't apply filters to our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont5.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't add borders or strokes.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont6.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't crop or alter the original images in any way.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont7.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> Don't rotate our logo.
+          </p>
+        </div>
+        <div class="dont">
+          <img class="d-none d-md-block" width="100px" src="/static/img/dont8.png" alt="dont do this"/>
+          <p>
+            <i class="fas fa-ban text-danger"></i> We love creativeness but don't recreate our logo.
+          </p>
+        </div>
+      </div>
+      <!-- BioThings -->
+      <div class="text-center bg-dark margin20" id="biothings-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 text-warning anchorLink">BioThings <span class="text-light">API</span> <a style="opacity:0;font-size:small;" href="#biothings-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b class="text-warning">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--yellow-dark);" id="bt1" value="#CE952B">#CE952B
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt1"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--yellow-medium);" id="bt2" value="#FCCA52">#FCCA52
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt2"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--yellow-light);" id="bt3" value="#FCBE38">#FCBE38
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt3"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="bt4" value="#808080">#808080
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt4"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="bt5" value="#B3B3B3">#B3B3B3
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt5"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="bt6" value="#E6E6E6">#E6E6E6
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bt6"><i class="fas fa-copy"></i></button>
+              </div>
+            </div>
+
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted bg-darker p-2">
+              <img height="120vh" src="/static/img/biothings-text-2.png" alt='biothings logo' title="Download"/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-text-2.png" download="/static/img/biothings-text-2.png">
+                <i class="fas fa-download text-warning"></i> Download PNG
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted bg-darker p-2">
+                <img height="120vh" src="/static/img/biothings-text-2.svg" alt='biothings logo' title="Download"/>
+                <br />
+                <p class="text-muted noMargin">
+                  For Dark Backgrounds
+                </p>
+                <a class="btn btn-secondary margin20" href="/static/img/biothings-text-2.svg" download="/static/img/biothings-text-2.svg">
+                  <i class="fas fa-download text-warning"></i> Download SVG
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted bg-light p-2">
+                <img height="120vh" src="/static/img/biothings-text-3.png" alt='biothings logo' title="Download"/>
+                <br />
+                <p class="text-muted noMargin">
+                  For White Backgrounds
+                </p>
+                <a class="btn btn-secondary margin20" href="/static/img/biothings-text-3.png" download="/static/img/biothings-text-3.png">
+                  <i class="fas fa-download text-warning"></i> Download PNG
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted bg-light p-2">
+                <img height="120vh" src="/static/img/biothings-text-3.svg" alt='biothings logo' title="Download"/>
+                <br />
+                <p class="text-muted noMargin">
+                  For White Backgrounds
+                </p>
+                <a class="btn btn-secondary margin20" href="/static/img/biothings-text-3.svg" download="/static/img/biothings-text-3.svg">
+                  <i class="fas fa-download text-warning"></i> Download SVG
+                </a>
+            </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-secondary margin20" href="/static/img/biothings-logos.zip" download="/static/img/biothings-logos.zip">
+              <i class="fas fa-download text-warning"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width='256px' src="/static/img/powered-by-biothings.png" alt="Powered By BioThings"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="poweredBioThings"
+                value='<a href="https://biothings.io/" title="BioThings API"><img style="border:0px;" width="256px" src="http://biothings.io/static/img/powered-by-biothings.png" alt="BioThings"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#poweredBioThings"><i class="fas fa-copy text-warning"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+              <div class="col-sm-12 padding20">
+                <img class="margin20" style="border:0px;" width='64px' src="/static/img/biothings-logo-sm.png" alt="Logo 64"/>
+                <br />
+                <div class="input-group mb-3">
+                  <input  type="text" class="form-control" id="test1"
+                  value='<a href="https://biothings.io/" title="BioThings"><img style="border:0px;" width="64px" src="http://biothings.io/static/img/biothings-logo-sm.png" alt="Logo 64"/></a>'
+                  aria-label="image link" aria-describedby="basic-addon2">
+                  <div class="input-group-append" >
+                    <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#test1"><i class="fas fa-copy text-warning"></i> Copy</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 padding20">
+                <img class="margin20" style="border:0px;" width='128px' src="/static/img/biothings-128.png" alt="Logo 64"/>
+                <br />
+                <div class="input-group mb-3">
+                  <input  type="text" class="form-control" id="test2"
+                  value='<a href="https://biothings.io/" title="BioThings"><img style="border:0px;" width="128px" src="http://biothings.io/static/img/biothings-128.png" alt="Logo 128"/></a>'
+                  aria-label="image link" aria-describedby="basic-addon2">
+                  <div class="input-group-append" >
+                    <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#test2"><i class="fas fa-copy text-warning"></i> Copy</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 padding20">
+                <img class="margin20" style="border:0px;" width='256px' src="/static/img/biothings-256.png" alt="Logo 64"/>
+                <br />
+                <div class="input-group mb-3">
+                  <input  type="text" class="form-control" id="test3"
+                  value='<a href="https://biothings.io/" title="BioThings"><img style="border:0px;" width="256px" src="http://biothings.io/static/img/biothings-256.png" alt="Logo 256"/></a>'
+                  aria-label="image link" aria-describedby="basic-addon2">
+                  <div class="input-group-append" >
+                    <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#test3"><i class="fas fa-copy text-warning"></i> Copy</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- BioThings Studio -->
+      <div class="text-center bg-dark margin20" id="biothings-studio-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 anchorLink" style="color: #5ECAEF;">BioThings <span style="color:#9EDAEF;">Studio</span> <a style="opacity:0;font-size:small;" href="#biothings-studio-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b style="color:#5ECAEF;">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:#208CBC;" id="bts1" value="#208CBC">#208CBC
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:#5ECAEF;" id="bts2" value="#5ECAEF">#5ECAEF
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:#9EDAEF;" id="bts3" value="#9EDAEF">#9EDAEF
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="bts4" value="#808080">#808080
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="bts5" value="#B3B3B3">#B3B3B3
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="bts6" value="#E6E6E6">#E6E6E6
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bts6"><i class="fas fa-copy"></i></button>
+            </div>
+            </div>
+
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img width="120vh" src="/static/img/biothings-studio-text-2.png" alt='biothings studio logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                Original
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-studio-text-2.png" download="/static/img/biothings-studio-text-2.png">
+                <i class="fas fa-download" style="color:#5ECAEF;"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img width="120vh" src="/static/img/biothings-studio-text-2.svg" alt='biothings studio logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                Original
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-studio-text-2.svg" download="/static/img/biothings-studio-text-2.svg">
+                <i class="fas fa-download" style="color:#5ECAEF;"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img width="120vh" src="/static/img/biothings-studio-text-3.png" alt='biothings studio logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                White
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-studio-text-3.png" download="/static/img/biothings-studio-text-3.png">
+                <i class="fas fa-download" style="color:#5ECAEF;"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img width="120vh" src="/static/img/biothings-studio-text-3.svg" alt='biothings studio logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                White
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-studio-text-3.svg" download="/static/img/biothings-studio-text-3.svg">
+                <i class="fas fa-download" style="color:#5ECAEF;"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+
+            <a class="btn btn-secondary margin20" href="/static/img/biothings-studio-logos.zip" download="/static/img/biothings-studio-logos.zip">
+              <i class="fas fa-download" style="color:#5ECAEF;"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="64" src="/static/img/biothings-studio-logo-sm.png" alt="Logo 64"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="btslink1"
+                value='<a href="https://biothings.io/" title="BioThings Studio"><img style="border:0px;" width="64" src="http://biothings.io/static/img/biothings-studio-logo-sm.png" alt="Logo 64"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btslink1"><i class="fas fa-copy" style="color:#5ECAEF;"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="128" src="/static/img/biothings-studio-128.png" alt="Logo 128"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="btslink2"
+                value='<a href="https://biothings.io/" title="BioThings Studio"><img style="border:0px;" width="128" src="http://biothings.io/static/img/biothings-studio-128.png" alt="Logo 128"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btslink2"><i class="fas fa-copy" style="color:#5ECAEF;"></i> Copy</button>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-12 padding20">
+            <img class="margin20" style="border:0px;" width="256" src="/static/img/biothings-studio-256.png" alt="Logo 256"/>
+            <br />
+            <div class="input-group mb-3">
+              <input  type="text" class="form-control" id="btslink3"
+              value='<a href="https://biothings.io/" title="BioThings Studio"><img style="border:0px;" width="256" src="http://biothings.io/static/img/biothings-studio-256.png" alt="Logo 256"/></a>'
+              aria-label="image link" aria-describedby="basic-addon2">
+              <div class="input-group-append" >
+                <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btslink3"><i class="fas fa-copy" style="color:#5ECAEF;"></i> Copy</button>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      </div>
+      <!-- BioThings Explorer -->
+      <div class="text-center bg-dark margin20" id="biothings-explorer-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 text-light anchorLink">BioThings Explorer <a style="opacity:0;font-size:small;" href="#biothings-explorer-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b class="text-light">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:#f9b570" id="bte1" value="#f9b570">#f9b570
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte1"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#f15a24;" id="bte2" value="#f15a24">#f15a24
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte2"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#ff8e39;" id="bte3" value="#ff8e39">#ff8e39
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte3"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#00a99d;" id="bte4" value="#00a99d">#00a99d
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte4"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#4fd3c6;" id="bte5" value="#4fd3c6">#4fd3c6
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte5"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#9e005d;" id="bte6" value="#9e005d">#9e005d
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte6"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#c94b9c;" id="bte7" value="#c94b9c">#c94b9c
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte7"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#8cc63f;" id="bte8" value="#8cc63f">#8cc63f
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte8"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#b8ea68;" id="bte9" value="#b8ea68">#b8ea68
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte9"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#2a7fe2;" id="bte10" value="#2a7fe2">#2a7fe2
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte10"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#669be8;" id="bte11" value="#669be8">#669be8
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte11"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#fbb03b;" id="bte12" value="#fbb03b">#fbb03b
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte12"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#f7c179;" id="bte13" value="#f7c179">#f7c179
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte13"><i class="fas fa-copy"></i></button>
+              </div>
+
+              <div class="swatch" style="background-color:#93278f;" id="bte14" value="#93278f">#93278f
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte14"><i class="fas fa-copy"></i></button>
+              </div>
+              <div class="swatch" style="background-color:#bc57bc;" id="bte15" value="#bc57bc">#bc57bc
+                <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#bte15"><i class="fas fa-copy"></i></button>
+              </div>
+            </div>
+
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img height="120vh" src="/static/img/biothings-explorer-text.png" alt='biothings logo' title="Download"/>
+              <br />
+              <p class="text-muted noMargin">
+                Original
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-explorer-text.png" download="/static/img/biothings-explorer-text.png">
+                <i class="fas fa-download" style="color:#ff8e39;"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img height="120vh" src="/static/img/biothings-explorer-text.svg" alt='biothings logo' title="Download"/>
+              <br />
+              <p class="text-muted noMargin">
+                Original
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-explorer-text.svg" download="/static/img/biothings-explorer-text.svg">
+                <i class="fas fa-download" style="color:#ff8e39;"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img height="120vh" src="/static/img/biothings-explorer-2.png" alt='biothings logo' title="Download"/>
+              <br />
+              <p class="text-muted noMargin">
+                Dark Outline
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-explorer-2.png" download="/static/img/biothings-explorer-2.png">
+                <i class="fas fa-download" style="color:#ff8e39;"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted">
+              <img height="120vh" src="/static/img/biothings-explorer-2.svg" alt='biothings logo' title="Download"/>
+              <br />
+              <p class="text-muted noMargin">
+                Dark Outline
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/biothings-explorer-2.svg" download="/static/img/biothings-explorer-2.svg">
+                <i class="fas fa-download" style="color:#ff8e39;"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-secondary margin20" href="/static/img/biothings-explorer-logos.zip" download="/static/img/biothings-logos.zip">
+              <i class="fas fa-download" style="color:#ff8e39;"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="64" src="/static/img/biothings-explorer-64.png" alt="Logo 64"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="btel1"
+                value='<a href="https://biothings.io/explorer" title="BioThings Explorer"><img style="border:0px;" width="64" src="http://biothings.io/static/img/biothings-explorer-64.png" alt="Logo 64"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btel1"><i class="fas fa-copy" style="color:#ff8e39;"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="128" src="/static/img/biothings-explorer-128.png" alt="Logo 128"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="btel2"
+                value='<a href="https://biothings.io/explorer" title="BioThings Explorer"><img style="border:0px;" width="128" src="http://biothings.io/static/img/biothings-explorer-128.png" alt="Logo 128"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btel2"><i class="fas fa-copy" style="color:#ff8e39;"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="256" src="/static/img/biothings-explorer-256.png" alt="Logo 256"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="btel3"
+                value='<a href="https://biothings.io/explorer" title="BioThings Explorer"><img style="border:0px;" width="256" src="http://biothings.io/static/img/biothings-explorer-256.png" alt="Logo 256"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#btel3"><i class="fas fa-copy" style="color:#ff8e39;"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MyGene -->
+      <div class="text-center bg-dark margin20" id="mygene-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 text-light anchorLink">My<span style="color:var(--blue-light);">Gene</span>.info <a style="opacity:0;font-size:small;" href="#mygene-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b style="color: var(--blue-light);">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--blue-dark);" id="mg1" value="#3366CC">#3366CC
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--blue-medium);" id="mg2" value="#2A7FE2">#2A7FE2
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--blue-light);" id="mg3" value="#669BE8">#669BE8
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mg4" value="#808080">#808080
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mg5" value="#B3B3B3">#B3B3B3
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mg6" value="#E6E6E6">#E6E6E6
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mg6"><i class="fas fa-copy"></i></button>
+            </div>
+            </div>
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/mygene-text-3.png" alt='mygene logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mygene-text-3.png" download="/static/img/mygene-text-3.png">
+                <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/mygene-text-3.svg" alt='mygene logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mygene-text-3.svg" download="/static/img/mygene-text-3.svg">
+                <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/mygene-text-2.png" alt='mygene logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mygene-text-2.png" download="/static/img/mygene-text-2.png">
+                <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/mygene-text-2.svg" alt='mygene logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mygene-text-2.svg" download="/static/img/mygene-text-2.svg">
+                <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-secondary margin20" href="/static/img/mygene-logos.zip" download="/static/img/mygene-logos.zip">
+              <i class="fas fa-download" style="color:var(--blue-medium)"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width='256px' src="/static/img/powered-by-mygene.png" alt="Powered By MyGene.info"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="poweredMyGene"
+                value='<a href="https://mygene.info/" title="MyGene.info"><img style="border:0px;" width="256px" src="http://biothings.io/static/img/powered-by-mygene.png" alt="MyGene.info"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#poweredMyGene"><i class="fas fa-copy" style="color: var(--blue-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="64" src="/static/img/mygene-logo-sm.png" alt="Logo 64"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mglink1"
+                value='<a href="https://mygene.info/" title="MyGene.info"><img style="border:0px;" width="64" src="http://biothings.io/static/img/mygene-logo-sm.png" alt="Logo 64"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mglink1"><i class="fas fa-copy" style="color: var(--blue-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="128" src="/static/img/mygene-logo-128.png" alt="Logo 128"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mglink2"
+                value='<a href="https://mygene.info/" title="MyGene.info"><img style="border:0px;" width="128" src="http://biothings.io/static/img/mygene-logo-128.png" alt="Logo 128"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mglink2"><i class="fas fa-copy" style="color: var(--blue-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="256" src="/static/img/mygene-logo-256.png" alt="Logo 256"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mglink3"
+                value='<a href="https://mygene.info/" title="MyGene.info"><img style="border:0px;" width="256" src="http://biothings.io/static/img/mygene-logo-256.png" alt="Logo 256"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mglink3"><i class="fas fa-copy" style="color: var(--blue-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MyVariant -->
+      <div class="text-center bg-dark margin20" id="myvariant-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 text-light anchorLink">My<span style="color:var(--green-light);">Variant</span>.info <a style="opacity:0;font-size:small;" href="#myvariant-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b style="color: var(--green-light)">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--green-dark);" id="mv1" value="#40B307">#40B307
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--green-medium);" id="mv2" value="#67CF2E">#67CF2E
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--green-light);" id="mv3" value="#85D958">#85D958
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mv4" value="#808080">#808080
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mv5" value="#B3B3B3">#B3B3B3
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mv6" value="#E6E6E6">#E6E6E6
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mv6"><i class="fas fa-copy"></i></button>
+            </div>
+            </div>
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/myvariant-text-3.png" alt='Myvar logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/myvariant-text-3.png" download="/static/img/myvariant-text-3.png">
+                <i class="fas fa-download" style="color:var(--green-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/myvariant-text-3.svg" alt='Myvar logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/myvariant-text-3.svg" download="/static/img/myvariant-text-3.svg">
+                <i class="fas fa-download" style="color:var(--green-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/myvariant-text-2.png" alt='Myvar logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/myvariant-text-2.png" download="/static/img/myvariant-text-2.png">
+                <i class="fas fa-download" style="color:var(--green-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/myvariant-text-2.svg" alt='Myvar logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/myvariant-text-2.svg" download="/static/img/myvariant-text-2.svg">
+                <i class="fas fa-download" style="color:var(--green-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-secondary margin20" href="/static/img/myvariant-logos.zip" download="/static/img/myvariant-logos.zip">
+              <i class="fas fa-download" style="color:var(--green-medium)"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width='256px' src="/static/img/powered-by-myvariant.png" alt="Powered By MyVariant.info"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="poweredMyVariant"
+                value='<a href="https://myvariant.info/" title="MyVariant.info"><img style="border:0px;" width="256px" src="http://biothings.io/static/img/powered-by-myvariant.png" alt="MyVariant.info"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#poweredMyVariant"><i class="fas fa-copy" style="color: var(--green-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="64" src="/static/img/myvariant-logo-sm.png" alt="Logo 64"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mvlink1"
+                value='<a href="https://myvariant.info/" title="MyVariant.info"><img style="border:0px;" width="64" src="http://biothings.io/static/img/myvariant-logo-sm.png" alt="Logo 64"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mvlink1"><i class="fas fa-copy" style="color: var(--green-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="128" src="/static/img/myvariant-logo-128.png" alt="Logo 128"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mvlink2"
+                value='<a href="https://myvariant.info/" title="MyVariant.info"><img style="border:0px;" width="128" src="http://biothings.io/static/img/myvariant-logo-128.png" alt="Logo 128"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mvlink2"><i class="fas fa-copy" style="color: var(--green-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="256" src="/static/img/myvariant-logo-256.png" alt="Logo 256"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mvlink3"
+                value='<a href="https://myvariant.info/" title="MyVariant.info"><img style="border:0px;" width="256" src="http://biothings.io/static/img/myvariant-logo-256.png" alt="Logo 256"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mvlink3"><i class="fas fa-copy" style="color: var(--green-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MyChem -->
+      <div class="text-center bg-dark margin20" id="mychem-branding">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2 class="logoFont padding20 margin20 text-light anchorLink">My<span style="color:var(--orange-light);" >Chem</span>.info <a style="opacity:0;font-size:small;" href="#mychem-branding"><i class="fas fa-link"></i></a></h2>
+            <hr />
+            <p class="text-light">
+              We use the <b style="color: var(--orange-light)">Recharge</b> font by TypoDermicFonts. <a class="link" target="_blank" href="https://www.1001freefonts.com/recharge.font">More Info</a>
+            </p>
+            <h3 class="text-light padding20">Colors</h3>
+            <div class="swatchParent">
+              <div class="swatch" style="background-color:var(--orange-dark);" id="mc1" value="#CC6633">#CC6633
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc1"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--orange-medium);" id="mc2" value="#FD7400">#FD7400
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc2"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--orange-light);" id="mc3" value="#FF8E39">#FF8E39
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc3"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-dark);" id="mc4" value="#808080">#808080
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc4"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-medium);" id="mc5" value="#B3B3B3">#B3B3B3
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc5"><i class="fas fa-copy"></i></button>
+            </div>
+              <div class="swatch" style="background-color:var(--grey-light);" id="mc6" value="#E6E6E6">#E6E6E6
+              <button style="cursor: pointer;" class="copyButton swatchCopy" data-clipboard-target="#mc6"><i class="fas fa-copy"></i></button>
+            </div>
+            </div>
+            <h3 class="text-light padding20">Logos</h3>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/mychem-text-3.png" alt='Mychem logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mychem-text-3.png" download="/static/img/mychem-text-3.png">
+                <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-darker">
+              <img height="120vh" src="/static/img/mychem-text-3.svg" alt='Mychem logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For Dark Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mychem-text-3.svg" download="/static/img/mychem-text-3.svg">
+                <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/mychem-text-2.png" alt='Mychem logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mychem-text-2.png" download="/static/img/mychem-text-2.png">
+                <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download PNG
+              </a>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center text-muted p-2 bg-light">
+              <img height="120vh" src="/static/img/mychem-text-2.svg" alt='Mychem logo'/>
+              <br />
+              <p class="text-muted noMargin">
+                For White Backgrounds
+              </p>
+              <a class="btn btn-secondary margin20" href="/static/img/mychem-text-2.svg" download="/static/img/mychem-text-2.svg">
+                <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download SVG
+              </a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <a class="btn btn-secondary margin20" href="/static/img/mychem-logos.zip" download="/static/img/mychem-logos.zip">
+              <i class="fas fa-download" style="color:var(--orange-medium)"></i> Download Full Image Package
+            </a>
+            <p class="text-muted">
+              (SVG, PNG, OUTLINED, ORIGINAL, TEXT)
+            </p>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <h3 class="text-light padding20">Image Links</h3>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width='256px' src="/static/img/powered-by-mychem.png" alt="Powered By MyChem.info"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="poweredMyChem"
+                value='<a href="https://mychem.info/" title="MyChem.info"><img style="border:0px;" width="256px" src="http://biothings.io/static/img/powered-by-mychem.png" alt="MyChem.info"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#poweredMyChem"><i class="fas fa-copy" style="color: var(--orange-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="64" src="/static/img/mychem-logo-sm.png" alt="Logo 64"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mclink1"
+                value='<a href="https://mychem.info/" title="MyChem.info"><img style="border:0px;" width="64" src="http://biothings.io/static/img/mychem-logo-sm.png" alt="Logo 64"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mclink1"><i class="fas fa-copy" style="color: var(--orange-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="128" src="/static/img/mychem-logo-128.png" alt="Logo 128"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mclink2"
+                value='<a href="https://mychem.info/" title="MyChem.info"><img style="border:0px;" width="128" src="http://biothings.io/static/img/mychem-logo-128.png" alt="Logo 128"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mclink2"><i class="fas fa-copy" style="color: var(--orange-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 padding20">
+              <img class="margin20" style="border:0px;" width="256" src="/static/img/mychem-logo-256.png" alt="Logo 256"/>
+              <br />
+              <div class="input-group mb-3">
+                <input  type="text" class="form-control" id="mclink3"
+                value='<a href="https://mychem.info/" title="MyChem.info"><img style="border:0px;" width="256" src="http://biothings.io/static/img/mychem-logo-256.png" alt="Logo 256"/></a>'
+                aria-label="image link" aria-describedby="basic-addon2">
+                <div class="input-group-append" >
+                  <button class="btn btn-secondary swatchCopy" type="button" data-clipboard-target="#mclink3"><i class="fas fa-copy" style="color: var(--orange-medium);"></i> Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="bg-dark" style="bottom:0;">
+      <div class="copyright text-center text-muted">
+        <ul class="noListStyle listBlock">
+          <li>
+            <a class="link text-warning" href="http://twitter.com/biothingsapi" target="_blank">
+              <i class="fab fa-twitter fa-2x"></i>
+            </a>
+          </li>
+          <li>
+            <a class="link text-warning" href="https://github.com/biothings/biothings.api" target="_blank">
+              <i class="fab fa-github-alt fa-2x"></i>
+            </a>
+          </li>
+        </ul>
+        <hr />
+        <p class="smallFont">
+          All content copyright <a href="http://biothings.io/" class="link text-muted">BioThings.io</a> © 2018
+          <br /> All rights reserved.
+          <a target="_blank" href="http://biothings.io/terms" class="link text-muted">Terms of use.</a>
+          <a target="_blank" href="http://biothings.io/citation/" class="link text-muted">How To Cite</a>
+        </p>
+      </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <script src="/static/js/clipboard.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+    <script>
+
+    var scene = document.getElementById('hero');
+    var parallaxInstance = new Parallax(scene);
+
+
+      new ClipboardJS('.swatchCopy');
+      ClipboardJS.isSupported();
+
+    </script>
+  </body>
+</html>
