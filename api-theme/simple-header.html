@@ -2,7 +2,7 @@
 <header id="headerComp">
   <nav id="nav" class="navbar navbar-expand-lg navbar-dark w-100 fixed-top">
     <a class="navbar-brand logoFont" href="/" id="headlogo">
-      <span class="d-none d-md-block">My<span class="text-main" v-text="snType"></span>.info</span>
+      <span class="d-none d-md-block">My<span :class="mainClss" v-text="snType"></span>.info</span>
       <i class="fas fa-home d-block d-md-none"></i>
     </a>
     <li class="nav-item dropup d-block d-md-none">
@@ -16,6 +16,9 @@
         </div>
         <div class="dropdown-item">
           <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class=" text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="dropdown-item">
+          <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class=" text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="dropdown-divider"></div>
         <div class="dropdown-item">
@@ -48,6 +51,9 @@
             </div>
             <div class="dropdown-item">
               <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class="logoFont bg-transparent text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="dropdown-item">
+              <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class="logoFont bg-transparent text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-item">
@@ -120,7 +126,8 @@ var app = new Vue({
       brandingLink:'',
       docsLink:'',
       uptimeLink:'',
-      imglink:''
+      imglink:'',
+      mainClss:'',
     }
   },
   watch:{
@@ -146,6 +153,12 @@ var app = new Vue({
           self.imglink= "/static/img/mychem-logo-shiny-md.png";
           self.backgroundclss='blackTransBack-orange';
           this.textclss='text-orange';
+
+          break;
+        case "MyDisease.info":
+          self.imglink= "/static/img/mydisease-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-purple';
+          this.textclss='text-purple';
 
           break;
         case "BioThings":
@@ -174,6 +187,7 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#mygene-branding';
         self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+        this.mainClss='text-blue';
         break;
       case "MyChem.info":
         self.tryItLink='/v1/api';
@@ -181,6 +195,7 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#mychem-branding';
         self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
+        this.mainClss='text-orange';
         break;
       case "MyVariant.info":
         self.tryItLink='/v1/api';
@@ -188,6 +203,15 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#myvariant-branding';
         self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
+        this.mainClss='text-green';
+        break;
+      case "MyDisease.info":
+        self.tryItLink='/v1/api';
+        self.snType='Disease';
+        self.brandingLink = 'http://biothings.io/branding#mydisease-branding';
+        self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
+        this.mainClss='text-purple';
         break;
       default:
         // default is Mygene

@@ -22,23 +22,28 @@
   /* --main-dark: #CC6633;
   --main-medium: #FD7400;
   --main-light: #FF8E39; */
+
+  /* MYDISEASE*/
+  /* --main-dark: #4B1499;
+  --main-medium: #772FDD;
+  --main-light: #A267E5; */
 }
 
 /* **************************************************** */
 /* ********************** NORMAL CSS ****************** */
 /* **************************************************** */
 
-#nav{
-  bottom:0;
-  top:auto;
+#nav {
+  bottom: 0;
+  top: auto;
 }
 
-.usingCont{
+.usingCont {
   min-height: 50vh;
 }
 
-.titleShadow{
-text-shadow: 0px 4px 0px grey;
+.titleShadow {
+  text-shadow: 0px 4px 0px grey;
 }
 
 .chrome {
@@ -46,16 +51,19 @@ text-shadow: 0px 4px 0px grey;
 }
 
 @media only screen and (min-width: 992px) {
-  #cal-container{
-    overflow-x:hidden;
+  #cal-container {
+    overflow-x: hidden;
   }
-  #nav{
-    top:0;
-    bottom:auto;
+
+  #nav {
+    top: 0;
+    bottom: auto;
   }
-  .navbar{
+
+  .navbar {
     background: black !important;
   }
+
   .chrome {
     background: #222 -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
     background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
@@ -69,21 +77,25 @@ text-shadow: 0px 4px 0px grey;
   }
 }
 
-.heroGradient{
-  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(0,0,0,0.21) 9%, rgba(0,0,0,1) 43%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.21) 9%,rgba(0,0,0,1) 43%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(0,0,0,0.21) 9%,rgba(0,0,0,1) 43%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+.heroGradient {
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.21) 9%, rgba(0, 0, 0, 1) 43%, rgba(0, 0, 0, 1) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.21) 9%, rgba(0, 0, 0, 1) 43%, rgba(0, 0, 0, 1) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.21) 9%, rgba(0, 0, 0, 1) 43%, rgba(0, 0, 0, 1) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#000000', GradientType=0);
+  /* IE6-9 */
 }
 
-.circleBox{
+.circleBox {
   clip-path: circle(50% at 50% 50%);
   width: 50px;
   height: 50px;
 }
 
 
-.blogBack{
+.blogBack {
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center;
@@ -91,42 +103,42 @@ text-shadow: 0px 4px 0px grey;
   background-image: url('../img/hex.svg');
 }
 
-.cubegrad{
-  background-color:#556;
+.cubegrad {
+  background-color: #556;
   background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-  linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
-  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a),
-  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
-  background-size:80px 140px;
+    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a),
+    linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size: 80px 140px;
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
-.carbonfiber{
+.carbonfiber {
   background:
-radial-gradient(black 15%, transparent 16%) 0 0,
-radial-gradient(black 15%, transparent 16%) 8px 8px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-background-color:#282828;
-background-size:16px 16px;
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
 }
 
-#cal-container{
-  overflow-x:scroll;
+#cal-container {
+  overflow-x: scroll;
 }
 
-.border-white{
+.border-white {
   text-shadow:
-     1px  1px     #fff,
-    -1px  1px     #fff,
-     1px -1px     #fff,
-    -1px -1px     #fff,
-     1px  1px 5px #555;
+    1px 1px #fff,
+    -1px 1px #fff,
+    1px -1px #fff,
+    -1px -1px #fff,
+    1px 1px 5px #555;
 }
 
-.codeBoxRight{
+.codeBoxRight {
   max-height: 800px;
   overflow: scroll;
   border-style: inset;
@@ -135,7 +147,7 @@ background-size:16px 16px;
   overflow-x: hidden;
 }
 
-.codeBoxLeft{
+.codeBoxLeft {
   max-height: 800px;
   overflow: scroll;
   position: relative;
@@ -143,15 +155,15 @@ background-size:16px 16px;
 }
 
 .card-hover:hover .reveal {
-    opacity: 1;
-    transition: opacity 1s ease;
+  opacity: 1;
+  transition: opacity 1s ease;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -160,6 +172,7 @@ body{
   top: 0;
   transition: top ease 0.5s;
 }
+
 .helpBox:hover {
   top: -10px;
 }
@@ -176,11 +189,16 @@ body{
   color: #FF8E39;
 }
 
+.text-purple {
+  color: #A267E5;
+}
+
 .contentBack {
   background-color: #e6e6e6;
 }
 
-p, a {
+p,
+a {
   font-family: 'Abel', sans-serif;
 }
 
@@ -275,14 +293,11 @@ p, a {
   }
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
+.dropdown-item:focus,
+.dropdown-item:hover {
   color: #16181b;
   text-decoration: none;
   background-color: var(--dark) !important;
-}
-
-#headlogo {
-  transition: .5s all;
 }
 
 .anchorLink a {
@@ -330,11 +345,12 @@ a.link {
   border-bottom: none;
 }
 
-.navbar-brand:hover, .nav-link:hover {
+.navbar-brand:hover,
+.nav-link:hover {
   color: white !important;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 1rem;
 }
 
@@ -435,7 +451,8 @@ a.link {
   word-break: keep-all;
 }
 
-.themeButton::before, .themeButton::after {
+.themeButton::before,
+.themeButton::after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
   content: '';
@@ -541,7 +558,10 @@ table tbody tr {
   background-color: transparent !important;
 }
 
-.list-group-item, .table th, .table thead th, .table tr {
+.list-group-item,
+.table th,
+.table thead th,
+.table tr {
   border: none !important;
 }
 
@@ -643,7 +663,9 @@ table tbody tr {
 
 
 @-webkit-keyframes shine {
-  0%, 10% {
+
+  0%,
+  10% {
     background-position: -1000px;
   }
 
@@ -745,51 +767,57 @@ table tbody tr {
 @-webkit-keyframes flip-in-hor-bottom {
   0% {
     -webkit-transform: rotateX(80deg);
-            transform: rotateX(80deg);
+    transform: rotateX(80deg);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: rotateX(0);
-            transform: rotateX(0);
+    transform: rotateX(0);
     opacity: 1;
   }
 }
+
 @keyframes flip-in-hor-bottom {
   0% {
     -webkit-transform: rotateX(80deg);
-            transform: rotateX(80deg);
+    transform: rotateX(80deg);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: rotateX(0);
-            transform: rotateX(0);
+    transform: rotateX(0);
     opacity: 1;
   }
 }
 
 .flip-in {
-	-webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
 
 .fade-in {
-	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }

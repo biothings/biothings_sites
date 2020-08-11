@@ -1,119 +1,128 @@
 <!DOCTYPE HTML>
 <html class="bg-dark">
-	<head>
-		{% block title %}
-		<title>{{site_name}}</title>
-		{% endblock %}
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="HandheldFriendly" content="True" />
-		<meta property="og:locale" content="en_US" />
-		<!-- General Metadata -->
-		<meta property="og:image:type" content="image/jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:type" content="website">
-    <meta property="fb:app_id" content=""/>
-		<meta name="twitter:card" content="summary"/>
-		<meta name="msapplication-TileColor" content="#000000">
-		<meta name="theme-color" content="#000000">
-		<!-- Unique for each site -->
-		{% if site_name == 'MyGene.info' %}
-		<meta property="og:image" content="https://s17.postimg.cc/rvsa0xr27/mygene-featured.jpg">
-		<meta property="og:url" content="http://MyGene.info/">
-    <meta property="og:site_name" content="MyGene.info">
-    <meta property="og:title" content="MyGene.info | Gene Annotation as a Service." />
-    <meta name="description" content="Gene Annotation as a Service." />
-		<meta name="twitter:description" content="Gene Annotation as a Service." />
-		<meta name="twitter:url" content="http://MyGene.info" />
-    <meta property="og:description" content="Gene Annotation as a Service.">
-		<meta name="twitter:title" content="MyGene.info | Gene Annotation as a Service." />
-		{% endif %}
-		{% if site_name == 'MyVariant.info' %}
-		<meta property="og:image" content="https://s17.postimg.cc/wrqt8039b/featured.jpg">
-		<meta property="og:url" content="http://MyVariant.info/">
-    <meta property="og:site_name" content="MyVariant.info">
-    <meta property="og:title" content="MyVariant.info | Variant Annotation as a Service." />
-    <meta name="description" content="Variant Annotation as a Service." />
-		<meta name="twitter:description" content="Variant Annotation as a Service." />
-		<meta name="twitter:url" content="http://MyVariant.info" />
-    <meta property="og:description" content="Variant Annotation as a Service.">
-		<meta name="twitter:title" content="MyVariant.info | Variant Annotation as a Service." />
-		{% endif %}
-		{% if site_name == 'MyChem.info' %}
-		<meta property="og:image" content="https://s17.postimg.cc/v2mtkl6db/mychem-featured.jpg">
-		<meta property="og:url" content="http://MyChem.info/">
-    <meta property="og:site_name" content="MyChem.info">
-    <meta property="og:title" content="MyChem.info | Drug and Chemical Annotation as a Service." />
-    <meta name="description" content="Drug and Chemical Annotation as a Service." />
-		<meta name="twitter:description" content="Drug and Chemical Annotation as a Service." />
-		<meta name="twitter:url" content="http://MyChem.info" />
-    <meta property="og:description" content="Drug and Chemical Annotation as a Service.">
-		<meta name="twitter:title" content="MyChem.info | Drug and Chemical Annotation as a Service." />
-		{% endif %}
-		{% if site_name == 'MyDisease.info' %}
-		<!-- <meta property="og:image" content="https://s17.postimg.cc/wrqt8039b/featured.jpg"> -->
-		<meta property="og:url" content="http://MyDisease.info/">
-    <meta property="og:site_name" content="MyDisease.info">
-    <meta property="og:title" content="MyDisease.info | Disease Annotation as a Service." />
-    <meta name="description" content="Disease Annotation as a Service." />
-		<meta name="twitter:description" content="Disease Annotation as a Service." />
-		<meta name="twitter:url" content="http://MyDisease.info" />
-    <meta property="og:description" content="Disease Annotation as a Service.">
-		<meta name="twitter:title" content="MyDisease.info | Disease Annotation as a Service." />
-		{% endif %}
-		<!-- API specific images -->
-    <meta name="twitter:image" content="/static/img/{{site_name}}/mygene-favicon.png" />
-		<link rel="apple-touch-icon" href="/static/img/{{site_name}}/apple-touch-icon.png" />
-		<link rel="apple-touch-icon" sizes="57x57" href="/static/img/{{site_name}}/apple-touch-icon-57x57.png" />
-		<link rel="apple-touch-icon" sizes="72x72" href="/static/img/{{site_name}}/apple-touch-icon-72x72.png" />
-		<link rel="apple-touch-icon" sizes="76x76" href="/static/img/{{site_name}}/apple-touch-icon-76x76.png" />
-		<link rel="apple-touch-icon" sizes="114x114" href="/static/img/{{site_name}}/apple-touch-icon-114x114.png" />
-		<link rel="apple-touch-icon" sizes="120x120" href="/static/img/{{site_name}}/apple-touch-icon-120x120.png" />
-		<link rel="apple-touch-icon" sizes="144x144" href="/static/img/{{site_name}}/apple-touch-icon-144x144.png" />
-		<link rel="apple-touch-icon" sizes="152x152" href="/static/img/{{site_name}}/apple-touch-icon-152x152.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/static/img/{{site_name}}/apple-touch-icon-180x180.png" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="manifest" href="/static/img/{{site_name}}/site.webmanifest">
-		<link rel="mask-icon" href="/static/img/{{site_name}}/safari-pinned-tab.svg" color="#545454">
-		<meta name="msapplication-config" content="/static/img/{{site_name}}/browserconfig.xml">
-		<link rel="shortcut icon" type="image/png" href="/static/img/{{site_name}}/mygene-favicon.png"/>
-		<!-- CDN Styles -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-		<link rel="stylesheet" href="/static/css/app.css" />
-		<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-		{% block extra_head %}
-		{% endblock %}
-	</head>
-	<body class="bg-dark">
-		<!-- Wrapper -->
-			{% include "simple-header.html" %}
-			{% block content %}
-			{% endblock %}
-			{% include "footer.html" %}
-		<!-- Scripts -->
-			<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-			<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-			<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
-			<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.3/vivus.js"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js" integrity="sha256-cyEXrJKjO3YNkpCjPxVBdi7pRJ3EF+okm1oN9Qc4rRY=" crossorigin="anonymous"></script>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js" integrity="sha256-+9YNuItWuR4sbqeaNiJOxG0BvptYz4fbUXbIZoH5Jwo=" crossorigin="anonymous"></script>
-			{% block extra_scripts %}
-			{% endblock %}
-			{% if ga_tracking %}
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id={{ga_tracking}}"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', '{{ga_tracking}}');
-			</script>
-			{% endif %}
-	</body>
+
+<head>
+	{% block title %}
+	<title>{{site_name}}</title>
+	{% endblock %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta property="og:locale" content="en_US" />
+	<!-- General Metadata -->
+	<meta property="og:image:type" content="image/jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:type" content="website">
+	<meta property="fb:app_id" content="" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="theme-color" content="#000000">
+	<!-- Unique for each site -->
+	{% if site_name == 'MyGene.info' %}
+	<meta property="og:image" content="https://s17.postimg.cc/rvsa0xr27/mygene-featured.jpg">
+	<meta property="og:url" content="http://MyGene.info/">
+	<meta property="og:site_name" content="MyGene.info">
+	<meta property="og:title" content="MyGene.info | Gene Annotation as a Service." />
+	<meta name="description" content="Gene Annotation as a Service." />
+	<meta name="twitter:description" content="Gene Annotation as a Service." />
+	<meta name="twitter:url" content="http://MyGene.info" />
+	<meta property="og:description" content="Gene Annotation as a Service.">
+	<meta name="twitter:title" content="MyGene.info | Gene Annotation as a Service." />
+	{% endif %}
+	{% if site_name == 'MyVariant.info' %}
+	<meta property="og:image" content="https://s17.postimg.cc/wrqt8039b/featured.jpg">
+	<meta property="og:url" content="http://MyVariant.info/">
+	<meta property="og:site_name" content="MyVariant.info">
+	<meta property="og:title" content="MyVariant.info | Variant Annotation as a Service." />
+	<meta name="description" content="Variant Annotation as a Service." />
+	<meta name="twitter:description" content="Variant Annotation as a Service." />
+	<meta name="twitter:url" content="http://MyVariant.info" />
+	<meta property="og:description" content="Variant Annotation as a Service.">
+	<meta name="twitter:title" content="MyVariant.info | Variant Annotation as a Service." />
+	{% endif %}
+	{% if site_name == 'MyChem.info' %}
+	<meta property="og:image" content="https://s17.postimg.cc/v2mtkl6db/mychem-featured.jpg">
+	<meta property="og:url" content="http://MyChem.info/">
+	<meta property="og:site_name" content="MyChem.info">
+	<meta property="og:title" content="MyChem.info | Drug and Chemical Annotation as a Service." />
+	<meta name="description" content="Drug and Chemical Annotation as a Service." />
+	<meta name="twitter:description" content="Drug and Chemical Annotation as a Service." />
+	<meta name="twitter:url" content="http://MyChem.info" />
+	<meta property="og:description" content="Drug and Chemical Annotation as a Service.">
+	<meta name="twitter:title" content="MyChem.info | Drug and Chemical Annotation as a Service." />
+	{% endif %}
+	{% if site_name == 'MyDisease.info' %}
+	<meta property="og:image" content="https://i.postimg.cc/3wLLzwyz/featured-1.jpg">
+	<meta property="og:url" content="http://MyDisease.info/">
+	<meta property="og:site_name" content="MyDisease.info">
+	<meta property="og:title" content="MyDisease.info | Disease Annotation as a Service." />
+	<meta name="description" content="Disease Annotation as a Service." />
+	<meta name="twitter:description" content="Disease Annotation as a Service." />
+	<meta name="twitter:url" content="http://MyDisease.info" />
+	<meta property="og:description" content="Disease Annotation as a Service.">
+	<meta name="twitter:title" content="MyDisease.info | Disease Annotation as a Service." />
+	{% endif %}
+	<!-- API specific images -->
+	<meta name="twitter:image" content="/static/img/{{site_name}}/favicon.png" />
+	<link rel="apple-touch-icon" href="/static/img/{{site_name}}/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="manifest" href="/static/img/{{site_name}}/site.webmanifest">
+	<link rel="mask-icon" href="/static/img/{{site_name}}/safari-pinned-tab.svg" color="#545454">
+	<meta name="msapplication-config" content="/static/img/{{site_name}}/browserconfig.xml">
+	<link rel="shortcut icon" type="image/png" href="/static/img/{{site_name}}/favicon.png" />
+	<!-- CDN Styles -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+		integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/app.css" />
+	<link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	{% block extra_head %}
+	{% endblock %}
+</head>
+
+<body class="bg-dark">
+	<!-- Wrapper -->
+	{% include "simple-header.html" %}
+	{% block content %}
+	{% endblock %}
+	{% include "footer.html" %}
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js"
+		integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous">
+	</script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js"
+		integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous">
+	</script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js"
+		integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.3/vivus.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+		integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"
+		integrity="sha256-cyEXrJKjO3YNkpCjPxVBdi7pRJ3EF+okm1oN9Qc4rRY=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
+		integrity="sha256-+9YNuItWuR4sbqeaNiJOxG0BvptYz4fbUXbIZoH5Jwo=" crossorigin="anonymous"></script>
+	{% block extra_scripts %}
+	{% endblock %}
+	{% if ga_tracking %}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{ga_tracking}}"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', '{{ga_tracking}}');
+	</script>
+	{% endif %}
+</body>
+
 </html>

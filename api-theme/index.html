@@ -4,36 +4,46 @@
 
 </style>
 <div id="index">
-  <div class="lds-ellipsis" v-show='loading'><div></div><div></div><div></div><div></div></div>
-  <section >
-  	<div class="cubegrad">
-  		<section class="jumbotron container-fluid heroGradient text-center pb-2 d-flex justify-content-center align-items-center m-0" style="min-height:100vh;">
-  			<div class="w-100">
+  <div class="lds-ellipsis" v-show='loading'>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <section>
+    <div class="cubegrad">
+      <section
+        class="jumbotron container-fluid heroGradient text-center pb-2 d-flex justify-content-center align-items-center m-0"
+        style="min-height:100vh;">
+        <div class="w-100">
           <div class="m-1">
             <div class="justify-content-center" data-aos="fade-in" data-aos-duration="500">
-              <canvas id="canvaslogo" class="zdog-canvas d-none d-sm-flex m-md-auto" width="440px" height="440px"></canvas>
+              <canvas id="canvaslogo" class="zdog-canvas d-none d-sm-flex m-md-auto" width="440px"
+                height="440px"></canvas>
               <object class="float d-sm-none d-block m-auto" width="60%" :data="smallScreenLogo"></object>
             </div>
-      			<h1 class="text-light logoFont mb-4" style="font-size:7vw;">
-      				My<span class="text-main" v-text="snType"></span>.info
-      			</h1>
+            <h1 class="text-light logoFont mb-4" style="font-size:7vw;">
+              My<span class="text-main" v-text="snType"></span>.info
+            </h1>
             <h2 data-aos="fade-in" class=" lighter smallCaps chrome" v-text="siteDescription"></h2>
             <div class='p-2 m-auto rounded'>
-              <h1  class="m-0" id="testNum">...</h1>
+              <h1 class="m-0" id="testNum">...</h1>
               <h6 class="text-main m-0">Requests in the last 30 days</h6>
             </div>
           </div>
           <div class="jumbotron bg-transparent">
             <div class="text-center container-fluid">
-        				<a :href="tryItLink" role="button" class="btn btn-lg btn-outline-light m-2">Try Live API Now</a>
-        		</div>
-        		<div class="text-center">
-        			<a class="btn btn-sm btn-outline-secondary m-2" role="button" :href="docsLink" target="_blank">Docs <i class="fas fa-external-link-square-alt"></i></a>
-        			<a class="btn btn-sm btn-outline-secondary m-2" role="button" :href="uptimeLink" target="_blank">API Status <i class="fas fa-external-link-square-alt"></i></a>
-        		</div>
+              <a :href="tryItLink" role="button" class="btn btn-lg btn-outline-light m-2">Try Live API Now</a>
+            </div>
+            <div class="text-center">
+              <a class="btn btn-sm btn-outline-secondary m-2" role="button" :href="docsLink" target="_blank">Docs <i
+                  class="fas fa-external-link-square-alt"></i></a>
+              <a class="btn btn-sm btn-outline-secondary m-2" role="button" :href="uptimeLink" target="_blank">API
+                Status <i class="fas fa-external-link-square-alt"></i></a>
+            </div>
           </div>
         </div>
-  		</section>
+      </section>
       <!-- NEW API DISPLAY -->
       <section class="d-flex justify-content-center align-items-center bg-dark">
         <div class="col-sm-12 col-md-8 m-auto mt-5" data-aos="fade-in">
@@ -41,19 +51,23 @@
             <div class="row">
               <div class="col-sm-12 text-center text-light p-2">
                 <h3 class="m-0 anchorLink logoFont shine">
-                  <span class="text-main">{{site_name}}</span> Stats <span class="text-muted" style="font-family:'sans-seriff' !important;">*</span>
-                  <a style="font-size:small !important; opacity:0;" href="./#api-status"><i class="fas fa-tiny fa-link text-light"></i></a>
+                  <span class="text-main">{{site_name}}</span> Stats <span class="text-muted"
+                    style="font-family:'sans-seriff' !important;">*</span>
+                  <a style="font-size:small !important; opacity:0;" href="./#api-status"><i
+                      class="fas fa-tiny fa-link text-light"></i></a>
                 </h3>
                 <div class="mt-2 mb-2">
                   <h4 class="text-light">API Status</h4>
-                  <div class="circleBox text-light d-flex justify-content-center align-items-center m-auto" :class="statusClass">
+                  <div class="circleBox text-light d-flex justify-content-center align-items-center m-auto"
+                    :class="statusClass">
                     <div>
-                      <span v-text='apiStatus' ></span>
+                      <span v-text='apiStatus'></span>
                     </div>
                   </div>
                 </div>
                 <h6 class="text-light lighter">
-                  Last Updated <a class="font-weight-bold" href="//mygene.info/v3/metadata" target="_blank"><span v-text="lastUpdated" class="text-light"></span></a>
+                  Last Updated <a class="font-weight-bold" href="//mygene.info/v3/metadata" target="_blank"><span
+                      v-text="lastUpdated" class="text-light"></span></a>
                 </h6>
                 <h3>Last 7 Days</h3>
               </div>
@@ -65,8 +79,10 @@
                 </div>
               </div>
               <div class="col-sm-12 d-flex justify-content-center text-center">
-                <button type="button" class="btn btn-outline-light m-3" @click="showCal=!showCal" data-tippy="Uptime Calendar">
-                  <i class="fas fa-calendar-alt text-main"></i> <span v-text="showCal ? 'Hide Calendar -':'Show Calendar +'"></span>
+                <button type="button" class="btn btn-outline-light m-3" @click="showCal=!showCal;playSound('cal')"
+                  data-tippy="Uptime Calendar">
+                  <i class="fas fa-calendar-alt text-main"></i> <span
+                    v-text="showCal ? 'Hide Calendar -':'Show Calendar +'"></span>
                 </button>
               </div>
               <!-- Calendar -->
@@ -74,17 +90,18 @@
                 <div class="col-sm-12 m-auto" :class="showCal?'d-block fade-in':'d-none'">
                   <div id="page-body">
                     <div class="text-center text-light p-2" v-if="sMth">
-                      <h3>Uptime for <span v-if="sMth" v-text="sMth+1"></span>/<span v-if="sYear" v-text="sYear"></span>*</h3>
+                      <h3>Uptime for <span v-if="sMth" v-text="sMth+1"></span>/<span v-if="sYear"
+                          v-text="sYear"></span>*</h3>
                       <small class="text-muted">*Data collection in progress. Some dates might be unavailable</small>
                     </div>
                     <div class="text-center text-light p-2" v-else>
-                        <h3>Uptime for 1/<span v-if="sYear" v-text="sYear"></span>*</h3>
-                        <small class="text-muted">*Data collection in progress. Some dates might be unavailable</small>
+                      <h3>Uptime for 1/<span v-if="sYear" v-text="sYear"></span>*</h3>
+                      <small class="text-muted">*Data collection in progress. Some dates might be unavailable</small>
                     </div>
                     <div id="cal-date" class="d-flex justify-content-start align-items-center">
                       <select id="cal-mth" class="form-control m-1"></select>
                       <select id="cal-yr" class="form-control m-1"></select>
-                      <input class="form-control m-1 btn-outline-light" id="cal-set" type="button" value="Go"/>
+                      <input class="form-control m-1 btn-outline-light" id="cal-set" type="button" value="Go" />
                     </div>
                     <div id="cal-container"></div>
                     <div id="cal-event"></div>
@@ -104,16 +121,19 @@
         </div>
       </section>
 
-      <section class="w-100 blogBack bg-light justify-content-center align-items-center row m-0 usingCont" id="trigger4" :class="showWhoIsUsing?'d-flex':'d-none'">
+      <section class="w-100 blogBack bg-light justify-content-center align-items-center row m-0 usingCont" id="trigger4"
+        :class="showWhoIsUsing?'d-flex':'d-none'">
         <div class="text-center p-3 col-sm-12">
-          <h2 class="m-0 anchorLink">Who is using <span class="logoFont text-main">{{site_name}}</span> <a style="font-size:small !important;opacity:0;" href="./#who-is-using"><i class="fas fa-tiny fa-link"></i></a></h2>
+          <h2 class="m-0 anchorLink">Who is using <span class="logoFont text-main">{{site_name}}</span> <a
+              style="font-size:small !important;opacity:0;" href="./#who-is-using"><i
+                class="fas fa-tiny fa-link"></i></a></h2>
         </div>
         <div class="col-sm-12 bg-none">
-          <div class="row m-0 d-flex justify-content-center align-items-center" >
+          <div class="row m-0 d-flex justify-content-center align-items-center">
             <template v-for="pic in apiPics">
               <div class="col-sm-2 m-2 text-center">
                 <a target="_blank" :href="pic.href" :data-tippy="pic.name">
-                  <img :src="pic.src"  :alt="pic.name" class="w-75"/>
+                  <img :src="pic.src" :alt="pic.name" class="w-75" />
                 </a>
               </div>
             </template>
@@ -128,1577 +148,1984 @@
       </section>
 
       <!-- 3D boxes-->
-  		<div class="bg-dark">
-        <section id="box3d" class="w-100 row m-0 p-1 d-flex justify-content-between align-items-center" style="min-height:70vh;" >
-    			  <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
-              <canvas id="power" width="200" height="300"></canvas>
-    					<h3 class="text-main lighter smallCaps">High performance</h3>
-    					<h5>
-    						Fast API Access to Up-to-Date <span v-text="snType"></span> Annotations
-    					</h5>
-    				</div>
-    				<div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
-              <canvas id="clock" width="200" height="300"></canvas>
-    					<h3 class="text-main lighter smallCaps">Up-to-date</h3>
-    					<h5>
-    						Weekly Updated <span v-text="snType"></span> Annotations from <span v-text="sources"></span> Sources.
-    					</h5>
-    				</div>
-    				<div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
-              <canvas id="strand" width="200" height="300"></canvas>
-    					<h3 class="text-main lighter smallCaps">Pre-integrated</h3>
-    					<h5 v-text="integratedText">
+      <div class="bg-dark">
+        <section id="box3d" class="w-100 row m-0 p-1 d-flex justify-content-between align-items-center"
+          style="min-height:70vh;">
+          <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
+            <canvas id="power" width="200" height="300"></canvas>
+            <h3 class="text-main lighter smallCaps">High performance</h3>
+            <h5>
+              Fast API Access to Up-to-Date <span v-text="snType"></span> Annotations
+            </h5>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
+            <canvas id="clock" width="200" height="300"></canvas>
+            <h3 class="text-main lighter smallCaps">Up-to-date</h3>
+            <h5>
+              Weekly Updated <span v-text="snType"></span> Annotations from <span v-text="sources"></span> Sources.
+            </h5>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
+            <canvas id="strand" width="200" height="300"></canvas>
+            <h3 class="text-main lighter smallCaps">Pre-integrated</h3>
+            <h5 v-text="integratedText">
 
-    					</h5>
-    				</div>
-    				<div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
-              <canvas id="hand" width="200" height="300"></canvas>
-    					<h3 class="text-main lighter smallCaps">Simple to use</h3>
-    					<h5 v-text="simpleUseText">
+            </h5>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
+            <canvas id="hand" width="200" height="300"></canvas>
+            <h3 class="text-main lighter smallCaps">Simple to use</h3>
+            <h5 v-text="simpleUseText">
 
-    					</h5>
-    				</div>
-    		</section>
+            </h5>
+          </div>
+        </section>
       </div>
-  	</div>
+    </div>
   </section>
 
   <!-- Examples for large and medium devices -->
   <section id="query-examples">
-  	<div class="row">
-  		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light codeBoxLeft">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light codeBoxLeft">
         <ul class="p-0">
-            <div class="list-group list-group-flush" id="exampleFormControlSelect1">
-              <div class="w-100">
-                <svg class="w-100" version="1.1" id="tryit" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                	 viewBox="0 0 1050 194" style="enable-background:new 0 0 1050 194;" xml:space="preserve">
-                <polyline class="tryitlines" style="fill:none;stroke:var(--main-dark);stroke-width:5;stroke-miterlimit:10;" points="0.5,147.5 192.5,145.5 192.5,49.5
+          <div class="list-group list-group-flush" id="exampleFormControlSelect1">
+            <div class="w-100">
+              <svg class="w-100" version="1.1" id="tryit" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1050 194"
+                style="enable-background:new 0 0 1050 194;" xml:space="preserve">
+                <polyline class="tryitlines"
+                  style="fill:none;stroke:var(--main-dark);stroke-width:5;stroke-miterlimit:10;" points="0.5,147.5 192.5,145.5 192.5,49.5
                 	164.5,49.5 219.5,49.5 192.5,49.5 192.5,145.5 283.5,145.5 283.5,49.5 338.5,49.5 288.5,98.5 338.5,145.5 433.5,145.5 460.5,49.5
                 	446.5,98.5 405.5,49.5 446.5,98.5 433.5,145.5 460.5,145.5 628.5,145.5 683.5,145.5 656.5,144.5 656.5,49.5 656.5,49.5 656.5,49.5
-                	656.5,49.5 656.5,144.5 750.5,145.5 778.5,145.5 778.5,49.5 750.5,49.5 805.5,49.5 "/>
-                </svg>
-              </div>
-              <div class="list-group-item text-muted">
-                <h3 class="text-muted text-center">EXAMPLE QUERIES</h3>
-                <div class="d-flex justify-content-center align-items-center">
-                  <span class="badge badge-success m-1">HTTP <i class="fas fa-check"></i></span>
-                  <span class="badge badge-success m-1">HTTPS <i class="fas fa-check"></i></span>
-                </div>
-              </div>
-              <template v-for="item in apiExmaples">
-                <div class="list-group-item list-group-item-action p-0 mb-1">
-                  <div class="m-0 row">
-                    <div class="col-sm-2 text-main d-flex align-items-center font-weight-bold">
-                      GET
-                    </div>
-                    <div class="col-sm-8">
-                      <small v-text='item.description'></small>
-                      <br />
-                      <small v-text='"http"+item.query' class="text-main font-weight-bold"></small>
-                    </div>
-                    <div class="col-sm-2">
-                      <button @click="testAPI(item.query)" class="bg-main-dark text-light pull-right rounded pointer d-none d-md-block">
-                        TRY IT <i class="fa fa-chevron-right"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </template>
-              <div class="list-group-item list-group-item-action text-muted">
-                <h5 class="font-weight-bold">Batch queries OK <i class="fas fa-check text-success"></i></h5>
-                <span class="badge bg-main-medium badge-pill text-light">POST</span>  <span v-text='postLink' class="text-main font-weight-bold"></span>
-                <span v-if="postLink2" class="d-block">
-                  <span class="badge bg-main-medium badge-pill text-light">POST</span>  <span v-text='postLink2' class="text-main font-weight-bold"></span>
-                </span>
-                <a role="button" class="btn btn-main text-light float-right mt-2" :href="postQueryInfoLink" target="_blank">Learn More</a>
+                	656.5,49.5 656.5,144.5 750.5,145.5 778.5,145.5 778.5,49.5 750.5,49.5 805.5,49.5 " />
+              </svg>
+            </div>
+            <div class="list-group-item text-muted">
+              <h3 class="text-muted text-center">EXAMPLE QUERIES</h3>
+              <div class="d-flex justify-content-center align-items-center">
+                <span class="badge badge-success m-1">HTTP <i class="fas fa-check"></i></span>
+                <span class="badge badge-success m-1">HTTPS <i class="fas fa-check"></i></span>
               </div>
             </div>
-        </ul>
-  		</div>
-  		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack d-none d-sm-none d-md-block d-lg-block d-xl-block codeBoxRight">
-  			<div id="loading" class="center" style="display: none;">
-  				<h2 style="padding-top: 50%;" class="text-main p-2">Loading...</h2>
-  			</div>
-  			<pre id="callResults" v-html='html' class="p-2 text-dark" style="font-weight: bold;">
-
-  			</pre>
-  		</div>
-  	</div>
-  </section>
-
-    <section>
-      <section id="four" class="main accent carbonfiber mb-5">
-        <a name="news"></a>
-        <header id="news" class="text-center pt-5">
-          <h1 class="text-light font-weight-bold p-2 anchorLink">What's New <a style="font-size:small !important;opacity:0;" href="./#news"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
-          <object width="200" data="/static/img/news-new-01.svg"></object>
-        </header>
-        <div class="container-fluid">
-          <div class="row d-flex justify-content-center row-cols-1 row-cols-md-3">
-              {% for post in posts %}
-              <div class="card col-sm-6 col-md-3 col-lg-4 m-2 alert-light card-hover card-news" data-aos="fade-in">
-                <div class="card-block">
-                  <article class="card-body">
-                      <a href="/blog/{{post.slug}}">
-                        <h4 class="card-title">{{post.title}}</h4>
-                      </a>
-                      <p class="card-text">{{post.html|striptags|truncate(100)}}</p>
-                      <footer class="blockquote-footer">
-                        {%if post.primary_author.profile_image %}
-                        <img class="post_author_img" src={{post.primary_author.profile_image}} />
-                        {% if post.primary_author.slug %}
-                          <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
-                        {% else %}
-                          {{post.primary_author.name}}
-                        {% endif %}
-                        {% else %}
-                        <img class="post_author_img" src='/static/img/mygene-default-user.png' />
-                        {% if post.primary_author.slug %}
-                          <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
-                        {% else %}
-                          {{post.primary_author.name}}
-                        {% endif %}
-                        {% endif %}
-                      </footer>
-                      <div class="reveal alert-secondary p-2 mt-2">
-                        <a href="/blog/{{post.slug}}" class="btn btn-outline-dark mt-2">Learn More <i class="fa fa-chevron-right"></i></a>
-                      </div>
-
-                  </article>
+            <template v-for="item in apiExmaples">
+              <div class="list-group-item list-group-item-action p-0 mb-1">
+                <div class="m-0 row">
+                  <div class="col-sm-2 text-main d-flex align-items-center font-weight-bold">
+                    GET
+                  </div>
+                  <div class="col-sm-8">
+                    <small v-text='item.description'></small>
+                    <br />
+                    <small v-text='window.location.protocol+item.query' class="text-main font-weight-bold"></small>
+                  </div>
+                  <div class="col-sm-2">
+                    <button @click="testAPI(item.query)"
+                      class="bg-main-dark text-light pull-right rounded pointer d-none d-md-block">
+                      TRY IT <i class="fa fa-chevron-right"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
-              {% endfor %}
+            </template>
+            <div class="list-group-item list-group-item-action text-muted">
+              <h5 class="font-weight-bold">Batch queries OK <i class="fas fa-check text-success"></i></h5>
+              <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink'
+                class="text-main font-weight-bold"></span>
+              <span v-if="postLink2" class="d-block">
+                <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink2'
+                  class="text-main font-weight-bold"></span>
+              </span>
+              <a role="button" class="btn btn-main text-light float-right mt-2" :href="postQueryInfoLink"
+                target="_blank">Learn More</a>
+            </div>
           </div>
+        </ul>
+      </div>
+      <div
+        class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack d-none d-sm-none d-md-block d-lg-block d-xl-block codeBoxRight">
+        <div id="loading" class="center" style="display: none;">
+          <h2 style="padding-top: 50%;" class="text-main p-2">Loading...</h2>
         </div>
-        <div class="p-3 text-center mt-2">
-          <a href="/blog" class="btn btn-outline-light">More&nbspNews</a>
-        </div>
-      </section>
-    </section>
+        <pre id="callResults" v-html='html' class="p-2 text-dark" style="font-weight: bold;">
 
-  	<section class="text-light p-5 text-center bg-main-medium">
-  		<p class="p-2">
-  			<b class="text-light">Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
-  		</p>
-  	</section>
+  			</pre>
+      </div>
+    </div>
+  </section>
 
-    <section id="need-help" class="text-light p-5 text-center bg-main-dark">
-      <h1 class="text-light anchorLink text-center m-0">HELP <a style="font-size:small !important;opacity:0;" href="./#need-help"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
-      <object class="col-sm-12 col-md-3" data="/static/img/help-new-01.svg" ></object>
-      <div class="d-flex justify-content-center flex-wrap">
-        <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="100">
-          <h1 class="m-0 text-main"><i class="fa fa-envelope" aria-hidden="true"></i></h1>
-          <h5 class="card-title text-muted">EMAIL</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <a class="" href='mailto:biothings@googlegroups.com'>biothings@googlegroups.com</a>
-          </h6>
-        </div>
-        <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="200">
-          <h1 class="m-0 text-main"><i class="fab fa-github-alt" aria-hidden="true"></i></h1>
-          <h5 class="card-title text-muted">GITHUB</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <a class="github-button" :href="ghLink" aria-label="Issue on GitHub">Issue</a>
-          </h6>
-        </div>
-        <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="300">
-          <h1 class="m-0 text-main"><i class="fab fa-twitter" aria-hidden="true"></i></h1>
-          <h5 class="card-title text-muted">TWITTER</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            <a :href="twitterLink" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow Us</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </h6>
-        </div>
-        <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="400">
-          <h1 class="m-0 text-main"><i class="fa fa-star" aria-hidden="true"></i></h1>
-          <h5 class="card-title text-muted">BIOSTARS</h5>
-          <h6 class="card-subtitle mb-2 text-muted">
-            Post on <a target="_blank" :href="biostarsLink">BioStars.org</a> with tag <b class="text-main">#my<span v-text="snType"></span></b>
-          </h6>
+  <section>
+    <section id="four" class="main accent carbonfiber mb-5">
+      <a name="news"></a>
+      <header id="news" class="text-center pt-5">
+        <h1 class="text-light font-weight-bold p-2 anchorLink">What's New <a
+            style="font-size:small !important;opacity:0;" href="./#news"><i
+              class="fas fa-tiny fa-link text-light"></i></a></h1>
+        <object width="200" data="/static/img/news-new-01.svg"></object>
+      </header>
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center row-cols-1 row-cols-md-3">
+          {% for post in posts %}
+          <div class="card col-sm-6 col-md-3 col-lg-4 m-2 alert-light card-hover card-news" data-aos="fade-in">
+            <div class="card-block">
+              <article class="card-body">
+                <a href="/blog/{{post.slug}}">
+                  <h4 class="card-title">{{post.title}}</h4>
+                </a>
+                <p class="card-text">{{post.html|striptags|truncate(100)}}</p>
+                <footer class="blockquote-footer">
+                  {%if post.primary_author.profile_image %}
+                  <img class="post_author_img" src={{post.primary_author.profile_image}} />
+                  {% if post.primary_author.slug %}
+                  <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
+                  {% else %}
+                  {{post.primary_author.name}}
+                  {% endif %}
+                  {% else %}
+                  <img class="post_author_img" src='/static/img/mygene-default-user.png' />
+                  {% if post.primary_author.slug %}
+                  <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
+                  {% else %}
+                  {{post.primary_author.name}}
+                  {% endif %}
+                  {% endif %}
+                </footer>
+                <div class="reveal alert-secondary p-2 mt-2">
+                  <a href="/blog/{{post.slug}}" class="btn btn-outline-dark mt-2">Learn More <i
+                      class="fa fa-chevron-right"></i></a>
+                </div>
+
+              </article>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
-  	</section>
+      <div class="p-3 text-center mt-2">
+        <a href="/blog" class="btn btn-outline-light">More&nbspNews</a>
+      </div>
+    </section>
+  </section>
+
+  <section class="text-light p-5 text-center bg-main-medium">
+    <p class="p-2">
+      <b class="text-light">Medical Disclaimer: This resource is intended for purely research purposes. It should not be
+        used for emergencies or medical or professional advice.</b>
+    </p>
+  </section>
+
+  <section id="need-help" class="text-light p-5 text-center bg-main-dark">
+    <h1 class="text-light anchorLink text-center m-0">HELP <a style="font-size:small !important;opacity:0;"
+        href="./#need-help"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
+    <object class="col-sm-12 col-md-3" data="/static/img/help-new-01.svg"></object>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="m-0 text-main"><i class="fa fa-envelope" aria-hidden="true"></i></h1>
+        <h5 class="card-title text-muted">EMAIL</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <a class="" href='mailto:biothings@googlegroups.com'>biothings@googlegroups.com</a>
+        </h6>
+      </div>
+      <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="200">
+        <h1 class="m-0 text-main"><i class="fab fa-github-alt" aria-hidden="true"></i></h1>
+        <h5 class="card-title text-muted">GITHUB</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <a class="github-button" :href="ghLink" aria-label="Issue on GitHub">Issue</a>
+        </h6>
+      </div>
+      <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="300">
+        <h1 class="m-0 text-main"><i class="fab fa-twitter" aria-hidden="true"></i></h1>
+        <h5 class="card-title text-muted">TWITTER</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <a :href="twitterLink" class="twitter-follow-button" data-show-screen-name="false"
+            data-show-count="false">Follow Us</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </h6>
+      </div>
+      <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="400">
+        <h1 class="m-0 text-main"><i class="fa fa-star" aria-hidden="true"></i></h1>
+        <h5 class="card-title text-muted">BIOSTARS</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Post on <a target="_blank" :href="biostarsLink">BioStars.org</a> with tag <b class="text-main">#my<span
+              v-text="snType"></span></b>
+        </h6>
+      </div>
+    </div>
+  </section>
 </div>
 
 
 {% endblock %}
 {% block extra_scripts %}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
-  <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script> -->
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="/static/js/countUp.js"></script>
-  <script src="/static/js/moment.js"></script>
-  <script src="/static/js/renderjson.js"></script>
-  <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
-  <script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script> -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="/static/js/countUp.js"></script>
+<script src="/static/js/moment.js"></script>
+<script src="/static/js/renderjson.js"></script>
+<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+<script>
+  AOS.init();
 
-    AOS.init();
+  $(document).on('click', 'a', function (e) {
+    if (e.target.href.slice(-1) === '#') {
+      return false;
+    }
+  });
 
-    $(document).on('click','a',function(e){
-    	if (e.target.href.slice(-1) === '#') {
-    		return false;
-    	}
-    });
+  Vue.component('status-box', {
+    data: function () {
+      return {
+        clss: ''
+      }
+    },
+    props: ['item'],
+    methods: {
 
-    Vue.component('status-box', {
-      data: function () {
-        return {
-          clss:''
-        }
-      },
-      props: ['item'],
-      methods:{
+    },
+    mounted: function () {
 
-      },mounted:function(){
+      var options = {
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+      };
 
-        var options = {
-          useEasing: true,
-          useGrouping: true,
-          separator: ',',
-          decimal: '.',
-        };
+      var demo = new CountUp(this.item.label, 0, this.item.value, 0, 2.5, options);
+      if (!demo.error) {
+        demo.start();
+      } else {
+        console.error(demo.error);
+      }
 
-        var demo = new CountUp(this.item.label, 0, this.item.value, 0, 2.5, options);
-        if (!demo.error) {
-            demo.start();
-        } else {
-            console.error(demo.error);
-        }
-
-      },
-      template: `<div class="card m-1 status flex-row flex-md-column" data-aos="flip-down" data-aos-duration="1000">
+    },
+    template: `<div class="card m-1 status flex-row flex-md-column" data-aos="flip-down" data-aos-duration="1000">
                   <h5 class="card-header text-center text-light p-1" v-text='item.label' :class="item.label.length >6 ?'bg-secondary':'bg-main-dark'"></h5>
                   <h6 class="card-body mb-2 text-muted text-center p-1">
                     <span :id="item.label" class="text-main"></span>
                     %
                   </h6>
                 </div>`
-    });
+  });
 
-    var app = new Vue({
-      el: '#index',
-			data: function(){
-				return {
-          colors:{
-            dark: "",
-            medium: "",
-            light: "",
-          },
-          controller:null,
-          sn:'',
-          snType:'',
-          simpleUseText:'',
-          integratedText:'',
-          tryItLink:'',
-          docsLink:'',
-          uptimeLink:'',
-          postQueryInfoLink:'',
-          postLink:'',
-          postLink2:'',
-          lastUpdatedLink:'',
-          twitterLink:'',
-          biostarsLink:'',
-          ghLink:'',
-          smallScreenLogo:'',
-          showWhoIsUsing:false,
-          apiPics: [],
-          loading:false,
-          lastUpdated: 'Checking...',
-          siteDescription:'',
-          sources:'30',
-          html:'',
-          uptimeParts:[],
-          uptimeWeek:[],
-          uptimeMonth:[],
-          uptimeYesterday:[],
-          showCal: false,
-          apiStatus:'',
-          statusClass:'',
-          apiExmaples:[],
-         // CALENDAR
-         mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
-         data : null, // Events for the selected period
-         sDay : 0, // Current selected day
-         sMth : 0, // Current selected month
-         sYear : 0, // Current selected year
-         sMon : false, // Week start on Monday?
-				}
-			},
-      watch:{
-        showCal:function(s){
-          if (s) {
-            this.buildCalendar();
-          }
+  var app = new Vue({
+    el: '#index',
+    data: function () {
+      return {
+        colors: {
+          dark: "",
+          medium: "",
+          light: "",
         },
-        uptimeParts:function(parts,oldpart){
-          var self = this;
-
-          //yesterday
-          let yesterday = parts.slice(0,1)[0];
-          self.uptimeYesterday = [{'label':'Last 24 Hours','value': Math.trunc(yesterday)}];
-
-          //this week
-          let thisweek = parts.slice(1,8);
-          for (var i = 0; i < thisweek.length; i++) {
-            let day = moment().subtract(i+1, 'days').format('MMM DD');
-            self.uptimeWeek.push({'label': day,'value': Math.trunc(thisweek[i])})
-          }
-
-          //thisweek,thismonth, last month
-          let arr = parts.slice(8);
-          let res = [];
-          for (var i = 0; i < arr.length; i++) {
-            switch (i) {
-              case 0:
-                res.push({'label':'This Week','value': Math.trunc(arr[i])})
-                break;
-                case 1:
-                  res.push({'label':'This Month','value': Math.trunc(arr[i])})
-                  break;
-                  case 2:
-                    res.push({'label':'Last Month','value': Math.trunc(arr[i])})
-                    break;
-              default:
-
-            }
-          }
-          self.uptimeMonth = res;
+        controller: null,
+        sn: '',
+        snType: '',
+        simpleUseText: '',
+        integratedText: '',
+        tryItLink: '',
+        docsLink: '',
+        uptimeLink: '',
+        postQueryInfoLink: '',
+        postLink: '',
+        postLink2: '',
+        lastUpdatedLink: '',
+        twitterLink: '',
+        biostarsLink: '',
+        ghLink: '',
+        smallScreenLogo: '',
+        showWhoIsUsing: false,
+        apiPics: [],
+        loading: false,
+        lastUpdated: 'Checking...',
+        siteDescription: '',
+        sources: '30',
+        html: '',
+        uptimeParts: [],
+        uptimeWeek: [],
+        uptimeMonth: [],
+        uptimeYesterday: [],
+        showCal: false,
+        apiStatus: '',
+        statusClass: '',
+        apiExmaples: [],
+        // CALENDAR
+        mName: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
+          "Dec"
+        ], // Month Names
+        data: null, // Events for the selected period
+        sDay: 0, // Current selected day
+        sMth: 0, // Current selected month
+        sYear: 0, // Current selected year
+        sMon: false, // Week start on Monday?
+      }
+    },
+    watch: {
+      showCal: function (s) {
+        if (s) {
+          this.buildCalendar();
         }
       },
-      methods:{
-        startAnimation(api){
-          var self = this;
-          let isSpinning = false;
+      uptimeParts: function (parts, oldpart) {
+        var self = this;
 
-          let illo = new Zdog.Illustration({
-            element: '.zdog-canvas',
-            dragRotate: true,
-            rotate:{z:33},
-            onDragStart: function() {
-              isSpinning = !isSpinning;
-            },
-          });
+        //yesterday
+        let yesterday = parts.slice(0, 1)[0];
+        self.uptimeYesterday = [{
+          'label': 'Last 24 Hours',
+          'value': Math.trunc(yesterday)
+        }];
 
-          let anchor = new Zdog.Anchor({
-            addTo: illo,
-          });
+        //this week
+        let thisweek = parts.slice(1, 8);
+        for (var i = 0; i < thisweek.length; i++) {
+          let day = moment().subtract(i + 1, 'days').format('MMM DD');
+          self.uptimeWeek.push({
+            'label': day,
+            'value': Math.trunc(thisweek[i])
+          })
+        }
 
-          switch (api) {
-            case 'mg':
+        //thisweek,thismonth, last month
+        let arr = parts.slice(8);
+        let res = [];
+        for (var i = 0; i < arr.length; i++) {
+          switch (i) {
+            case 0:
+              res.push({
+                'label': 'This Week',
+                'value': Math.trunc(arr[i])
+              })
+              break;
+            case 1:
+              res.push({
+                'label': 'This Month',
+                'value': Math.trunc(arr[i])
+              })
+              break;
+            case 2:
+              res.push({
+                'label': 'Last Month',
+                'value': Math.trunc(arr[i])
+              })
+              break;
+            default:
+
+          }
+        }
+        self.uptimeMonth = res;
+      }
+    },
+    methods: {
+      startAnimation(api) {
+        var self = this;
+        let isSpinning = false;
+
+        let illo = new Zdog.Illustration({
+          element: '.zdog-canvas',
+          dragRotate: true,
+          rotate: {
+            z: 33
+          },
+          onDragStart: function () {
+            isSpinning = !isSpinning;
+          },
+        });
+
+        let anchor = new Zdog.Anchor({
+          addTo: illo,
+        });
+
+        switch (api) {
+          case 'mg':
             let mgbox = new Zdog.Box({
               addTo: anchor,
               width: 100,
               height: 100,
               depth: 100,
               stroke: true,
-              color: '#3366CC',//dark
-              leftFace: '#2A7FE2',//medium
-              rightFace: '#3366CC',//dark
-              topFace: '#669BE8',//light
-              bottomFace: '#3366CC',//dark
-              rotate:{x:-.5,y:-.8}
+              color: '#3366CC', //dark
+              leftFace: '#2A7FE2', //medium
+              rightFace: '#3366CC', //dark
+              topFace: '#669BE8', //light
+              bottomFace: '#3366CC', //dark
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
             });
 
             mgbox.copy({
               // overwrite original options
-              translate: { x: 140 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 140
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mgbox.copy({
               // overwrite original options
-              translate: { x: 70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mgbox.copy({
               // overwrite original options
-              translate: { x: -70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mgbox.copy({
               // overwrite original options
-              translate: { x: -70,y:-120,z:-10 },
-              color: '#3366CC',//dark
-              leftFace: '#2A7FE2',//medium
-              rightFace: '#3366CC',//dark
-              topFace: '#669BE8',//light
-              bottomFace: '#3366CC',//dark
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: '#3366CC', //dark
+              leftFace: '#2A7FE2', //medium
+              rightFace: '#3366CC', //dark
+              topFace: '#669BE8', //light
+              bottomFace: '#3366CC', //dark
             });
 
             mgbox.copy({
               // overwrite original options
-              translate: { x: 70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mgbox.copy({
               // bottom left
-              translate: { x: -140,y:0,z:0 },
-              color: '#3366CC',//dark
-              leftFace: '#2A7FE2',//medium
-              rightFace: '#3366CC',//dark
-              topFace: '#669BE8',//light
-              bottomFace: '#3366CC',//dark
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: '#3366CC', //dark
+              leftFace: '#2A7FE2', //medium
+              rightFace: '#3366CC', //dark
+              topFace: '#669BE8', //light
+              bottomFace: '#3366CC', //dark
             });
-              break;
-            case 'mc':
+            break;
+          case 'mc':
             let mcbox = new Zdog.Box({
               addTo: anchor,
               width: 100,
               height: 100,
               depth: 100,
               stroke: true,
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
-              rotate:{x:-.5,y:-.8}
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
             });
 
             mcbox.copy({
               // overwrite original options
-              translate: { x: 140 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 140
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mcbox.copy({
               // overwrite original options
-              translate: { x: 70,y:120,z:10 },
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
             });
 
             mcbox.copy({
               // overwrite original options
-              translate: { x: -70,y:120,z:10 },
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
             });
 
             mcbox.copy({
               // overwrite original options
-              translate: { x: -70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mcbox.copy({
               // overwrite original options
-              translate: { x: 70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mcbox.copy({
               // bottom left
-              translate: { x: -140,y:0,z:0 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
             break;
-            case 'mv':
+          case 'md':
+            let mdbox = new Zdog.Box({
+              addTo: anchor,
+              width: 100,
+              height: 100,
+              depth: 100,
+              stroke: true,
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
+            });
+
+            mdbox.copy({
+              // overwrite original options
+              translate: {
+                x: 140
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            mdbox.copy({
+              // overwrite original options
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+            });
+
+            mdbox.copy({
+              // overwrite original options
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+            });
+
+            mdbox.copy({
+              // overwrite original options
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            mdbox.copy({
+              // overwrite original options
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            mdbox.copy({
+              // bottom left
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+            break;
+          case 'mv':
             let mvbox = new Zdog.Box({
               addTo: anchor,
               width: 100,
               height: 100,
               depth: 100,
               stroke: true,
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
-              rotate:{x:-.5,y:-.8}
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
             });
 
             mvbox.copy({
               // overwrite original options
-              translate: { x: 140 },
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
+              translate: {
+                x: 140
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
             });
 
             mvbox.copy({
               // overwrite original options
-              translate: { x: 70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mvbox.copy({
               // overwrite original options
-              translate: { x: -70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mvbox.copy({
               // overwrite original options
-              translate: { x: -70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             mvbox.copy({
               // overwrite original options
-              translate: { x: 70,y:-120,z:-10 },
-              color: self.colors['dark'],//dark
-              leftFace: self.colors['medium'],//medium
-              rightFace: self.colors['dark'],//dark
-              topFace: self.colors['light'],//light
-              bottomFace: self.colors['dark'],//dark
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
             });
 
             mvbox.copy({
               // bottom left
-              translate: { x: -140,y:0,z:0 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
             break;
-            default:
+          default:
             let box = new Zdog.Box({
               addTo: anchor,
               width: 100,
               height: 100,
               depth: 100,
               stroke: true,
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
-              rotate:{x:-.5,y:-.8}
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
             });
 
             box.copy({
               // overwrite original options
-              translate: { x: 140 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 140
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             box.copy({
               // overwrite original options
-              translate: { x: 70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             box.copy({
               // overwrite original options
-              translate: { x: -70,y:120,z:10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             box.copy({
               // overwrite original options
-              translate: { x: -70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             box.copy({
               // overwrite original options
-              translate: { x: 70,y:-120,z:-10 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
 
             box.copy({
               // bottom left
-              translate: { x: -140,y:0,z:0 },
-              color: '#808080',//GREY
-              leftFace: '#B3B3B3',//GREY
-              rightFace: '#808080',//GREY
-              topFace: '#E6E6E6',//GREY
-              bottomFace: '#808080',//GREY
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
             });
+        }
+
+
+
+
+        function animate() {
+          // rotate
+          if (isSpinning) {
+            setTimeout(function () {
+              illo.rotate.y += -0.01;
+            }, 100);
           }
+          illo.updateRenderGraph();
+          requestAnimationFrame(animate);
+        }
 
-
-
-
-          function animate() {
-            // rotate
-            if ( isSpinning ) {
-              setTimeout(function(){
-                illo.rotate.y += -0.01;
-              }, 100);
-            }
-            illo.updateRenderGraph();
-            requestAnimationFrame( animate );
-          }
-
-           document.getElementById('canvaslogo').addEventListener("mouseover", function(){
-    				isSpinning = true;
-    			}, false);
-    			document.getElementById('canvaslogo').addEventListener("mouseout", function(){
-    				isSpinning = false;
-    				illo.rotate.set( {z:33} );
-    			}, false);
-
-          animate();
-        },
-        getRequests(name){
-          var geneURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
-          var variantURL = 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
-          var myChemURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
-
-          switch (name) {
-            case "MyGene.info":
-              url = geneURL;
-              break;
-            case "MyVariant.info":
-              url = variantURL;
-              break;
-            case "myChemURL.info":
-              url = chemURL;
-              break;
-            default:
-              url = geneURL;
-          }
-          axios.get(url).then(result=>{
-            var sessionsCount = result.data.totalsForAllResults['ga:sessions'];
-            var options = {
-              useEasing: true,
-              useGrouping: true,
-              separator: ',',
-              decimal: '.',
-            };
-            var demo = new CountUp('testNum', 0, sessionsCount, 0, 2.5, options);
-            if (!demo.error) {
-                demo.start();
-            } else {
-                console.error(demo.error);
-            }
-          }).catch(err=>{
-              throw err;
+        document.getElementById('canvaslogo').addEventListener("mouseover", function () {
+          isSpinning = true;
+        }, false);
+        document.getElementById('canvaslogo').addEventListener("mouseout", function () {
+          isSpinning = false;
+          illo.rotate.set({
+            z: 33
           });
-        },
-        getLastUpdatedAndSources(name){
-          let self = this;
-          switch (name) {
-            case "MyGene.info":
-              url = '//mygene.info/v3/metadata';
-              break;
-            case "MyVariant.info":
-              url = '//myvariant.info/v1/metadata';
-              break;
-            case "myChemURL.info":
-              url = '//mychem.info/v1/metadata';
-              break;
-            default:
-              url = '//mygene.info/v3/metadata';
-          }
-          axios.get(url).then(res=>{
-            self.sources= Object.keys(res.data.src).length;
-            self.lastUpdated= moment(res.data.build_date).format('MMM DD YYYY');
-          }).catch(err=>{
-            throw err;
-          });
-        },
-        testAPI(url){
-          let self = this;
-          self.loading = true;
-          axios.get(url).then(result=>{
-            renderjson.set_show_to_level(7);
-            self.loading = false;
-            $('#callResults').html( renderjson(result.data) );
-          }).catch(err=>{
-            self.loading = false;
-            throw err;
-          });
-        },
-        displayStatus(code){
-          let self = this;
-          switch (code) {
-            case 0:
-                self.apiStatus = 'PAUSED';
-                self.statusClass = 'bg-warning';
-              break;
-            case 2:
-                self.apiStatus = 'UP';
-                self.statusClass = 'bg-success';
-              break;
-            case 9:
-                self.apiStatus = 'DOWN';
-                self.statusClass = 'bg-danger';
-              break;
-            default:
-              self.apiStatus = 'N/A';
-              self.statusClass = 'bg-secondary';
-              break;
-          }
-        },
-        getAPIUptime(name){
-          let self= this;
-          // API status via UpTime Robot API
-          let myvariant= 'm776973331-492ae87d5b86bf6741009dbf';
-          let mygene= 'm142169-2fd3ec3375da41d76e77d604';
-          let mychem= 'm780201416-03e5f5583f5e9a0cd392c68c';
-          let k ='';
+        }, false);
 
-          switch (name) {
-            case "MyGene.info":
-              k = mygene;
-              break;
-            case "MyVariant.info":
-              k = myvariant;
-              break;
-            case "myChemURL.info":
-              k = mychem;
-              break;
-            default:
-              k = mygene;
-          }
+        animate();
+      },
+      getRequests(name) {
+        var geneURL =
+          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
+        var variantURL =
+          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
+        var myChemURL =
+          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
 
-          let currentDate = Math.trunc( new Date().getTime()/1000 );
-          let today = new Date();
-          let daysAgo1 = Date.parse(new Date(today.getTime() - (1 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo2 = Date.parse(new Date(today.getTime() - (2 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo3 = Date.parse(new Date(today.getTime() - (3 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo4 = Date.parse(new Date(today.getTime() - (4 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo5 = Date.parse(new Date(today.getTime() - (5 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo6 = Date.parse(new Date(today.getTime() - (6 * 24 * 60 * 60 * 1000)))/1000;
-          let sevenDaysAgo = Date.parse(new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000)))/1000;
-          let daysAgo8 = Date.parse(new Date(today.getTime() - (8 * 24 * 60 * 60 * 1000)))/1000;
-          let oneMonthAgo = Date.parse(new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000)))/1000;
-          let twoMonthsAgo = Date.parse(new Date(today.getTime() - (60 * 24 * 60 * 60 * 1000)))/1000;
-          //final output for ajax call to uptimerobot API
-          let finalUptimeRange =
-          //today
-          daysAgo1+'_'+currentDate+'-'+
-          //yesterday
-          daysAgo2+'_'+daysAgo1+'-'+
-          // 2 days ago
-          daysAgo3+'_'+daysAgo2+'-'+
-          // 3 days
-          daysAgo4+'_'+daysAgo3+'-'+
-          // 4 days
-          daysAgo5+'_'+daysAgo4+'-'+
-          // 5 days
-          daysAgo6+'_'+daysAgo5+'-'+
-          // 6 days
-          sevenDaysAgo+'_'+daysAgo6+'-'+
-          // 7 days
-          daysAgo8+'_'+sevenDaysAgo+'-'+
-          // this week
-          sevenDaysAgo+'_'+currentDate+'-'+
-          // one month
-          oneMonthAgo+'_'+currentDate+'-'+
-          // two months
-          twoMonthsAgo+'_'+currentDate;
-
-          //console.log(finalUptimeRange);
-
-          let data={
-            api_key: k,
-            logs: '1',
-            format: 'json',
-            custom_uptime_ranges: finalUptimeRange,
-            custom_uptime_ratios: '1-7'
-          }
-
-          axios.post('https://api.uptimerobot.com/v2/getMonitors',data).then(res=>{
-            let data = res.data;
-            this.displayStatus(data.monitors[0].status);
-            var parts = data.monitors[0].custom_uptime_ranges.split('-');
-            self.uptimeParts=parts;
-          }).catch(err=>{
-            throw err;
-          });
-        },
-        list : function () {
-          // this.list() : draw the calendar for the given month
-
-          // BASIC CALCULATIONS
-          // Note - Jan is 0 & Dec is 11 in JS.
-          // Note - Sun is 0 & Sat is 6
-          this.sMth = parseInt(document.getElementById("cal-mth").value); // selected month
-          this.sYear = parseInt(document.getElementById("cal-yr").value); // selected year
-          var daysInMth = new Date(this.sYear, this.sMth+1, 0).getDate(), // number of days in selected month
-              startDay = new Date(this.sYear, this.sMth, 1).getDay(), // first day of the month
-              endDay = new Date(this.sYear, this.sMth, daysInMth).getDay(); // last day of the month
-
-          // LOAD DATA FROM LOCALSTORAGE
-          this.data = localStorage.getItem("cal-" + this.sMth + "-" + this.sYear);
-          if (this.data==null) {
-            localStorage.setItem("cal-" + this.sMth + "-" + this.sYear, "{}");
-            this.data = {};
+        switch (name) {
+          case "MyGene.info":
+            url = geneURL;
+            break;
+          case "MyVariant.info":
+            url = variantURL;
+            break;
+          case "myChemURL.info":
+            url = chemURL;
+            break;
+          default:
+            url = geneURL;
+        }
+        axios.get(url).then(result => {
+          var sessionsCount = result.data.totalsForAllResults['ga:sessions'];
+          var options = {
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+          };
+          var demo = new CountUp('testNum', 0, sessionsCount, 0, 2.5, options);
+          if (!demo.error) {
+            demo.start();
           } else {
-            this.data = JSON.parse(this.data);
+            console.error(demo.error);
           }
+        }).catch(err => {
+          throw err;
+        });
+      },
+      getLastUpdatedAndSources(name) {
+        let self = this;
+        switch (name) {
+          case "MyGene.info":
+            url = '//mygene.info/v3/metadata';
+            break;
+          case "MyVariant.info":
+            url = '//myvariant.info/v1/metadata';
+            break;
+          case "myChemURL.info":
+            url = '//mychem.info/v1/metadata';
+            break;
+          default:
+            url = '//mygene.info/v3/metadata';
+        }
+        axios.get(url).then(res => {
+          self.sources = Object.keys(res.data.src).length;
+          self.lastUpdated = moment(res.data.build_date).format('MMM DD YYYY');
+        }).catch(err => {
+          throw err;
+        });
+      },
+      testAPI(url) {
+        let self = this;
+        self.playSound('api')
+        self.loading = true;
+        axios.get(url).then(result => {
+          renderjson.set_show_to_level(7);
+          self.loading = false;
+          $('#callResults').html(renderjson(result.data));
+        }).catch(err => {
+          self.loading = false;
+          throw err;
+        });
+      },
+      displayStatus(code) {
+        let self = this;
+        switch (code) {
+          case 0:
+            self.apiStatus = 'PAUSED';
+            self.statusClass = 'bg-warning';
+            break;
+          case 2:
+            self.apiStatus = 'UP';
+            self.statusClass = 'bg-success';
+            break;
+          case 9:
+            self.apiStatus = 'DOWN';
+            self.statusClass = 'bg-danger';
+            break;
+          default:
+            self.apiStatus = 'N/A';
+            self.statusClass = 'bg-secondary';
+            break;
+        }
+      },
+      getAPIUptime(name) {
+        let self = this;
+        // API status via UpTime Robot API
+        let myvariant = 'm776973331-492ae87d5b86bf6741009dbf';
+        let mygene = 'm142169-2fd3ec3375da41d76e77d604';
+        let mychem = 'm780201416-03e5f5583f5e9a0cd392c68c';
+        let k = '';
 
-          // DRAWING CALCULATIONS
-          // Determine the number of blank squares before start of month
-          var squares = [];
-          if (this.sMon && startDay != 1) {
-            var blanks = startDay==0 ? 7 : startDay ;
-            for (var i=1; i<blanks; i++) { squares.push("b"); }
+        switch (name) {
+          case "MyGene.info":
+            k = mygene;
+            break;
+          case "MyVariant.info":
+            k = myvariant;
+            break;
+          case "myChemURL.info":
+            k = mychem;
+            break;
+          default:
+            k = mygene;
+        }
+
+        let currentDate = Math.trunc(new Date().getTime() / 1000);
+        let today = new Date();
+        let daysAgo1 = Date.parse(new Date(today.getTime() - (1 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo2 = Date.parse(new Date(today.getTime() - (2 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo3 = Date.parse(new Date(today.getTime() - (3 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo4 = Date.parse(new Date(today.getTime() - (4 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo5 = Date.parse(new Date(today.getTime() - (5 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo6 = Date.parse(new Date(today.getTime() - (6 * 24 * 60 * 60 * 1000))) / 1000;
+        let sevenDaysAgo = Date.parse(new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000))) / 1000;
+        let daysAgo8 = Date.parse(new Date(today.getTime() - (8 * 24 * 60 * 60 * 1000))) / 1000;
+        let oneMonthAgo = Date.parse(new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000))) / 1000;
+        let twoMonthsAgo = Date.parse(new Date(today.getTime() - (60 * 24 * 60 * 60 * 1000))) / 1000;
+        //final output for ajax call to uptimerobot API
+        let finalUptimeRange =
+          //today
+          daysAgo1 + '_' + currentDate + '-' +
+          //yesterday
+          daysAgo2 + '_' + daysAgo1 + '-' +
+          // 2 days ago
+          daysAgo3 + '_' + daysAgo2 + '-' +
+          // 3 days
+          daysAgo4 + '_' + daysAgo3 + '-' +
+          // 4 days
+          daysAgo5 + '_' + daysAgo4 + '-' +
+          // 5 days
+          daysAgo6 + '_' + daysAgo5 + '-' +
+          // 6 days
+          sevenDaysAgo + '_' + daysAgo6 + '-' +
+          // 7 days
+          daysAgo8 + '_' + sevenDaysAgo + '-' +
+          // this week
+          sevenDaysAgo + '_' + currentDate + '-' +
+          // one month
+          oneMonthAgo + '_' + currentDate + '-' +
+          // two months
+          twoMonthsAgo + '_' + currentDate;
+
+        //console.log(finalUptimeRange);
+
+        let data = {
+          api_key: k,
+          logs: '1',
+          format: 'json',
+          custom_uptime_ranges: finalUptimeRange,
+          custom_uptime_ratios: '1-7'
+        }
+
+        axios.post('https://api.uptimerobot.com/v2/getMonitors', data).then(res => {
+          let data = res.data;
+          this.displayStatus(data.monitors[0].status);
+          var parts = data.monitors[0].custom_uptime_ranges.split('-');
+          self.uptimeParts = parts;
+        }).catch(err => {
+          throw err;
+        });
+      },
+      list: function () {
+        // this.list() : draw the calendar for the given month
+
+        // BASIC CALCULATIONS
+        // Note - Jan is 0 & Dec is 11 in JS.
+        // Note - Sun is 0 & Sat is 6
+        this.sMth = parseInt(document.getElementById("cal-mth").value); // selected month
+        this.sYear = parseInt(document.getElementById("cal-yr").value); // selected year
+        var daysInMth = new Date(this.sYear, this.sMth + 1, 0).getDate(), // number of days in selected month
+          startDay = new Date(this.sYear, this.sMth, 1).getDay(), // first day of the month
+          endDay = new Date(this.sYear, this.sMth, daysInMth).getDay(); // last day of the month
+
+        // LOAD DATA FROM LOCALSTORAGE
+        this.data = localStorage.getItem("cal-" + this.sMth + "-" + this.sYear);
+        if (this.data == null) {
+          localStorage.setItem("cal-" + this.sMth + "-" + this.sYear, "{}");
+          this.data = {};
+        } else {
+          this.data = JSON.parse(this.data);
+        }
+
+        // DRAWING CALCULATIONS
+        // Determine the number of blank squares before start of month
+        var squares = [];
+        if (this.sMon && startDay != 1) {
+          var blanks = startDay == 0 ? 7 : startDay;
+          for (var i = 1; i < blanks; i++) {
+            squares.push("b");
           }
-          if (!this.sMon && startDay != 0) {
-            for (var i=0; i<startDay; i++) { squares.push("b"); }
+        }
+        if (!this.sMon && startDay != 0) {
+          for (var i = 0; i < startDay; i++) {
+            squares.push("b");
           }
+        }
 
-          // Populate the days of the month
-          for (var i=1; i<=daysInMth; i++) { squares.push(i); }
+        // Populate the days of the month
+        for (var i = 1; i <= daysInMth; i++) {
+          squares.push(i);
+        }
 
-          // Determine the number of blank squares after end of month
-          if (this.sMon && endDay != 0) {
-            var blanks = endDay==6 ? 1 : 7-endDay;
-            for (var i=0; i<blanks; i++) { squares.push("b"); }
+        // Determine the number of blank squares after end of month
+        if (this.sMon && endDay != 0) {
+          var blanks = endDay == 6 ? 1 : 7 - endDay;
+          for (var i = 0; i < blanks; i++) {
+            squares.push("b");
           }
-          if (!this.sMon && endDay != 6) {
-            var blanks = endDay==0 ? 6 : 6-endDay;
-            for (var i=0; i<blanks; i++) { squares.push("b"); }
+        }
+        if (!this.sMon && endDay != 6) {
+          var blanks = endDay == 0 ? 6 : 6 - endDay;
+          for (var i = 0; i < blanks; i++) {
+            squares.push("b");
           }
+        }
 
-          // DRAW HTML
-          // Container & Table
-          var container = document.getElementById("cal-container"),
-              cTable = document.createElement("table");
-              cTableBody = document.createElement("tbody");
-              cTableHead = document.createElement("thead")
-          cTable.id = "calendar";
-          cTable.classList.add('table');
-          cTable.classList.add('table-dark');
-          cTable.classList.add('table-striped');
-          cTable.classList.add('table-bordered');
-          cTable.classList.add('table-sm');
-          container.innerHTML = "";
-          cTable.appendChild(cTableHead);
-          cTable.appendChild(cTableBody);
-          container.appendChild(cTable);
+        // DRAW HTML
+        // Container & Table
+        var container = document.getElementById("cal-container"),
+          cTable = document.createElement("table");
+        cTableBody = document.createElement("tbody");
+        cTableHead = document.createElement("thead")
+        cTable.id = "calendar";
+        cTable.classList.add('table');
+        cTable.classList.add('table-dark');
+        cTable.classList.add('table-striped');
+        cTable.classList.add('table-bordered');
+        cTable.classList.add('table-sm');
+        container.innerHTML = "";
+        cTable.appendChild(cTableHead);
+        cTable.appendChild(cTableBody);
+        container.appendChild(cTable);
 
-          // First row - Days
-          var cRow = document.createElement("tr"),
-              cCell = null,
-              days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-          if (this.sMon) { days.push(days.shift()); }
-          for (var d of days) {
-            cCell = document.createElement("td");
-            cCell.innerHTML = d;
-            cTableHead.appendChild(cCell);
-          }
-          cRow.classList.add("head");
-          cTableBody.appendChild(cRow);
+        // First row - Days
+        var cRow = document.createElement("tr"),
+          cCell = null,
+          days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+        if (this.sMon) {
+          days.push(days.shift());
+        }
+        for (var d of days) {
+          cCell = document.createElement("td");
+          cCell.innerHTML = d;
+          cTableHead.appendChild(cCell);
+        }
+        cRow.classList.add("head");
+        cTableBody.appendChild(cRow);
 
-          // Days in Month
-          var total = squares.length;
-          cRow = document.createElement("tr");
-          cRow.classList.add("day");
-          for (var i=0; i<total; i++) {
-            cCell = document.createElement("td");
-            if (squares[i]=="b") { cCell.classList.add("blank"); }
-            else {
-              // CALL API
-              // fetch('/date-status/01272020mychem.info')
-              //   .then((response) => {
-              //     return response.json();
-              //   })
-              //   .then((myJson) => {
-              //     console.log(myJson);
-              //   });
-              // cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
-              let day =''
-              if (squares[i] < 10) {
-                day = "0"+squares[i].toString()
-              }else {
-                day = squares[i]
-              }
-              month = ''
-              let xmonth = parseInt(document.getElementById("cal-mth").value)+1
-              if (xmonth < 10) {
-                month = "0"+xmonth.toString()
-              }else {
-                month = document.getElementById("cal-mth").value.toString()
-              }
-              let year = document.getElementById("cal-yr").value.toString();
-
-              let sitename = "{{site_name}}".toLowerCase()
-
-              let data = month+day+year+sitename;
-              this.getDBDetails(squares[i],data)
-              // console.log(data)
-              cCell.id = data;
-              cCell.innerHTML = "<div class='dd text-muted'>"+squares[i]+"</div>";
-              if (this.data[squares[i]]) {
-                cCell.innerHTML += "<div class='evt'>" + this.data[squares[i]] + "</div>";
-              }
-              // cCell.addEventListener("click", function(){
-              //   this.show(this);
-              // });
+        // Days in Month
+        var total = squares.length;
+        cRow = document.createElement("tr");
+        cRow.classList.add("day");
+        for (var i = 0; i < total; i++) {
+          cCell = document.createElement("td");
+          if (squares[i] == "b") {
+            cCell.classList.add("blank");
+          } else {
+            // CALL API
+            // fetch('/date-status/01272020mychem.info')
+            //   .then((response) => {
+            //     return response.json();
+            //   })
+            //   .then((myJson) => {
+            //     console.log(myJson);
+            //   });
+            // cCell.innerHTML = "<div class='dd'>"+squares[i]+"</div>";
+            let day = ''
+            if (squares[i] < 10) {
+              day = "0" + squares[i].toString()
+            } else {
+              day = squares[i]
             }
-            cRow.appendChild(cCell);
-            if (i!=0 && (i+1)%7==0) {
-              cTableBody.appendChild(cRow);
-              cRow = document.createElement("tr");
-              cRow.classList.add("day");
+            month = ''
+            let xmonth = parseInt(document.getElementById("cal-mth").value) + 1
+            if (xmonth < 10) {
+              month = "0" + xmonth.toString()
+            } else {
+              month = document.getElementById("cal-mth").value.toString()
             }
+            let year = document.getElementById("cal-yr").value.toString();
+
+            let sitename = "{{site_name}}".toLowerCase()
+
+            let data = month + day + year + sitename;
+            this.getDBDetails(squares[i], data)
+            // console.log(data)
+            cCell.id = data;
+            cCell.innerHTML = "<div class='dd text-muted'>" + squares[i] + "</div>";
+            if (this.data[squares[i]]) {
+              cCell.innerHTML += "<div class='evt'>" + this.data[squares[i]] + "</div>";
+            }
+            // cCell.addEventListener("click", function(){
+            //   this.show(this);
+            // });
           }
-
-          // REMOVE ANY ADD/EDIT EVENT DOCKET
-          this.close();
-        },
-        getDBDetails(day,dateapi){
-          var now = new Date();
-          var dateEval = dateapi.replace(/\D/g,'');
-          dateEval = moment(dateEval, "MMDDYYYY");
-
-          if (dateEval < now) {
-            // selected date is in the past
-            axios.get('/date-status/'+dateapi).then(res=>{
-              // console.log(res.data)
-              let cls =''
-              let per = Math.ceil(res.data.percentage);
-
-              if (per>75) {
-                cls="text-success"
-              }else if (per>25 && per<75) {
-                cls="badge-warning"
-              }else if (per<25) {
-                cls="badge-danger"
-              }
-              document.getElementById(dateapi).innerHTML= "<span class='text-main font-weight-bold'>"+day+`</span> <span class="caltip d-flex justify-content-center pointer lighter" data-tippy-info=`+res.data.status+`><i class="fa `+cls+` fa-check-circle"></i> `+per+`%</span>`;
-            }).catch(err=>{
-              document.getElementById(dateapi).innerHTML= "<span class='text-main font-weight-bold'>"+day+`</span> <span class="text-muted caltip d-flex justify-content-center" data-tippy-info='Not Available' >N/A</span>`;
-            });
+          cRow.appendChild(cCell);
+          if (i != 0 && (i + 1) % 7 == 0) {
+            cTableBody.appendChild(cRow);
+            cRow = document.createElement("tr");
+            cRow.classList.add("day");
           }
+        }
 
-        },
+        // REMOVE ANY ADD/EDIT EVENT DOCKET
+        this.close();
+      },
+      getDBDetails(day, dateapi) {
+        var now = new Date();
+        var dateEval = dateapi.replace(/\D/g, '');
+        dateEval = moment(dateEval, "MMDDYYYY");
 
-        show : function (el) {
-          // this.show() : show edit event docket for selected day
-          // PARAM el : Reference back to cell clicked
+        if (dateEval < now) {
+          // selected date is in the past
+          axios.get('/date-status/' + dateapi).then(res => {
+            // console.log(res.data)
+            let cls = ''
+            let per = Math.ceil(res.data.percentage);
 
-          // FETCH EXISTING DATA
-          this.sDay = el.getElementsByClassName("dd")[0].innerHTML;
+            if (per > 75) {
+              cls = "text-success"
+            } else if (per > 25 && per < 75) {
+              cls = "badge-warning"
+            } else if (per < 25) {
+              cls = "badge-danger"
+            }
+            document.getElementById(dateapi).innerHTML = "<span class='text-main font-weight-bold'>" + day +
+              `</span> <span class="caltip d-flex justify-content-center pointer lighter" data-tippy-info=` +
+              res.data.status + `><i class="fa ` + cls + ` fa-check-circle"></i> ` + per + `%</span>`;
+          }).catch(err => {
+            document.getElementById(dateapi).innerHTML = "<span class='text-main font-weight-bold'>" + day +
+              `</span> <span class="text-muted caltip d-flex justify-content-center" data-tippy-info='Not Available' >N/A</span>`;
+          });
+        }
 
-          // DRAW FORM
-          var tForm = "<h1>" + (this.data[this.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
-          tForm += "<div id='evt-date'>" + this.sDay + " " + this.mName[this.sMth] + " " + this.sYear + "</div>";
-          tForm += "<textarea id='evt-details' required>" + (this.data[this.sDay] ? this.data[this.sDay] : "") + "</textarea>";
-          tForm += "<input type='button' value='Close' onclick='this.close()'/>";
-          tForm += "<input type='button' value='Delete' onclick='this.del()'/>";
-          tForm += "<input type='submit' value='Save'/>";
+      },
 
-          // ATTACH
-          var eForm = document.createElement("form");
-          eForm.addEventListener("submit", this.save);
-          eForm.innerHTML = tForm;
-          var container = document.getElementById("cal-event");
-          container.innerHTML = "";
-          container.appendChild(eForm);
-        },
+      show: function (el) {
+        // this.show() : show edit event docket for selected day
+        // PARAM el : Reference back to cell clicked
 
-        close : function () {
-          // this.close() : close event docket
+        // FETCH EXISTING DATA
+        this.sDay = el.getElementsByClassName("dd")[0].innerHTML;
 
-          document.getElementById("cal-event").innerHTML = "";
-        },
+        // DRAW FORM
+        var tForm = "<h1>" + (this.data[this.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
+        tForm += "<div id='evt-date'>" + this.sDay + " " + this.mName[this.sMth] + " " + this.sYear + "</div>";
+        tForm += "<textarea id='evt-details' required>" + (this.data[this.sDay] ? this.data[this.sDay] : "") +
+          "</textarea>";
+        tForm += "<input type='button' value='Close' onclick='this.close()'/>";
+        tForm += "<input type='button' value='Delete' onclick='this.del()'/>";
+        tForm += "<input type='submit' value='Save'/>";
 
-        save : function (evt) {
-          // this.save() : save event
+        // ATTACH
+        var eForm = document.createElement("form");
+        eForm.addEventListener("submit", this.save);
+        eForm.innerHTML = tForm;
+        var container = document.getElementById("cal-event");
+        container.innerHTML = "";
+        container.appendChild(eForm);
+      },
 
-          evt.stopPropagation();
-          evt.preventDefault();
-          this.data[this.sDay] = document.getElementById("evt-details").value;
+      close: function () {
+        // this.close() : close event docket
+
+        document.getElementById("cal-event").innerHTML = "";
+      },
+
+      save: function (evt) {
+        // this.save() : save event
+
+        evt.stopPropagation();
+        evt.preventDefault();
+        this.data[this.sDay] = document.getElementById("evt-details").value;
+        localStorage.setItem("cal-" + this.sMth + "-" + this.sYear, JSON.stringify(this.data));
+        this.list();
+      },
+
+      del: function () {
+        // this.del() : Delete event for selected date
+
+        if (confirm("Remove event?")) {
+          delete this.data[this.sDay];
           localStorage.setItem("cal-" + this.sMth + "-" + this.sYear, JSON.stringify(this.data));
           this.list();
-        },
+        }
+      },
+      buildCalendar() {
+        // DATE NOW
+        var now = new Date(),
+          nowMth = now.getMonth(),
+          nowYear = parseInt(now.getFullYear());
 
-        del : function () {
-          // this.del() : Delete event for selected date
-
-          if (confirm("Remove event?")) {
-            delete this.data[this.sDay];
-            localStorage.setItem("cal-" + this.sMth + "-" + this.sYear, JSON.stringify(this.data));
-            this.list();
+        // APPEND MONTHS SELECTOR
+        var month = document.getElementById("cal-mth");
+        for (var i = 0; i < 12; i++) {
+          var opt = document.createElement("option");
+          opt.value = i;
+          opt.innerHTML = this.mName[i];
+          if (i == nowMth) {
+            opt.selected = true;
           }
-        },
-        buildCalendar(){
-          // DATE NOW
-          var now = new Date(),
-              nowMth = now.getMonth(),
-              nowYear = parseInt(now.getFullYear());
+          month.appendChild(opt);
+        }
 
-          // APPEND MONTHS SELECTOR
-          var month = document.getElementById("cal-mth");
-          for (var i = 0; i < 12; i++) {
-            var opt = document.createElement("option");
-            opt.value = i;
-            opt.innerHTML = this.mName[i];
-            if (i==nowMth) { opt.selected = true; }
-            month.appendChild(opt);
+        // APPEND YEARS SELECTOR
+        // Set to 10 years range. Change this as you like.
+        var year = document.getElementById("cal-yr");
+        for (var i = nowYear - 10; i <= nowYear + 10; i++) {
+          var opt = document.createElement("option");
+          opt.value = i;
+          opt.innerHTML = i;
+          if (i == nowYear) {
+            opt.selected = true;
           }
+          year.appendChild(opt);
+        }
 
-          // APPEND YEARS SELECTOR
-          // Set to 10 years range. Change this as you like.
-          var year = document.getElementById("cal-yr");
-          for (var i = nowYear-10; i<=nowYear+10; i++) {
-            var opt = document.createElement("option");
-            opt.value = i;
-            opt.innerHTML = i;
-            if (i==nowYear) { opt.selected = true; }
-            year.appendChild(opt);
+        // START - DRAW CALENDAR
+        document.getElementById("cal-set").addEventListener("click", this.list);
+        this.list();
+      },
+      drawStrand() {
+        var self = this;
+
+        const {
+          Zdog: {
+            Illustration,
+            TAU,
+            Shape
           }
+        } =
+        window;
+        const MARGIN = 15;
+        const SPAN = 40;
+        const STRAND_STROKE = 4;
+        const BALL_PADDING = 5;
+        const BALL_DIAMETER = 10;
+        const STRANDS = 23;
+        let STRAND = "white"
 
-          // START - DRAW CALENDAR
-          document.getElementById("cal-set").addEventListener("click", this.list);
-          this.list();
-        },
-        drawStrand(){
-          var self = this;
+        if (self.sn !== "MyGene.info") {
+          var ctx = document.getElementById('strand').getContext('2d');
+          var img = new Image();
+          img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+          }
+          img.src = "/static/img/integrated-01.svg";
+        } else {
+          const YSTART = -((STRANDS - 1) * MARGIN / 2);
 
-          const {
-          Zdog: { Illustration, TAU, Shape } } =
-            window;
-            const MARGIN = 15;
-            const SPAN = 40;
-            const STRAND_STROKE = 4;
-            const BALL_PADDING = 5;
-            const BALL_DIAMETER = 10;
-            const STRANDS = 23;
-            let STRAND =""
-
-            if (self.sn === "MyGene.info") {
-              STRAND = "white";
-            }else {
-              STRAND = "transparent";
-            }
-
-
-            const YSTART = -((STRANDS - 1) * MARGIN / 2);
-
-            const Scene = new Illustration({
-              element: '#strand',
-              dragRotate: true,
-              zoom: .5,
-              // resize: 'fullscreen',
-              onResize: function( width, height ) {
-                // scale zoom
-                let minSize = Math.min( width, height );
-                this.zoom = minSize / 250;
-              },
-            });
-
-
-            const Strand = new Shape({
-              stroke: STRAND_STROKE,
-              color: STRAND,
-              path: [
-              {
-                x: -SPAN },
-
-              {
-                x: SPAN }] });
-
-
-
-            const Ball = new Shape({
-              color: this.colors['light'],
-              stroke: BALL_DIAMETER * 2,
-              translate: {
-                x: -(BALL_DIAMETER + SPAN + BALL_PADDING) } });
-
-
-
-            new Array(STRANDS).fill().map((s, i) => {
-              const strand = Strand.copy({
-                addTo: Scene,
-                rotate: {
-                  y: TAU / STRANDS * i },
-
-                translate: {
-                  y: YSTART + i * MARGIN } });
-
-
-              Ball.copy({
-                addTo: strand,
-                color: this.colors['light'] });
-
-              Ball.copy({
-                addTo: strand,
-                color: this.colors['light'],
-                translate: {
-                  x: BALL_DIAMETER + SPAN + BALL_PADDING } });
-
-
-            });
-
-            const update = () => {
-              Scene.rotate.y -= .02;
-              Scene.updateRenderGraph();
-              requestAnimationFrame(update);
-            };
-
-            update();
-        },
-        drawHand(){
-          // Made with Zdog
-
-          let illo = new Zdog.Illustration({
-            element: '#hand',
+          const Scene = new Illustration({
+            element: '#strand',
             dragRotate: true,
+            zoom: .5,
             // resize: 'fullscreen',
-            zoom: 1,
-            onResize: function( width, height ) {
+            onResize: function (width, height) {
               // scale zoom
-              let minSize = Math.min( width, height );
+              let minSize = Math.min(width, height);
               this.zoom = minSize / 250;
             },
           });
 
-          var hand = new Zdog.Group({
-            addTo: illo,
+
+          const Strand = new Shape({
+            stroke: STRAND_STROKE,
+            color: STRAND,
+            path: [{
+                x: -SPAN
+              },
+
+              {
+                x: SPAN
+              }
+            ]
           });
 
-          let palm = new Zdog.Box({
-            addTo: hand,
-            width: 64,
-            height: 64,
-            depth:15,
-            stroke: 16,
-            color: 'white',
-            fill: true,
-          });
 
-          let thumb = new Zdog.Shape({
-            addTo: hand,
-            path: [
-              { x: 30,y:30 },
-              { x: 50,y:10 },
-              { x:  60,y:-20 }, // line to 2nd point
-            ],
-            closed:false,
-            stroke: 20,
-            color: 'white',
-          });
 
-          let index = new Zdog.Shape({
-            addTo: hand,
-            path: [
-              { x: 30,y:-30 },
-              { x: 30,y:-60 },
-              { x: 30,y:-90,z:-20 }
-            ],
-            closed:false,
-            stroke: 20,
-            color: 'white',
-          });
-
-          let f2= new Zdog.Shape({
-            addTo: hand,
-            path: [
-              { x: 10,y:-30 },
-              { x: 10,y:-60,z:0 },
-              { x: 10,y:-60,z:-20 },
-              { x: 10,y:-30,z:-20 }
-            ],
-            closed:false,
-            stroke: 20,
-            color: 'white',
-          });
-
-          f2.copy({
-            translate: { x: -20 },
-            color: 'white',
-          });
-
-          f2.copy({
-            translate: { x: -40 },
-            color: 'white',
-          });
-
-          let btn = new Zdog.Cylinder({
-            addTo: illo,
-            diameter: 50,
-            length: 20,
-            stroke: false,
+          const Ball = new Shape({
             color: this.colors['light'],
-            backface: this.colors['dark'],
-            translate:{
-              x:30,
-              y:-90,
-              z:-50
+            stroke: BALL_DIAMETER * 2,
+            translate: {
+              x: -(BALL_DIAMETER + SPAN + BALL_PADDING)
             }
           });
 
-          btn.copy({
-            diameter: 30,
-            translate: {
-              x:30,
-              y:-90,
-              z:-45 }
+
+
+          new Array(STRANDS).fill().map((s, i) => {
+            const strand = Strand.copy({
+              addTo: Scene,
+              rotate: {
+                y: TAU / STRANDS * i
+              },
+
+              translate: {
+                y: YSTART + i * MARGIN
+              }
+            });
+
+
+            Ball.copy({
+              addTo: strand,
+              color: this.colors['light']
+            });
+
+            Ball.copy({
+              addTo: strand,
+              color: this.colors['light'],
+              translate: {
+                x: BALL_DIAMETER + SPAN + BALL_PADDING
+              }
+            });
+
+
           });
 
-
-          function animate() {
-            illo.updateRenderGraph();
-            requestAnimationFrame( animate );
-          }
-
-          animate();
-
           const update = () => {
-            illo.rotate.y -= .01;
-            illo.updateRenderGraph();
+            Scene.rotate.y -= .02;
+            Scene.updateRenderGraph();
             requestAnimationFrame(update);
           };
 
           update();
-        },
-        drawClock(){
-          // Made with Zdog
+        }
 
-          let illo = new Zdog.Illustration({
-            element: '#clock',
-            dragRotate: true,
-            // resize: 'fullscreen',
-            zoom: 1,
-            onResize: function( width, height ) {
-              // scale zoom
-              let minSize = Math.min( width, height );
-              this.zoom = minSize / 250;
+
+
+      },
+      drawHand() {
+        // Made with Zdog
+
+        let illo = new Zdog.Illustration({
+          element: '#hand',
+          dragRotate: true,
+          // resize: 'fullscreen',
+          zoom: 1,
+          onResize: function (width, height) {
+            // scale zoom
+            let minSize = Math.min(width, height);
+            this.zoom = minSize / 250;
+          },
+        });
+
+        var hand = new Zdog.Group({
+          addTo: illo,
+        });
+
+        let palm = new Zdog.Box({
+          addTo: hand,
+          width: 64,
+          height: 64,
+          depth: 15,
+          stroke: 16,
+          color: 'white',
+          fill: true,
+        });
+
+        let thumb = new Zdog.Shape({
+          addTo: hand,
+          path: [{
+              x: 30,
+              y: 30
             },
-          });
+            {
+              x: 50,
+              y: 10
+            },
+            {
+              x: 60,
+              y: -20
+            }, // line to 2nd point
+          ],
+          closed: false,
+          stroke: 20,
+          color: 'white',
+        });
 
-          var clock = new Zdog.Group({
-            addTo: illo,
-          });
+        let index = new Zdog.Shape({
+          addTo: hand,
+          path: [{
+              x: 30,
+              y: -30
+            },
+            {
+              x: 30,
+              y: -60
+            },
+            {
+              x: 30,
+              y: -90,
+              z: -20
+            }
+          ],
+          closed: false,
+          stroke: 20,
+          color: 'white',
+        });
 
-          var hands = new Zdog.Group({
-            addTo: illo,
-          });
+        let f2 = new Zdog.Shape({
+          addTo: hand,
+          path: [{
+              x: 10,
+              y: -30
+            },
+            {
+              x: 10,
+              y: -60,
+              z: 0
+            },
+            {
+              x: 10,
+              y: -60,
+              z: -20
+            },
+            {
+              x: 10,
+              y: -30,
+              z: -20
+            }
+          ],
+          closed: false,
+          stroke: 20,
+          color: 'white',
+        });
 
-          let rim = new Zdog.Ellipse({
-            addTo: clock,
-            diameter: 120,
-            stroke: 10,
-            color: 'white',
-          });
+        f2.copy({
+          translate: {
+            x: -20
+          },
+          color: 'white',
+        });
 
-          let dot = new Zdog.Shape({
-            addTo: clock,
-            stroke: 10,
-            color: this.colors['light'],
-          });
+        f2.copy({
+          translate: {
+            x: -40
+          },
+          color: 'white',
+        });
 
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:0,
-              y:-45 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:0,
-              y:45 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:45,
-              y:0 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:-45,
-              y:0 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:33,
-              y:33 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:-33,
-              y:-33 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:33,
-              y:-30 }
-          });
-
-          dot.copy({
-            stroke:5,
-            translate: {
-              x:-33,
-              y:30 }
-          });
-
-          let min= new Zdog.Shape({
-            addTo: hands,
-            path: [
-              { x: 0,y:0 },
-              { x: 10,y:30 }
-            ],
-            closed:false,
-            stroke: 10,
-            color: this.colors['light'],
-          });
-
-          let hr= new Zdog.Shape({
-            addTo: hands,
-            path: [
-              { x: 0,y:0 },
-              { x: -20,y:20 }
-            ],
-            closed:false,
-            stroke: 10,
-            color: this.colors['dark'],
-          });
-
-
-          function animate() {
-            illo.updateRenderGraph();
-            requestAnimationFrame( animate );
+        let btn = new Zdog.Cylinder({
+          addTo: illo,
+          diameter: 50,
+          length: 20,
+          stroke: false,
+          color: this.colors['light'],
+          backface: this.colors['dark'],
+          translate: {
+            x: 30,
+            y: -90,
+            z: -50
           }
+        });
 
-          animate();
+        btn.copy({
+          diameter: 30,
+          translate: {
+            x: 30,
+            y: -90,
+            z: -45
+          }
+        });
 
-          const update = () => {
+
+        function animate() {
+          illo.updateRenderGraph();
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        const update = () => {
+          illo.rotate.y -= .01;
+          illo.updateRenderGraph();
+          requestAnimationFrame(update);
+        };
+
+        update();
+      },
+      drawClock() {
+        // Made with Zdog
+
+        let illo = new Zdog.Illustration({
+          element: '#clock',
+          dragRotate: true,
+          // resize: 'fullscreen',
+          zoom: 1,
+          onResize: function (width, height) {
+            // scale zoom
+            let minSize = Math.min(width, height);
+            this.zoom = minSize / 250;
+          },
+        });
+
+        var clock = new Zdog.Group({
+          addTo: illo,
+        });
+
+        var hands = new Zdog.Group({
+          addTo: illo,
+        });
+
+        let rim = new Zdog.Ellipse({
+          addTo: clock,
+          diameter: 120,
+          stroke: 10,
+          color: 'white',
+        });
+
+        let dot = new Zdog.Shape({
+          addTo: clock,
+          stroke: 10,
+          color: this.colors['light'],
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: 0,
+            y: -45
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: 0,
+            y: 45
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: 45,
+            y: 0
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: -45,
+            y: 0
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: 33,
+            y: 33
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: -33,
+            y: -33
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: 33,
+            y: -30
+          }
+        });
+
+        dot.copy({
+          stroke: 5,
+          translate: {
+            x: -33,
+            y: 30
+          }
+        });
+
+        let min = new Zdog.Shape({
+          addTo: hands,
+          path: [{
+              x: 0,
+              y: 0
+            },
+            {
+              x: 10,
+              y: 30
+            }
+          ],
+          closed: false,
+          stroke: 10,
+          color: this.colors['light'],
+        });
+
+        let hr = new Zdog.Shape({
+          addTo: hands,
+          path: [{
+              x: 0,
+              y: 0
+            },
+            {
+              x: -20,
+              y: 20
+            }
+          ],
+          closed: false,
+          stroke: 10,
+          color: this.colors['dark'],
+        });
+
+
+        function animate() {
+          illo.updateRenderGraph();
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        const update = () => {
           // illo.rotate.y -= .01;
           min.rotate.z -= .02;
           illo.updateRenderGraph();
           requestAnimationFrame(update);
-          };
+        };
 
-           update();
+        update();
 
-        },
-        drawPower(){
-          // Made with Zdog
+      },
+      drawPower() {
+        // Made with Zdog
 
-          let illo = new Zdog.Illustration({
-            element: '#power',
-            dragRotate: true,
-            // resize: 'fullscreen',
-            zoom: .6,
-            onResize: function( width, height ) {
-              // scale zoom
-              let minSize = Math.min( width, height );
-              this.zoom = minSize / 250;
+        let illo = new Zdog.Illustration({
+          element: '#power',
+          dragRotate: true,
+          // resize: 'fullscreen',
+          zoom: .6,
+          onResize: function (width, height) {
+            // scale zoom
+            let minSize = Math.min(width, height);
+            this.zoom = minSize / 250;
+          },
+        });
+
+        var gear = new Zdog.Group({
+          addTo: illo,
+        });
+
+        new Zdog.Shape({
+          addTo: illo,
+          translate: {
+            z: 20,
+            x: -30
+          },
+          path: [{
+              x: 0,
+              y: 20
             },
-          });
-
-          var gear = new Zdog.Group({
-            addTo: illo,
-          });
-
-          new Zdog.Shape({
-            addTo: illo,
-            translate:{
-              z:20,x:-30
+            {
+              x: 50,
+              y: -30,
             },
-            path: [
-              {x:0,y:20},
-              {x:50,y:-30,},
-              {x:70,y:10},
-              {x:180,y:-80},
-              {x:180,y:-70},
-              {x:170,y:-80},
-              {x:180,y:-80},
-            ],
-            stroke: 10,
-            closed: false,
-            color: this.colors['light'],
-          });
+            {
+              x: 70,
+              y: 10
+            },
+            {
+              x: 180,
+              y: -80
+            },
+            {
+              x: 180,
+              y: -70
+            },
+            {
+              x: 170,
+              y: -80
+            },
+            {
+              x: 180,
+              y: -80
+            },
+          ],
+          stroke: 10,
+          closed: false,
+          color: this.colors['light'],
+        });
 
-          let can = new Zdog.Ellipse({
-            addTo: gear,
-            diameter: 100,
-            length: 20,
-            stroke:20,
-            color: 'white'
-          });
+        let can = new Zdog.Ellipse({
+          addTo: gear,
+          diameter: 100,
+          length: 20,
+          stroke: 20,
+          color: 'white'
+        });
 
-          let box = new Zdog.Box({
-            addTo: gear,
-            width: 20,
-            height: 20,
-            depth: 20,
-            stroke: false,
-            color: 'white',
-            translate:{
-              x:65
-            }
-          });
-
-          box.copy({translate:{x:-65}})
-          box.copy({translate:{x:0,y:65}})
-          box.copy({translate:{x:0,y:-65}})
-          box.copy({translate:{x:45,y:-45},rotate:{
-            z:15
-          }})
-          box.copy({translate:{x:-45,y:45},rotate:{
-            z:15
-          }})
-          box.copy({translate:{x:45,y:45},rotate:{
-            z:15
-          }})
-          box.copy({translate:{x:-45,y:-45},rotate:{
-            z:15
-          }})
-
-          let gear2 = gear.copyGraph({
-            scale:.6,
-            translate:{x:85,y:-75},
-            rotate:{
-            z:15
-          }})
-
-          function animate() {
-            illo.updateRenderGraph();
-            requestAnimationFrame( animate );
+        let box = new Zdog.Box({
+          addTo: gear,
+          width: 20,
+          height: 20,
+          depth: 20,
+          stroke: false,
+          color: 'white',
+          translate: {
+            x: 65
           }
+        });
 
-          animate();
-
-          const update = () => {
-            gear.rotate.z -= .01;
-            gear2.rotate.z += .02;
-            illo.updateRenderGraph();
-            // illo.rotate.y -= .01;
-            requestAnimationFrame(update);
-          };
-
-          update();
-        },
-        prepareAnimations(){
-          var self = this;
-
-          // HEADER LOGO SCROLL
-          window.onscroll = function() {scrollFunction()};
-
-          function scrollFunction() {
-            if (window.innerWidth > 500) {
-              if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                document.getElementById("headlogo").style.fontSize = "1em";
-              } else {
-                document.getElementById("headlogo").style.fontSize = "2em";
-              }
-            }
+        box.copy({
+          translate: {
+            x: -65
           }
+        })
+        box.copy({
+          translate: {
+            x: 0,
+            y: 65
+          }
+        })
+        box.copy({
+          translate: {
+            x: 0,
+            y: -65
+          }
+        })
+        box.copy({
+          translate: {
+            x: 45,
+            y: -45
+          },
+          rotate: {
+            z: 15
+          }
+        })
+        box.copy({
+          translate: {
+            x: -45,
+            y: 45
+          },
+          rotate: {
+            z: 15
+          }
+        })
+        box.copy({
+          translate: {
+            x: 45,
+            y: 45
+          },
+          rotate: {
+            z: 15
+          }
+        })
+        box.copy({
+          translate: {
+            x: -45,
+            y: -45
+          },
+          rotate: {
+            z: 15
+          }
+        })
 
-          // SCROLL MAGIC
-          self.controller = new ScrollMagic.Controller();
+        let gear2 = gear.copyGraph({
+          scale: .6,
+          translate: {
+            x: 85,
+            y: -75
+          },
+          rotate: {
+            z: 15
+          }
+        })
 
-          function pathPrepare ($el) {
-    				var lineLength = $el[0].getTotalLength();
-    				$el.css("stroke-dasharray", lineLength);
-    				$el.css("stroke-dashoffset", lineLength);
-    			}
-
-    			// TRY IT SVG
-    			var path = $(".tryitlines");
-    			pathPrepare(path);
-    			// build tween
-    			var tweenA = new TimelineMax()
-    			.add(TweenMax.to(path, 0.3, {strokeDashoffset: 0, ease:Linear.easeNone}))
-
-    			var sceneA = new ScrollMagic.Scene({triggerElement: "#query-examples", duration: 200, tweenChanges: true})
-    			.setTween(tweenA).addTo(self.controller);
-
-
-          // if (self.showWhoIsUsing) {
-          //   // USING IMAGES
-          //   setTimeout(function(){
-          //     var tweenUsing = TweenMax.staggerFromTo(".animateUsing", 2, {right: window.innerWidth/2+"px"}, {right: -window.innerWidth/2+"px", ease: Linear.easeIn}, 0.15);
-          //
-          //     var sceneUsing = new ScrollMagic.Scene({triggerElement: "#trigger4", duration: 600})
-          //       .setTween(tweenUsing)
-          //       .addTo(self.controller);
-          //   }, 1000);
-          // }
-
+        function animate() {
+          illo.updateRenderGraph();
+          requestAnimationFrame(animate);
         }
+
+        animate();
+
+        const update = () => {
+          gear.rotate.z -= .01;
+          gear2.rotate.z += .02;
+          illo.updateRenderGraph();
+          // illo.rotate.y -= .01;
+          requestAnimationFrame(update);
+        };
+
+        update();
+      },
+      prepareAnimations() {
+        var self = this;
+
+        // SCROLL MAGIC
+        self.controller = new ScrollMagic.Controller();
+
+        function pathPrepare($el) {
+          var lineLength = $el[0].getTotalLength();
+          $el.css("stroke-dasharray", lineLength);
+          $el.css("stroke-dashoffset", lineLength);
+        }
+
+        // TRY IT SVG
+        var path = $(".tryitlines");
+        pathPrepare(path);
+        // build tween
+        var tweenA = new TimelineMax()
+          .add(TweenMax.to(path, 0.3, {
+            strokeDashoffset: 0,
+            ease: Linear.easeNone
+          }))
+
+        var sceneA = new ScrollMagic.Scene({
+            triggerElement: "#query-examples",
+            duration: 200,
+            tweenChanges: true
+          })
+          .setTween(tweenA).addTo(self.controller);
+
+
+        // if (self.showWhoIsUsing) {
+        //   // USING IMAGES
+        //   setTimeout(function(){
+        //     var tweenUsing = TweenMax.staggerFromTo(".animateUsing", 2, {right: window.innerWidth/2+"px"}, {right: -window.innerWidth/2+"px", ease: Linear.easeIn}, 0.15);
+        //
+        //     var sceneUsing = new ScrollMagic.Scene({triggerElement: "#trigger4", duration: 600})
+        //       .setTween(tweenUsing)
+        //       .addTo(self.controller);
+        //   }, 1000);
+        // }
+
+      },
+      playSound(type) {
+        switch (type) {
+          case 'cal':
+            new Audio('/static/sounds/comm.ogg').play();
+            break;
+          case 'api':
+            new Audio('/static/sounds/when.ogg').play();
+            break;
+          default:
+            //none
+            break;
+        }
+      }
     },
-    mounted:function(){
+    mounted: function () {
       var self = this;
       self.sn = "{{site_name}}"
       // site specific classes and settings
@@ -1707,325 +2134,326 @@
         self.getLastUpdatedAndSources("{{site_name}}");
         self.getAPIUptime("{{site_name}}");
 
-        let ltag = document.createElement( 'link' );
-				ltag.setAttribute( 'rel', "stylesheet" );
+        let ltag = document.createElement('link');
+        ltag.setAttribute('rel', "stylesheet");
 
         switch (self.sn) {
           case "MyGene.info":
-            ltag.setAttribute( 'href', "/static/css/gene.css" );
-            document.head.appendChild( ltag );
-            self.colors['dark']= "#3366CC";
-            self.colors["medium"]= "#2A7FE2";
-            self.colors["light"]= "#669BE8";
-            self.apiExmaples = [
-               {'description':'Retrieve by Entrez or Ensembl gene id',
-                 'query':'//mygene.info/v3/gene/1017'
-               },
-               {'description':'Retrieve genes with symbol CDK2',
-                'query':'//mygene.info/v3/query?q=symbol:cdk2'
-               },
-               {'description':'Get genes related to "Insulin"',
-                 'query':'//mygene.info/v3/query?q=summary:insulin'
-               },
-               {'description':'Retrieve by UniProt id',
-                'query':'//mygene.info/v3/query?q=uniprot:P24941'
-               },
-               {'description':'Get data source metadata',
-                 'query':'//mygene.info/metadata'
-               },
-               {'description':'Get the list of all fields',
-                 'query':'//mygene.info/metadata/fields'
-               }
-             ]
-             self.apiPics =[
-               {
-                 "name":"CIViC",
-                 "href":"https://civicdb.org/home",
-                 "src":"/static/img/using-1.png"
-               },
-               {
-                 "name":"BioGPS",
-                 "href":"http://biogps.org/#goto=welcome",
-                 "src":"/static/img/using-2.png"
-               },
-               {
-                 "name":"Monarch",
-                 "href":"https://monarchinitiative.org/",
-                 "src":"/static/img/using-3.png"
-               },
-               {
-                 "name":"MGI",
-                 "href":"http://www.informatics.jax.org/",
-                 "src":"/static/img/using-4.png"
-               },
-               {
-                 "name":"NCATS",
-                 "href":"https://ncats.nih.gov/translator",
-                 "src":"/static/img/using-5.png"
-               },
-               {
-                 "name":"ChlamBase",
-                 "href":"https://chlambase.org/",
-                 "src":"/static/img/using-6.png"
-               },
-               {
-                 "name":"OMNI",
-                 "href":"http://omni.telentilab.com/",
-                 "src":"/static/img/using-omni.png"
-               },
-               {
-                 "name":"The Human Lysosome Gene Database",
-                 "href":"http://lysosome.unipg.it/",
-                 "src":"/static/img/using-lysosome.png"
-               }
+            ltag.setAttribute('href', "/static/css/gene.css");
+            document.head.appendChild(ltag);
+            self.colors['dark'] = "#3366CC";
+            self.colors["medium"] = "#2A7FE2";
+            self.colors["light"] = "#669BE8";
+            self.apiExmaples = [{
+                'description': 'Retrieve by Entrez or Ensembl gene id',
+                'query': '//mygene.info/v3/gene/1017'
+              },
+              {
+                'description': 'Retrieve genes with symbol CDK2',
+                'query': '//mygene.info/v3/query?q=symbol:cdk2'
+              },
+              {
+                'description': 'Get genes related to "Insulin"',
+                'query': '//mygene.info/v3/query?q=summary:insulin'
+              },
+              {
+                'description': 'Retrieve by UniProt id',
+                'query': '//mygene.info/v3/query?q=uniprot:P24941'
+              },
+              {
+                'description': 'Get data source metadata',
+                'query': '//mygene.info/metadata'
+              },
+              {
+                'description': 'Get the list of all fields',
+                'query': '//mygene.info/metadata/fields'
+              }
+            ]
+            self.apiPics = [{
+                "name": "CIViC",
+                "href": "https://civicdb.org/home",
+                "src": "/static/img/using-1.png"
+              },
+              {
+                "name": "BioGPS",
+                "href": "http://biogps.org/#goto=welcome",
+                "src": "/static/img/using-2.png"
+              },
+              {
+                "name": "Monarch",
+                "href": "https://monarchinitiative.org/",
+                "src": "/static/img/using-3.png"
+              },
+              {
+                "name": "MGI",
+                "href": "http://www.informatics.jax.org/",
+                "src": "/static/img/using-4.png"
+              },
+              {
+                "name": "NCATS",
+                "href": "https://ncats.nih.gov/translator",
+                "src": "/static/img/using-5.png"
+              },
+              {
+                "name": "ChlamBase",
+                "href": "https://chlambase.org/",
+                "src": "/static/img/using-6.png"
+              },
+              {
+                "name": "OMNI",
+                "href": "http://omni.telentilab.com/",
+                "src": "/static/img/using-omni.png"
+              },
+              {
+                "name": "The Human Lysosome Gene Database",
+                "href": "http://lysosome.unipg.it/",
+                "src": "/static/img/using-lysosome.png"
+              }
 
-             ]
-             self.postLink="http://mygene.info/v3/gene"
-             self.snType="Gene";
-             self.tryItLink='/v3/api';
-             self.lastUpdatedLink='/v3/metadata';
-             self.ghLink = "https://github.com/biothings/mygene.info/issues"
-             self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-             self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
-             self.twitterLink="https://twitter.com/MyGeneInfo?ref_src=twsrc%5Etfw"
-             self.biostarsLink="https://www.biostars.org/p/new/post/?tag_val=mygene"
-             self.smallScreenLogo ="/static/img/mygene-logo.svg"
-             self.postQueryInfoLink = "http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post"
-             self.siteDescription ="Gene Annotation as a Service"
-             self.simpleUseText="Just two end-points to retrieve annotations via Gene IDs or any query term.";
-             self.integratedText ="Gene Annotations for >22M genes (>22K species) are Pre-integrated.";
-             self.showWhoIsUsing = true;
+            ]
+            self.postLink = "http://mygene.info/v3/gene"
+            self.snType = "Gene";
+            self.tryItLink = '/v3/api';
+            self.lastUpdatedLink = '/v3/metadata';
+            self.ghLink = "https://github.com/biothings/mygene.info/issues"
+            self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+            self.uptimeLink = 'https://stats.uptimerobot.com/7y2AFWAE';
+            self.twitterLink = "https://twitter.com/MyGeneInfo?ref_src=twsrc%5Etfw"
+            self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mygene"
+            self.smallScreenLogo = "/static/img/mygene-logo.svg"
+            self.postQueryInfoLink =
+              "http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post"
+            self.siteDescription = "Gene Annotation as a Service"
+            self.simpleUseText = "Just two end-points to retrieve annotations via Gene IDs or any query term.";
+            self.integratedText = "Gene Annotations for >22M genes (>22K species) are Pre-integrated.";
+            self.showWhoIsUsing = true;
             self.startAnimation('mg');
             document.getElementById('box3d').classList.add('blackTransBack-blue');
             break;
           case "MyChem.info":
-            ltag.setAttribute( 'href', "/static/css/chem.css" );
-            document.head.appendChild( ltag );
-            self.colors['dark']= "#CC6633";
-            self.colors["medium"]= "#FD7400";
-            self.colors["light"]= "#FF8E39";
-            self.apiExmaples = [
-               {'description':'Retrieving chemical/drug by InChIKey id',
-                 'query':'//mychem.info/v1/chem/ZRALSGWEFCBTJO-UHFFFAOYSA-N'
-               },
-               {'description':'Retrieving chemical/drug by DrugBank id',
-                'query':'//mychem.info/v1/chem/DB00551'
-               },
-               {'description':'Retrieving chemical/drug by ChEMBL Compound id',
-                 'query':'//mychem.info/v1/chem/CHEMBL1308'
-               },
-               {'description':'Retrieving chemical/drug by UNII Compound id',
-                'query':'//mychem.info/v1/chem/7AXV542LZ4 '
-               },
-               {'description':'Retrieving chemical/drug by CHEBI id',
-                 'query':'//mychem.info/v1/chem/CHEBI:6431'
-               },
-               {'description':'Retrieving Drug by name',
-                 'query':'//mychem.info/v1/query?q=drugbank.name:monobenzone'
-               },
-               {'description':'Retrieve chemicals/drugs targeting protein P24942(uniprot id)',
-                 'query':'//mychem.info/v1/query?q=drugbank.targets.uniprot:P34981'
-               },
-               {'description':'Retrieve chemicals/drugs having indication C0419527 (UMLS CUI)',
-                 'query':'//mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339'
-               },
-               {'description':'Get data source metadata',
-                 'query':'//mychem.info/metadata/'
-               },
-               {'description':'Get the list of all fields',
-                 'query':'//mychem.info/metadata/fields'
-               }
-             ]
-            self.siteDescription ="Chemical and Drug Annotation as a Service"
-            self.simpleUseText="Just two end-points to retrieve annotations via InChIKey or any query term.";
-            self.integratedText ="Annotations for >90M chemicals/drugs are pre-integrated.";
-            self.snType="Chem";
-            self.tryItLink='/v1/api';
-            self.postLink="http://mychem.info/v1/chem"
-            self.postLink2="http://mychem.info/v1/query"
-            self.lastUpdatedLink='/v1/metadata';
+            ltag.setAttribute('href', "/static/css/chem.css");
+            document.head.appendChild(ltag);
+            self.colors['dark'] = "#CC6633";
+            self.colors["medium"] = "#FD7400";
+            self.colors["light"] = "#FF8E39";
+            self.apiExmaples = [{
+                'description': 'Retrieving chemical/drug by InChIKey id',
+                'query': '//mychem.info/v1/chem/ZRALSGWEFCBTJO-UHFFFAOYSA-N'
+              },
+              {
+                'description': 'Retrieving chemical/drug by DrugBank id',
+                'query': '//mychem.info/v1/chem/DB00551'
+              },
+              {
+                'description': 'Retrieving chemical/drug by ChEMBL Compound id',
+                'query': '//mychem.info/v1/chem/CHEMBL1308'
+              },
+              {
+                'description': 'Retrieving chemical/drug by UNII Compound id',
+                'query': '//mychem.info/v1/chem/7AXV542LZ4 '
+              },
+              {
+                'description': 'Retrieving chemical/drug by CHEBI id',
+                'query': '//mychem.info/v1/chem/CHEBI:6431'
+              },
+              {
+                'description': 'Retrieving Drug by name',
+                'query': '//mychem.info/v1/query?q=drugbank.name:monobenzone'
+              },
+              {
+                'description': 'Retrieve chemicals/drugs targeting protein P24942(uniprot id)',
+                'query': '//mychem.info/v1/query?q=drugbank.targets.uniprot:P34981'
+              },
+              {
+                'description': 'Retrieve chemicals/drugs having indication C0419527 (UMLS CUI)',
+                'query': '//mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339'
+              },
+              {
+                'description': 'Get data source metadata',
+                'query': '//mychem.info/metadata/'
+              },
+              {
+                'description': 'Get the list of all fields',
+                'query': '//mychem.info/metadata/fields'
+              }
+            ]
+            self.siteDescription = "Chemical and Drug Annotation as a Service"
+            self.simpleUseText = "Just two end-points to retrieve annotations via InChIKey or any query term.";
+            self.integratedText = "Annotations for >90M chemicals/drugs are pre-integrated.";
+            self.snType = "Chem";
+            self.tryItLink = '/v1/api';
+            self.postLink = "http://mychem.info/v1/chem"
+            self.postLink2 = "http://mychem.info/v1/query"
+            self.lastUpdatedLink = '/v1/metadata';
             self.ghLink = "https://github.com/biothings/mychem.info/issues"
-            self.twitterLink="https://twitter.com/MyChemInfo?ref_src=twsrc%5Etfw"
-            self.biostarsLink="https://www.biostars.org/p/new/post/?tag_val=mychem"
-            self.smallScreenLogo ="/static/img/mychem-logo.svg"
+            self.twitterLink = "https://twitter.com/MyChemInfo?ref_src=twsrc%5Etfw"
+            self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mychem"
+            self.smallScreenLogo = "/static/img/mychem-logo.svg"
             self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
-            self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
-            self.postQueryInfoLink = "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
+            self.uptimeLink = 'https://stats.uptimerobot.com/QKBOh5WJ';
+            self.postQueryInfoLink =
+              "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = false;
             self.startAnimation('mc');
             document.getElementById('box3d').classList.add('blackTransBack-orange');
             break;
           case "MyVariant.info":
-            ltag.setAttribute( 'href', "/static/css/variant.css" );
-            document.head.appendChild( ltag );
-            self.colors['dark']= "#40B307";
-            self.colors["medium"]= "#67CF2E";
-            self.colors["light"]= "#85D958";
-            self.apiExmaples = [
-               {'description':'Retrieving by HGVS id',
-                 'query':'//myvariant.info/v1/variant/chr7:g.55241707G>T'
-               },
-               {'description':'All variants with clinvar annotation',
-                'query':'//myvariant.info/v1/query/?q=_exists_:clinvar'
-               },
-               {'description':'All non-synonymous variants on gene "BTK"',
-                 'query':'//myvariant.info/v1/query/?q=dbnsfp.genename:BTK'
-               },
-               {'description':'All variants within a genomic range',
-                'query':'//myvariant.info/v1/query/?q=chr1:69000-70000'
-               },
-               {'description':'Query Wellderly variants together with other annotation sources',
-                 'query':'//myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen'
-               },
-               {'description':'Get data source metadata',
-                 'query':'//mygene.info/metadata/'
-               },
-               {'description':'Get the list of all fields',
-                 'query':'//mygene.info/metadata/fields'
-               }
-             ]
-            self.apiPics=[
-              {
-                "name":"CIViC",
-                "href":"https://civicdb.org/home",
-                "src":"/static/img/using-1.png"
+            ltag.setAttribute('href', "/static/css/variant.css");
+            document.head.appendChild(ltag);
+            self.colors['dark'] = "#40B307";
+            self.colors["medium"] = "#67CF2E";
+            self.colors["light"] = "#85D958";
+            self.apiExmaples = [{
+                'description': 'Retrieving by HGVS id',
+                'query': '//myvariant.info/v1/variant/chr7:g.55241707G>T'
               },
               {
-                "name":"NCATS",
-                "href":"https://ncats.nih.gov/translator",
-                "src":"/static/img/using-5.png"
+                'description': 'All variants with clinvar annotation',
+                'query': '//myvariant.info/v1/query/?q=_exists_:clinvar'
               },
               {
-                "name":"PHARMGKB",
-                "href":"https://www.pharmgkb.org/variant/PA166160628#tabview=tab2&subtab=",
-                "src":"/static/img/using-pharmagkb.png"
+                'description': 'All non-synonymous variants on gene "BTK"',
+                'query': '//myvariant.info/v1/query/?q=dbnsfp.genename:BTK'
               },
               {
-                "name":"OMNI",
-                "href":"http://omni.telentilab.com/",
-                "src":"/static/img/using-omni.png"
+                'description': 'All variants within a genomic range',
+                'query': '//myvariant.info/v1/query/?q=chr1:69000-70000'
               },
               {
-                "name":"VAPR",
-                "href":"https://github.com/ucsd-ccbb/VAPr",
-                "src":"/static/img/using-vapr.png"
+                'description': 'Query Wellderly variants together with other annotation sources',
+                'query': '//myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen'
               },
               {
-                "name":"Open Humans",
-                "href":"http://openhumansfoundation.org/",
-                "src":"/static/img/using-oh.png"
+                'description': 'Get data source metadata',
+                'query': '//mygene.info/metadata/'
               },
               {
-                "name":"MyGene2",
-                "href":"https://mygene2.org/MyGene2/exomesequencing",
-                "src":"/static/img/using-mg2.png"
-              },
-              {
-                "name":"ClinGen",
-                "href":"https://www.clinicalgenome.org/",
-                "src":"/static/img/using-cg.png"
+                'description': 'Get the list of all fields',
+                'query': '//mygene.info/metadata/fields'
               }
             ]
-            self.postLink="http://myvariant.info/v1/variant"
-            self.postLink2="http://myvariant.info/v1/query"
-            self.siteDescription ="Variant Annotation as a Service"
-            self.simpleUseText="Just two end-points to retrieve annotations via HGVS IDs or any query term.";
-            self.integratedText ="Variant annotations for >400M human variants are pre-integrated.";
-            self.snType="Variant";
-            self.tryItLink='/v1/api';
-            self.lastUpdatedLink='/v1/metadata';
+            self.apiPics = [{
+                "name": "CIViC",
+                "href": "https://civicdb.org/home",
+                "src": "/static/img/using-1.png"
+              },
+              {
+                "name": "NCATS",
+                "href": "https://ncats.nih.gov/translator",
+                "src": "/static/img/using-5.png"
+              },
+              {
+                "name": "PHARMGKB",
+                "href": "https://www.pharmgkb.org/variant/PA166160628#tabview=tab2&subtab=",
+                "src": "/static/img/using-pharmagkb.png"
+              },
+              {
+                "name": "OMNI",
+                "href": "http://omni.telentilab.com/",
+                "src": "/static/img/using-omni.png"
+              },
+              {
+                "name": "VAPR",
+                "href": "https://github.com/ucsd-ccbb/VAPr",
+                "src": "/static/img/using-vapr.png"
+              },
+              {
+                "name": "Open Humans",
+                "href": "http://openhumansfoundation.org/",
+                "src": "/static/img/using-oh.png"
+              },
+              {
+                "name": "MyGene2",
+                "href": "https://mygene2.org/MyGene2/exomesequencing",
+                "src": "/static/img/using-mg2.png"
+              },
+              {
+                "name": "ClinGen",
+                "href": "https://www.clinicalgenome.org/",
+                "src": "/static/img/using-cg.png"
+              }
+            ]
+            self.postLink = "http://myvariant.info/v1/variant"
+            self.postLink2 = "http://myvariant.info/v1/query"
+            self.siteDescription = "Variant Annotation as a Service"
+            self.simpleUseText = "Just two end-points to retrieve annotations via HGVS IDs or any query term.";
+            self.integratedText = "Variant annotations for >400M human variants are pre-integrated.";
+            self.snType = "Variant";
+            self.tryItLink = '/v1/api';
+            self.lastUpdatedLink = '/v1/metadata';
             self.ghLink = "https://github.com/biothings/myvariant.info/issues"
-            self.twitterLink="https://twitter.com/MyVariantInfo?ref_src=twsrc%5Etfw"
-            self.biostarsLink="https://www.biostars.org/p/new/post/?tag_val=myvariant"
-            self.smallScreenLogo ="/static/img/myvariant-logo.svg"
+            self.twitterLink = "https://twitter.com/MyVariantInfo?ref_src=twsrc%5Etfw"
+            self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=myvariant"
+            self.smallScreenLogo = "/static/img/myvariant-logo.svg"
             self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
-            self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
-            self.postQueryInfoLink = "http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post"
+            self.uptimeLink = 'https://stats.uptimerobot.com/polzSx91';
+            self.postQueryInfoLink =
+              "http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = true;
             self.startAnimation('mv');
             document.getElementById('box3d').classList.add('blackTransBack-green');
             break;
           case "MyDisease.info":
-            ltag.setAttribute( 'href', "/static/css/disease.css" );
-            document.head.appendChild( ltag );
-            self.colors['dark']= "#552481";
-            self.colors["medium"]= "#8045B5";
-            self.colors["light"]= "#9e6acc";
-            self.apiExmaples = [
-               {'description':'Retrieving chemical/drug by InChIKey id',
-                 'query':'//mychem.info/v1/chem/ZRALSGWEFCBTJO-UHFFFAOYSA-N'
-               },
-               {'description':'Retrieving chemical/drug by DrugBank id',
-                'query':'//mychem.info/v1/chem/DB00551'
-               },
-               {'description':'Retrieving chemical/drug by ChEMBL Compound id',
-                 'query':'//mychem.info/v1/chem/CHEMBL1308'
-               },
-               {'description':'Retrieving chemical/drug by UNII Compound id',
-                'query':'//mychem.info/v1/chem/7AXV542LZ4 '
-               },
-               {'description':'Retrieving chemical/drug by CHEBI id',
-                 'query':'//mychem.info/v1/chem/CHEBI:6431'
-               },
-               {'description':'Retrieving Drug by name',
-                 'query':'//mychem.info/v1/query?q=drugbank.name:monobenzone'
-               },
-               {'description':'Retrieve chemicals/drugs targeting protein P24942(uniprot id)',
-                 'query':'//mychem.info/v1/query?q=drugbank.targets.uniprot:P34981'
-               },
-               {'description':'Retrieve chemicals/drugs having indication C0419527 (UMLS CUI)',
-                 'query':'//mychem.info/v1/query?q=drugcentral.drug_use.indication.umls_cui:C0242339'
-               },
-               {'description':'Get data source metadata',
-                 'query':'//mychem.info/metadata/'
-               },
-               {'description':'Get the list of all fields',
-                 'query':'//mychem.info/metadata/fields'
-               }
-             ]
-            self.siteDescription ="Disease Annotation as a Service"
-            self.simpleUseText="Just two end-points to retrieve annotations via DOI or any query term.";
-            self.integratedText ="Annotations for >10M diseases are pre-integrated.";
-            self.snType="Disease";
-            self.tryItLink='/v1/api';
-            self.postLink="http://mydisease.info/v1/disease"
-            self.postLink2="http://mydisease.info/v1/query"
-            self.lastUpdatedLink='/v1/metadata';
+            ltag.setAttribute('href', "/static/css/disease.css");
+            document.head.appendChild(ltag);
+            self.colors['dark'] = "#4B1499";
+            self.colors["medium"] = "#772FDD";
+            self.colors["light"] = "#A267E5";
+            self.apiExmaples = [{
+                'description': 'Retrieving by MONDO id',
+                'query': '//mydisease.info/v1/disease/MONDO:0003582'
+              },
+              {
+                'description': 'Retireve all disease annotations with CTD annotation',
+                'query': '//mydisease.info/v1/query?q=_exists_:ctd'
+              },
+              {
+                'description': 'Retrieve all diseases related to gene TP53 based on DisGeNet Database',
+                'query': '//mydisease.info/v1/query?q=disgenet.genes_related_to_disease.gene_name:TP53'
+              },
+              {
+                'description': 'Retrieving chemical/drug by UNII Compound id',
+                'query': '//mychem.info/v1/chem/7AXV542LZ4 '
+              },
+              {
+                'description': 'Retrieve all diseases which are subclass of MONDO:0000653',
+                'query': '//mydisease.info/v1/query?q=mondo.parents:%22MONDO:0000653%22'
+              },
+              {
+                'description': 'Retrieve by Disease Ontology ID',
+                'query': '//mydisease.info/v1/query?q=mondo.xrefs.doid:%22DOID:4159%22'
+              },
+              {
+                'description': 'Get the list of all fields',
+                'query': '//mydisease.info/metadata/fields'
+              },
+              {
+                'description': 'Get data source metadata',
+                'query': '//mydisease.info/v1/metadata'
+              },
+            ]
+            self.siteDescription = "Disease Annotation as a Service"
+            self.simpleUseText = "Just two end-points to retrieve annotations via DOI or any query term.";
+            self.integratedText = "Annotations for >10M diseases are pre-integrated.";
+            self.snType = "Disease";
+            self.tryItLink = '/v1/api';
+            self.postLink = "http://mydisease.info/v1/disease"
+            self.postLink2 = "http://mydisease.info/v1/query"
+            self.lastUpdatedLink = '/v1/metadata';
             self.ghLink = "https://github.com/biothings/mydisease.info/issues"
-            self.twitterLink="https://twitter.com/MyDiseaseInfo?ref_src=twsrc%5Etfw"
-            self.biostarsLink="https://www.biostars.org/p/new/post/?tag_val=mydisease"
-            self.smallScreenLogo ="/static/img/mychem-logo.svg"
+            self.twitterLink = "https://twitter.com/MyDiseaseInfo?ref_src=twsrc%5Etfw"
+            self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mydisease"
+            self.smallScreenLogo = "/static/img/mychem-logo.svg"
             self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
-            self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
-            self.postQueryInfoLink = "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
+            self.uptimeLink = 'https://stats.uptimerobot.com/QKBOh5WJ';
+            self.postQueryInfoLink =
+              "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = false;
-            self.startAnimation('mc');
+            self.startAnimation('md');
             document.getElementById('box3d').classList.add('blackTransBack-purple');
             break;
           default:
-            // document.write('<link rel="stylesheet" type="text/css" href="static/css/gene.css" />');
-            // self.colors['dark']= "white";
-            // self.colors["medium"]= "grey";
-            // self.colors["light"]= "slategray";
-            // backgroundImageClass="gene-hero"
-            // postLink="http://mygene.info/v3/gene"
-            // self.siteDescription ="Gene Annotation as a Service"
-            // self.simpleUseText="Just two end-points to retrieve annotations via Gene IDs or any query term.";
-            // self.integratedText ="Gene Annotations for >22M genes (>22K species) are Pre-integrated.";
-            // self.snType="Gene";
-            // self.tryItLink='/v3/api';
-            // self.ghLink = "https://github.com/biothings/mygene.info/issues"
-            // self.twitterLink="https://twitter.com/MyGeneInfo?ref_src=twsrc%5Etfw"
-            // self.biostarsLink="https://www.biostars.org/p/new/post/?tag_val=mygene"
-            // self.postQueryInfoLink = "http://docs.mygene.info/en/latest/doc/annotation_service.html#batch-queries-via-post"
-            // self.lastUpdatedLink='/v3/metadata';
-            // self.smallScreenLogo ="/static/img/mygene-logo.svg"
-            // self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-            // self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
-            // self.showWhoIsUsing = true;
-            // self.showpics="Gene"
-            // self.startAnimation('de');
-            // document.getElementById('box3d').classList.add('bg-dark');
+            // No DEFAULT
 
         }
       }
@@ -2037,29 +2465,30 @@
       self.drawPower();
 
 
-      tippy( '#cal-container', {
-          target:'.caltip',
-          content: 'Loading...',
-          placement:'right',
-          animation: 'fade',
-          interactive:true,
-          theme:'light',
-          onShow(instance) {
-            let info = instance.reference.dataset.tippyInfo
-            let icon =''
-            if (info ==='ok') {
-              icon ='<i class="fas fa-thumbs-up text-success"></i>'
-            }else if (info ==='Not Available') {
-              icon ='<i class="fas fa-exclamation text-muted"></i>'
-            }
-            instance.setContent("<div class='font-weight-bold text-center text-main'><h2>"+icon+" "+info.toUpperCase()+"</h2></div>")
-
+      tippy('#cal-container', {
+        target: '.caltip',
+        content: 'Loading...',
+        placement: 'right',
+        animation: 'fade',
+        interactive: true,
+        theme: 'light',
+        onShow(instance) {
+          let info = instance.reference.dataset.tippyInfo
+          let icon = ''
+          if (info === 'ok') {
+            icon = '<i class="fas fa-thumbs-up text-success"></i>'
+          } else if (info === 'Not Available') {
+            icon = '<i class="fas fa-exclamation text-muted"></i>'
           }
-        });
+          instance.setContent("<div class='font-weight-bold text-center text-main'><h2>" + icon + " " + info
+            .toUpperCase() + "</h2></div>")
+
+        }
+      });
 
 
 
     }
   })
-  </script>
+</script>
 {% endblock %}

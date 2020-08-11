@@ -1,273 +1,332 @@
 {% extends "main.html" %}
 {% block content %}
 <style type="text/css">
+	.renderjson a {
+		text-decoration: none;
+	}
 
-.renderjson a              { text-decoration: none; }
-.renderjson .disclosure    { color: purple;
-                             font-size: 150%; }
-.renderjson .syntax        { color: grey; }
-.renderjson .string        { color: var(--blue-dark); }
-.renderjson .number        { color: grey; }
-.renderjson .boolean       { color: var(--green-medium); }
-.renderjson .key           { color: var(--green-dark) }
-.renderjson .keyword       { color: var(--orange-dark); }
-.renderjson .object.syntax { color: var(--blue-light) }
-.renderjson .array.syntax  { color: #e356b3; }
+	.renderjson .disclosure {
+		color: purple;
+		font-size: 150%;
+	}
 
-.heroAnimated {
-  background: url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
-  background-color: green !important;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  box-sizing: border-box;
-  -webkit-animation: slide 20s linear infinite;
-}
+	.renderjson .syntax {
+		color: grey;
+	}
 
-@-webkit-keyframes slide {
-    from { background-position: 0 0; }
-    to { background-position: -400px 0; }
-}
+	.renderjson .string {
+		color: var(--blue-dark);
+	}
 
-.grayBack{
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-  min-height: 100px;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#363a40+0,363a40+100&0+0,1+100 */
-background: -moz-linear-gradient(top, rgba(54,58,64,0) 0%, rgba(54,58,64,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(54,58,64,0) 0%,rgba(54,58,64,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(54,58,64,0) 0%,rgba(54,58,64,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', endColorstr='#363a40',GradientType=0 ); /* IE6-9 */
-}
+	.renderjson .number {
+		color: grey;
+	}
 
-.asterisk{
-    vertical-align:sub;
-}
+	.renderjson .boolean {
+		color: var(--green-medium);
+	}
 
-.vertical-align{
-  vertical-align: middle;
-}
+	.renderjson .key {
+		color: var(--green-dark)
+	}
 
+	.renderjson .keyword {
+		color: var(--orange-dark);
+	}
+
+	.renderjson .object.syntax {
+		color: var(--blue-light)
+	}
+
+	.renderjson .array.syntax {
+		color: #e356b3;
+	}
+
+	.heroAnimated {
+		background: url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+		background-color: green !important;
+		width: 100%;
+		margin: 0;
+		text-align: center;
+		box-sizing: border-box;
+		-webkit-animation: slide 20s linear infinite;
+	}
+
+	@-webkit-keyframes slide {
+		from {
+			background-position: 0 0;
+		}
+
+		to {
+			background-position: -400px 0;
+		}
+	}
+
+	.grayBack {
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+		min-height: 100px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#363a40+0,363a40+100&0+0,1+100 */
+		background: -moz-linear-gradient(top, rgba(54, 58, 64, 0) 0%, rgba(54, 58, 64, 1) 100%);
+		/* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(54, 58, 64, 0) 0%, rgba(54, 58, 64, 1) 100%);
+		/* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(54, 58, 64, 0) 0%, rgba(54, 58, 64, 1) 100%);
+		/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00363a40', endColorstr='#363a40', GradientType=0);
+		/* IE6-9 */
+	}
+
+	.asterisk {
+		vertical-align: sub;
+	}
+
+	.vertical-align {
+		vertical-align: middle;
+	}
 </style>
 
 <section>
-</div>
+	</div>
 	<div class="bg-dark">
 		<div class="jumbotron container-fluid bg-dark text-center variantHero" style="padding-bottom: 10px;">
 			<div class="d-none d-sm-block">
-        <object class="float" width="20%" data="/static/img/myvariant-logo-shiny.svg" style="padding-top:100px;"></object>
-  			<br />
-  			<div class="logo-shadow blur" style="width: 15%; height: 15px; background: rgb(41, 47, 48); opacity:.4; border-radius:100%; margin: 0 auto;" ></div>
-  			<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 6em;">
-  				My<span style="color: var(--green-light)">Variant</span>.info
-  			</h1>
-        <h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
-  				Variant Annotation as a Service
-  			</h3>
-      </div>
-      <div class="d-sm-none d-block">
-        <object class="float" width="60%" data="/static/img/myvariant-logo.svg" style="padding-top:100px;"></object>
-        <h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
-  				My<span style="color: var(--green-light)">Variant</span>.info
-  			</h1>
-        <h3 class="text-light lighter smallCaps">
-  				Variant Annotation as a Service
-  			</h3>
-      </div>
+				<object class="float" width="20%" data="/static/img/myvariant-logo-shiny.svg"
+					style="padding-top:100px;"></object>
+				<br />
+				<div class="logo-shadow blur"
+					style="width: 15%; height: 15px; background: rgb(41, 47, 48); opacity:.4; border-radius:100%; margin: 0 auto;">
+				</div>
+				<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 6em;">
+					My<span style="color: var(--green-light)">Variant</span>.info
+				</h1>
+				<h3 class="text-light lighter smallCaps" style="font-size: 3vw;">
+					Variant Annotation as a Service
+				</h3>
+			</div>
+			<div class="d-sm-none d-block">
+				<object class="float" width="60%" data="/static/img/myvariant-logo.svg"
+					style="padding-top:100px;"></object>
+				<h1 class="text-light logoFont lighter textShadow" style="margin-bottom: 10px; font-size: 8vw;">
+					My<span style="color: var(--green-light)">Variant</span>.info
+				</h1>
+				<h3 class="text-light lighter smallCaps">
+					Variant Annotation as a Service
+				</h3>
+			</div>
 
-			<h1 id="testNum" class="text-light" style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--green-medium);">-</h1>
+			<h1 id="testNum" class="text-light"
+				style="margin-bottom: 10px; text-shadow:0px 0px 10px var(--green-medium);">-</h1>
 			<p class="text-light smallCaps" style="font-size: 1.5em;">
 				Requests in the last 30 days
 			</p>
 			<p class="text-center text-green">
-				Last Updated <a href="//myvariant.info/v1/metadata" target="_blank"><span id="buildDateTarget" class="text-light"></span></a>
+				Last Updated <a href="//myvariant.info/v1/metadata" target="_blank"><span id="buildDateTarget"
+						class="text-light"></span></a>
 			</p>
 		</div>
 		<div class="text-center padding40 container-fluid">
-				<a href="/v1/api" class="mainButton margin20">Try Live API Now</a>
+			<a href="/v1/api" class="mainButton margin20">Try Live API Now</a>
 		</div>
 		<div class="text-center">
-			<a class="smallButton" href="https://docs.myvariant.info/en/latest/index.html" target="_blank">Docs <i class="fas fa-external-link-square-alt"></i></a>
-			<a class="smallButton" href="https://stats.uptimerobot.com/polzSx91" target="_blank">API Status <i class="fas fa-external-link-square-alt"></i></a>
+			<a class="smallButton" href="https://docs.myvariant.info/en/latest/index.html" target="_blank">Docs <i
+					class="fas fa-external-link-square-alt"></i></a>
+			<a class="smallButton" href="https://stats.uptimerobot.com/polzSx91" target="_blank">API Status <i
+					class="fas fa-external-link-square-alt"></i></a>
 		</div>
-<!-- Stats -->
-<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
+		<!-- Stats -->
+		<div class="container-fluid text-center chartBackground" style="margin: 20px 0px;">
 
-	<section id="APIStatusInterface" class="transparent">
-		<div class="transparent">
-			<div>
-				<h2 id="api-status" class="text-green noMargin lighter anchorLink">UpTime Quick Stats<span class="asterisk">*</span> <a style="font-size:small !important; opacity:0;" href="./#api-status"><i class="fas fa-tiny fa-link text-light"></i></a></h2>
-			</div>
-			<div class="row justify-content-md-center">
-				<div class="col-md-auto">
-					<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus">Status Unavailable</span></h3>
-					<p class="text-light">
-						UpTime Last 24 hours: <span id="daysRange1">?</span>%
-					</p>
-					<table class="table transparent table-sm noMargin">
-						<thead>
-							<th colspan="7" class="text-center text-light">
-								Uptime: Last 7 Days
-							</th>
-						</thead>
-						<tbody class="noBorder">
-							<tr>
-							<td class="text-muted text-center">
-								<span class="text-light" id="yesterday">1 day ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange2">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days2">2 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange3">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days3">3 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange4">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days4">4 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange5">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days5">5 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange6">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days6">6 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange7">?</span>%</span>
-							</td>
-							<td class="text-muted text-center">
-								<span class="text-light" id="days7">7 days ago</span>
-								<br />
-								<span class="text-green"><span id="daysRange8">?</span>%</span>
-							</td>
-						</tr>
-						</tbody>
-				</table>
+			<section id="APIStatusInterface" class="transparent">
+				<div class="transparent">
+					<div>
+						<h2 id="api-status" class="text-green noMargin lighter anchorLink">UpTime Quick Stats<span
+								class="asterisk">*</span> <a style="font-size:small !important; opacity:0;"
+								href="./#api-status"><i class="fas fa-tiny fa-link text-light"></i></a></h2>
+					</div>
+					<div class="row justify-content-md-center">
+						<div class="col-md-auto">
+							<h3 class="text-light noMargin padding20">API Status: <span id="apiStatus">Status
+									Unavailable</span></h3>
+							<p class="text-light">
+								UpTime Last 24 hours: <span id="daysRange1">?</span>%
+							</p>
+							<table class="table transparent table-sm noMargin">
+								<thead>
+									<th colspan="7" class="text-center text-light">
+										Uptime: Last 7 Days
+									</th>
+								</thead>
+								<tbody class="noBorder">
+									<tr>
+										<td class="text-muted text-center">
+											<span class="text-light" id="yesterday">1 day ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange2">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days2">2 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange3">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days3">3 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange4">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days4">4 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange5">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days5">5 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange6">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days6">6 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange7">?</span>%</span>
+										</td>
+										<td class="text-muted text-center">
+											<span class="text-light" id="days7">7 days ago</span>
+											<br />
+											<span class="text-green"><span id="daysRange8">?</span>%</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
+							<ul class="list-group">
+								<li class="list-group-item bg-dark text-center text-muted transparent">
+									<div class="row justify-content-md-center">
+										<div class="col-md-auto">
+											<table class="table table-sm table-dark noMargin noBorder transparent">
+												<thead class="noBorder">
+													<th class="text-center text-light">This Week</th>
+													<th class="text-center text-light">This Month</th>
+													<th class="text-center text-light">Last Month</th>
+												</thead>
+												<tbody>
+													<tr class="transparent">
+														<td>
+															<h3 class="text-green noMargin"><span
+																	id="daysRange9">?</span>%</h3>
+														</td>
+														<td>
+															<h3 class="text-green noMargin"><span
+																	id="daysRange10">?</span>%</h3>
+														</td>
+														<td>
+															<h3 class="text-green noMargin"><span
+																	id="daysRange11">?</span>%</h3>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="3">
+															<p class="smallFont text-light">
+																* Monitored every 5 minutes
+															</p>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 transparent">
-					<ul class="list-group">
-						<li class="list-group-item bg-dark text-center text-muted transparent">
-							<div class="row justify-content-md-center">
-								<div class="col-md-auto">
-									<table class="table table-sm table-dark noMargin noBorder transparent">
-										<thead class="noBorder">
-											<th class="text-center text-light">This Week</th>
-											<th class="text-center text-light">This Month</th>
-											<th class="text-center text-light">Last Month</th>
-										</thead>
-										<tbody>
-											<tr class="transparent">
-												<td><h3 class="text-green noMargin"><span id="daysRange9">?</span>%</h3></td>
-												<td><h3 class="text-green noMargin"><span id="daysRange10">?</span>%</h3></td>
-												<td><h3 class="text-green noMargin"><span id="daysRange11">?</span>%</h3></td>
-											</tr>
-                      <tr>
-                        <td colspan="3">
-                          <p class="smallFont text-light">
-                            * Monitored every 5 minutes
-                          </p>
-                        </td>
-                      </tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
+			</section>
 		</div>
-	</section>
-</div>
 
-<section id="who-is-using" class="fullWidth usingContainer bg-light" style="margin: 0px;">
-  <div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
-    <h1 class="noMargin anchorLink">Who is using <span class="logoFont text-green">MyVariant.info</span> <a style="font-size:small !important;opacity:0;" href="./#who-is-using"><i class="fas fa-tiny fa-link"></i></a></h1>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://civicdb.org/home" style="border:none !important;">
-      <img src="/static/img/using-1.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://ncats.nih.gov/translator" style="border:none !important;">
-      <img src="/static/img/using-2.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://www.pharmgkb.org/variant/PA166160628#tabview=tab2&subtab=" style="border:none !important;">
-      <img src="/static/img/using-pharmagkb.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://omni.telentilab.com/" style="border:none !important;">
-      <img src="/static/img/using-omni.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://github.com/ucsd-ccbb/VAPr" style="border:none !important;">
-      <img src="/static/img/using-vapr.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="http://openhumansfoundation.org/" style="border:none !important;">
-      <img src="/static/img/using-3.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://mygene2.org/MyGene2/exomesequencing" style="border:none !important;">
-      <img src="/static/img/using-4.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="usingBox">
-    <a target="_blank" href="https://www.clinicalgenome.org/" style="border:none !important;">
-      <img src="/static/img/using-5.png"  alt="logo"/>
-    </a>
-  </div>
-  <div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
-    <a href="http://biothings.io/who-is-using" target="_blank">
-      and many more!
-    </a>
-  </div>
-</section>
+		<section id="who-is-using" class="fullWidth usingContainer bg-light" style="margin: 0px;">
+			<div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
+				<h1 class="noMargin anchorLink">Who is using <span class="logoFont text-green">MyVariant.info</span> <a
+						style="font-size:small !important;opacity:0;" href="./#who-is-using"><i
+							class="fas fa-tiny fa-link"></i></a></h1>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://civicdb.org/home" style="border:none !important;">
+					<img src="/static/img/using-1.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://ncats.nih.gov/translator" style="border:none !important;">
+					<img src="/static/img/using-2.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://www.pharmgkb.org/variant/PA166160628#tabview=tab2&subtab="
+					style="border:none !important;">
+					<img src="/static/img/using-pharmagkb.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://omni.telentilab.com/" style="border:none !important;">
+					<img src="/static/img/using-omni.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://github.com/ucsd-ccbb/VAPr" style="border:none !important;">
+					<img src="/static/img/using-vapr.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="http://openhumansfoundation.org/" style="border:none !important;">
+					<img src="/static/img/using-3.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://mygene2.org/MyGene2/exomesequencing" style="border:none !important;">
+					<img src="/static/img/using-4.png" alt="logo" />
+				</a>
+			</div>
+			<div class="usingBox">
+				<a target="_blank" href="https://www.clinicalgenome.org/" style="border:none !important;">
+					<img src="/static/img/using-5.png" alt="logo" />
+				</a>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-12 center" style="padding: 40px;">
+				<a href="http://biothings.io/who-is-using" target="_blank">
+					and many more!
+				</a>
+			</div>
+		</section>
 
-		<div class="bg-dark fullWidth padding40 row marginFix" >
-			  <div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
-					<object data='/static/img/performance-2.svg' width="100px"></object>
-					<h3 class="text-green lighter smallCaps">High performance</h3>
-					<p class="smallCaps">
-						Fast API access to up-to-date human variant annotations
-					</p>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
-					<object data='/static/img/uptodate-2.svg' width="100px"></object>
-					<h3 class="text-green lighter smallCaps">Up-to-date</h3>
-					<p class="smallCaps">
-						Monthly updated variant annotations from <span id="sources">18</span> sources.
-					</p>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
-					<object data='/static/img/integrated-2.svg' width="100px"></object>
-					<h3 class="text-green lighter smallCaps">Pre-integrated</h3>
-					<p class="smallCaps">
-						Variant annotations for >400M human variants are pre-integrated.
-					</p>
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
-					<object data='/static/img/simple-2.svg' width="100px"></object>
-					<h3 class="text-green lighter smallCaps">Simple to use</h3>
-					<p class="smallCaps">
-						Just two end-points to retrieve annotations via HGVS IDs or any query term.
-					</p>
-				</div>
+		<div class="bg-dark fullWidth padding40 row marginFix">
+			<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
+				<object data='/static/img/performance-2.svg' width="100px"></object>
+				<h3 class="text-green lighter smallCaps">High performance</h3>
+				<p class="smallCaps">
+					Fast API access to up-to-date human variant annotations
+				</p>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
+				<object data='/static/img/uptodate-2.svg' width="100px"></object>
+				<h3 class="text-green lighter smallCaps">Up-to-date</h3>
+				<p class="smallCaps">
+					Monthly updated variant annotations from <span id="sources">18</span> sources.
+				</p>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
+				<object data='/static/img/integrated-2.svg' width="100px"></object>
+				<h3 class="text-green lighter smallCaps">Pre-integrated</h3>
+				<p class="smallCaps">
+					Variant annotations for >400M human variants are pre-integrated.
+				</p>
+			</div>
+			<div class="col-sm-12 col-md-6 col-lg-6 padding20 text-center bg-dark text-light" style="border: none;">
+				<object data='/static/img/simple-2.svg' width="100px"></object>
+				<h3 class="text-green lighter smallCaps">Simple to use</h3>
+				<p class="smallCaps">
+					Just two end-points to retrieve annotations via HGVS IDs or any query term.
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -275,65 +334,87 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 <!-- Examples for large and medium devices -->
 <section id="query-examples" class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
 	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light" style="max-height: 800px; overflow: scroll; position: relative;overflow-x:hidden;">
-			<ul class="list-group" >
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light"
+			style="max-height: 800px; overflow: scroll; position: relative;overflow-x:hidden;">
+			<ul class="list-group">
 				<li class="list-group-item center" style="border-radius: 0px !important;">
-					<h2 class="text-muted lighter noMargin anchorLink">Query Examples <a style="font-size:small !important;opacity:0;" href="./#query-examples"><i class="fas fa-tiny fa-link"></i></a></h2>
-          <small>All queries work on both Http and Https!</small>
+					<h2 class="text-muted lighter noMargin anchorLink">Query Examples <a
+							style="font-size:small !important;opacity:0;" href="./#query-examples"><i
+								class="fas fa-tiny fa-link"></i></a></h2>
+					<small>All queries work on both Http and Https!</small>
 				</li>
-			  <li class="list-group-item">
+				<li class="list-group-item">
 					<h4 class="noMargin">Retrieving by HGVS id</h4>
 					<br />
-					<span class="text-green bold">GET</span> http://myvariant.info/v1/variant/<span class="text-green bold">chr7:g.55241707G>T</span>
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/variant/chr7:g.55241707G>T' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/variant/<span
+						class="text-green bold">chr7:g.55241707G>T</span>
+					<button style="cursor: pointer !important;"
+						data-url='//myvariant.info/v1/variant/chr7:g.55241707G>T' type="button"
+						class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants with clinvar annotation</h4>
 					<br />
-					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:clinvar</span>
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query?q=_exists_:clinvar' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span
+						class="text-green bold">?q=_exists_:clinvar</span>
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query?q=_exists_:clinvar'
+						type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All non-synonymous variants on gene "BTK"</h4>
 					<br />
-					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=dbnsfp.genename:BTK</span>
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query/?q=dbnsfp.genename:BTK' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span
+						class="text-green bold">?q=dbnsfp.genename:BTK</span>
+					<button style="cursor: pointer !important;"
+						data-url='//myvariant.info/v1/query/?q=dbnsfp.genename:BTK' type="button"
+						class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">All variants within a genomic range</h4>
 					<br />
-					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=chr1:69000-70000</span>
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query/?q=chr1:69000-70000' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span
+						class="text-green bold">?q=chr1:69000-70000</span>
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query/?q=chr1:69000-70000'
+						type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Query Wellderly variants together with other annotation sources</h4>
 					<br />
-					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span class="text-green bold">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<span class="text-green bold">GET</span> http://myvariant.info/v1/query/<span
+						class="text-green bold">?q=_exists_:wellderly AND
+						cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span>
+					<button style="cursor: pointer !important;"
+						data-url='//myvariant.info/v1/query/?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen'
+						type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
-        <li class="list-group-item">
+				<li class="list-group-item">
 					<h4 class="noMargin">Get data source metadata:</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/metadata
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata' type="button"
+						class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
-        <li class="list-group-item">
+				<li class="list-group-item">
 					<h4 class="noMargin">Get the list of all fields:</h4>
 					<br />
 					<span class="text-green bold">GET</span> http://myvariant.info/metadata/fields
-					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata/fields' type="button" class="btn btn-success float-right text-light callButton">Run</button>
+					<button style="cursor: pointer !important;" data-url='//myvariant.info/metadata/fields'
+						type="button" class="btn btn-success float-right text-light callButton">Run</button>
 				</li>
 				<li class="list-group-item">
 					<h4 class="noMargin">Batch queries? Yes, supported!</h4>
 					<br />
 					<span class="text-green bold">POST</span> http://myvariant.info/v1/variant/
-					<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' class="btn btn-success float-right text-light">Learn More</a>
+					<a target="_blank"
+						href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post'
+						class="btn btn-success float-right text-light">Learn More</a>
 					<br />
 					<span class="text-green bold">POST</span> http://myvariant.info/v1/query/
 				</li>
 			</ul>
 		</div>
-		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack" style="max-height: 800px; overflow: scroll; border-style: inset; border: 4px #c9c9c9 solid;box-shadow: inset 0 0 10px #000000;overflow-x:hidden;">
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack"
+			style="max-height: 800px; overflow: scroll; border-style: inset; border: 4px #c9c9c9 solid;box-shadow: inset 0 0 10px #000000;overflow-x:hidden;">
 			<div id="loading" class="center" style="display: none;">
 				<h2 style="padding-top: 50%;" class="text-success padding20">Loading...</h2>
 			</div>
@@ -346,166 +427,199 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00363a40', e
 
 <!-- Table display for small devices -->
 <section id="query-examples" class="text-center text-light d-block d-sm-block d-md-none d-lg-none d-xl-none bg-dark">
-	<h2 class="text-muted lighter noMargin anchorLink">Query Examples <a style="font-size:small !important;opacity:0;" href="./#query-examples"><i class="fas fa-tiny fa-link"></i></a></h2>
-  <span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-green Ani"></i></span>
+	<h2 class="text-muted lighter noMargin anchorLink">Query Examples <a style="font-size:small !important;opacity:0;"
+			href="./#query-examples"><i class="fas fa-tiny fa-link"></i></a></h2>
+	<span class="text-muted">Scroll For More <i class="fas fa-hand-point-down text-green Ani"></i></span>
 	<table class="table table-dark table-responsive">
-  <thead>
-    <tr>
-      <th class="text-muted text-center" scope="col">Description</th>
-      <th class="text-muted text-center" scope="col">Query</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Retreiving by HGVS id</h4></td>
-      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/variant/<span class="text-green">chr1:g.35367G>A</span></td>
-    </tr>
-		<tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All variants with dbNSFP annotation</h4>
-      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:dbnsfp</span></td>
-    </tr>
-		<tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All non-synonymous variants on gene "BTK"</h4>
-      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=dbnsfp.genename:BTK</span></td>
-    </tr>
-		<tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">All variants within a genomic range</h4>
-      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=chr1:69000-70000</span></td>
-    </tr>
-		<tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Query Wellderly variants together with other annotation sources</h4>
-      <td class="vertical-align smallFont"><span class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span class="text-green">?q=_exists_:wellderly AND cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
-    </tr>
-		<tr>
-      <td class="vertical-align smallFont"><h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
-      <td class="vertical-align smallFont">
-				<span class="text-green">POST</span> http://myvariant.info/v1/variant/
-				<br />
-				<span class="text-green">POST</span> http://myvariant.info/v1/query/
-				<br />
-				<a target="_blank" href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post' type="button" class="smallButton text-light">Learn More <i class="fas fa-external-link-square-alt"></i></a>
-			</td>
-    </tr>
-  </tbody>
-</table>
+		<thead>
+			<tr>
+				<th class="text-muted text-center" scope="col">Description</th>
+				<th class="text-muted text-center" scope="col">Query</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">Retreiving by HGVS id</h4>
+				</td>
+				<td class="vertical-align smallFont"><span
+						class="text-green">GET</span>&nbsp;http://myvariant.info/v1/variant/<span
+						class="text-green">chr1:g.35367G>A</span></td>
+			</tr>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">All variants with dbNSFP annotation</h4>
+				<td class="vertical-align smallFont"><span
+						class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span
+						class="text-green">?q=_exists_:dbnsfp</span></td>
+			</tr>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">All non-synonymous variants on gene "BTK"</h4>
+				<td class="vertical-align smallFont"><span
+						class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span
+						class="text-green">?q=dbnsfp.genename:BTK</span></td>
+			</tr>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">All variants within a genomic range</h4>
+				<td class="vertical-align smallFont"><span
+						class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span
+						class="text-green">?q=chr1:69000-70000</span></td>
+			</tr>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">Query Wellderly variants together with other annotation
+						sources</h4>
+				<td class="vertical-align smallFont"><span
+						class="text-green">GET</span>&nbsp;http://myvariant.info/v1/query/<span
+						class="text-green">?q=_exists_:wellderly AND
+						cadd.polyphen.cat:possibly_damaging&fields=wellderly,cadd.polyphen</span></td>
+			</tr>
+			<tr>
+				<td class="vertical-align smallFont">
+					<h4 class="noMargin text-muted smallFont">Batch queries? Yes, supported!</h4>
+				<td class="vertical-align smallFont">
+					<span class="text-green">POST</span> http://myvariant.info/v1/variant/
+					<br />
+					<span class="text-green">POST</span> http://myvariant.info/v1/query/
+					<br />
+					<a target="_blank"
+						href='http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post'
+						type="button" class="smallButton text-light">Learn More <i
+							class="fas fa-external-link-square-alt"></i></a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </section>
 
 <!-- Section -->
-	<section id="four" class="main accent bg-dark">
-		<a name="news"></a>
-		<header id="news" class="text-center padding20">
-			<h2 class="text-muted lighter padding20 anchorLink">What's New <a style="font-size:small !important;opacity:0;" href="./#news"><i class="fas fa-tiny fa-link text-light"></i></a></h2>
-		</header>
-		<div class="inner">
-			<div class="posts">
-				{% for post in posts %}
-				<div>
-					<article class="box">
-						<div class="content">
-							{%if post.primary_author.profile_image %}
-			        <img class="post_author_img" src={{post.primary_author.profile_image}} />
-              {% if post.primary_author.slug %}
-                <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
-              {% else %}
-                {{post.primary_author.name}}
-              {% endif %}
-							{% else %}
-							<img class="post_author_img" src='/static/img/myvariant-default-user.png' />
-              {% if post.primary_author.slug %}
-                <a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
-              {% else %}
-                {{post.primary_author.name}}
-              {% endif %}
-			        {% endif %}
-							<a href="/blog/{{post.slug}}">
-								<h4 class="text-green">{{post.title}}</h4>
-							</a>
-							<p class="text-muted">{{post.html|striptags|truncate(100)}}</p>
-							<ul class="actions">
-								<li><a href="/blog/{{post.slug}}" class="btn btn-dark text-green btn-sm small">More</a></li>
-							</ul>
-						</div>
-					</article>
-				</div>
-				{% endfor %}
+<section id="four" class="main accent bg-dark">
+	<a name="news"></a>
+	<header id="news" class="text-center padding20">
+		<h2 class="text-muted lighter padding20 anchorLink">What's New <a style="font-size:small !important;opacity:0;"
+				href="./#news"><i class="fas fa-tiny fa-link text-light"></i></a></h2>
+	</header>
+	<div class="inner">
+		<div class="posts">
+			{% for post in posts %}
+			<div>
+				<article class="box">
+					<div class="content">
+						{%if post.primary_author.profile_image %}
+						<img class="post_author_img" src={{post.primary_author.profile_image}} />
+						{% if post.primary_author.slug %}
+						<a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
+						{% else %}
+						{{post.primary_author.name}}
+						{% endif %}
+						{% else %}
+						<img class="post_author_img" src='/static/img/myvariant-default-user.png' />
+						{% if post.primary_author.slug %}
+						<a href="/author/{{post.primary_author.slug}}">{{post.primary_author.name}}</a>
+						{% else %}
+						{{post.primary_author.name}}
+						{% endif %}
+						{% endif %}
+						<a href="/blog/{{post.slug}}">
+							<h4 class="text-green">{{post.title}}</h4>
+						</a>
+						<p class="text-muted">{{post.html|striptags|truncate(100)}}</p>
+						<ul class="actions">
+							<li><a href="/blog/{{post.slug}}" class="btn btn-dark text-green btn-sm small">More</a></li>
+						</ul>
+					</div>
+				</article>
 			</div>
-			<p class="more_news" style="padding-bottom:40px;"><a href="/blog" class="mainButton special fit small">More&nbspNews</a></p>
+			{% endfor %}
 		</div>
-	</section>
+		<p class="more_news" style="padding-bottom:40px;"><a href="/blog"
+				class="mainButton special fit small">More&nbspNews</a></p>
+	</div>
+</section>
 
-  <section class="text-dark" style="background-color: var(--green-light); padding: 20px 10%;">
-    <p class="noMargin padding20">
-      <b class="text-dark">Medical Disclaimer: This resource is intended for purely research purposes. It should not be used for emergencies or medical or professional advice.</b>
-    </p>
-  </section>
-  <section id="need-help" class="text-light" style="background-color: var(--green-dark); padding: 20px 10%;">
-    <h4 class="text-light padding20 anchorLink">Need Help? <a style="font-size:small !important;opacity:0;" href="./#need-help"><i class="fas fa-tiny fa-link text-light"></i></a></h4>
-    <ul>
-      <li>
-        Email us <a class="text-light" href='mailto:biothings@googlegroups.com'><i class="fa fa-envelope" aria-hidden="true"></i> biothings@googlegroups.com</a>
-      </li>
-      <li>
-        Find a bug or have an awesome idea? <a class="github-button" href="https://github.com/biothings/myvariant.info/issues" aria-label="Issue biothings/myvariant.info on GitHub">Issue</a>
-      </li>
-      <li>
-        Follow and contact us on Twitter <a href="https://twitter.com/MyVariantInfo?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @MyVariantInfo</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </li>
-      <li>
-        Post a question on <a class="text-light" target="_blank" href="https://www.biostars.org/p/new/post/?tag_val=mycariant">BioStars.org</a> with tag <b class="text-light">#myvariant</b>.
-      </li>
-    </ul>
-	</section>
+<section class="text-dark" style="background-color: var(--green-light); padding: 20px 10%;">
+	<p class="noMargin padding20">
+		<b class="text-dark">Medical Disclaimer: This resource is intended for purely research purposes. It should not
+			be used for emergencies or medical or professional advice.</b>
+	</p>
+</section>
+<section id="need-help" class="text-light" style="background-color: var(--green-dark); padding: 20px 10%;">
+	<h4 class="text-light padding20 anchorLink">Need Help? <a style="font-size:small !important;opacity:0;"
+			href="./#need-help"><i class="fas fa-tiny fa-link text-light"></i></a></h4>
+	<ul>
+		<li>
+			Email us <a class="text-light" href='mailto:biothings@googlegroups.com'><i class="fa fa-envelope"
+					aria-hidden="true"></i> biothings@googlegroups.com</a>
+		</li>
+		<li>
+			Find a bug or have an awesome idea? <a class="github-button"
+				href="https://github.com/biothings/myvariant.info/issues"
+				aria-label="Issue biothings/myvariant.info on GitHub">Issue</a>
+		</li>
+		<li>
+			Follow and contact us on Twitter <a href="https://twitter.com/MyVariantInfo?ref_src=twsrc%5Etfw"
+				class="twitter-follow-button" data-show-count="false">Follow @MyVariantInfo</a>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</li>
+		<li>
+			Post a question on <a class="text-light" target="_blank"
+				href="https://www.biostars.org/p/new/post/?tag_val=mycariant">BioStars.org</a> with tag <b
+				class="text-light">#myvariant</b>.
+		</li>
+	</ul>
+</section>
 
 
 {% endblock %}
-			{% block extra_scripts %}
-      <!-- Place this tag in your head or just before your close body tag. -->
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
-			<script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-			<script src="/static/js/countUp.js"></script>
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
-			<script src="/static/js/app.js"></script>
-			<script src="/static/js/moment.js"></script>
-			<script src="/static/js/renderjson.js"></script>
-			<script>
+{% block extra_scripts %}
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+<script src="/static/js/countUp.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script> -->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/moment.js"></script>
+<script src="/static/js/renderjson.js"></script>
+<script>
+	$(document).ready(function () {
+		var yesterday = moment().subtract(1, 'days').format('MMM DD');
+		var days2 = moment().subtract(2, 'days').format('MMM DD');
+		var days3 = moment().subtract(3, 'days').format('MMM DD');
+		var days4 = moment().subtract(4, 'days').format('MMM DD');
+		var days5 = moment().subtract(5, 'days').format('MMM DD');
+		var days6 = moment().subtract(6, 'days').format('MMM DD');
+		var days7 = moment().subtract(7, 'days').format('MMM DD');
+		$('#yesterday').html(yesterday);
+		$('#days2').html(days2);
+		$('#days3').html(days3);
+		$('#days4').html(days4);
+		$('#days5').html(days5);
+		$('#days6').html(days6);
+		$('#days7').html(days7);
+	});
 
-			$( document ).ready(function() {
-					var yesterday = moment().subtract(1, 'days').format('MMM DD');
-					var days2 = moment().subtract(2, 'days').format('MMM DD');
-					var days3 = moment().subtract(3, 'days').format('MMM DD');
-					var days4 = moment().subtract(4, 'days').format('MMM DD');
-					var days5 = moment().subtract(5, 'days').format('MMM DD');
-					var days6 = moment().subtract(6, 'days').format('MMM DD');
-					var days7 = moment().subtract(7, 'days').format('MMM DD');
-					$('#yesterday').html(yesterday);
-					$('#days2').html(days2);
-					$('#days3').html(days3);
-					$('#days4').html(days4);
-					$('#days5').html(days5);
-					$('#days6').html(days6);
-					$('#days7').html(days7);
-			});
+	$('.callButton').on('click tap', function () {
+		var myUrl = $(this).data('url');
+		$('#callResults').html('');
+		$('#loading').show();
+		$.ajax({
+			url: myUrl,
+			dataType: 'JSON',
+			// contentType: 'application/json;charset=UTF-8',
+			success: function (result) {
+				$('#loading').hide();
+				renderjson.set_show_to_level(7);
+				$('#callResults').html(renderjson(result));
+			}
+		});
+	});
 
-			$('.callButton').on('click tap', function(){
-				var myUrl = $(this).data('url');
-				$('#callResults').html('');
-				$('#loading').show();
-				$.ajax({
-					url: myUrl,
-					dataType: 'JSON',
-     			contentType: 'application/json;charset=UTF-8',
-					success:function(result){
-						$('#loading').hide();
-						renderjson.set_show_to_level(7);
-						$('#callResults').html( renderjson(result) );
-				}});
-			});
-
-			$(document).on('click','a',function(e){
-				if (e.target.href.slice(-1) === '#') {
-					return false;
-				}
-			});
-
-			</script>
-			{% endblock %}
+	$(document).on('click', 'a', function (e) {
+		if (e.target.href.slice(-1) === '#') {
+			return false;
+		}
+	});
+</script>
+{% endblock %}
