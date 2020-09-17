@@ -1,7 +1,9 @@
 {% extends "main.html" %}
 {% block content %}
 <style>
-
+.t-bordered {
+    border: 1px solid var(--main-medium) !important;
+}
 </style>
 <div id="index">
   <div class="lds-ellipsis" v-show='loading'>
@@ -26,8 +28,8 @@
               My<span class="text-main" v-text="snType"></span>.info
             </h1>
             <h2 data-aos="fade-in" class=" lighter smallCaps chrome" v-text="siteDescription"></h2>
-            <div class='p-2 m-auto rounded'>
-              <h1 class="m-0" id="testNum">...</h1>
+            <div class='p-2 m-auto rounded' v-if="show30days">
+              <h1 class=" m-0" id="testNum">...</h1>
               <h6 class="text-main m-0">Requests in the last 30 days</h6>
             </div>
           </div>
@@ -79,7 +81,7 @@
                 </div>
               </div>
               <div class="col-sm-12 d-flex justify-content-center text-center">
-                <button type="button" class="btn btn-outline-light m-3" @click="showCal=!showCal;playSound('cal')"
+                <button type="button" class="btn btn-outline-light m-3" @click="showCal=!showCal;"
                   data-tippy="Uptime Calendar">
                   <i class="fas fa-calendar-alt text-main"></i> <span
                     v-text="showCal ? 'Hide Calendar -':'Show Calendar +'"></span>
@@ -421,6 +423,7 @@
           medium: "",
           light: "",
         },
+        show30days: true,
         controller: null,
         sn: '',
         snType: '',
@@ -1074,6 +1077,8 @@
           'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
         var myChemURL =
           'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
+        let diseaseURL =
+          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDcytqNCgw'
 
         switch (name) {
           case "MyGene.info":
@@ -1082,11 +1087,15 @@
           case "MyVariant.info":
             url = variantURL;
             break;
-          case "myChemURL.info":
-            url = chemURL;
+          case "MyChem.info":
+            url = myChemURL;
+            break;
+          case "MyDisease.info":
+            url = diseaseURL;
             break;
           default:
-            url = geneURL;
+            // url = geneURL;
+            console.warn('No requests in 30 days for API')
         }
         axios.get(url).then(result => {
           var sessionsCount = result.data.totalsForAllResults['ga:sessions'];
@@ -1108,20 +1117,24 @@
       },
       getLastUpdatedAndSources(name) {
         let self = this;
+        let urlLU = ''
         switch (name) {
           case "MyGene.info":
-            url = '//mygene.info/v3/metadata';
+            urlLU = '//mygene.info/v3/metadata';
             break;
           case "MyVariant.info":
-            url = '//myvariant.info/v1/metadata';
+            urlLU = '//myvariant.info/v1/metadata';
             break;
-          case "myChemURL.info":
-            url = '//mychem.info/v1/metadata';
+          case "MyChem.info":
+            urlLU = '//mychem.info/v1/metadata';
+            break;
+          case "MyDisease.info":
+            urlLU = '//mydisease.info/v1/metadata';
             break;
           default:
-            url = '//mygene.info/v3/metadata';
+            console.warn('No last updated date for API')
         }
-        axios.get(url).then(res => {
+        axios.get(urlLU).then(res => {
           self.sources = Object.keys(res.data.src).length;
           self.lastUpdated = moment(res.data.build_date).format('MMM DD YYYY');
         }).catch(err => {
@@ -1130,7 +1143,6 @@
       },
       testAPI(url) {
         let self = this;
-        self.playSound('api')
         self.loading = true;
         axios.get(url).then(result => {
           renderjson.set_show_to_level(7);
@@ -1168,6 +1180,7 @@
         let myvariant = 'm776973331-492ae87d5b86bf6741009dbf';
         let mygene = 'm142169-2fd3ec3375da41d76e77d604';
         let mychem = 'm780201416-03e5f5583f5e9a0cd392c68c';
+        let mydisease = 'm785741967-debdabdf54bb62d45f31d16c'
         let k = '';
 
         switch (name) {
@@ -1177,11 +1190,15 @@
           case "MyVariant.info":
             k = myvariant;
             break;
-          case "myChemURL.info":
+          case "MyChem.info":
             k = mychem;
             break;
+          case "MyDisease.info":
+            k = mydisease;
+            break;
           default:
-            k = mygene;
+            // k = mygene;
+            console.warn("No Uptime API Key matched with name")
         }
 
         let currentDate = Math.trunc(new Date().getTime() / 1000);
@@ -1303,9 +1320,9 @@
         cTableHead = document.createElement("thead")
         cTable.id = "calendar";
         cTable.classList.add('table');
-        cTable.classList.add('table-dark');
-        cTable.classList.add('table-striped');
-        cTable.classList.add('table-bordered');
+        // cTable.classList.add('table-dark');
+        cTable.classList.add('text-main');
+        cTable.classList.add('t-bordered');
         cTable.classList.add('table-sm');
         container.innerHTML = "";
         cTable.appendChild(cTableHead);
@@ -1325,14 +1342,17 @@
           cTableHead.appendChild(cCell);
         }
         cRow.classList.add("head");
+        cRow.classList.add('t-bordered');
         cTableBody.appendChild(cRow);
 
         // Days in Month
         var total = squares.length;
         cRow = document.createElement("tr");
         cRow.classList.add("day");
+        cRow.classList.add('t-bordered');
         for (var i = 0; i < total; i++) {
           cCell = document.createElement("td");
+          cCell.classList.add('t-bordered');
           if (squares[i] == "b") {
             cCell.classList.add("blank");
           } else {
@@ -1406,10 +1426,10 @@
             }
             document.getElementById(dateapi).innerHTML = "<span class='text-main font-weight-bold'>" + day +
               `</span> <span class="caltip d-flex justify-content-center pointer lighter" data-tippy-info=` +
-              res.data.status + `><i class="fa ` + cls + ` fa-check-circle"></i> ` + per + `%</span>`;
+              per + `><i class="fa ` + cls + ` fa-check-circle"></i></span>`;
           }).catch(err => {
             document.getElementById(dateapi).innerHTML = "<span class='text-main font-weight-bold'>" + day +
-              `</span> <span class="text-muted caltip d-flex justify-content-center" data-tippy-info='Not Available' >N/A</span>`;
+              `</span> <span class="text-muted caltip d-flex justify-content-center" data-tippy-info='Not Available' ><i class="fas fa-circle text-muted"></i></span>`;
           });
         }
 
@@ -2111,19 +2131,6 @@
         // }
 
       },
-      playSound(type) {
-        switch (type) {
-          case 'cal':
-            new Audio('/static/sounds/comm.ogg').play();
-            break;
-          case 'api':
-            new Audio('/static/sounds/when.ogg').play();
-            break;
-          default:
-            //none
-            break;
-        }
-      }
     },
     mounted: function () {
       var self = this;
@@ -2233,6 +2240,7 @@
           case "MyChem.info":
             ltag.setAttribute('href', "/static/css/chem.css");
             document.head.appendChild(ltag);
+            self.show30days = false;
             self.colors['dark'] = "#CC6633";
             self.colors["medium"] = "#FD7400";
             self.colors["light"] = "#FF8E39";
@@ -2404,16 +2412,12 @@
                 'query': '//mydisease.info/v1/disease/MONDO:0003582'
               },
               {
-                'description': 'Retireve all disease annotations with CTD annotation',
+                'description': 'Retrieve all disease annotations with CTD annotation',
                 'query': '//mydisease.info/v1/query?q=_exists_:ctd'
               },
               {
                 'description': 'Retrieve all diseases related to gene TP53 based on DisGeNet Database',
                 'query': '//mydisease.info/v1/query?q=disgenet.genes_related_to_disease.gene_name:TP53'
-              },
-              {
-                'description': 'Retrieving chemical/drug by UNII Compound id',
-                'query': '//mychem.info/v1/chem/7AXV542LZ4 '
               },
               {
                 'description': 'Retrieve all diseases which are subclass of MONDO:0000653',
@@ -2425,7 +2429,7 @@
               },
               {
                 'description': 'Get the list of all fields',
-                'query': '//mydisease.info/metadata/fields'
+                'query': '//mydisease.info/v1/metadata/fields'
               },
               {
                 'description': 'Get data source metadata',
@@ -2443,11 +2447,11 @@
             self.ghLink = "https://github.com/biothings/mydisease.info/issues"
             self.twitterLink = "https://twitter.com/MyDiseaseInfo?ref_src=twsrc%5Etfw"
             self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mydisease"
-            self.smallScreenLogo = "/static/img/mychem-logo.svg"
+            self.smallScreenLogo = "/static/img/mydisease-logo.svg"
             self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
-            self.uptimeLink = 'https://stats.uptimerobot.com/QKBOh5WJ';
+            self.uptimeLink = 'https://stats.uptimerobot.com/wyvkFLPKV';
             self.postQueryInfoLink =
-              "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
+              "http://docs.disease.info/en/latest/doc/disease_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = false;
             self.startAnimation('md');
             document.getElementById('box3d').classList.add('blackTransBack-purple');
@@ -2475,12 +2479,13 @@
         onShow(instance) {
           let info = instance.reference.dataset.tippyInfo
           let icon = ''
-          if (info === 'ok') {
+          if (info !== 'Not Available') {
             icon = '<i class="fas fa-thumbs-up text-success"></i>'
-          } else if (info === 'Not Available') {
-            icon = '<i class="fas fa-exclamation text-muted"></i>'
+            info = info+'%'
+          } else{
+            icon = '<i class="fas fa-exclamation text-warning"></i>'
           }
-          instance.setContent("<div class='font-weight-bold text-center text-main'><h2>" + icon + " " + info
+          instance.setContent("<div class='font-weight-bold text-center text-light'><h2>" + icon + " " + info
             .toUpperCase() + "</h2></div>")
 
         }
