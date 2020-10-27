@@ -4,6 +4,30 @@
 .t-bordered {
     border: 1px solid var(--main-medium) !important;
 }
+.status-card{
+  display: block;
+}
+.status-card div:first-child{
+  background: var(--main-dark);
+  background: linear-gradient(0deg, var(--main-dark) 0%, #000000 100%);
+  clip-path: polygon(100% 34%, 0% 100%, 100% 100%);
+  height: 20px;
+}
+
+.status-card div:nth-child(2){
+  background-color: var(--main-medium);
+}
+
+.status-card div:nth-child(3){
+  background-color: #343a40;
+}
+
+.status-card div:last-child{
+  background: #15171a;
+  clip-path: polygon(100% 0, 0 0, 0 53%);
+  height: 20px;
+}
+
 </style>
 <div id="index">
   <div class="lds-ellipsis" v-show='loading'>
@@ -105,7 +129,7 @@
                       <select id="cal-yr" class="form-control m-1"></select>
                       <input class="form-control m-1 btn-outline-light" id="cal-set" type="button" value="Go" />
                     </div>
-                    <div id="cal-container"></div>
+                    <div id="cal-container" style="overflow: hidden;"></div>
                     <div id="cal-event"></div>
                   </div>
                 </div>
@@ -222,10 +246,10 @@
                     <small v-text='window.location.protocol+item.query' class="text-main font-weight-bold"></small>
                   </div>
                   <div class="col-sm-2">
-                    <button @click="testAPI(item.query)"
-                      class="bg-main-dark text-light pull-right rounded pointer d-none d-md-block">
+                    <a role="button" href="#" @click="testAPI(item.query)"
+                      class="btn bg-main-dark text-light pull-right pointer d-none d-md-block">
                       TRY IT <i class="fa fa-chevron-right"></i>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -405,12 +429,17 @@
       }
 
     },
-    template: `<div class="card m-1 status flex-row flex-md-column" data-aos="flip-down" data-aos-duration="1000">
-                  <h5 class="card-header text-center text-light p-1" v-text='item.label' :class="item.label.length >6 ?'bg-secondary':'bg-main-dark'"></h5>
-                  <h6 class="card-body mb-2 text-muted text-center p-1">
-                    <span :id="item.label" class="text-main"></span>
-                    %
-                  </h6>
+    template: `<div class="status-card m-1 status flex-row flex-md-column" data-aos="flip-down" data-aos-duration="1000">
+                  <div></div>
+                  <div>
+                    <h6 class="text-center text-light p-2 m-0" v-text='item.label'></h6>
+                  </div>
+                  <div>
+                    <h5 class="text-center p-1 m-0 text-light">
+                      <span :id="item.label"></span>%
+                    </h5>
+                  </div>
+                  <div></div>
                 </div>`
   });
 
@@ -1921,7 +1950,7 @@
 
         const update = () => {
           // illo.rotate.y -= .01;
-          min.rotate.z -= .02;
+          min.rotate.z += .02;
           illo.updateRenderGraph();
           requestAnimationFrame(update);
         };
