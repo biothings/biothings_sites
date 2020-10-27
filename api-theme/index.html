@@ -1376,7 +1376,7 @@
             if (xmonth < 10) {
               month = "0" + xmonth.toString()
             } else {
-              month = document.getElementById("cal-mth").value.toString()
+              month = xmonth.toString()
             }
             let year = document.getElementById("cal-yr").value.toString();
 
@@ -1407,13 +1407,14 @@
       },
       getDBDetails(day, dateapi) {
         var now = new Date();
+        now = moment(now, 'MMDDYYYY');
         var dateEval = dateapi.replace(/\D/g, '');
-        dateEval = moment(dateEval, "MMDDYYYY");
-
-        if (dateEval < now) {
+        dateEval = moment(dateEval, 'MMDDYYYY');
+        // dateEval = moment(dateEval).format("MMDDYYYY");
+        let comparison = moment(dateEval).isSameOrBefore(now);
+        if (comparison) {       
           // selected date is in the past
           axios.get('/date-status/' + dateapi).then(res => {
-            // console.log(res.data)
             let cls = ''
             let per = Math.ceil(res.data.percentage);
 
