@@ -92,8 +92,8 @@
   clip-path: circle(50% at 50% 50%);
   width: 50px;
   height: 50px;
+  border: 3px solid black outset;
 }
-
 
 .blogBack {
   background-repeat: no-repeat;
@@ -101,6 +101,14 @@
   background-position: center;
   background-attachment: fixed;
   background-image: url('../img/hex.svg');
+}
+
+.circleBack{
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url('../img/circle.svg');
+  background-color: #000000;
 }
 
 .cubegrad {
@@ -275,9 +283,11 @@ a {
 
 .neon {
   pointer-events: all;
+  color: #FFDD1B !important;
 }
 
 .neon:hover {
+  color: white !important;
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
   -moz-animation: neon3 1.5s ease-in-out infinite alternate;
   animation: neon3 1.5s ease-in-out infinite alternate;
@@ -285,11 +295,11 @@ a {
 
 @-webkit-keyframes neon3 {
   from {
-    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #FFDD1B, 0 0 7px #FFDD1B, 0 0 8px #FFDD1B, 0 0 10px #FFDD1B, 0 0 15px #FFDD1B;
+    text-shadow: 0 0 17px #FFDD1B;
   }
 
   to {
-    text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 5px #fff, 0 0 6px #FFDD1B, 0 0 9px #FFDD1B, 0 0 10px #FFDD1B, 0 0 12px #FFDD1B, 0 0 17px #FFDD1B;
+    text-shadow: 0 0 16px #FFDD1B, 0 0 29px #FFDD1B;
   }
 }
 

@@ -1,10 +1,10 @@
 {% extends "main.html" %}
 {% block content %}
-<section class="jumbotron carbonfiber" id="blogapp">
+<section class="jumbotron carbonfiber px-0 pt-5" id="blogapp">
   <div class="blogBack">
     <header class="d-flex justify-content-center align-items-center">
       <div class="w-100 text-center">
-        <div class="logoBox m-auto bg-dark p-2 d-none d-md-block">
+        <div class="logoBox m-auto p-2 d-none d-md-block bg-dark">
           <object id="my-svg" type="image/svg+xml" data="/static/img/mygene-api.svg" style="max-width:100px;"></object>
         </div>
         <h2 class="text-light smallCaps lighter">What's new</h2>
@@ -72,7 +72,7 @@
   	win.scroll(function() {
   		// End of the document reached?
   		if (!end_of_posts && $(document).height() - win.height() - scroll_offset <= win.scrollTop()) {
-  			$('.loading').show();
+  			// $('.loading').show();
         current_page += 1;
         var url = '/post?limit=9&html=1&page=' + current_page.toString();
         if (current_tag) url += "&tag=" + current_tag;

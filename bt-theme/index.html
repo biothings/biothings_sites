@@ -4,7 +4,7 @@
 	<section class="w-100 d-flex justify-content-center align-items-center" style="position:relative;">
 		<img class="w-100 m-auto" role="presentation" src="/static/img/heroillo.jpg" style="max-width:1300px;">
 		<div class="text-center introBox w-100">
-			<h3 class="text-light smallCaps theme-font">
+			<h3 class="text-light smallCaps theme-font" data-aos="fade-up" data-aos-duration="1000">
 				Building a <a data-tippy="Learn More About The FAIR Principles" class="underlined text-main-light"
 					href="https://www.go-fair.org/fair-principles/" target="_blank">FAIR</a> API Ecosystem for
 				Biomedical Knowledge
@@ -18,10 +18,14 @@
 		</div>
 	</section>
 	<section id="access" class="bg-light text-center fullpage d-flex justify-content-center align-items-center row">
-		<div class="col-sm-12 text-center d-flex justify-content-center align-items-center halfpage bw-grad">
+		<div class="col-sm-12 text-center d-flex justify-content-center align-items-center halfpage transition">
+			<svg version="1.1" id="demo-svg" x="0px" y="0px" viewBox="0 0 1024 398.35" style="enable-background:new 0 0 1024 398.35;" xml:space="preserve">
+			<polygon class="morph" points="0,0 0,97.47 51.3,82.58 73.8,121.56 141.32,121.56 175.08,63.08 174.5,62.07 226.33,63.84 375,15.17 490.93,17.82 
+				812.66,44.14 887.39,63.08 932.52,36.41 977.65,57.65 1024,65.61 1024,0 "/>
+			</svg>
 			<div class="w-100">
 				<svg class="col-sm-12 col-md-6 m-auto" version="1.1" id="accesssvg" xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 808 194"
+					xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 884.7 194"
 					style="enable-background:new 0 0 808 194;" xml:space="preserve">
 					<polyline class="accesspolyline" id="c1"
 						style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="308.54,42.5 244.46,42.5
@@ -32,12 +36,8 @@
 					<polyline class="accesspolyline" id="a"
 						style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="105.5,153.5 73.5,98.5 105.5,42.5
 						169.5,42.5 201.5,98.5 169.5,153.5 201.5,98.5 74,98.5 " />
-					<polyline class="accesspolyline" id="s1"
-						style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="642,42.5 578,42.5 642,153.5
-						581,154.5 " />
-					<polyline class="accesspolyline" id="s2"
-						style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="734.5,42.5 670.5,42.5
-						734.5,153.5 673.5,154.5 " />
+					<polyline id="s1" class="accesspolyline" style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="668.28,41 604.28,41 573,95.5 699.83,95.5 668.28,152 607.28,153 "/>
+					<polyline id="s2" class="accesspolyline" style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="812.61,41 748.61,41 717.33,95.5 844.16,95.5 812.61,152 751.61,153 "/>
 					<polyline class="accesspolyline" id="e"
 						style="fill:none;stroke:#575758;stroke-width:5;stroke-miterlimit:10;" points="435.5,98.5 555.5,98.5 531.5,42.5
 						467.5,42.5 435.5,98.5 467.5,153.5 531.5,153.5 " />
@@ -48,44 +48,50 @@
 							:data-clipboard-text="window.location.href+'#apis'"></i></a></h2>
 			</div>
 		</div>
-		<div class="col-sm-12 p-0">
-			<div class="row m-0 d-flex justify-content-center align-items-center">
+		<div class="col-sm-12 p-0 lines">
+			<div class="container row m-auto d-flex justify-content-center align-items-center">
 				<!-- LARGE -->
 				<div class="col-sm-12 row m-0 justify-content-center align-items-center d-none d-sm-none d-md-flex">
 					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyGene.info')">
-						<h4 class="logoFont text-muted pointer">My<span class="text-blue">Gene</span>.info</h4>
+						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-blue">Gene</span>.info</h4>
 						<small>Gene Annotation As A Service</small>
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyVariant.info')">
-						<h4 class="logoFont text-muted pointer">My<span class="text-green">Variant</span>.info</h4>
+						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-green">Variant</span>.info</h4>
 						<small>Variant Annotation As A Service</small>
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyChem.info')">
-						<h4 class="logoFont text-muted pointer">My<span class="text-orange">Chem</span>.info</h4>
+						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-orange">Chem</span>.info</h4>
 						<small>Chemical and Drug Annotation As A Service</small>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyDisease.info')">
+						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-purple">Disease</span>.info</h4>
+						<small>Disease Annotation As A Service</small>
 					</div>
 				</div>
 				<!-- MOBILE -->
-				<div class="col-sm-12 d-flex justify-content-center align-items-center d-md-none">
-					<div class="row m-0">
-						<div class="text-center m-2" v-on:mouseover="handleHover('MyGene.info')">
-							<img src="/static/img/mygene-logo-md.png" alt="mygene" width="80px" />
-							<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
-						</div>
-						<div class="text-center m-2" v-on:mouseover="handleHover('MyVariant.info')">
-							<img src="/static/img/myvariant-logo-md.png" alt="mygene" width="80px" />
-							<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
-						</div>
-						<div class="text-center m-2" v-on:mouseover="handleHover('MyChem.info')">
-							<img src="/static/img/mychem-logo-md.png" alt="mygene" width="80px" />
-							<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
-						</div>
+				<div class="col-sm-12 d-flex justify-content-center align-items-center flex-wrap d-md-none">
+					<div class="text-center m-2" v-on:mouseover="handleHover('MyGene.info')">
+						<img src="/static/img/mygene-logo-md.png" alt="mygene" width="80px" />
+						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
+					</div>
+					<div class="text-center m-2" v-on:mouseover="handleHover('MyVariant.info')">
+						<img src="/static/img/myvariant-logo-md.png" alt="mygene" width="80px" />
+						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
+					</div>
+					<div class="text-center m-2" v-on:mouseover="handleHover('MyChem.info')">
+						<img src="/static/img/mychem-logo-md.png" alt="mygene" width="80px" />
+						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
+					</div>
+					<div class="text-center m-2" v-on:mouseover="handleHover('MyDisease.info')">
+						<img src="/static/img/mydisease-logo-md.png" alt="mydisease" width="80px" />
+						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
 					</div>
 				</div>
 			</div>
 			<div class="container d-flex justify-content-center align-items-center square mb-5" :class="backgroundclss">
 				<div class="w-100 square-content">
-					<img v-show="hoverImg" class="text-center p-2" :src="hoverImg" width="250px" height="250px"
+					<img v-show="hoverImg" class="text-center p-2 mt-4" :src="hoverImg" width="250px" height="250px"
 						alt="API">
 					<!-- <canvas class="apicanvas" width="250" height="250" style="max-width:250px !important;max-height:250px !important;"></canvas> -->
 					<div class="alert m-auto rounded infoBox" :class="info?'alert-light':'text-muted'" id="apis">
@@ -94,36 +100,24 @@
 						</h2>
 						<div>
 							<template v-if="info">
-								<h4>
+								<h4 class="text-dark">
 									<span v-text="info.tagline"></span> <a :href="info.website" target="_blank"
 										rel="noreferrer" role="button"
 										class="btn btn-sm font-weight-bold text-light d-inline d-md-none"
 										:class="backgroundclss"><i class="fas fa-chevron-right text-light"></i></a>
 								</h4>
 								<p class="p-3" v-text="info.description"></p>
-								<a :href="info.website" target="_blank" rel="noreferrer" role="button"
-									class="btn btn-lg font-weight-bold text-light" :class="backgroundclss">Try It <i
-										class="fas fa-chevron-right text-light"></i></a>
+								<a :href="info.website" target="_blank" rel="noreferrer"
+								 :class="textclss">
+								 	<h2>TRY IT <i class="fas fa-chevron-right"></i></h2>
+								</a>
 							</template>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="container p-0">
-				<div
-					class="card-group d-flex justify-content-around align-items-center card align-self-stretch mb-5 no-border">
-					<div class="card m-1">
-						<div class="card-body logoFont text-muted" id="mydisease">
-							<img src="/static/img/mydisease.svg" alt="logo" class="mt-3" width="50px" />
-							<h5 class="card-title logoFont text-muted">My<span
-									style="color:#832aa7;">Disease</span>.info</h5>
-							<p class="card-text jumbotron bg-white p-1">MyDisease.info provides simple-to-use REST web
-								services to query/retrieve disease annotation information.</p>
-							<a target="_blank" href="http://MyDisease.info/"
-								class="btn btn-outline-secondary btn-lg font-weight-bold mb-2">Try&nbsp;It <i
-									class="fas fa-chevron-right"></i></a>
-						</div>
-					</div>
+				<div class="card-group d-flex justify-content-around align-items-center card align-self-stretch mb-5 no-border">
 					<div class="card m-1">
 						<div class="card-body logoFont text-muted" id="taxonomyapi">
 							<img src="/static/img/taxonomy.svg" alt="logo" class="mt-3" width="50px" />
@@ -415,18 +409,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 <script src="/static/js/CountUp.js"></script>
 <script src="/static/js/clipboard.js"></script>
+<script src="/static/js/anime.min.js"></script>
 <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie.min.js"
 	integrity="sha256-l/jEZB2EXm0Ht5CVUKL/8mtK2mCsmQr2q3MmVPyMKLI=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="/static/js/lottie.js"></script>
 <script>
+	AOS.init();
 	var app = new Vue({
 		el: '#app',
 		data: function () {
 			return {
 				fair: false,
 				anim: null,
+				ranAccess: false,
 				textclss: '',
 				info: null,
 				backgroundclss: '',
@@ -466,6 +464,14 @@
 						'website': 'http://mychem.info/',
 						'description': 'MyChem.info provides simple-to-use REST web services to query/retrieve chemical or drug annotation data. It’s designed with an emphasis on simplicity and performance.',
 						'color': 'var(--orange-light)'
+					},
+					{
+						'title': 'MyDisease.info',
+						'tagline': 'Disease Annotation As A Service',
+						'img': '/static/img/mydisease-text-2.png',
+						'website': 'http://mydisease.info/',
+						'description': 'MyDisease.info provides simple-to-use REST web services to query/retrieve disease annotation data. It’s designed with an emphasis on simplicity and performance.',
+						'color': 'var(--purple-light)'
 					},
 					{
 						'title': 'BioThings Explorer',
@@ -778,6 +784,32 @@
 						this.textclss = 'text-orange';
 						this.backgroundclss = 'bg-orange'
 						this.hoverImg = '/static/img/mychem-logo-shiny-md.png'
+						// this.resetBoxes();
+						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
+
+						// this.box.color = '#CC6633' //dark
+						// this.box.leftFace = '#FD7400' //medium
+						// this.box.rightFace = '#CC6633' //dark
+						// this.box.topFace = '#FF8E39' //light
+						// this.box.bottomFace = '#CC6633' //dark
+
+						// this.box3.color = '#CC6633' //dark
+						// this.box3.leftFace = '#FD7400' //medium
+						// this.box3.rightFace = '#CC6633' //dark
+						// this.box3.topFace = '#FF8E39' //light
+						// this.box3.bottomFace = '#CC6633' //dark
+
+						// this.box4.color = '#CC6633' //dark
+						// this.box4.leftFace = '#FD7400' //medium
+						// this.box4.rightFace = '#CC6633' //dark
+						// this.box4.topFace = '#FF8E39' //light
+						// this.box4.bottomFace = '#CC6633' //dark
+
+						break;
+					case "MyDisease.info":
+						this.textclss = 'text-purple';
+						this.backgroundclss = 'bg-purple'
+						this.hoverImg = '/static/img/mydisease-logo-shiny-md.png'
 						// this.resetBoxes();
 						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
 
@@ -2382,9 +2414,10 @@
 						ease: Linear.easeNone
 					})) // draw dot for 0.1
 					.add(TweenMax.to(".accesspolyline", 1, {
-						stroke: "#FDCA52",
+						stroke: "#297FE2",
 						ease: Linear.easeNone
 					}), 0); // change color during the whole thing
+
 				// build scene
 				var sceneA = new ScrollMagic.Scene({
 						triggerElement: "#access",
@@ -2394,9 +2427,28 @@
 					.setTween(tweenA)
 					// .addIndicators()
 					.addTo(controller)
-					.on("start end", function (e) {
-						// self.startAnimation();
-					});
+					// .on("enter", function () {
+					// 	anime({
+					// 	targets: '.morph',
+					// 	points: [
+					// 		{ value: "0,0 0,97.47 51.3,82.58 73.8,121.56 141.32,121.56 175.08,63.08 174.5,62.07 226.33,63.84 375,15.17 490.93,17.82 812.66,44.14 887.39,63.08 932.52,36.41 977.65,57.65 1024,65.61 1024,0 "},
+					// 	],
+					// 	easing: 'easeOutQuad',
+					// 	duration: 2000,
+					// 	loop: false
+					// 	});
+					// })
+					.on("leave", function () {
+						anime({
+						targets: '.morph',
+						points: [
+							{ value: "0,0 0,0 54,0 93,0 145,0 166,0 180,0 235,0 384,0 507,0 768,0 860,0 920,0 980,0 1024,0 1024,0 "}
+						],
+						easing: 'easeOutQuad',
+						duration: 2000,
+						loop: false
+						});
+					})
 
 				// BUILD
 				var bb = $("#bb");
@@ -2443,11 +2495,7 @@
 					})
 					.setTween(tweenB)
 					// .addIndicators()
-					.addTo(controller)
-					.on("start end", function (e) {
-						// self.drawBTStudio();
-						// self.drawSDK();
-					});
+					.addTo(controller);
 
 				// EXPLORE
 				var ee1 = $("#ee1");
@@ -2506,11 +2554,7 @@
 					})
 					.setTween(tweenE)
 					// .addIndicators()
-					.addTo(controller)
-					.on("start end", function (e) {
-						// self.drawExplorer();
-						// self.drawSmart();
-					});
+					.addTo(controller);
 			},
 			drawIntro() {
 				this.anim = lottie.loadAnimation({
@@ -2551,6 +2595,7 @@
 					// .addIndicators()
 					.addTo(controller);
 			},
+			
 		},
 		mounted: function () {
 			var self = this;
@@ -2573,7 +2618,8 @@
 			}
 
 			// window.onresize = reanimate;
-
+			self.handleHover('MyGene.info');
+			
 
 			self.getRequests();
 			self.prepareAnimations();
@@ -2601,38 +2647,38 @@
 				theme: 'light',
 				trigger: 'click',
 				onShow(instance) {
-					// let html ="<div class='text-light m-0 p-1'><table class='m-0'><tbody>";
-					// function numberWithCommas(x) {
-					//     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-					// }
-					// for (var i = 0; i < self.requests.length; i++) {
-					// 	html += `<tr>
-					// 	<td>
-					// 		<img width="20px" src="`+self.requests[i]['logo']+`" alt="`+self.requests[i]['name']+`"/>
-					// 		<a class="text-light link font-weight-bold" target="_blank" href="`+self.requests[i]['link']+`">`+self.requests[i]['name']+`</a>
-					// 	</td>
-					// 	<td>
-					// 		<span class="text-main font-weight-bold">`+numberWithCommas(self.requests[i]['total'])+`</span>
-					// 	</td>
-					// 	</tr>`
-					// }
-					// html +="	</tbody></table></div>"
-					// instance.setContent(html)
+					let html ="<div class='text-light m-0 p-1'><table class='m-0'><tbody>";
+					function numberWithCommas(x) {
+					    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					}
+					for (var i = 0; i < self.requests.length; i++) {
+						html += `<tr>
+						<td>
+							<img width="20px" src="`+self.requests[i]['logo']+`" alt="`+self.requests[i]['name']+`"/>
+							<a class="text-light link font-weight-bold" target="_blank" href="`+self.requests[i]['link']+`">`+self.requests[i]['name']+`</a>
+						</td>
+						<td>
+							<span class="text-main font-weight-bold">`+numberWithCommas(self.requests[i]['total'])+`</span>
+						</td>
+						</tr>`
+					}
+					html +="	</tbody></table></div>"
+					instance.setContent(html)
 
-					instance.setContent(`<div class="p-2">
-						<h5 class="text-main font-weight-bold">Totals combined from:</h5>
-						<ul style="list-style:none;" class="m-auto p-0">
-							<li class="font-weight-bold text-dark">
-								<a target="_blank" href="https://myGene.info/">MyGene.info</a>
-							</li>
-							<li class="font-weight-bold text-dark">
-								<a target="_blank" href="https://myVariant.info/">MyVariant.info</a>
-							</li>
-							<li class="font-weight-bold text-dark">
-								<a target="_blank" href="https://myChem.info/">MyChem.info</a>
-							</li>
-						</ul>
-						</div>`)
+					// instance.setContent(`<div class="p-2">
+					// 	<h5 class="text-main font-weight-bold">Totals combined from:</h5>
+					// 	<ul style="list-style:none;" class="m-auto p-0">
+					// 		<li class="font-weight-bold text-dark">
+					// 			<a target="_blank" href="https://myGene.info/">MyGene.info</a>
+					// 		</li>
+					// 		<li class="font-weight-bold text-dark">
+					// 			<a target="_blank" href="https://myVariant.info/">MyVariant.info</a>
+					// 		</li>
+					// 		<li class="font-weight-bold text-dark">
+					// 			<a target="_blank" href="https://myChem.info/">MyChem.info</a>
+					// 		</li>
+					// 	</ul>
+					// 	</div>`)
 				}
 			});
 		}

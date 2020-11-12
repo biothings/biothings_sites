@@ -1,33 +1,10 @@
 {% extends "main.html" %}
 {% block content %}
 <style>
-.t-bordered {
-    border: 1px solid var(--main-medium) !important;
+.tippy-tooltip.gradient-theme {
+  background: linear-gradient(90deg, var(--main-dark) 0%, var(--main-light) 100%) !important;
+  box-shadow: var(--main-light) 0px 0px 50px;
 }
-.status-card{
-  display: block;
-}
-.status-card div:first-child{
-  background: var(--main-dark);
-  background: linear-gradient(0deg, var(--main-dark) 0%, #000000 100%);
-  clip-path: polygon(100% 34%, 0% 100%, 100% 100%);
-  height: 20px;
-}
-
-.status-card div:nth-child(2){
-  background-color: var(--main-medium);
-}
-
-.status-card div:nth-child(3){
-  background-color: #343a40;
-}
-
-.status-card div:last-child{
-  background: #15171a;
-  clip-path: polygon(100% 0, 0 0, 0 53%);
-  height: 20px;
-}
-
 </style>
 <div id="index">
   <div class="lds-ellipsis" v-show='loading'>
@@ -37,7 +14,7 @@
     <div></div>
   </div>
   <section>
-    <div class="cubegrad">
+    <div class="introBackground">
       <section
         class="jumbotron container-fluid heroGradient text-center pb-2 d-flex justify-content-center align-items-center m-0"
         style="min-height:100vh;">
@@ -71,19 +48,19 @@
         </div>
       </section>
       <!-- NEW API DISPLAY -->
-      <section class="d-flex justify-content-center align-items-center bg-dark">
+      <section class="d-flex justify-content-center align-items-center circleBack">
         <div class="col-sm-12 col-md-8 m-auto mt-5" data-aos="fade-in">
           <div class="pb-4 mt-4 w-100 mb-0">
             <div class="row">
               <div class="col-sm-12 text-center text-light p-2">
-                <h3 class="m-0 anchorLink logoFont shine">
+                <h3 class="m-0 anchorLink logoFont shine" id="api-status">
                   <span class="text-main">{{site_name}}</span> Stats <span class="text-muted"
-                    style="font-family:'sans-seriff' !important;">*</span>
-                  <a style="font-size:small !important; opacity:0;" href="./#api-status"><i
+                    style="font-family:'sans-seriff' !important;"></span>
+                  <a style="font-size:small !important; opacity:0;" href="#api-status" class="copyLink" @click.prevent="copyClipboard(window.location.href+'#'+'api-status')"><i
                       class="fas fa-tiny fa-link text-light"></i></a>
                 </h3>
                 <div class="mt-2 mb-2">
-                  <h4 class="text-light">API Status</h4>
+                  <h4 class="text-light">Service Status</h4>
                   <div class="circleBox text-light d-flex justify-content-center align-items-center m-auto"
                     :class="statusClass">
                     <div>
@@ -92,7 +69,7 @@
                   </div>
                 </div>
                 <h6 class="text-light lighter">
-                  Last Updated <a class="font-weight-bold" href="//mygene.info/v3/metadata" target="_blank"><span
+                  Last Updated <a class="font-weight-bold" :href="lastUpdatedURL" target="_blank"><span
                       v-text="lastUpdated" class="text-light"></span></a>
                 </h6>
                 <h3>Last 7 Days</h3>
@@ -212,20 +189,12 @@
 
   <!-- Examples for large and medium devices -->
   <section id="query-examples">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light codeBoxLeft">
+    <div class="row m-0">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 bg-light p-0 codeBoxLeft">
         <ul class="p-0">
           <div class="list-group list-group-flush" id="exampleFormControlSelect1">
-            <div class="w-100">
-              <svg class="w-100" version="1.1" id="tryit" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1050 194"
-                style="enable-background:new 0 0 1050 194;" xml:space="preserve">
-                <polyline class="tryitlines"
-                  style="fill:none;stroke:var(--main-dark);stroke-width:5;stroke-miterlimit:10;" points="0.5,147.5 192.5,145.5 192.5,49.5
-                	164.5,49.5 219.5,49.5 192.5,49.5 192.5,145.5 283.5,145.5 283.5,49.5 338.5,49.5 288.5,98.5 338.5,145.5 433.5,145.5 460.5,49.5
-                	446.5,98.5 405.5,49.5 446.5,98.5 433.5,145.5 460.5,145.5 628.5,145.5 683.5,145.5 656.5,144.5 656.5,49.5 656.5,49.5 656.5,49.5
-                	656.5,49.5 656.5,144.5 750.5,145.5 778.5,145.5 778.5,49.5 750.5,49.5 805.5,49.5 " />
-              </svg>
+            <div class="w-100 text-main text-center font-weight-light">
+              <h1>TRY IT</h1>
             </div>
             <div class="list-group-item text-muted">
               <h3 class="text-muted text-center">EXAMPLE QUERIES</h3>
@@ -268,8 +237,7 @@
           </div>
         </ul>
       </div>
-      <div
-        class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack d-none d-sm-none d-md-block d-lg-block d-xl-block codeBoxRight">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 codeBack d-none d-sm-none d-md-block d-lg-block d-xl-block codeBoxRight">
         <div id="loading" class="center" style="display: none;">
           <h2 style="padding-top: 50%;" class="text-main p-2">Loading...</h2>
         </div>
@@ -284,8 +252,8 @@
     <section id="four" class="main accent carbonfiber mb-5">
       <a name="news"></a>
       <header id="news" class="text-center pt-5">
-        <h1 class="text-light font-weight-bold p-2 anchorLink">What's New <a
-            style="font-size:small !important;opacity:0;" href="./#news"><i
+        <h1 class="text-light font-weight-bold p-2 anchorLink">What's New 
+          <a style="font-size:small !important;opacity:0;" href="#news" class="copyLink" @click.prevent="copyClipboard(window.location.href+'#'+'news')"><i
               class="fas fa-tiny fa-link text-light"></i></a></h1>
         <object width="200" data="/static/img/news-new-01.svg"></object>
       </header>
@@ -316,7 +284,7 @@
                   {% endif %}
                   {% endif %}
                 </footer>
-                <div class="reveal alert-secondary p-2 mt-2">
+                <div class=" p-2 mt-2">
                   <a href="/blog/{{post.slug}}" class="btn btn-outline-dark mt-2">Learn More <i
                       class="fa fa-chevron-right"></i></a>
                 </div>
@@ -342,7 +310,7 @@
 
   <section id="need-help" class="text-light p-5 text-center bg-main-dark">
     <h1 class="text-light anchorLink text-center m-0">HELP <a style="font-size:small !important;opacity:0;"
-        href="./#need-help"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
+        href="#need-help" class="copyLink" @click.prevent="copyClipboard(window.location.href+'#'+'need-help')"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
     <object class="col-sm-12 col-md-3" data="/static/img/help-new-01.svg"></object>
     <div class="d-flex justify-content-center flex-wrap">
       <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="100">
@@ -387,19 +355,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script> -->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="/static/js/countUp.js"></script>
 <script src="/static/js/moment.js"></script>
 <script src="/static/js/renderjson.js"></script>
 <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 <script>
-  AOS.init();
+    AOS.init();
 
-  $(document).on('click', 'a', function (e) {
-    if (e.target.href.slice(-1) === '#') {
-      return false;
-    }
+    $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+      if (this.hash !== "") {
+        event.preventDefault();
+        var hash = this.hash;
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+          window.location.hash = hash;
+        });
+      }
+    });
   });
 
   Vue.component('status-box', {
@@ -473,6 +449,7 @@
         apiPics: [],
         loading: false,
         lastUpdated: 'Checking...',
+        lastUpdatedURL: '',
         siteDescription: '',
         sources: '30',
         html: '',
@@ -521,6 +498,8 @@
           })
         }
 
+        self.uptimeWeek = self.uptimeWeek.reverse()
+
         //thisweek,thismonth, last month
         let arr = parts.slice(8);
         let res = [];
@@ -552,6 +531,9 @@
       }
     },
     methods: {
+      copyClipboard(link){
+        navigator.clipboard.writeText(link);
+      },
       startAnimation(api) {
         var self = this;
         let isSpinning = false;
@@ -1163,6 +1145,7 @@
           default:
             console.warn('No last updated date for API')
         }
+        self.lastUpdatedURL = urlLU;
         axios.get(urlLU).then(res => {
           self.sources = Object.keys(res.data.src).length;
           self.lastUpdated = moment(res.data.build_date).format('MMM DD YYYY');
@@ -2492,7 +2475,7 @@
         }
       }
 
-      self.prepareAnimations();
+      // self.prepareAnimations();
       self.drawStrand();
       self.drawHand();
       self.drawClock();
@@ -2504,8 +2487,7 @@
         content: 'Loading...',
         placement: 'right',
         animation: 'fade',
-        interactive: true,
-        theme: 'light',
+        theme: 'gradient',
         onShow(instance) {
           let info = instance.reference.dataset.tippyInfo
           let icon = ''
@@ -2519,6 +2501,14 @@
             .toUpperCase() + "</h2></div>")
 
         }
+      });
+
+      tippy('.copyLink', {
+        trigger: 'click',
+        content: 'Link copied!',
+        placement: 'top',
+        animation: 'fade',
+        theme: 'gradient',
       });
 
 

@@ -79,6 +79,20 @@ body {
   top: auto !important;
 }
 
+#demo-svg{
+	position: absolute; 
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	width: 100%;
+}
+.hoverTitle{
+	transition: .5s color;
+}
+.hoverTitle:hover{
+	color: black !important;
+}
+
 .bw-grad {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
@@ -134,6 +148,22 @@ body {
 .usingBack {
   background: gray url('../img/using-background.jpg') repeat 0 0;
   background-size: contain;
+
+}
+
+.transition {
+  background: url('../img/transition.svg');
+  background-size: cover;
+  background-position-y: -10px;
+  background-repeat: no-repeat;
+
+}
+
+.lines {
+  background: url('../img/lines.svg');
+  background-size: contain;
+  background-position-y: 20%;
+  background-repeat: no-repeat;
 
 }
 
@@ -264,6 +294,11 @@ a:hover {
 
 .bg-blue {
   background-color: var(--blue-light);
+  transition: all .7s;
+}
+
+.bg-purple {
+  background-color: var(--purple-light);
   transition: all .7s;
 }
 
@@ -851,6 +886,10 @@ a.link {
 
 .text-orange {
   color: #FF8E39;
+}
+
+.text-purple{
+  color: var(--purple-medium);
 }
 
 /* ****************************************** */
