@@ -649,7 +649,7 @@ select {
         {name:'November', value:11},
         {name:'December', value:12}
         ],
-        years: ['2020','2019','2018','2017','2016'],
+        years: [],
         monthSelected:'',
         yearSelected:''
       }
@@ -2446,6 +2446,12 @@ select {
       var self = this;
       self.sn = "{{site_name}}"
       // site specific classes and settings
+      var year = parseInt(moment().format('YYYY'));
+      self.years.push(year);
+      [1,2,3,4].forEach(function(backOne) {
+        self.years.push(year-backOne)
+      });
+      
       self.loadRing();
 
       if (self.sn) {
