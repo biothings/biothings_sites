@@ -2370,7 +2370,7 @@ select {
 
             if (isBeforeToday) {
               axios.get(url).then(res => {
-              let uptime = Math.ceil(res.data.percentage);
+              let uptime = res.data.percentage;
               self.colorRingTick("#day-"+d_number, uptime, date_tip); 
               }).catch(err => {
                 console.warn('date failed for '+url)
@@ -2386,20 +2386,19 @@ select {
         let ring_tick = document.querySelector(id);
         if (uptime) {
           ring_tick.setAttribute("data-tippy-info", date+":"+uptime+"%");
-
-          if (uptime > 90) {
+          if (uptime == 100) {
             ring_tick.style.fill = '#26d945';
           }
-          if(uptime < 90 && uptime > 80 ){
+          if(uptime < 100 && uptime > 99 ){
             ring_tick.style.fill = '#b7ea15';
           }
-          if(uptime > 70 && uptime < 80){
+          if(uptime > 97 && uptime < 99){
             ring_tick.style.fill = '#ece713';
           }
-          if(uptime > 50 && uptime < 70){
+          if(uptime > 90 && uptime < 97){
             ring_tick.style.fill = '#f1a70e';
           }
-          if(uptime < 50){
+          if(uptime < 90){
             ring_tick.style.fill = '#f8622c';
           }
         }else{
@@ -2824,7 +2823,12 @@ select {
           let parts = info.split(':');
           let per = parts[1] ? parts[1] : '';
           let date = parts[0] ? parts[0] : '';
-
+          if (per == '100.000%') {
+            per ='100%'
+          }
+          if (per == '0.000%') {
+            per ='0%'
+          }
           instance.setContent(`<div><h5 class="text-muted">`+date+`</h5><h5>`+per+`</h5></div>`)
         }
       });
