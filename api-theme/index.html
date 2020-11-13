@@ -5,6 +5,77 @@
   background: linear-gradient(90deg, var(--main-dark) 0%, var(--main-light) 100%) !important;
   box-shadow: var(--main-light) 0px 0px 50px;
 }
+#ring{
+  outline: none !important;
+}
+#ring path{
+  transition: all .5s;
+  outline: none !important;
+}
+#ring path:hover{
+  transform: translateY(4px);
+  transform-origin: center;
+  fill: white !important;
+}
+.ring-calendar{
+
+}
+.ring-select{
+
+}
+
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: var(--main-dark);
+  overflow: hidden;
+  border-radius: .25em;
+  text-align-last:center;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: var(--main-medium);
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
 </style>
 <div id="index">
   <div class="lds-ellipsis" v-show='loading'>
@@ -47,6 +118,8 @@
           </div>
         </div>
       </section>
+
+      
       <!-- NEW API DISPLAY -->
       <section class="d-flex justify-content-center align-items-center circleBack">
         <div class="col-sm-12 col-md-8 m-auto mt-5" data-aos="fade-in">
@@ -54,7 +127,7 @@
             <div class="row">
               <div class="col-sm-12 text-center text-light p-2">
                 <h3 class="m-0 anchorLink logoFont shine" id="api-status">
-                  <span class="text-main">{{site_name}}</span> Stats <span class="text-muted"
+                  <span class="text-main">{{site_name}}</span> Status <span class="text-muted"
                     style="font-family:'sans-seriff' !important;"></span>
                   <a style="font-size:small !important; opacity:0;" href="#api-status" class="copyLink" @click.prevent="copyClipboard(window.location.href+'#'+'api-status')"><i
                       class="fas fa-tiny fa-link text-light"></i></a>
@@ -72,23 +145,115 @@
                   Last Updated <a class="font-weight-bold" :href="lastUpdatedURL" target="_blank"><span
                       v-text="lastUpdated" class="text-light"></span></a>
                 </h6>
-                <h3>Last 7 Days</h3>
+                <!-- <h3>Last 7 Days</h3> -->
               </div>
-              <div class="col-sm-12 text-light p-2">
+              <div class="col-sm-12 text-light p-2 d-sm-block d-md-none">
                 <div class="d-flex justify-content-center flex-wrap">
                   <template v-for="item in uptimeWeek">
                     <status-box :item='item'></status-box>
                   </template>
                 </div>
               </div>
-              <div class="col-sm-12 d-flex justify-content-center text-center">
+              <!-- RING -->
+              <div class="text-center ring-calendar w-50 m-auto justify-content-center align-items-center d-none d-md-flex">
+                <div class="w-100">
+                  <h4 class="text-muted lighter">Month Status</h4>
+                  <div class="ring-select bg-dark row m-0">
+                    <div class="input-group col-sm-6">
+                      <select class="select m-1" id="months" v-model="monthSelected">
+                        <option selected>Choose...</option>
+                        <template v-for="month in months">
+                          <option :value="month.value" v-text="month.name"></option>
+                        </template>
+                      </select>
+                    </div>
+                    <div class="input-group col-sm-6">
+                      <select class="select m-1" id="year" v-model="yearSelected">
+                        <option selected>Choose...</option>
+                        <template v-for="year in years">
+                          <option :value="year" v-text="year"></option>
+                        </template>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="d-block">
+                    <svg version="1.1" id="ring" class="w-100" x="0px" y="0px" viewBox="0 0 686.06 357.52" style="enable-background:new 0 0 686.06 357.52;" xml:space="preserve">
+                      <!-- <path id="arch" style="fill:none;stroke: var(--main-light);;stroke-miterlimit:10;" d="M646.23,6.66c0,166.69-135.13,301.82-301.82,301.82
+                        S42.6,173.35,42.6,6.66"/> -->
+                      <path id="day-31" d="M683.08,14.18L683.08,14.18c0,4.14-3.38,7.52-7.52,7.52h-61.95c-4.14,0-7.52-3.38-7.52-7.52v0
+                        c0-4.14,3.38-7.52,7.52-7.52h61.95C679.7,6.66,683.08,10.04,683.08,14.18z"/>
+                      <path id="day-30" d="M681.23,49.58L681.23,49.58c-0.43,4.11-4.15,7.13-8.27,6.69l-61.61-6.48c-4.11-0.43-7.13-4.15-6.69-8.27v0
+                        c0.43-4.11,4.15-7.13,8.27-6.69l61.61,6.48C678.65,41.75,681.66,45.47,681.23,49.58z"/>
+                      <path id="day-29" d="M675.68,84.59L675.68,84.59c-0.86,4.05-4.87,6.65-8.92,5.79l-60.59-12.88c-4.05-0.86-6.65-4.87-5.79-8.92v0
+                        c0.86-4.05,4.87-6.65,8.92-5.79l60.59,12.88C673.93,76.53,676.54,80.55,675.68,84.59z"/>
+                      <path id="day-28" d="M666.51,118.83L666.51,118.83c-1.28,3.93-5.54,6.11-9.48,4.83l-58.92-19.14c-3.93-1.28-6.11-5.54-4.83-9.48l0,0
+                        c1.28-3.93,5.54-6.11,9.48-4.83l58.92,19.14C665.61,110.63,667.78,114.9,666.51,118.83z"/>
+                      <path id="day-27" d="M653.8,151.93L653.8,151.93c-1.68,3.78-6.15,5.5-9.93,3.81l-56.59-25.2c-3.78-1.68-5.5-6.15-3.81-9.93l0,0
+                        c1.68-3.78,6.15-5.5,9.93-3.81l56.59,25.2C653.77,143.68,655.49,148.15,653.8,151.93z"/>
+                      <path id="day-26" d="M637.71,183.51L637.71,183.51c-2.07,3.58-6.69,4.82-10.28,2.75l-53.65-30.97c-3.58-2.07-4.82-6.69-2.75-10.28
+                        l0,0c2.07-3.58,6.69-4.82,10.28-2.75l53.65,30.97C638.54,175.31,639.78,179.93,637.71,183.51z"/>
+                      <path id="day-25" d="M618.4,213.24L618.4,213.24c-2.43,3.35-7.16,4.1-10.51,1.66l-50.12-36.41c-3.35-2.43-4.1-7.16-1.66-10.51l0,0
+                        c2.43-3.35,7.16-4.1,10.51-1.66l50.12,36.41C620.09,205.17,620.83,209.9,618.4,213.24z"/>
+                      <path id="day-24" d="M596.09,240.79L596.09,240.79c-2.77,3.07-7.55,3.33-10.62,0.56l-46.04-41.45c-3.07-2.77-3.33-7.55-0.56-10.62h0
+                        c2.77-3.07,7.55-3.33,10.62-0.56l46.04,41.45C598.61,232.94,598.86,237.72,596.09,240.79z"/>
+                      <path id="day-23" d="M571.03,265.86L571.03,265.86c-3.07,2.77-7.85,2.52-10.62-0.56l-41.45-46.04c-2.77-3.07-2.52-7.85,0.56-10.62
+                        l0,0c3.07-2.77,7.85-2.52,10.62,0.56l41.45,46.04C574.35,258.31,574.1,263.09,571.03,265.86z"/>
+                      <path id="day-22" d="M543.48,288.17L543.48,288.17c-3.35,2.43-8.08,1.68-10.51-1.66l-36.41-50.12c-2.43-3.35-1.68-8.08,1.66-10.51h0
+                        c3.35-2.43,8.08-1.68,10.51,1.66l36.41,50.12C547.58,281.01,546.83,285.73,543.48,288.17z"/>
+                      <path id="day-21" d="M513.75,307.47L513.75,307.47c-3.58,2.07-8.21,0.83-10.28-2.75l-30.97-53.65c-2.07-3.58-0.83-8.21,2.75-10.28v0
+                        c3.58-2.07,8.21-0.83,10.28,2.75l30.97,53.65C518.57,300.78,517.33,305.4,513.75,307.47z"/>
+                      <path id="day-20" d="M482.16,323.57L482.16,323.57c-3.78,1.68-8.25-0.03-9.93-3.81l-25.2-56.59c-1.68-3.78,0.03-8.25,3.81-9.93l0,0
+                        c3.78-1.68,8.25,0.03,9.93,3.81l25.2,56.59C487.66,317.41,485.94,321.88,482.16,323.57z"/>
+                      <path id="day-19" d="M449.07,336.27L449.07,336.27c-3.93,1.28-8.2-0.89-9.48-4.83l-19.14-58.92c-1.28-3.93,0.89-8.2,4.83-9.48h0
+                        c3.93-1.28,8.2,0.89,9.48,4.83l19.14,58.92C455.18,330.73,453.01,334.99,449.07,336.27z"/>
+                      <path id="day-18" d="M414.83,345.44L414.83,345.44c-4.05,0.86-8.06-1.75-8.92-5.79l-12.88-60.59c-0.86-4.05,1.75-8.06,5.79-8.92h0
+                        c4.05-0.86,8.06,1.75,8.92,5.79l12.88,60.59C421.48,340.57,418.88,344.58,414.83,345.44z"/>
+                      <path id="day-17" d="M379.82,350.99L379.82,350.99c-4.11,0.43-7.83-2.58-8.27-6.69l-6.48-61.61c-0.43-4.11,2.58-7.83,6.69-8.27h0
+                        c4.11-0.43,7.83,2.58,8.27,6.69l6.48,61.61C386.94,346.84,383.93,350.56,379.82,350.99z"/>
+                      <path id="day-16" d="M344.42,352.84L344.42,352.84c-4.14,0-7.52-3.38-7.52-7.52v-61.95c0-4.14,3.38-7.52,7.52-7.52h0
+                        c4.14,0,7.52,3.38,7.52,7.52v61.95C351.94,349.46,348.55,352.84,344.42,352.84z"/>
+                      <path id="day-15" d="M309.02,350.99L309.02,350.99c-4.11-0.43-7.13-4.15-6.69-8.27l6.48-61.61c0.43-4.11,4.15-7.13,8.27-6.69h0
+                        c4.11,0.43,7.13,4.15,6.69,8.27l-6.48,61.61C316.85,348.41,313.13,351.42,309.02,350.99z"/>
+                      <path id="day-14" d="M274.01,345.44L274.01,345.44c-4.05-0.86-6.65-4.87-5.79-8.92l12.88-60.59c0.86-4.05,4.87-6.65,8.92-5.79h0
+                        c4.05,0.86,6.65,4.87,5.79,8.92l-12.88,60.59C282.07,343.7,278.05,346.3,274.01,345.44z"/>
+                      <path id="day-13" d="M239.76,336.27L239.76,336.27c-3.93-1.28-6.11-5.54-4.83-9.48l19.14-58.92c1.28-3.93,5.54-6.11,9.48-4.83h0
+                        c3.93,1.28,6.11,5.54,4.83,9.48l-19.14,58.92C247.96,335.37,243.7,337.55,239.76,336.27z"/>
+                      <path id="day-12" d="M206.67,323.57L206.67,323.57c-3.78-1.68-5.5-6.15-3.81-9.93l25.2-56.59c1.68-3.78,6.15-5.49,9.93-3.81l0,0
+                        c3.78,1.68,5.5,6.15,3.81,9.93l-25.2,56.59C214.92,323.53,210.45,325.25,206.67,323.57z"/>
+                      <path id="day-11" d="M175.09,307.47L175.09,307.47c-3.58-2.07-4.82-6.69-2.75-10.28l30.97-53.65c2.07-3.58,6.69-4.82,10.28-2.75l0,0
+                        c3.58,2.07,4.82,6.69,2.75,10.28l-30.97,53.65C183.29,308.3,178.67,309.54,175.09,307.47z"/>
+                      <path id="day-10" d="M145.36,288.17L145.36,288.17c-3.35-2.43-4.1-7.16-1.66-10.51l36.41-50.12c2.43-3.35,7.16-4.1,10.51-1.66h0
+                        c3.35,2.43,4.1,7.16,1.66,10.51l-36.41,50.12C153.43,289.85,148.7,290.6,145.36,288.17z"/>
+                      <path id="day-09" d="M117.81,265.86L117.81,265.86c-3.07-2.77-3.33-7.55-0.56-10.62l41.45-46.04c2.77-3.07,7.55-3.33,10.62-0.56l0,0
+                        c3.07,2.77,3.33,7.55,0.56,10.62l-41.45,46.04C125.66,268.37,120.88,268.63,117.81,265.86z"/>
+                      <path id="day-08" d="M92.74,240.79L92.74,240.79c-2.77-3.07-2.52-7.86,0.56-10.62l46.04-41.45c3.07-2.77,7.85-2.52,10.62,0.56h0
+                        c2.77,3.07,2.52,7.85-0.56,10.62l-46.04,41.45C100.29,244.12,95.51,243.87,92.74,240.79z"/>
+                      <path id="day-07" d="M70.43,213.24L70.43,213.24c-2.43-3.35-1.68-8.08,1.66-10.51l50.12-36.41c3.35-2.43,8.08-1.68,10.51,1.66l0,0
+                        c2.43,3.35,1.68,8.08-1.66,10.51l-50.12,36.41C77.59,217.34,72.86,216.59,70.43,213.24z"/>
+                      <path id="day-06" d="M51.13,183.51L51.13,183.51c-2.07-3.58-0.83-8.21,2.75-10.28l53.65-30.97c3.58-2.07,8.21-0.83,10.28,2.75l0,0
+                        c2.07,3.58,0.83,8.21-2.75,10.28L61.4,186.27C57.82,188.33,53.19,187.1,51.13,183.51z"/>
+                      <path id="day-05" d="M35.03,151.93L35.03,151.93c-1.68-3.78,0.03-8.25,3.81-9.93l56.59-25.2c3.78-1.68,8.25,0.03,9.93,3.81l0,0
+                        c1.68,3.78-0.03,8.25-3.81,9.93l-56.59,25.2C41.18,157.42,36.72,155.71,35.03,151.93z"/>
+                      <path id="day-04" d="M22.33,118.83L22.33,118.83c-1.28-3.93,0.89-8.2,4.83-9.48l58.92-19.14c3.93-1.28,8.2,0.89,9.48,4.83v0
+                        c1.28,3.93-0.89,8.2-4.83,9.48l-58.92,19.14C27.87,124.94,23.61,122.77,22.33,118.83z"/>
+                      <path id="day-03" d="M13.15,84.59L13.15,84.59c-0.86-4.05,1.75-8.06,5.79-8.92l60.59-12.88c4.05-0.86,8.06,1.75,8.92,5.79v0
+                        c0.86,4.05-1.75,8.06-5.79,8.92L22.08,90.39C18.03,91.25,14.01,88.64,13.15,84.59z"/>
+                      <path id="day-02" d="M7.61,49.58L7.61,49.58c-0.43-4.11,2.58-7.83,6.69-8.27l61.61-6.48c4.11-0.43,7.83,2.58,8.27,6.69v0
+                        c0.43,4.11-2.58,7.83-6.69,8.27l-61.61,6.48C11.76,56.71,8.04,53.7,7.61,49.58z"/>
+                      <path id="day-01" d="M5.75,14.18L5.75,14.18c0-4.14,3.38-7.52,7.52-7.52h61.95c4.14,0,7.52,3.38,7.52,7.52v0
+                        c0,4.14-3.38,7.52-7.52,7.52H13.28C9.14,21.7,5.75,18.32,5.75,14.18z"/>
+                      </svg>
+                  </div>
+                </div>
+              </div>
+              <!-- CALENDAR -->
+              <div class="col-sm-12 d-flex justify-content-center text-center d-sm-block d-md-none">
                 <button type="button" class="btn btn-outline-light m-3" @click="showCal=!showCal;"
                   data-tippy="Uptime Calendar">
                   <i class="fas fa-calendar-alt text-main"></i> <span
                     v-text="showCal ? 'Hide Calendar -':'Show Calendar +'"></span>
                 </button>
               </div>
-              <!-- Calendar -->
               <template>
                 <div class="col-sm-12 m-auto" :class="showCal?'d-block fade-in':'d-none'">
                   <div id="page-body">
@@ -111,7 +276,7 @@
                   </div>
                 </div>
               </template>
-              <div class="col-sm-12 text-light p-2 text-center">
+              <div class="col-sm-12 text-light p-2 text-center d-sm-block d-md-none">
                 <div class="d-flex justify-content-center flex-wrap">
                   <template v-for="item in uptimeMonth">
                     <status-box :item='item'></status-box>
@@ -124,7 +289,7 @@
         </div>
       </section>
 
-      <section class="w-100 blogBack bg-light justify-content-center align-items-center row m-0 usingCont" id="trigger4"
+      <section class="w-100 blogBack bg-light justify-content-center align-items-center row mt-4 usingCont" id="trigger4"
         :class="showWhoIsUsing?'d-flex':'d-none'">
         <div class="text-center p-3 col-sm-12">
           <h2 class="m-0 anchorLink">Who is using <span class="logoFont text-main">{{site_name}}</span> <a
@@ -470,9 +635,32 @@
         sMth: 0, // Current selected month
         sYear: 0, // Current selected year
         sMon: false, // Week start on Monday?
+        // Ring Calendar
+        months:[{name:'January', value:01},
+        {name:'February', value:02},
+        {name:'March', value:03},
+        {name:'April', value:04},
+        {name:'May', value:05},
+        {name:'June', value:06},
+        {name:'July', value:07},
+        {name:'August', value:08},
+        {name:'September', value:09},
+        {name:'October', value:10},
+        {name:'November', value:11},
+        {name:'December', value:12}
+        ],
+        years: ['2020','2019','2018','2017','2016'],
+        monthSelected:'',
+        yearSelected:''
       }
     },
     watch: {
+      yearSelected: function(v){
+        this.updateRing();
+      },
+      monthSelected: function(v){
+        this.updateRing();
+      },
       showCal: function (s) {
         if (s) {
           this.buildCalendar();
@@ -2144,11 +2332,123 @@
         // }
 
       },
+      getDate(){
+        let self = this;
+        self.yearSelected = moment().format('YYYY');
+        self.monthSelected = moment().format('MM');
+        // console.log(self.monthSelected, self.yearSelected)
+      },
+      updateRing(){
+        let self = this;
+        if (self.monthSelected && self.yearSelected) {
+          let days = moment(self.yearSelected+self.monthSelected, "YYYYMM").daysInMonth()
+          // console.log('days in month', days)
+          let ring = document.querySelector("#ring");
+          let all_ticks = ring.querySelectorAll('path');
+          all_ticks.forEach(element => {
+            element.style.fill = 'black';
+            element.setAttribute("data-tippy-info", '');
+          });
+          for (let d_number = 1; d_number <= days; d_number++) {
+            // http://localhost:8000/date-status/11052020mydisease.info
+            if (d_number < 10) {
+              d_number = "0"+d_number
+            }
+            let date = ''
+            if (self.monthSelected < 10) {
+              date = "0"+self.monthSelected.toString()+d_number+self.yearSelected;
+            }else{
+              date = self.monthSelected.toString()+d_number+self.yearSelected;
+            }
+            
+            let url = '/date-status/'+date+self.sn.toLowerCase();
+            dateEval = moment(date, 'MMDDYYYY');
+            let date_tip = moment(dateEval).format('MMMM D');
+            var now = new Date();
+            now = moment(now, 'MMDDYYYY');
+            let isBeforeToday = moment(dateEval).isSameOrBefore(now);
+
+            if (isBeforeToday) {
+              axios.get(url).then(res => {
+              let uptime = Math.ceil(res.data.percentage);
+              self.colorRingTick("#day-"+d_number, uptime, date_tip); 
+              }).catch(err => {
+                console.warn('date failed for '+url)
+              });
+            }else{
+              self.colorRingTick("#day-"+d_number, false, date_tip); 
+            }
+            
+          }
+        }
+      },
+      colorRingTick(id, uptime, date){
+        let ring_tick = document.querySelector(id);
+        if (uptime) {
+          ring_tick.setAttribute("data-tippy-info", date+":"+uptime+"%");
+
+          if (uptime > 90) {
+            ring_tick.style.fill = '#26d945';
+          }
+          if(uptime < 90 && uptime > 80 ){
+            ring_tick.style.fill = '#b7ea15';
+          }
+          if(uptime > 70 && uptime < 80){
+            ring_tick.style.fill = '#ece713';
+          }
+          if(uptime > 50 && uptime < 70){
+            ring_tick.style.fill = '#f1a70e';
+          }
+          if(uptime < 50){
+            ring_tick.style.fill = '#f8622c';
+          }
+        }else{
+          ring_tick.style.fill = '#404242';
+        }
+      },
+      loadRing(){
+        let self = this;
+        for (let d_number = 1; d_number <= 31; d_number++) {
+          if (d_number < 10) {
+              d_number = "0"+d_number
+            }
+          let id = "#day-"+d_number;
+          let ring_tick = document.querySelector(id);
+          if (ring_tick) {
+            setTimeout(function(){ 
+              ring_tick.style.fill = 'white';
+             }, d_number*50);
+            
+          }
+          let previous = parseInt(d_number)-1;
+          if (previous !== 0) {
+            if (previous < 10) {
+              previous = "0"+previous
+            }
+            let ring_tick = document.querySelector("#day-"+previous);
+            if (ring_tick) {
+              setTimeout(function(){ 
+              ring_tick.style.fill = 'black';
+             }, d_number*100);
+            }
+          }
+        }
+        let ring_last = document.querySelector("#day-31");
+        if (ring_last) {
+          setTimeout(function(){ 
+          ring_last.style.fill = 'black';
+          self.getDate();
+          }, 4000);
+        }
+        
+      }
     },
     mounted: function () {
       var self = this;
       self.sn = "{{site_name}}"
       // site specific classes and settings
+      self.loadRing();
+
       if (self.sn) {
         self.getRequests("{{site_name}}");
         self.getLastUpdatedAndSources("{{site_name}}");
@@ -2509,6 +2809,24 @@
         placement: 'top',
         animation: 'fade',
         theme: 'gradient',
+      });
+
+      tippy('#ring', {
+        target: 'path',
+        content: 'Loading...',
+        placement: 'top',
+        animation: 'fade',
+        onShow(instance) {
+          let info = instance.reference.dataset.tippyInfo
+          if (!info) {
+            info = 'Not Available Yet'
+          }
+          let parts = info.split(':');
+          let per = parts[1] ? parts[1] : '';
+          let date = parts[0] ? parts[0] : '';
+
+          instance.setContent(`<div><h5 class="text-muted">`+date+`</h5><h5>`+per+`</h5></div>`)
+        }
       });
 
 
