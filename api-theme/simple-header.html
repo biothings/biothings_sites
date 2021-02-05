@@ -1,80 +1,180 @@
 <!-- Header -->
+<style>
+.navbar-main {
+  position: fixed;
+  transition: width 600ms ease;
+  overflow: hidden !important;
+  z-index: 10000;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:hover {
+  background-color: black;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: 600ms;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+.link-text {
+  opacity: 0;
+  display: inline;
+  margin-left: 1rem;
+}
+
+.link-icon {
+  margin-left: 1rem;
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar-main {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .link-text {
+    display: none;
+    opacity: 0;
+    margin-left: 0rem;
+  }
+
+  .link-icon {
+    margin-left: 0rem;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbar-main {
+    top: 0;
+    width: 3rem;
+    height: 100vh;
+  }
+
+  .navbar-main:hover {
+    width: 16rem;
+  }
+
+  .navbar-main:hover .link-text {
+    opacity: 1;
+    display: inline;
+  }
+}
+
+</style>
 <header id="headerComp">
-  <nav id="nav" class="navbar navbar-expand-lg navbar-dark w-100 fixed-top">
-    <a class="navbar-brand logoFont" href="/" id="headlogo">
-      <span class="d-none d-md-block">My<span :class="mainClss" v-text="snType"></span>.info</span>
-      <i class="fas fa-home d-block d-md-none"></i>
-    </a>
-    <li class="nav-item dropup d-block d-md-none">
-      <a class="nav-link dropdown-toggle font-weight-bold text-light btn btn-main btn-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More APIs</a>
-      <div class="dropdown-menu bg-dark pb-0">
-        <div class="dropdown-item">
-          <a target="_blank" href="https://mygene.info/" v-on:mouseover="handleHover('MyGene.info')" class=" text-light">My<span class="text-blue">Gene</span>.info <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="dropdown-item">
-          <a target="_blank" href="https://myvariant.info/" v-on:mouseover="handleHover('MyVariant.info')" class=" text-light">My<span class="text-green">Variant</span>.info <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="dropdown-item">
-          <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class=" text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="dropdown-item">
-          <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class=" text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-item">
-          <a target="_blank" href="https://biothings.io/" v-on:mouseover="handleHover('BioThings')" class=" text-light">BioThings.io <i class="fas fa-chevron-right"></i></a>
-        </div>
-      </div>
-    </li>
-    <a role="button" class="nav-item nav-link text-light btn btn-main btn-sm d-block d-md-none" :href="tryItLink">Try It <i class="fas fa-cube"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-plus text-light"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/about">About</a>
-        <a class="nav-item nav-link" :href="uptimeLink" target="_blank">Status <i class="fas fa-external-link-square-alt text-main"></i></a>
-        <a class="nav-item nav-link" :href="tryItLink">Try Live API</a>
-        <a class="nav-item nav-link" :href="docsLink" target="_blank">Docs <i class="fas fa-external-link-square-alt text-main"></i></a>
-        <a class="nav-item nav-link" href="/faq">FAQ</a>
-        <a class="nav-item nav-link" href="/blog">News</a>
-        <a class="nav-item nav-link" :href="brandingLink" target="_blank">Branding <i class="fas fa-external-link-square-alt text-main"></i></a>
-        <a class="nav-item nav-link" href="/support-us">Support Us</a>
-        <li class="nav-item dropdown d-none d-md-block">
-          <a class="nav-link dropdown-toggle dropright font-weight-bold text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More BioThings APIs</a>
-          <div class="dropdown-menu bg-dark pb-0">
-            <div class="dropdown-item">
-              <a target="_blank" href="https://mygene.info/" v-on:mouseover="handleHover('MyGene.info')" class="logoFont bg-transparent text-light">My<span class="text-blue">Gene</span>.info <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="dropdown-item">
-              <a target="_blank" href="https://myvariant.info/" v-on:mouseover="handleHover('MyVariant.info')" class="logoFont bg-transparent text-light">My<span class="text-green">Variant</span>.info <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="dropdown-item">
-              <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class="logoFont bg-transparent text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="dropdown-item">
-              <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class="logoFont bg-transparent text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="dropdown-divider"></div>
-            <div class="dropdown-item">
-              <a target="_blank" href="https://biothings.io/" v-on:mouseover="handleHover('BioThings')" class="logoFont bg-transparent text-light">BioThings.io <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="dropdown-item" :class="backgroundclss">
-              <img width="200" :src="imglink" :alt="hovered"/>
-              <h5 :class="textclss" v-text="hovered" class="text-center logoFont"></h5>
-            </div>
-          </div>
-        </li>
-        <a class="nav-item nav-link text-warning font-weight-bold neon pointer" data-toggle="modal" data-target="#exampleModal">
-          Stay Updated <i class="fas fa-bolt text-main"></i>
+  <nav class="navbar-main bg-main-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="/" class="nav-link">
+          <img class="link-icon" width="20px" :src="logoImg" alt="Logo"/>
+          <span class="link-text text-light">Home</span>
         </a>
-        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://biothings.io/">BioThings API <i class="fas fa-chevron-right text-main"></i></a>
-        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mygene.info/">MyGene.info <i class="fas fa-chevron-right text-main"></i></a>
-        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://myvariant.info/">MyVariant.info <i class="fas fa-chevron-right text-main"></i></a>
-        <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://mychem.info/">MyChem.info <i class="fas fa-chevron-right text-main"></i></a>
-      </div>
-    </div>
-</nav>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="nav-link">
+          <i class="fas fa-comment text-light link-icon"></i>
+          <span class="link-text text-light">About</span>
+        </a>
+      </li>
+      <li class="nav-item d-none d-md-inline">
+        <a :href="uptimeLink" class="nav-link">
+          <i class="fas fa-chart-bar text-light link-icon"></i>
+          <span class="link-text text-light">Status</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a :href="tryItLink" class="nav-link">
+          <i class="fas fa-code text-light link-icon"></i>
+          <span class="link-text text-light">Try&nbsp;API</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a :href="docsLink" class="nav-link">
+          <i class="fas fa-book text-light link-icon"></i>
+          <span class="link-text text-light">Docs</span>
+        </a>
+      </li>
+      <li class="nav-item d-none d-md-inline">
+        <a href="/blog" class="nav-link">
+          <i class="fas fa-rss text-light link-icon"></i>
+          <span class="link-text text-light">News</span>
+        </a>
+      </li>
+      <li class="nav-item d-none d-md-inline">
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">
+          <i class="fas fa-bolt text-warning link-icon"></i>
+          <span class="link-text text-light">Stay&nbsp;Updated</span>
+        </a>
+      </li>
+      <li class="nav-item blackTransBack-blue">
+        <a target="_blank" href="https://mygene.info/" class="nav-link">
+          <i class="fas fa-circle link-icon text-blue"></i>
+          <span class="text-light link-text">My<span class="text-blue">Gene</span>.info</span>
+        </a>
+      </li>
+      <li class="nav-item blackTransBack-orange">
+        <a target="_blank" href="https://mychem.info/" class="nav-link">
+          <i class="fas fa-circle link-icon text-orange"></i>
+          <span class="text-light link-text">My<span class="text-orange">Chem</span>.info</span>
+        </a>
+      </li>
+      <li class="nav-item blackTransBack-green">
+        <a target="_blank" href="https://myvariant.info/" class="nav-link">
+          <i class="fas fa-circle link-icon text-green"></i>
+          <span class="text-light link-text">My<span class="text-green">Variant</span>.info</span>
+        </a>
+      </li>
+      <li class="nav-item blackTransBack-purple">
+        <a target="_blank" href="https://mydisease.info/" class="nav-link">
+          <i class="fas fa-circle link-icon text-purple"></i>
+          <span class="text-light link-text">My<span class="text-purple">Disease</span>.info</span>
+        </a>
+      </li>
+      <li class="nav-item blackTransBack-yellow">
+        <a target="_blank" href="https://biothings.io/" class="nav-link">
+          <i class="fas fa-circle link-icon text-warning"></i>
+          <span class="text-light link-text">BioThings.io</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
 <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="">
@@ -128,101 +228,63 @@ var app = new Vue({
       uptimeLink:'',
       imglink:'',
       mainClss:'',
+      logoImg :''
     }
   },
-  watch:{
-  },
-  methods:{
-    handleHover(item){
-      var self = this;
-      self.hovered = item;
-      switch (item) {
+  mounted:function(){
+    var self = this;
+
+    self.sn = "{{site_name}}"
+    // site specific classes and settings
+    if (self.sn) {
+      switch (self.sn) {
         case "MyGene.info":
-          self.imglink= "/static/img/mygene-logo-shiny-md.png";
-          self.backgroundclss='blackTransBack-blue';
-          this.textclss='text-blue';
-
-          break;
-        case "MyVariant.info":
-          self.imglink= "/static/img/myvariant-logo-shiny-md.png";;
-          self.backgroundclss='blackTransBack-green';
-          this.textclss='text-green';
-
+          self.tryItLink='/v3/api';
+          self.snType='Gene';
+          self.brandingLink = 'http://biothings.io/branding#mygene-branding';
+          self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+          self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+          self.logoImg= "/static/img/mygene-logo-shiny-md.png";
+          this.mainClss='text-blue';
           break;
         case "MyChem.info":
-          self.imglink= "/static/img/mychem-logo-shiny-md.png";
-          self.backgroundclss='blackTransBack-orange';
-          this.textclss='text-orange';
-
+          self.tryItLink='/v1/api';
+          self.snType='Chem';
+          self.brandingLink = 'http://biothings.io/branding#mychem-branding';
+          self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
+          self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
+          self.logoImg= "/static/img/mychem-logo-shiny-md.png";
+          this.mainClss='text-orange';
+          break;
+        case "MyVariant.info":
+          self.tryItLink='/v1/api';
+          self.snType='Variant';
+          self.brandingLink = 'http://biothings.io/branding#myvariant-branding';
+          self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
+          self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
+          self.logoImg= "/static/img/myvariant-logo-shiny-md.png";
+          this.mainClss='text-green';
           break;
         case "MyDisease.info":
-          self.imglink= "/static/img/mydisease-logo-shiny-md.png";
-          self.backgroundclss='blackTransBack-purple';
-          this.textclss='text-purple';
-
-          break;
-        case "BioThings":
-          self.imglink= "/static/img/biothings-logo.svg";
-          self.backgroundclss='blackTransBack-yellow';
-          this.textclss='text-warning';
-
+          self.tryItLink='/v1/api';
+          self.snType='Disease';
+          self.brandingLink = 'http://biothings.io/branding#mydisease-branding';
+          self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
+          self.uptimeLink ='https://stats.uptimerobot.com/wyvkFLPKV';
+          self.logoImg= "/static/img/mydisease-logo-shiny-md.png";
+          this.mainClss='text-purple';
           break;
         default:
-          this.textclss='';
-          this.backgroundclss=''
+          // default is Mygene
+          self.tryItLink='/v3/api';
+          self.snType='Gene';
+          self.brandingLink = 'http://biothings.io/branding#mygene-branding';
+          self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+          self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+          self.logoImg= "/static/img/mygene-logo-shiny-md.png";
       }
-    },
-
-},
-mounted:function(){
-  var self = this;
-
-  self.sn = "{{site_name}}"
-  // site specific classes and settings
-  if (self.sn) {
-    switch (self.sn) {
-      case "MyGene.info":
-        self.tryItLink='/v3/api';
-        self.snType='Gene';
-        self.brandingLink = 'http://biothings.io/branding#mygene-branding';
-        self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-        self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
-        this.mainClss='text-blue';
-        break;
-      case "MyChem.info":
-        self.tryItLink='/v1/api';
-        self.snType='Chem';
-        self.brandingLink = 'http://biothings.io/branding#mychem-branding';
-        self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
-        self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
-        this.mainClss='text-orange';
-        break;
-      case "MyVariant.info":
-        self.tryItLink='/v1/api';
-        self.snType='Variant';
-        self.brandingLink = 'http://biothings.io/branding#myvariant-branding';
-        self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
-        self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
-        this.mainClss='text-green';
-        break;
-      case "MyDisease.info":
-        self.tryItLink='/v1/api';
-        self.snType='Disease';
-        self.brandingLink = 'http://biothings.io/branding#mydisease-branding';
-        self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
-        self.uptimeLink ='https://stats.uptimerobot.com/wyvkFLPKV';
-        this.mainClss='text-purple';
-        break;
-      default:
-        // default is Mygene
-        self.tryItLink='/v3/api';
-        self.snType='Gene';
-        self.brandingLink = 'http://biothings.io/branding#mygene-branding';
-        self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-        self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
     }
-  }
 
-}
+  }
 })
 </script>

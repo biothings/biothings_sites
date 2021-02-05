@@ -17,13 +17,6 @@
   transform-origin: center;
   fill: white !important;
 }
-.ring-calendar{
-
-}
-.ring-select{
-
-}
-
 /* Reset Select */
 select {
   -webkit-appearance: none;
@@ -84,6 +77,7 @@ select {
     <div></div>
     <div></div>
   </div>
+  
   <section>
     <div class="introBackground">
       <section
@@ -380,24 +374,29 @@ select {
                     <small v-text='window.location.protocol+item.query' class="text-main font-weight-bold"></small>
                   </div>
                   <div class="col-sm-2">
-                    <a role="button" href="#" @click="testAPI(item.query)"
-                      class="btn bg-main-dark text-light pull-right pointer d-none d-md-block">
+                    <button type="button" @click.prevent="testAPI(item.query)"
+                      class="btn btn-sm bg-main-dark text-light pull-right pointer d-none d-md-block mr-2">
                       TRY IT <i class="fa fa-chevron-right"></i>
-                    </a>
+                  </button>
                   </div>
                 </div>
               </div>
             </template>
             <div class="list-group-item list-group-item-action text-muted">
-              <h5 class="font-weight-bold">Batch queries OK <i class="fas fa-check text-success"></i></h5>
-              <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink'
-                class="text-main font-weight-bold"></span>
-              <span v-if="postLink2" class="d-block">
-                <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink2'
+              <div class="m-0 row">
+                <div class="col-sm-12 pl-5">
+                  <h5 class="font-weight-bold">Batch queries OK <i class="fas fa-check text-success"></i></h5>
+                <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink'
                   class="text-main font-weight-bold"></span>
-              </span>
-              <a role="button" class="btn btn-main text-light float-right mt-2" :href="postQueryInfoLink"
-                target="_blank">Learn More</a>
+                <span v-if="postLink2" class="d-block">
+                  <span class="badge bg-main-medium badge-pill text-light">POST</span> <span v-text='postLink2'
+                    class="text-main font-weight-bold"></span>
+                </span>
+                <a role="button" class="btn btn-main text-light float-right mt-2" :href="postQueryInfoLink"
+                  target="_blank">Learn More</a>
+                  </div>
+              </div>
+              
             </div>
           </div>
         </ul>

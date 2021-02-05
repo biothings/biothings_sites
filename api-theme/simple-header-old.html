@@ -2,7 +2,7 @@
 <header id="headerComp">
   <nav id="nav" class="navbar navbar-expand-lg navbar-dark w-100 fixed-top">
     <a class="navbar-brand logoFont" href="/" id="headlogo">
-      <span class="d-none d-md-block">TEST<span class="text-main" v-text="snType"></span>.info</span>
+      <span class="d-none d-md-block">My<span :class="mainClss" v-text="snType"></span>.info</span>
       <i class="fas fa-home d-block d-md-none"></i>
     </a>
     <li class="nav-item dropup d-block d-md-none">
@@ -16,6 +16,9 @@
         </div>
         <div class="dropdown-item">
           <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class=" text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="dropdown-item">
+          <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class=" text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
         </div>
         <div class="dropdown-divider"></div>
         <div class="dropdown-item">
@@ -49,17 +52,20 @@
             <div class="dropdown-item">
               <a target="_blank" href="https://mychem.info/" v-on:mouseover="handleHover('MyChem.info')" class="logoFont bg-transparent text-light">My<span class="text-orange">Chem</span>.info <i class="fas fa-chevron-right"></i></a>
             </div>
+            <div class="dropdown-item">
+              <a target="_blank" href="https://mydisease.info/" v-on:mouseover="handleHover('MyDisease.info')" class="logoFont bg-transparent text-light">My<span class="text-purple">Disease</span>.info <i class="fas fa-chevron-right"></i></a>
+            </div>
             <div class="dropdown-divider"></div>
             <div class="dropdown-item">
               <a target="_blank" href="https://biothings.io/" v-on:mouseover="handleHover('BioThings')" class="logoFont bg-transparent text-light">BioThings.io <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="dropdown-item" :class="backgroundclss">
-              <canvas class="apicanvas" width="250" height="250" style="max-width:250px !important;max-height:250px !important;"></canvas>
+              <img width="200" :src="imglink" :alt="hovered"/>
               <h5 :class="textclss" v-text="hovered" class="text-center logoFont"></h5>
             </div>
           </div>
         </li>
-        <a class="nav-item nav-link font-weight-bold neon pointer text-light" data-toggle="modal" data-target="#exampleModal">
+        <a class="nav-item nav-link text-warning font-weight-bold neon pointer" data-toggle="modal" data-target="#exampleModal">
           Stay Updated <i class="fas fa-bolt text-main"></i>
         </a>
         <a class="nav-item nav-link d-sm-block d-lg-none d-md-none" href="http://biothings.io/">BioThings API <i class="fas fa-chevron-right text-main"></i></a>
@@ -120,148 +126,45 @@ var app = new Vue({
       brandingLink:'',
       docsLink:'',
       uptimeLink:'',
-      box:null,
-      box2: null,
-      box3: null,
-      box4: null,
-      box5: null,
-      box6: null,
-      box7: null,
+      imglink:'',
+      mainClss:'',
     }
   },
   watch:{
   },
   methods:{
-    resetBoxes(){
-      this.box.color= '#808080'//GREY
-      this.box.leftFace= '#B3B3B3'//GREY
-      this.box.rightFace= '#808080'//GREY
-      this.box.topFace= '#E6E6E6'//GREY
-      this.box.bottomFace= '#808080'//GREY
-
-      this.box2.color= '#808080'//GREY
-      this.box2.leftFace= '#B3B3B3'//GREY
-      this.box2.rightFace= '#808080'//GREY
-      this.box2.topFace= '#E6E6E6'//GREY
-      this.box2.bottomFace= '#808080'//GREY
-
-      this.box3.color= '#808080'//GREY
-      this.box3.leftFace= '#B3B3B3'//GREY
-      this.box3.rightFace= '#808080'//GREY
-      this.box3.topFace= '#E6E6E6'//GREY
-      this.box3.bottomFace= '#808080'//GREY
-
-      this.box4.color= '#808080'//GREY
-      this.box4.leftFace= '#B3B3B3'//GREY
-      this.box4.rightFace= '#808080'//GREY
-      this.box4.topFace= '#E6E6E6'//GREY
-      this.box4.bottomFace= '#808080'//GREY
-
-      this.box5.color= '#808080'//GREY
-      this.box5.leftFace= '#B3B3B3'//GREY
-      this.box5.rightFace= '#808080'//GREY
-      this.box5.topFace= '#E6E6E6'//GREY
-      this.box5.bottomFace= '#808080'//GREY
-
-      this.box6.color= '#808080'//GREY
-      this.box6.leftFace= '#B3B3B3'//GREY
-      this.box6.rightFace= '#808080'//GREY
-      this.box6.topFace= '#E6E6E6'//GREY
-      this.box5.bottomFace= '#808080'//GREY
-
-      this.box7.color= '#808080'//GREY
-      this.box7.leftFace= '#B3B3B3'//GREY
-      this.box7.rightFace= '#808080'//GREY
-      this.box7.topFace= '#E6E6E6'//GREY
-      this.box7.bottomFace= '#808080'//GREY
-
-    },
     handleHover(item){
-      this.hovered= item;
+      var self = this;
+      self.hovered = item;
       switch (item) {
         case "MyGene.info":
+          self.imglink= "/static/img/mygene-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-blue';
           this.textclss='text-blue';
-          this.backgroundclss='blackTransBack-blue'
-          this.resetBoxes();
-          this.box6.bottomFace= '#808080'//Glitches so must reset indiviadually
-
-          this.box.color= '#3366CC'//dark
-          this.box.leftFace= '#2A7FE2'//medium
-          this.box.rightFace= '#3366CC'//dark
-          this.box.topFace= '#669BE8'//light
-          this.box.bottomFace= '#3366CC'//dark
-
-          this.box5.color= '#3366CC'//dark
-          this.box5.leftFace= '#2A7FE2'//medium
-          this.box5.rightFace= '#3366CC'//dark
-          this.box5.topFace= '#669BE8'//light
-          this.box5.bottomFace= '#3366CC'//dark
-
-          this.box7.color= '#3366CC'//dark
-          this.box7.leftFace= '#2A7FE2'//medium
-          this.box7.rightFace= '#3366CC'//dark
-          this.box7.topFace= '#669BE8'//light
-          this.box7.bottomFace= '#3366CC'//dark
 
           break;
         case "MyVariant.info":
+          self.imglink= "/static/img/myvariant-logo-shiny-md.png";;
+          self.backgroundclss='blackTransBack-green';
           this.textclss='text-green';
-          this.backgroundclss='blackTransBack-green'
-
-          this.resetBoxes();
-          this.box6.bottomFace= '#808080'//Glitches so must reset indiviadually
-
-          this.box.color= '#40B307'//dark
-          this.box.leftFace= '#67CF2E'//medium
-          this.box.rightFace= '#40B307'//dark
-          this.box.topFace= '#85D958'//light
-          this.box.bottomFace= '#40B307'//dark
-
-          this.box2.color= '#40B307'//dark
-          this.box2.leftFace= '#67CF2E'//medium
-          this.box2.rightFace= '#40B307'//dark
-          this.box2.topFace= '#85D958'//light
-          this.box2.bottomFace= '#40B307'//dark
-
-          this.box6.color= '#40B307'//dark
-          this.box6.leftFace= '#67CF2E'//medium
-          this.box6.rightFace= '#40B307'//dark
-          this.box6.topFace= '#85D958'//light
-          this.box6.bottomFace= '#40B307'//dark
 
           break;
         case "MyChem.info":
+          self.imglink= "/static/img/mychem-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-orange';
           this.textclss='text-orange';
-          this.backgroundclss='blackTransBack-orange'
 
-          this.resetBoxes();
-          this.box6.bottomFace= '#808080'//Glitches so must reset indiviadually
-
-          this.box.color= '#CC6633'//dark
-          this.box.leftFace= '#FD7400'//medium
-          this.box.rightFace= '#CC6633'//dark
-          this.box.topFace= '#FF8E39'//light
-          this.box.bottomFace= '#CC6633'//dark
-
-          this.box3.color= '#CC6633'//dark
-          this.box3.leftFace= '#FD7400'//medium
-          this.box3.rightFace= '#CC6633'//dark
-          this.box3.topFace= '#FF8E39'//light
-          this.box3.bottomFace= '#CC6633'//dark
-
-          this.box4.color= '#CC6633'//dark
-          this.box4.leftFace= '#FD7400'//medium
-          this.box4.rightFace= '#CC6633'//dark
-          this.box4.topFace= '#FF8E39'//light
-          this.box4.bottomFace= '#CC6633'//dark
+          break;
+        case "MyDisease.info":
+          self.imglink= "/static/img/mydisease-logo-shiny-md.png";
+          self.backgroundclss='blackTransBack-purple';
+          this.textclss='text-purple';
 
           break;
         case "BioThings":
+          self.imglink= "/static/img/biothings-logo.svg";
+          self.backgroundclss='blackTransBack-yellow';
           this.textclss='text-warning';
-          this.backgroundclss='blackTransBack-yellow'
-
-          this.resetBoxes();
-          this.box6.bottomFace= '#808080'//Glitches so must reset indiviadually
 
           break;
         default:
@@ -269,107 +172,10 @@ var app = new Vue({
           this.backgroundclss=''
       }
     },
-    startAnimation(){
 
-      let illo = new Zdog.Illustration({
-        element: '.apicanvas',
-        dragRotate: true,
-        rotate:{z:33},
-        scale:.7
-      });
-
-      let anchor = new Zdog.Anchor({
-        addTo: illo,
-      });
-
-      this.box = new Zdog.Box({
-        addTo: anchor,
-        width: 50,
-        height: 50,
-        depth: 50,
-        stroke: true,
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-        rotate:{x:-.5,y:-.8}
-      });
-
-      this.box2 = this.box.copy({
-        // overwrite original options
-        translate: { x: 70 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-      this.box3 = this.box.copy({
-        // overwrite original options
-        translate: { x: 35,y:60,z:5 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-      this.box4 = this.box.copy({
-        // overwrite original options
-        translate: { x: -35,y:60,z:5 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-      this.box5 = this.box.copy({
-        // overwrite original options
-        translate: { x: -35,y:-60,z:-5 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-      this.box6 = this.box.copy({
-        // overwrite original options
-        translate: { x: 35,y:-60,z:-5 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-      this.box7 = this.box.copy({
-        // bottom left
-        translate: { x: -70,y:0,z:0 },
-        color: '#808080',//GREY
-        leftFace: '#B3B3B3',//GREY
-        rightFace: '#808080',//GREY
-        topFace: '#E6E6E6',//GREY
-        bottomFace: '#808080',//GREY
-      });
-
-
-      function animate() {
-        // rotate
-        illo.rotate.y += -0.01;
-        illo.updateRenderGraph();
-        requestAnimationFrame( animate );
-      }
-
-      animate();
-    }
 },
 mounted:function(){
   var self = this;
-  self.startAnimation();
 
   self.sn = "{{site_name}}"
   // site specific classes and settings
@@ -381,6 +187,7 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#mygene-branding';
         self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+        this.mainClss='text-blue';
         break;
       case "MyChem.info":
         self.tryItLink='/v1/api';
@@ -388,6 +195,7 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#mychem-branding';
         self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/QKBOh5WJ';
+        this.mainClss='text-orange';
         break;
       case "MyVariant.info":
         self.tryItLink='/v1/api';
@@ -395,6 +203,7 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#myvariant-branding';
         self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/polzSx91';
+        this.mainClss='text-green';
         break;
       case "MyDisease.info":
         self.tryItLink='/v1/api';
@@ -402,15 +211,16 @@ mounted:function(){
         self.brandingLink = 'http://biothings.io/branding#mydisease-branding';
         self.docsLink = 'https://docs.mydisease.info/en/latest/index.html';
         self.uptimeLink ='https://stats.uptimerobot.com/wyvkFLPKV';
+        this.mainClss='text-purple';
         break;
       default:
         // default is Mygene
-    //     self.tryItLink='/v3/api';
-    //     self.snType='Gene';
-    //     self.brandingLink = 'http://biothings.io/branding#mygene-branding';
-    //     self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-    //     self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
-    // }
+        self.tryItLink='/v3/api';
+        self.snType='Gene';
+        self.brandingLink = 'http://biothings.io/branding#mygene-branding';
+        self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
+        self.uptimeLink ='https://stats.uptimerobot.com/7y2AFWAE';
+    }
   }
 
 }

@@ -29,6 +29,7 @@
     <meta name="twitter:data1" content="{{post.primary_author.name}}" />
     <meta name="twitter:label2" content="Filed under" />
     <meta name="twitter:data2" content="{{post.tags|join(', ', attribute='name')}}" />
+	<link rel="stylesheet" href="/static/css/app.css" />
 
     <script type="application/ld+json">
 		{
@@ -118,6 +119,10 @@
 		        break;
 		      case "MyVariant.info":
 						ltag.setAttribute( 'href', "/static/css/variant.css" );
+						document.head.appendChild( ltag );
+		        break;
+			case "MyDisease.info":
+						ltag.setAttribute( 'href', "/static/css/disease.css" );
 						document.head.appendChild( ltag );
 		        break;
 		      default:

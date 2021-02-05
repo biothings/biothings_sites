@@ -1,4 +1,61 @@
 <footer id="footer" class="bg-dark p-0" style="bottom:0;">
+  <div class="d-flex justify-content-around align-items-start container flex-wrap py-4">
+    <div class="col-sm-12 col-md-auto">
+      <h6 class="text-main">Team</h6>
+      <ul>
+        <li>
+          <a href="/about" class="text-light">About</a>
+        </li>
+        <li>
+          <a href="/support-us" class="text-light">Support Us</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-auto">
+      <h6 class="text-main">Resources</h6>
+      <ul>
+        <li>
+          <a href="/faq" class="text-light">FAQ</a>
+        </li>
+        <li>
+          <a href="/blog" class="text-light">News</a>
+        </li>
+        <li>
+          <a href="http://biothings.io/branding" target="_blank" class="text-light">Branding</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12 col-md-auto">
+      <h6 class="text-main">Other APIs</h6>
+      <ul>
+        <li>
+          <a target="_blank" href="https://mygene.info/" class="text-light">
+            <span class="text-light">My<span class="text-blue">Gene</span>.info</span>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://mychem.info/" class="text-light">
+            <span class="text-light">My<span class="text-orange">Chem</span>.info</span>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://myvariant.info/" class="text-light">
+            <span class="text-light">My<span class="text-green">Variant</span>.info</span>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://mydisease.info/" class="text-light">
+            <span class="text-light">My<span class="text-purple">Disease</span>.info</span>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://biothings.io/" class="text-light">
+            <span class="text-light">BioThings.io</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="copyright text-center text-muted">
     <ul class="noListStyle">
       <li class="d-inline m-2">
@@ -53,6 +110,10 @@
           case "MyVariant.info":
             self.twitterLink='http://twitter.com/myvariantinfo';
             self.ghLink="https://github.com/biothings/myvariant.info"
+            break;
+          case "MyDisease.info":
+            self.twitterLink='http://twitter.com/mydiseaseinfo';
+            self.ghLink="https://github.com/biothings/mydisease.info"
             break;
           default:
             // default is Mygene
