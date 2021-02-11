@@ -1,4 +1,15 @@
 <!-- Header -->
+<style>
+  .glass{
+    border-radius: 5px;
+    background: rgba(255,255,255, 0.2);
+    z-index: 1;
+    backdrop-filter: blur(20px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px  rgba(46, 54, 68, 0.03);
+  }
+</style>
 <header id="header" class="alt">
   <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark fullWidth blackBack fixed-top">
   <a class="navbar-brand logoFont" href="/" id="headlogo">
@@ -10,14 +21,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/about">About</a>
-      <a class="nav-item nav-link" href="https://biothingsapi.readthedocs.io/" target="_blank">SDK</a>
-      <a class="nav-item nav-link" href="/specs/">Specs</a>
-      <a class="nav-item nav-link" href="/blog/">News</a>
-      <a class="nav-item nav-link" href="/static/html/branding.html">Branding</a>
+      <a class="nav-item nav-link" data-aos="fade-in" data-aos-delay="100" href="/about">About</a>
+      <a class="nav-item nav-link" data-aos="fade-in" data-aos-delay="200" href="https://biothingsapi.readthedocs.io/" target="_blank">SDK</a>
+      <a class="nav-item nav-link" data-aos="fade-in" data-aos-delay="300" href="/specs/">Specs</a>
+      <a class="nav-item nav-link" data-aos="fade-in" data-aos-delay="400" href="/blog/">News</a>
+      <a class="nav-item nav-link" data-aos="fade-in" data-aos-delay="500" href="/static/html/branding.html">Branding</a>
     </div>
     <div class="navbar-nav">
-      <a class="nav-item nav-link font-weight-bold neon pointer" data-toggle="modal" data-target="#exampleModal">
+      <a class="nav-item nav-link font-weight-bold neon pointer" data-toggle="modal" data-target="#exampleModal" data-aos="fade-in" data-aos-delay="600">
         Stay Updated <i class="fas fa-bolt text-main"></i>
       </a>
     </div>
@@ -28,7 +39,7 @@
 <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:20%;">
   <div class="modal-dialog" role="document">
-    <div class="modal-content bg-secondary">
+    <div class="modal-content glass">
       <div class="modal-header text-light no-border">
         <button type="button" class="close text-warning" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

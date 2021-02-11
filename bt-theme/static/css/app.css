@@ -56,6 +56,14 @@ body {
   overflow-x: hidden;
 }
 
+.card-body{
+  pointer-events: none;
+}
+
+.card-body a.btn{
+  pointer-events: auto;
+}
+
 .square {
   position: relative;
 }
@@ -106,6 +114,10 @@ body {
 
 }
 
+.introContainer{
+  height: 80vh;
+}
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .square {
@@ -117,13 +129,20 @@ body {
     top: 0;
     bottom: auto;
   }
+  .introContainer{
+    height: auto;
+  }
+  
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1700px) {
   .square {
     width: 35%;
-    clip-path: polygon(50% 0%, 94% 24%, 94% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+
+  .introContainer{
+    height: auto;
   }
 
 }

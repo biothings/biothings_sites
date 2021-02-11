@@ -1,7 +1,7 @@
 {% extends "main.html" %}
 {% block content %}
 <div id="app" class="bg-dark">
-	<section class="w-100 d-flex justify-content-center align-items-center" style="position:relative;">
+	<section class="w-100 d-flex justify-content-center align-items-center introContainer" style="position:relative;">
 		<img class="w-100 m-auto" role="presentation" src="/static/img/heroillo.jpg" style="max-width:1300px;">
 		<div class="text-center introBox w-100">
 			<h3 class="text-light smallCaps theme-font" data-aos="fade-up" data-aos-duration="1000">
@@ -18,6 +18,7 @@
 		</div>
 	</section>
 	<section id="access" class="bg-light text-center fullpage d-flex justify-content-center align-items-center row">
+		<div id="access-morph"></div>
 		<div class="col-sm-12 text-center d-flex justify-content-center align-items-center halfpage transition">
 			<svg version="1.1" id="demo-svg" x="0px" y="0px" viewBox="0 0 1024 398.35" style="enable-background:new 0 0 1024 398.35;" xml:space="preserve">
 			<polygon class="morph" points="0,0 0,97.47 51.3,82.58 73.8,121.56 141.32,121.56 175.08,63.08 174.5,62.07 226.33,63.84 375,15.17 490.93,17.82 
@@ -176,7 +177,9 @@
 						</p>
 						<a href="https://biothingsapi.readthedocs.io/en/latest/" target="_blank" rel="noreferrer"
 							role="button" class="btn btn-outline-dark btn-lg font-weight-bold m-2">Learn More</a>
-
+					</div>
+					<div>
+						
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center card align-self-stretch"
@@ -284,7 +287,7 @@
 		</div>
 	</section>
 	<div id="parallax1" class="parallaxParent usingBack">
-		<div class="text-center">
+		<div class="text-center px-2">
 			<a href="/who-is-using">
 				<h1 class="m-0 anchorLink">
 					Who is using <br /> <span class="m-0 text-light logoFont ">BioThings API</span> <a
@@ -301,7 +304,7 @@
 
 	</section>
 	<div id="parallax2" class="parallaxParent hostBack">
-		<div class="text-center" style="top:20%">
+		<div class="text-center px-2" style="top:20%">
 			<h2 class="text-light m-0 smallCaps bold textShadow anchorLink" id="stand-alone" data-aos="fade-up">
 				Want to host our APIs within your organization? <a style="font-size:small !important; opacity:0;"
 					href="./#stand-alone"><i class="fas fa-tiny fa-link m-2 text-muted"
@@ -322,7 +325,7 @@
 				<div class="row d-flex justify-content-center row-cols-1 row-cols-md-3">
 					{% for post in posts %}
 					<div class="card col-sm-6 col-md-3 col-lg-4 m-2 alert-light card-hover card-news"
-						data-aos="fade-in">
+						data-aos="fade-in" data-aos-delay="0">
 						<div class="card-block">
 							<article class="card-body">
 								<a href="/blog/{{post.slug}}">
@@ -1132,7 +1135,9 @@
 				update();
 
 				document.getElementById('studiocard').addEventListener("mouseover", function () {
-					isSpinning = true;
+					if (!isSpinning) {
+						isSpinning = true;
+					}
 				}, false);
 				document.getElementById('studiocard').addEventListener("mouseout", function () {
 					isSpinning = false;
@@ -1202,7 +1207,9 @@
 
 
 				document.getElementById('sdkcard').addEventListener("mouseover", function () {
-					isSpinning = true;
+					if (!isSpinning) {
+						isSpinning = true;
+					}
 				}, false);
 				document.getElementById('sdkcard').addEventListener("mouseout", function () {
 					isSpinning = false;
@@ -1315,7 +1322,9 @@
 				update();
 
 				document.getElementById('explorercard').addEventListener("mouseover", function () {
-					isSpinning = true;
+					if (!isSpinning) {
+						isSpinning = true;
+					}
 				}, false);
 				document.getElementById('explorercard').addEventListener("mouseout", function () {
 					isSpinning = false;
@@ -2352,7 +2361,9 @@
 				update();
 
 				document.getElementById('smartcard').addEventListener("mouseover", function () {
-					isSpinning = true;
+					if (!isSpinning) {
+						isSpinning = true;
+					}
 				}, false);
 				document.getElementById('smartcard').addEventListener("mouseout", function () {
 					isSpinning = false;
@@ -2422,32 +2433,43 @@
 				var sceneA = new ScrollMagic.Scene({
 						triggerElement: "#access",
 						duration: 200,
-						tweenChanges: true
+						tweenChanges: true,
 					})
 					.setTween(tweenA)
 					// .addIndicators()
 					.addTo(controller)
-					// .on("enter", function () {
-					// 	anime({
-					// 	targets: '.morph',
-					// 	points: [
-					// 		{ value: "0,0 0,97.47 51.3,82.58 73.8,121.56 141.32,121.56 175.08,63.08 174.5,62.07 226.33,63.84 375,15.17 490.93,17.82 812.66,44.14 887.39,63.08 932.52,36.41 977.65,57.65 1024,65.61 1024,0 "},
-					// 	],
-					// 	easing: 'easeOutQuad',
-					// 	duration: 2000,
-					// 	loop: false
-					// 	});
-					// })
-					.on("leave", function () {
+				
+				var morph = new ScrollMagic.Scene({
+						triggerElement: "#access-morph",
+						duration: 200,
+						// tweenChanges: true,
+					})
+					// .addIndicators()
+					.addTo(controller)
+					.on("enter", function (event) {
 						anime({
 						targets: '.morph',
 						points: [
-							{ value: "0,0 0,0 54,0 93,0 145,0 166,0 180,0 235,0 384,0 507,0 768,0 860,0 920,0 980,0 1024,0 1024,0 "}
+							{ value: "0,0 0,97.47 51.3,82.58 73.8,121.56 141.32,121.56 175.08,63.08 174.5,62.07 226.33,63.84 375,15.17 490.93,17.82 812.66,44.14 887.39,63.08 932.52,36.41 977.65,57.65 1024,65.61 1024,0 "},
 						],
 						easing: 'easeOutQuad',
 						duration: 2000,
 						loop: false
 						});
+					})
+					.on("leave", function (event) {
+						if (event.scrollDirection !== 'REVERSE') {
+							anime({
+							targets: '.morph',
+							points: [
+								{ value: "0,0 0,0 54,0 93,0 145,0 166,0 180,0 235,0 384,0 507,0 768,0 860,0 920,0 980,0 1024,0 1024,0 "}
+							],
+							easing: 'easeOutQuad',
+							duration: 2000,
+							loop: false
+							});
+						}
+						
 					})
 
 				// BUILD
