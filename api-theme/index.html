@@ -635,18 +635,18 @@ select {
         sYear: 0, // Current selected year
         sMon: false, // Week start on Monday?
         // Ring Calendar
-        months:[{name:'January', value:01},
-        {name:'February', value:02},
-        {name:'March', value:03},
-        {name:'April', value:04},
-        {name:'May', value:05},
-        {name:'June', value:06},
-        {name:'July', value:07},
-        {name:'August', value:08},
-        {name:'September', value:09},
-        {name:'October', value:10},
-        {name:'November', value:11},
-        {name:'December', value:12}
+        months:[{name:'January', value:'01'},
+        {name:'February', value:'02'},
+        {name:'March', value:'03'},
+        {name:'April', value:'04'},
+        {name:'May', value:'05'},
+        {name:'June', value:'06'},
+        {name:'July', value:'07'},
+        {name:'August', value:'08'},
+        {name:'September', value:'09'},
+        {name:'October', value:'10'},
+        {name:'November', value:'11'},
+        {name:'December', value:'12'}
         ],
         years: [],
         monthSelected:'',
@@ -2354,11 +2354,11 @@ select {
               d_number = "0"+d_number
             }
             let date = ''
-            if (self.monthSelected < 10) {
-              date = "0"+self.monthSelected.toString()+d_number+self.yearSelected;
-            }else{
+            // if (parseInt(self.monthSelected) < 10) {
+            //   date = "0"+self.monthSelected.toString()+d_number+self.yearSelected;
+            // }else{
               date = self.monthSelected.toString()+d_number+self.yearSelected;
-            }
+            // }
             
             let url = '/date-status/'+date+self.sn.toLowerCase();
             dateEval = moment(date, 'MMDDYYYY');
