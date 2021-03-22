@@ -2790,7 +2790,7 @@ select {
         target: '.caltip',
         content: 'Loading...',
         placement: 'right',
-        animation: 'fade',
+        animation: false,
         theme: 'gradient',
         onShow(instance) {
           let info = instance.reference.dataset.tippyInfo
@@ -2819,7 +2819,7 @@ select {
         target: 'path',
         content: 'Loading...',
         placement: 'top',
-        animation: 'fade',
+        animation: false,
         onShow(instance) {
           let info = instance.reference.dataset.tippyInfo
           if (!info) {
