@@ -1,128 +1,216 @@
 <!DOCTYPE html>
 <html class="bg-dark">
   <head>
+    <title id="title"></title>
     <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="HandheldFriendly" content="True" />
-		<meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="http://MyGene.info/">
-    <meta property="og:site_name" content="MyGene.info">
-    <meta property="og:title" content="MyGene.info | Gene Annotation as a Service." />
-    <meta name="description" content="Gene Annotation as a Service." />
-    <!-- Variant -->
-    <!-- <meta property="og:image" content="https://s17.postimg.cc/wrqt8039b/featured.jpg"> -->
-    <!-- Gene -->
-    <meta property="og:image" content="https://s17.postimg.cc/rvsa0xr27/mygene-featured.jpg">
-    <!-- Chem -->
-    <!-- <meta property="og:image" content="https://s17.postimg.cc/v2mtkl6db/mychem-featured.jpg"> -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta property="og:locale" content="en_US" />
+    <!-- General Metadata -->
     <meta property="og:image:type" content="image/jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Gene Annotation as a Service.">
     <meta property="fb:app_id" content="" />
-    <meta name="twitter:title" content="MyGene.info | Gene Annotation as a Service." />
-    <meta name="twitter:image" content="/static/img/mygene-favicon.png" />
-    <meta name="twitter:url" content="http://MyGene.info" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:description" content="Gene Annotation as a Service." />
-    <link rel="apple-touch-icon" href="/static/img/mygene-favicon.png" />
-		<link rel="shortcut icon" type="image/png" href="/static/img/mygene-favicon.png"/>
-    <title>MyGene.info | Try API</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-		<link rel="stylesheet" href="/static/css/app.css" />
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <!-- Unique for each site -->
+    <meta id="featured" property="og:image" content="">
+    <meta id="ogurl" property="og:url" content="">
+    <meta id="url" property="og:site_name" content="">
+    <meta id="ogtitle" property="og:title" content="" />
+    <meta id="desc" name="description" content="" />
+    <meta id="tdesc" name="twitter:description" content="" />
+    <meta id="turl" name="twitter:url" content="" />
+    <meta id="ogdesc" property="og:description" content="">
+    <meta id="ttitle" name="twitter:title" content="" />
+    <!-- API specific images -->
+    <meta name="twitter:image" content="/static/img/favicon.png" />
+    <link id="appletouch" rel="apple-touch-icon" href="" />
+    <link id="appletouch2" rel="apple-touch-icon" sizes="180x180" href="">
+    <link id="manifest" rel="manifest" href="">
+    <link id="safari" rel="mask-icon" href="" color="#545454">
+    <meta id="config" name="msapplication-config" content="">
+    <link id="shortcut" rel="shortcut icon" type="image/png" href="" />
+    <!-- CDN Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/app.css" />
     <link type="text/css" rel="stylesheet" href="/static/css/swagger-ui.css"/>
     <style>
-    .swagger-ui .info{
-      padding-top: 100px;
-      margin: auto;
-      text-align: center;
-    }
+      .svg-assets{
+        display: none;
+      }
     </style>
   </head>
-    <header>
-      <nav id="nav" class="navbar navbar-dark fixed-top">
-        <a class="navbar-item nav-link logoFont text-light" href="/">
-          <span class="d-none d-md-block">My<span class="text-main">Gene</span>.info</span>
-          <i class="fas fa-home d-block d-md-none"></i>
-        </a>
-      </nav>
-    </header>
-    <body>
+    <body id="tryit">
+      <header>
+        <nav id="nav" class="navbar navbar-dark bg-dark p-2">
+          <a class="navbar-item nav-link logoFont text-light" href="/">
+            <span id="logo"></span>
+          </a>
+        </nav>
+      </header>
       <div id="swagger-ui"></div>
+      <footer id="footer" class="bg-dark p-1" style="bottom:0;">
+        <div class="copyright text-center text-muted">
+          <ul class="noListStyle listBlock">
+            <li>
+              <a id="rss" class="link text-light" href="" target="_blank">
+                <i class="fas fa-rss fa-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a id="twitter" class="link text-light" href="" target="_blank">
+                <i class="fab fa-twitter fa-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a id="github" class="link text-light" href="" target="_blank">
+                <i class="fab fa-github-alt fa-2x"></i>
+              </a>
+            </li>
+          </ul>
+          <hr />
+          <p class="smallFont">
+            All content copyright <a id="docs" href="" class="link text-light"></a> © <span id="year"></span>  <br /> All rights reserved.
+            <a href="/terms" class="link text-blue">Terms of use. </a>
+            <a href="/citation/" class="link text-blue">How To Cite</a>
+          </p>
+        </div>
+      </footer>
     </body>
-    <footer id="footer" class="bg-dark" style="bottom:0; padding: none !important;">
-      <div class="copyright text-center text-muted">
-        <ul class="noListStyle listBlock">
-          <li>
-            <a class="link text-blue" href="http://mygene.info/rss/" target="_blank">
-              <i class="fas fa-rss fa-2x"></i>
-            </a>
-          </li>
-          <li>
-            <a class="link text-blue" href="http://twitter.com/mygeneinfo" target="_blank">
-              <i class="fab fa-twitter fa-2x"></i>
-            </a>
-          </li>
-          <li>
-            <a class="link text-blue" href="https://github.com/biothings/mygene.info" target="_blank">
-              <i class="fab fa-github-alt fa-2x"></i>
-            </a>
-          </li>
-        </ul>
-        <hr />
-        <p class="smallFont">
-          All content copyright <a href="http://mygene.info/" class="link text-blue">MyGene.info</a> © <span id="year"></span>  <br /> All rights reserved.
-          <a href="/terms" class="link text-blue">Terms of use. </a>
-          <a href="/citation/" class="link text-blue">How To Cite</a>
-        </p>
-      </div>
-    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.43.0/swagger-ui-bundle.js" integrity="sha256-2pA2pa1BY6+FvXEF8lzpX57QcWSOe2Bj5YXGa/+AWWs=" crossorigin="anonymous"></script>
     <script>
     var currentTime = new Date()
     var year = currentTime.getFullYear()
     var myelement = document.getElementById("year");
         myelement.innerHTML= year;
-      // Plug-in to hide empty tags in Swagger UI
-      const HideEmptyTagsPlugin = () => {
-        return {
-          statePlugins: {
-            spec: {
-              wrapSelectors: {
-                taggedOperations: (ori) => (...args) => {
-                  return ori(...args)
-                    .filter(tagMeta => tagMeta.get("operations") && tagMeta.get("operations").size > 0)
+
+    let settings = {
+      sn:'',
+      metaID:'',
+      siteDescription:'',
+      featured:'',
+      url :'',
+      shortname:''
+    }
+
+    function setDefaults(sitename){
+
+      switch (sitename) {
+        case "mygene.info":
+          settings.sn = 'MyGene.info'
+          settings.shortname = 'mygene'
+          settings.metaID = '59dce17363dce279d389100834e43648'
+          settings.siteDescription = "Gene Annotation as a Service"
+          settings.featured = 'https://i.postimg.cc/jSCHpMfp/mg.jpg'
+          settings.url = 'http://MyGene.info'
+          break;
+        case "mychem.info":
+          settings.metaID = '8f08d1446e0bb9c2b323713ce83e2bd3'
+          settings.sn = 'MyChem.info'
+          settings.shortname = 'mychem'
+          settings.siteDescription = "Chemical and Drug Annotation as a Service"
+          settings.featured = 'https://i.postimg.cc/ZK5pNwwW/mc.jpg'
+          settings.url = 'http://MyChem.info'
+          break;
+        case "myvariant.info":
+          settings.metaID = '09c8782d9f4027712e65b95424adba79'
+          settings.sn = 'MyVariant.info'
+          settings.shortname = 'myvariant'
+          settings.siteDescription = "Variant Annotation as a Service"
+          settings.featured = "https://i.postimg.cc/MHdB4BpZ/mv.jpg"
+          settings.url = 'http://MyVariant.info'
+          break;
+        case "mydisease.info":
+          settings.sn = 'MyDisease.info'
+          settings.shortname = 'mydisease'
+          settings.metaID = '671b45c0301c8624abbd26ae78449ca2'
+          settings.siteDescription = "Disease Annotation as a Service"
+          settings.featured = 'https://i.postimg.cc/vmfVykZN/md.jpg'
+          settings.url = 'http://MyDisease.info'
+          break;
+        default:
+          console.log('default')
+          settings.sn = 'MyGene.info'
+          settings.shortname = 'mygene'
+          settings.metaID = '59dce17363dce279d389100834e43648'
+          settings.siteDescription = "Gene Annotation as a Service"
+          settings.featured = 'https://i.postimg.cc/jSCHpMfp/mg.jpg'
+          settings.url = 'http://MyGene.info'
+      }
+    }
+
+    function initUI(){
+            // Plug-in to hide empty tags in Swagger UI
+            const HideEmptyTagsPlugin = () => {
+              return {
+                statePlugins: {
+                  spec: {
+                    wrapSelectors: {
+                      taggedOperations: (ori) => (...args) => {
+                        return ori(...args)
+                          .filter(tagMeta => tagMeta.get("operations") && tagMeta.get("operations").size > 0)
+                      }
+                    }
+                  }
                 }
               }
-            }
-          }
-        }
-      };
+            };
 
-      // SwaggerUI Bundle
-      const ui = SwaggerUIBundle({
-        url: "https://smart-api.info/api/metadata/59dce17363dce279d389100834e43648?format=yaml",
-        dom_id: '#swagger-ui',
-        deepLinking: true,
-        presets: [
-          SwaggerUIBundle.presets.apis,
-          // SwaggerUIStandalonePreset
-          // disables TopBar
-        ],
-        plugins: [
-          SwaggerUIBundle.plugins.DownloadUrl,
-          // plug-in to hide empty tags
-          HideEmptyTagsPlugin
-        ],
-        // layout: "StandaloneLayout"
-        // disables TopBar
-      })
-      window.ui = ui;
+            // SwaggerUI Bundle
+            const ui = SwaggerUIBundle({
+              url: "https://smart-api.info/api/metadata/"+settings.metaID+"?format=yaml",
+              dom_id: '#swagger-ui',
+              deepLinking: true,
+              presets: [
+                SwaggerUIBundle.presets.apis,
+              ],
+              plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl,
+                HideEmptyTagsPlugin
+              ],
+            })
+            window.ui = ui;
+    }
+
+    function setTags(){
+      document.getElementById("title").innerHTML = settings.sn
+      document.getElementById("logo").innerHTML = settings.sn
+      document.getElementById("featured").setAttribute("content", settings.featured)
+      document.getElementById("desc").setAttribute("content", settings.siteDescription)
+      document.getElementById("tdesc").setAttribute("content", settings.siteDescription)
+      document.getElementById("ogdesc").setAttribute("content", settings.siteDescription)
+      document.getElementById("ttitle").setAttribute("content", settings.siteDescription)
+      document.getElementById("ogtitle").setAttribute("content", settings.siteDescription)
+      document.getElementById("ogurl").setAttribute("content", settings.url)
+      document.getElementById("url").setAttribute("content", settings.url)
+      document.getElementById("turl").setAttribute("content", settings.url)
+      //images
+      document.getElementById('appletouch').setAttribute('href', `/static/img/${settings.sn}/apple-touch-icon.png`)
+      document.getElementById('appletouch2').setAttribute('href', `/static/img/${settings.sn}/apple-touch-icon.png`)
+      document.getElementById('manifest').setAttribute('href', `/static/img/${settings.sn}/site.webmanifest`)
+      document.getElementById('safari').setAttribute('href', `/static/img/${settings.sn}/safari-pinned-tab.svg`)
+      document.getElementById('config').setAttribute('content', `/static/img/${settings.sn}/browserconfig.xml`)
+      document.getElementById('shortcut').setAttribute('href', `/static/img/${settings.sn}/favicon.png`)
+      //social
+      document.getElementById('rss').setAttribute('href', `http://${settings.shortname}.info/rss/`)
+      document.getElementById('twitter').setAttribute('href', `http://twitter.com/${settings.shortname}info`)
+      document.getElementById('github').setAttribute('href', `https://github.com/biothings/${settings.shortname}.info`)
+      document.getElementById('docs').setAttribute('href', `http:///${settings.shortname}.info/`)
+      document.getElementById('docs').innerHTML = settings.sn
+
+    }
+
+    setDefaults(window.location.hostname.toLowerCase());
+    initUI();
+    setTags();
     </script>
   </body>
 </html>
