@@ -2400,6 +2400,9 @@ select {
           if(uptime < 90){
             ring_tick.style.fill = '#f8622c';
           }
+          if(uptime == 0){
+            ring_tick.style.fill = '#404242';
+          }
         }else{
           ring_tick.style.fill = '#404242';
         }
