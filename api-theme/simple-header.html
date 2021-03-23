@@ -205,7 +205,7 @@
         </ul>
       </div>
       <div class="modal-footer text-light no-border bg-main-medium">
-        <small>Need Help? <a href="/#need-help">Click Here</a></small>
+        <small>Need Help? <a class="text-warning font-weight-bold" @click="closeModal" href="/#need-help">Click Here</a></small>
       </div>
     </div>
   </div>
@@ -230,6 +230,11 @@ var app = new Vue({
       imglink:'',
       mainClss:'',
       logoImg :''
+    }
+  },
+  methods:{
+    closeModal(){
+      $('#exampleModal').modal('hide')
     }
   },
   mounted:function(){
