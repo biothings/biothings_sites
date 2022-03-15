@@ -1296,7 +1296,7 @@ select {
             console.warn('No requests in 30 days for API')
         }
         axios.get(url).then(result => {
-          var sessionsCount = result.data.totalsForAllResults['ga:sessions'];
+          var sessionsCount = result.data.totalsForAllResults['ga:pageviews'];
           var options = {
             useEasing: true,
             useGrouping: true,

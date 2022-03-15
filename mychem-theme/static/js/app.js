@@ -21,7 +21,7 @@ var variantURL = 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfm
 var myChemURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
 // render api stats and count up to result
 $.ajax({url: myChemURL, success:function(result){
-    var sessionsCount = result.totalsForAllResults['ga:sessions'];
+    var sessionsCount = result.totalsForAllResults['ga:pageviews'];
     var options = {
       useEasing: true,
       useGrouping: true,
