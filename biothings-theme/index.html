@@ -468,47 +468,65 @@
 								})
 							},
 							getRequests(){
-								var self = this;
-			          var geneURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
-			          var variantURL = 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
-			          var myChemURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
+							var self = this;
+							var geneURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
+							var variantURL = 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
+							var myChemURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
+							let diseaseURL ='https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDcytqNCgw'
 
-			          axios.get(geneURL).then(result=>{
-								 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
-			           self.total += number;
-								 self.requests.push({'name':'MyGene.info','logo':"/static/img/mygene-logo-md.png",'total':number,'link':"https://mygene.info/"});
-								 axios.get(variantURL).then(result=>{
-									 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
-				           self.total += number;
-									 self.requests.push({'name':'MyVariant.info','logo':"/static/img/myvariant-logo-md.png",'total':number,'link':"https://myvariant.info/"});
-									 axios.get(myChemURL).then(result=>{
-										 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
-					           self.total += number;
-										 self.requests.push({'name':'MyChem.info','logo':"/static/img/mychem-logo-md.png",'total':number,'link':"https://mychem.info/"});
-			 								var options = {
-			 								  useEasing: true,
-			 								  useGrouping: true,
-			 								  separator: ',',
-			 								  decimal: '.',
-			 								};
-			 								var demo = new CountUp('testNum', 0, self.total, 0, 2.5, options);
-			 								if (!demo.error) {
-			 										demo.start();
-			 								} else {
-			 										console.error(demo.error);
-			 								}
-		 			          }).catch(err=>{
-		 			              throw err;
-		 			          });
-	 			          }).catch(err=>{
-	 			              throw err;
-	 			          });
-			          }).catch(err=>{
-			              throw err;
-			          });
+							axios.get(geneURL).then(result=>{
+										let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
+							self.total += number;
+										self.requests.push({'name':'MyGene.info','logo':"/static/img/mygene-logo-md.png",'total':number,'link':"https://mygene.info/"});
+										axios.get(variantURL).then(result=>{
+											let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
+								self.total += number;
+											self.requests.push({'name':'MyVariant.info','logo':"/static/img/myvariant-logo-md.png",'total':number,'link':"https://myvariant.info/"});
+											axios.get(myChemURL).then(result=>{
+												let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
+												self.total += number;
+												self.requests.push({'name':'MyChem.info','logo':"/static/img/mychem-logo-md.png",'total':number,'link':"https://mychem.info/"});
+												axios.get(diseaseURL).then(result => {
+													let number = parseInt(result.data.totalsForAllResults[
+														'ga:pageviews']);
+													self.total += number;
+													self.requests.push({
+														'name': 'MyDisease.info',
+														'logo': "/static/img/mydisease-logo-md.png",
+														'total': number,
+														'link': "https://mydisease.info/"
+													});
+
+													// Display final
+													var options = {
+														useEasing: true,
+														useGrouping: true,
+														separator: ',',
+														decimal: '.',
+													};
+													var demo = new CountUp('testNum', 0, self.total, 0, 2.5,
+														options);
+													if (!demo.error) {
+														demo.start();
+													} else {
+														console.error(demo.error);
+													}
+													
+												}).catch(err => {
+													throw err;
+												});
+									}).catch(err=>{
+										throw err;
+									});
+								}).catch(err=>{
+									throw err;
+								});
+							}).catch(err=>{
+								throw err;
+							});
 
 
-			        },
+							},
 						},
 						mounted:function(){
 
@@ -565,6 +583,9 @@
 												</li>
 												<li class="list-group-item list-group-item-dark font-weight-bold">
 													<a target="_blank" href="https://myChem.info/">MyChem.info</a>
+												</li>
+												<li class="list-group-item list-group-item-dark font-weight-bold">
+													<a target="_blank" href="https://myDisease.info/">MyDisease.info</a>
 												</li>
 											</ul>
 											</div>`)
