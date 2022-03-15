@@ -474,15 +474,15 @@
 			          var myChemURL= 'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
 
 			          axios.get(geneURL).then(result=>{
-								 let number =parseInt(result.data.totalsForAllResults['ga:sessions']);
+								 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
 			           self.total += number;
 								 self.requests.push({'name':'MyGene.info','logo':"/static/img/mygene-logo-md.png",'total':number,'link':"https://mygene.info/"});
 								 axios.get(variantURL).then(result=>{
-									 let number =parseInt(result.data.totalsForAllResults['ga:sessions']);
+									 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
 				           self.total += number;
 									 self.requests.push({'name':'MyVariant.info','logo':"/static/img/myvariant-logo-md.png",'total':number,'link':"https://myvariant.info/"});
 									 axios.get(myChemURL).then(result=>{
-										 let number =parseInt(result.data.totalsForAllResults['ga:sessions']);
+										 let number =parseInt(result.data.totalsForAllResults['ga:pageviews']);
 					           self.total += number;
 										 self.requests.push({'name':'MyChem.info','logo':"/static/img/mychem-logo-md.png",'total':number,'link':"https://mychem.info/"});
 			 								var options = {
