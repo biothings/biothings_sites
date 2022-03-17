@@ -2554,7 +2554,7 @@ select {
             self.lastUpdatedLink = '/v3/metadata';
             self.ghLink = "https://github.com/biothings/mygene.info/issues"
             self.docsLink = 'https://docs.mygene.info/en/latest/index.html';
-            self.uptimeLink = 'https://stats.uptimerobot.com/7y2AFWAE';
+            self.uptimeLink = 'https://status.mygene.info/';
             self.twitterLink = "https://twitter.com/MyGeneInfo?ref_src=twsrc%5Etfw"
             self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mygene"
             self.smallScreenLogo = "/static/img/mygene-logo.svg"
@@ -2570,7 +2570,7 @@ select {
           case "MyChem.info":
             ltag.setAttribute('href', "/static/css/chem.css");
             document.head.appendChild(ltag);
-            self.show30days = false;
+            self.show30days = true;
             self.colors['dark'] = "#CC6633";
             self.colors["medium"] = "#FD7400";
             self.colors["light"] = "#FF8E39";
@@ -2580,7 +2580,11 @@ select {
               },
               {
                 'description': 'Retrieving chemical/drug by DrugBank id',
-                'query': '//mychem.info/v1/chem/DB00551'
+                'query': '//mychem.info/v1/query?q=unichem.drugbank:DB00551'
+              },
+              {
+                'description': 'Retrieving chemical/drug by PubChem CID',
+                'query': '//mychem.info/v1/chem/929542'
               },
               {
                 'description': 'Retrieving chemical/drug by ChEMBL Compound id',
@@ -2595,12 +2599,12 @@ select {
                 'query': '//mychem.info/v1/chem/CHEBI:6431'
               },
               {
-                'description': 'Retrieving Drug by name',
-                'query': '//mychem.info/v1/query?q=drugbank.name:monobenzone'
+                'description': 'Retrieving drug by name',
+                'query': '//mychem.info/v1/query?q=monobenzone'
               },
               {
                 'description': 'Retrieve chemicals/drugs targeting protein P24942(uniprot id)',
-                'query': '//mychem.info/v1/query?q=drugbank.targets.uniprot:P34981'
+                'query': '//mychem.info/v1/query?q=drugcentral.bioactivity.uniprot.uniprot_id:P34981'
               },
               {
                 'description': 'Retrieve chemicals/drugs having indication C0419527 (UMLS CUI)',
@@ -2628,7 +2632,7 @@ select {
             self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=mychem"
             self.smallScreenLogo = "/static/img/mychem-logo.svg"
             self.docsLink = 'https://docs.mychem.info/en/latest/index.html';
-            self.uptimeLink = 'https://stats.uptimerobot.com/QKBOh5WJ';
+            self.uptimeLink = 'https://status.mychem.info/';
             self.postQueryInfoLink =
               "http://docs.mychem.info/en/latest/doc/chem_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = false;
@@ -2724,7 +2728,7 @@ select {
             self.biostarsLink = "https://www.biostars.org/p/new/post/?tag_val=myvariant"
             self.smallScreenLogo = "/static/img/myvariant-logo.svg"
             self.docsLink = 'https://docs.myvariant.info/en/latest/index.html';
-            self.uptimeLink = 'https://stats.uptimerobot.com/polzSx91';
+            self.uptimeLink = 'https://status.myvariant.info/';
             self.postQueryInfoLink =
               "http://docs.myvariant.info/en/latest/doc/variant_query_service.html#batch-queries-via-post"
             self.showWhoIsUsing = true;
