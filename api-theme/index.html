@@ -310,8 +310,8 @@ select {
       </section>
 
       <!-- 3D boxes-->
-      <div class="bg-dark">
-        <section id="box3d" class="w-100 row m-0 p-1 d-flex justify-content-between align-items-center"
+      <div id="box3d">
+        <section  class="w-100 row m-0 p-1 d-flex justify-content-between align-items-center container m-auto"
           style="min-height:70vh;">
           <div class="col-sm-12 col-md-6 col-lg-6 p-4 text-center text-light">
             <canvas id="power" width="200" height="300"></canvas>
@@ -463,6 +463,15 @@ select {
         <a href="/blog" class="btn btn-outline-light">More&nbspNews</a>
       </div>
     </section>
+  </section>
+
+  <section class="text-main p-5 text-center bg-dark">
+    <p class="p-2">
+      <b class="text-light">Funding:</b> This work was supported by the <a href="https://www.nih.gov/" target="_blank">US National Institute of Health</a> [OT2TR003445 to C.W., R01GM083924 to A.I.S. and C.W.]. 
+    </p>
+    <p>
+        The funders had no role in study design, data collection and analysis, decision to publish or preparation of the manuscript.
+    </p>
   </section>
 
   <section class="text-light p-5 text-center bg-main-medium">
@@ -2369,11 +2378,11 @@ select {
 
             if (isBeforeToday) {
               axios.get(url).then(res => {
-              let uptime = res.data.percentage;
-              self.colorRingTick("#day-"+d_number, uptime, date_tip); 
-              }).catch(err => {
-                console.warn('date failed for '+url)
-              });
+                  let uptime = res.data.percentage;
+                  self.colorRingTick("#day-"+d_number, uptime, date_tip); 
+                }).catch(err => {
+                  console.warn('date failed for '+url)
+                });
             }else{
               self.colorRingTick("#day-"+d_number, false, date_tip); 
             }
