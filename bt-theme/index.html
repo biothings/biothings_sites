@@ -131,6 +131,18 @@
 						</div>
 					</div>
 				</div>
+				<div class="card-group d-flex justify-content-around align-items-center card align-self-stretch mb-5 no-border mt-3">
+					<div class="card m-1" style="background-color: #114068;">
+						<div class="card-body logoFont text-muted" id="outbreakapi">
+							<img src="/static/img/outbreak.svg" alt="logo" class="mt-3" width="350px" />
+							<h5 class="card-title logoFont text-light">Outbreak.info</h5>
+							<p class="card-text p-1 text-light">A standardized, open-source database of COVID-19 resources and epidemiology data.</p>
+							<a target="_blank" href="https://outbreak.info/"
+								class="btn btn-outline-secondary btn-lg font-weight-bold mb-2">Try&nbsp;It <i
+									class="fas fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -441,6 +453,7 @@
 				box6: null,
 				box7: null,
 				total: 0,
+				kibanaTotals:{},
 				requests: [],
 				background: '',
 				showContributeDetails: false,
@@ -621,7 +634,33 @@
 					html: info.description
 				})
 			},
-			getRequests() {
+			getRequests(){
+				let url = 'https://biothings-data.s3.us-west-2.amazonaws.com/stats/biothings_30day_usage.json'
+
+				axios.get(url).then(result => {
+				var sessionsCount = 0 ;
+				this.kibanaTotals = result.data;
+				Object.keys(result.data).forEach((api_name) => sessionsCount += result.data[api_name].no_of_requests);
+				this.total = sessionsCount;
+				if(sessionsCount){
+					var options = {
+					useEasing: true,
+					useGrouping: true,
+					separator: ',',
+					decimal: '.',
+					};
+					var demo = new CountUp('testNum', 0, sessionsCount, 0, 2.5, options);
+					if (!demo.error) {
+					demo.start();
+					} else {
+					console.error(demo.error);
+					}
+				}
+				}).catch(err => {
+				throw err;
+				});
+			},
+			getRequests_GoogleAnalytics() {
 				var self = this;
 				var geneURL =
 					'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
@@ -2703,34 +2742,28 @@
 					function numberWithCommas(x) {
 					    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 					}
-					for (var i = 0; i < self.requests.length; i++) {
+					// for (var i = 0; i < self.requests.length; i++) {
+					// 	html += `<tr>
+					// 	<td>
+					// 		<img width="20px" src="`+self.requests[i]['logo']+`" alt="`+self.requests[i]['name']+`"/>
+					// 		<a class="text-light link font-weight-bold" target="_blank" href="`+self.requests[i]['link']+`">`+self.requests[i]['name']+`</a>
+					// 	</td>
+					// 	<td>
+					// 		<span class="text-main font-weight-bold">`+numberWithCommas(self.requests[i]['total'])+`</span>
+					// 	</td>
+					// 	</tr>`
+					// }
+					Object.keys(self.kibanaTotals).forEach((api_name) => {
 						html += `<tr>
+						<td class="text-light link font-weight-bold">`+api_name+`</td>
 						<td>
-							<img width="20px" src="`+self.requests[i]['logo']+`" alt="`+self.requests[i]['name']+`"/>
-							<a class="text-light link font-weight-bold" target="_blank" href="`+self.requests[i]['link']+`">`+self.requests[i]['name']+`</a>
-						</td>
-						<td>
-							<span class="text-main font-weight-bold">`+numberWithCommas(self.requests[i]['total'])+`</span>
+							<span class="text-main font-weight-bold">`+numberWithCommas(self.kibanaTotals[api_name]['no_of_requests'])+`</span>
 						</td>
 						</tr>`
-					}
+					});
+					
 					html +="	</tbody></table></div>"
 					instance.setContent(html)
-
-					// instance.setContent(`<div class="p-2">
-					// 	<h5 class="text-main font-weight-bold">Totals combined from:</h5>
-					// 	<ul style="list-style:none;" class="m-auto p-0">
-					// 		<li class="font-weight-bold text-dark">
-					// 			<a target="_blank" href="https://myGene.info/">MyGene.info</a>
-					// 		</li>
-					// 		<li class="font-weight-bold text-dark">
-					// 			<a target="_blank" href="https://myVariant.info/">MyVariant.info</a>
-					// 		</li>
-					// 		<li class="font-weight-bold text-dark">
-					// 			<a target="_blank" href="https://myChem.info/">MyChem.info</a>
-					// 		</li>
-					// 	</ul>
-					// 	</div>`)
 				}
 			});
 		}

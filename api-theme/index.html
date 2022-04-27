@@ -1287,7 +1287,7 @@ select {
 
         animate();
       },
-      getRequests(name) {
+      getRequests_GoogleAnalytics(name) {
         var geneURL =
           'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
         var variantURL =
@@ -1327,6 +1327,32 @@ select {
             demo.start();
           } else {
             console.error(demo.error);
+          }
+        }).catch(err => {
+          throw err;
+        });
+      },
+      getRequests(name) {
+        
+        let url = 'https://biothings-data.s3.us-west-2.amazonaws.com/stats/biothings_30day_usage.json'
+
+        axios.get(url).then(result => {
+          var sessionsCount = Object.hasOwnProperty.call(result.data, name.toLowerCase()) ? 
+          result.data[name.toLowerCase()].no_of_requests : false;
+
+          if(sessionsCount){
+            var options = {
+              useEasing: true,
+              useGrouping: true,
+              separator: ',',
+              decimal: '.',
+            };
+            var demo = new CountUp('testNum', 0, sessionsCount, 0, 2.5, options);
+            if (!demo.error) {
+              demo.start();
+            } else {
+              console.error(demo.error);
+            }
           }
         }).catch(err => {
           throw err;
