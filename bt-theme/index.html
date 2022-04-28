@@ -96,9 +96,10 @@
 						alt="API">
 					<!-- <canvas class="apicanvas" width="250" height="250" style="max-width:250px !important;max-height:250px !important;"></canvas> -->
 					<div class="alert m-auto rounded infoBox" :class="info?'alert-light':'text-muted'" id="apis">
-						<h2 :class="textclss" class="text-center logoFont">
-							<span v-text="hovered"></span>
-						</h2>
+						
+						<a v-if="info" :href="info.website" target="_blank" rel="noreferrer" :class="textclss">
+							<h2 :class="textclss" class="text-center logoFont" v-text="hovered"></h2>
+						</a>
 						<div>
 							<template v-if="info">
 								<h4 class="text-dark">
@@ -130,14 +131,12 @@
 									class="fas fa-chevron-right"></i></a>
 						</div>
 					</div>
-				</div>
-				<div class="card-group d-flex justify-content-around align-items-center card align-self-stretch mb-5 no-border mt-3">
 					<div class="card m-1" style="background-color: #114068;">
 						<div class="card-body logoFont text-muted" id="outbreakapi">
 							<img src="/static/img/outbreak.svg" alt="logo" class="mt-3" width="350px" />
 							<h5 class="card-title logoFont text-light">Outbreak.info</h5>
 							<p class="card-text p-1 text-light">A standardized, open-source database of COVID-19 resources and epidemiology data.</p>
-							<a target="_blank" href="https://outbreak.info/"
+							<a target="_blank" href="https://api.outbreak.info/"
 								class="btn btn-outline-secondary btn-lg font-weight-bold mb-2">Try&nbsp;It <i
 									class="fas fa-chevron-right"></i></a>
 						</div>
@@ -340,7 +339,7 @@
 						data-aos="fade-in" data-aos-delay="0">
 						<div class="card-block">
 							<article class="card-body">
-								<a href="/blog/{{post.slug}}">
+								<a href="/blog/{{post.slug}}" style="pointer-events: all;">
 									<h4 class="card-title">{{post.title}}</h4>
 								</a>
 								<p class="card-text">{{post.html|striptags|truncate(100)}}</p>
@@ -2738,7 +2737,7 @@
 				theme: 'light',
 				trigger: 'click',
 				onShow(instance) {
-					let html ="<div class='text-light m-0 p-1'><table class='m-0'><tbody>";
+					let html ="<div class='text-light m-0 p-1'><table class='m-0 text-left'><tbody>";
 					function numberWithCommas(x) {
 					    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 					}
@@ -2755,7 +2754,7 @@
 					// }
 					Object.keys(self.kibanaTotals).forEach((api_name) => {
 						html += `<tr>
-						<td class="text-light link font-weight-bold">`+api_name+`</td>
+						<td class="font-weight-bold"><a class="text-light link" target="_blank" href="https://` + api_name + `">` + api_name + `</a></td>
 						<td>
 							<span class="text-main font-weight-bold">`+numberWithCommas(self.kibanaTotals[api_name]['no_of_requests'])+`</span>
 						</td>
