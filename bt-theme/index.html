@@ -643,12 +643,18 @@
 					html: info.description
 				})
 			},
+			sortByRequests(data) {
+				return Object.fromEntries(
+					Object.entries(data)
+						.sort(([, a], [, b]) => b.no_of_requests - a.no_of_requests)
+				);
+			},
 			getRequests(){
 				let url = 'https://biothings-data.s3.us-west-2.amazonaws.com/stats/biothings_30day_usage.json'
 
 				axios.get(url).then(result => {
 				var sessionsCount = 0 ;
-				this.kibanaTotals = result.data;
+				this.kibanaTotals = this.sortByRequests(result.data);
 				Object.keys(result.data).forEach((api_name) => sessionsCount += result.data[api_name].no_of_requests);
 				this.total = sessionsCount;
 				if(sessionsCount){
