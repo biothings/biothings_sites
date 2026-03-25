@@ -422,7 +422,7 @@ select {
     </div>
   </section>
 
-  <section>
+  <section v-if="showNews">
     <section id="four" class="main accent carbonfiber mb-5">
       <a name="news"></a>
       <header id="news" class="text-center pt-5">
@@ -491,28 +491,24 @@ select {
     </p>
   </section>
 
-  <section id="need-help" class="text-light p-5 text-center bg-main-dark">
+  <section id="need-help" class="text-light p-5 text-center carbonfiber">
     <h1 class="text-light anchorLink text-center m-0">HELP <a style="font-size:small !important;opacity:0;"
         href="#need-help" class="copyLink" @click.prevent="copyClipboard(window.location.href+'#'+'need-help')"><i class="fas fa-tiny fa-link text-light"></i></a></h1>
-    <object class="col-sm-12 col-md-3" data="/static/img/help-new-01.svg"></object>
     <div class="d-flex justify-content-center flex-wrap">
       <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="100">
-        <h1 class="m-0 text-main"><i class="fa fa-envelope" aria-hidden="true"></i></h1>
         <h5 class="card-title text-muted">EMAIL</h5>
         <h6 class="card-subtitle mb-2 text-muted">
           <a class="" href='mailto:biothings@googlegroups.com'>biothings@googlegroups.com</a>
         </h6>
       </div>
       <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="200">
-        <h1 class="m-0 text-main"><i class="fab fa-github-alt" aria-hidden="true"></i></h1>
         <h5 class="card-title text-muted">GITHUB</h5>
         <h6 class="card-subtitle mb-2 text-muted">
           <a class="github-button" :href="ghLink" aria-label="Issue on GitHub">Issue</a>
         </h6>
       </div>
       <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="300">
-        <h1 class="m-0 text-main"><i class="fab fa-twitter" aria-hidden="true"></i></h1>
-        <h5 class="card-title text-muted">TWITTER</h5>
+        <h5 class="card-title text-muted">X</h5>
         <h6 class="card-subtitle mb-2 text-muted">
           <a :href="twitterLink" class="twitter-follow-button" data-show-screen-name="false"
             data-show-count="false">Follow Us</a>
@@ -520,7 +516,6 @@ select {
         </h6>
       </div>
       <div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="400">
-        <h1 class="m-0 text-main"><i class="fa fa-star" aria-hidden="true"></i></h1>
         <h5 class="card-title text-muted">BIOSTARS</h5>
         <h6 class="card-subtitle mb-2 text-muted">
           Post on <a target="_blank" :href="biostarsLink">BioStars.org</a> with tag <b class="text-main">#my<span
@@ -634,7 +629,7 @@ select {
         lastUpdated: 'Checking...',
         lastUpdatedURL: '',
         siteDescription: '',
-        sources: '30',
+        sources: '',
         html: '',
         uptimeParts: [],
         uptimeWeek: [],
@@ -669,7 +664,8 @@ select {
         ],
         years: [],
         monthSelected:'',
-        yearSelected:''
+        yearSelected:'',
+        showNews: false,
       }
     },
     watch: {
@@ -1160,6 +1156,105 @@ select {
               bottomFace: '#808080', //GREY
             });
             break;
+          case 'mt':
+            // CENTER
+            let mtbox = new Zdog.Box({
+              addTo: anchor,
+              width: 100,
+              height: 100,
+              depth: 100,
+              stroke: true,
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+              rotate: {
+                x: -.5,
+                y: -.8
+              }
+            });
+
+            // BOTTOM
+            mtbox.copy({
+              translate: {
+                x: 140
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            //  LEFT BOTTOM
+            mtbox.copy({
+              translate: {
+                x: 70,
+                y: 120,
+                z: 10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+            });
+
+            // LEFT TOP
+            mtbox.copy({
+              translate: {
+                x: -70,
+                y: 120,
+                z: 10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            // RIGHT TOP
+            mtbox.copy({
+              translate: {
+                x: -70,
+                y: -120,
+                z: -10
+              },
+              color: self.colors['dark'], //dark
+              leftFace: self.colors['medium'], //medium
+              rightFace: self.colors['dark'], //dark
+              topFace: self.colors['light'], //light
+              bottomFace: self.colors['dark'], //dark
+            });
+
+            mtbox.copy({
+              translate: {
+                x: 70,
+                y: -120,
+                z: -10
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+            });
+
+            mtbox.copy({
+              translate: {
+                x: -140,
+                y: 0,
+                z: 0
+              },
+              color: '#808080', //GREY
+              leftFace: '#B3B3B3', //GREY
+              rightFace: '#808080', //GREY
+              topFace: '#E6E6E6', //GREY
+              bottomFace: '#808080', //GREY
+            });
+            break;
           default:
             let box = new Zdog.Box({
               addTo: anchor,
@@ -1287,51 +1382,6 @@ select {
 
         animate();
       },
-      getRequests_GoogleAnalytics(name) {
-        var geneURL =
-          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICAgICACgw';
-        var variantURL =
-          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA-MKECgw';
-        var myChemURL =
-          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgICA2uOGCgw';
-        let diseaseURL =
-          'https://gasuperproxy-1470690417190.appspot.com/query?id=ahxzfmdhc3VwZXJwcm94eS0xNDcwNjkwNDE3MTkwchULEghBcGlRdWVyeRiAgIDcytqNCgw'
-
-        switch (name) {
-          case "MyGene.info":
-            url = geneURL;
-            break;
-          case "MyVariant.info":
-            url = variantURL;
-            break;
-          case "MyChem.info":
-            url = myChemURL;
-            break;
-          case "MyDisease.info":
-            url = diseaseURL;
-            break;
-          default:
-            // url = geneURL;
-            console.warn('No requests in 30 days for API')
-        }
-        axios.get(url).then(result => {
-          var sessionsCount = result.data.totalsForAllResults['ga:pageviews'];
-          var options = {
-            useEasing: true,
-            useGrouping: true,
-            separator: ',',
-            decimal: '.',
-          };
-          var demo = new CountUp('testNum', 0, sessionsCount, 0, 2.5, options);
-          if (!demo.error) {
-            demo.start();
-          } else {
-            console.error(demo.error);
-          }
-        }).catch(err => {
-          throw err;
-        });
-      },
       getRequests(name) {
         
         let url = 'https://biothings-data.s3.us-west-2.amazonaws.com/stats/biothings_30day_usage.json'
@@ -1373,6 +1423,9 @@ select {
             break;
           case "MyDisease.info":
             urlLU = '//mydisease.info/v1/metadata';
+            break;
+          case "MyTaxon.info":
+            urlLU = '//mytaxon.info/v1/metadata';
             break;
           default:
             console.warn('No last updated date for API')
@@ -1425,6 +1478,7 @@ select {
         let mygene = 'm142169-2fd3ec3375da41d76e77d604';
         let mychem = 'm780201416-03e5f5583f5e9a0cd392c68c';
         let mydisease = 'm785741967-debdabdf54bb62d45f31d16c'
+        let mytaxon = "m800960827-d413403d41c9540787b40d81"
         let k = '';
 
         switch (name) {
@@ -1440,6 +1494,8 @@ select {
           case "MyDisease.info":
             k = mydisease;
             break;
+          case "MyTaxon.info":
+            k = mytaxon;
           default:
             // k = mygene;
             console.warn("No Uptime API Key matched with name")
@@ -2834,6 +2890,61 @@ select {
             self.showWhoIsUsing = false;
             self.startAnimation('md');
             document.getElementById('box3d').classList.add('blackTransBack-purple');
+            break;
+          case "MyTaxon.info":
+            ltag.setAttribute('href', "/static/css/taxon.css");
+            document.head.appendChild(ltag);
+            self.colors['dark'] = "#1d16a6";
+            self.colors["medium"] = "#5046e4";
+            self.colors["light"] = "#817df0";
+            self.apiExmaples = [{
+                'description': 'Retrieving by taxon id',
+                'query': '//t.biothings.io/v1/taxon/9606'
+              },
+              {
+                'description': 'Retrieve all taxa with rank "species"',
+                'query': '//t.biothings.io/v1/query?q=rank:species'
+              },
+              {
+                'description': 'Retrieve all taxa with lineage containing "9606" (human)',
+                'query': '//t.biothings.io/v1/query?q=lineage:9606'
+              },
+              {
+                'description': 'Retrieve all taxa with parent taxon "9606" (human)',
+                'query': '//t.biothings.io/v1/query?q=parent_taxid:9606'
+              },
+              {
+                'description': 'Retrieve by Taxon ID',
+                'query': '//t.biothings.io/v1/query?q=taxid:63221'
+              },
+              {
+                'description': 'Get the list of all fields',
+                'query': '//t.biothings.io/v1/metadata/fields'
+              },
+              {
+                'description': 'Get data source metadata',
+                'query': '//t.biothings.io/v1/metadata'
+              },
+            ]
+            self.siteDescription = "Taxonomy Annotation as a Service"
+            self.simpleUseText = "Just two end-points to retrieve annotations via taxon ID or any query term.";
+            self.integratedText = "Annotations for >27K taxa are pre-integrated.";
+            self.snType = "Taxon";
+            self.tryItLink = '/v1/api';
+            self.postLink = "http://t.biothings.io/v1/taxon"
+            self.postLink2 = "http://t.biothings.io/v1/query"
+            self.lastUpdatedLink = '/v1/metadata';
+            self.ghLink = "https://github.com/biothings/biothings.species"
+            self.twitterLink = "https://twitter.com/biothings"
+            self.biostarsLink = "https://www.biostars.org/new/post/?tag_val=mytaxon"
+            self.smallScreenLogo = "/static/img/mydisease-logo.svg"
+            self.docsLink = 'https://biothings.io/specs/';
+            self.uptimeLink = 'https://status.mytaxon.info/';
+            self.postQueryInfoLink =
+              "https://biothings.io/specs/"
+            self.showWhoIsUsing = false;
+            self.startAnimation('mt');
+            document.getElementById('box3d').classList.add('blackTransBack-taxon');
             break;
           default:
             // No DEFAULT

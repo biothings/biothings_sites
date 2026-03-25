@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 200 200">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #5046e4;
+      }
+
+      .st1 {
+        fill: #1d16a6;
+      }
+
+      .st2 {
+        fill: gray;
+      }
+
+      .st3 {
+        fill: #e6e6e6;
+      }
+
+      .st4 {
+        fill: #817df0;
+      }
+
+      .st5 {
+        fill: #b3b3b3;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="st0" points="168.7 35.1 146.6 67.4 115.4 67.4 137.5 35.1 168.7 35.1"/>
+    <polygon class="st4" points="168.7 35.1 191.2 67.4 168.8 99.8 146.6 67.4 168.7 35.1"/>
+    <polygon class="st1" points="146.6 67.4 168.8 99.8 137.9 99.7 115.4 67.4 146.6 67.4"/>
+  </g>
+  <g>
+    <polygon class="st5" points="62.1 99.7 39.7 132.1 8.5 132.1 31 99.7 62.1 99.7"/>
+    <polygon class="st3" points="62.1 99.7 84.3 132.1 61.8 164.5 39.7 132.1 62.1 99.7"/>
+    <polygon class="st2" points="39.7 132.1 61.8 164.5 30.7 164.5 8.5 132.1 39.7 132.1"/>
+  </g>
+  <g>
+    <polygon class="st0" points="115.4 132.1 92.9 164.5 61.8 164.5 84.3 132.1 115.4 132.1"/>
+    <polygon class="st4" points="115.4 132.1 137.7 164.4 115.1 196.9 92.9 164.5 115.4 132.1"/>
+    <polygon class="st1" points="92.9 164.5 115.1 196.9 83.9 196.9 61.8 164.5 92.9 164.5"/>
+  </g>
+  <g>
+    <polygon class="st5" points="168.7 99.8 146.6 132.1 115.4 132.1 137.9 99.7 168.7 99.8"/>
+    <polygon class="st3" points="168.7 99.8 191.2 132.1 168.7 164.4 146.6 132.1 168.7 99.8"/>
+    <polygon class="st2" points="146.6 132.1 168.7 164.4 137.6 164.4 115.4 132.1 146.6 132.1"/>
+  </g>
+  <g>
+    <polygon class="st0" points="62.2 35 40.1 67.3 8.9 67.3 31.1 35 62.2 35"/>
+    <polygon class="st4" points="62.2 35 84.3 67.4 62.2 99.7 40.1 67.3 62.2 35"/>
+    <polygon class="st1" points="40.1 67.3 62.1 99.7 31 99.7 8.9 67.3 40.1 67.3"/>
+  </g>
+  <g>
+    <polygon class="st0" points="115.4 67.4 93.2 99.7 62.1 99.7 84.3 67.4 115.4 67.4"/>
+    <polygon class="st4" points="115.4 67.4 137.9 99.7 115.4 132.1 93.2 99.7 115.4 67.4"/>
+    <polygon class="st1" points="93.2 99.7 115.4 132.1 84.3 132.1 62.1 99.7 93.2 99.7"/>
+  </g>
+  <g>
+    <polygon class="st5" points="115.6 3.2 93.4 35.5 62.2 35 84.4 3.2 115.6 3.2"/>
+    <polygon class="st3" points="115.6 3.2 137.8 35 115.4 67.4 93.2 35 115.6 3.2"/>
+    <polygon class="st2" points="93.3 35 115.4 67.4 84.3 67.4 62.2 35 93.3 35"/>
+  </g>
+</svg>

@@ -52,22 +52,26 @@
 		<div class="col-sm-12 p-0 lines">
 			<div class="container row m-auto d-flex justify-content-center align-items-center">
 				<!-- LARGE -->
-				<div class="col-sm-12 row m-0 justify-content-center align-items-center d-none d-sm-none d-md-flex">
-					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyGene.info')">
+				<div class="col-sm-12 row m-0 justify-content-between align-items-center d-none d-sm-none d-md-flex">
+					<div class="p-2" v-on:mouseover="handleHover('MyGene.info')">
 						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-blue">Gene</span>.info</h4>
 						<small>Gene Annotation As A Service</small>
 					</div>
-					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyVariant.info')">
+					<div class="p-2" v-on:mouseover="handleHover('MyVariant.info')">
 						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-green">Variant</span>.info</h4>
 						<small>Variant Annotation As A Service</small>
 					</div>
-					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyChem.info')">
+					<div class="p-2" v-on:mouseover="handleHover('MyChem.info')">
 						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-orange">Chem</span>.info</h4>
 						<small>Chemical and Drug Annotation As A Service</small>
 					</div>
-					<div class="col-sm-12 col-md-6 col-lg-3 pb-3 pt-2" v-on:mouseover="handleHover('MyDisease.info')">
+					<div class="p-2" v-on:mouseover="handleHover('MyDisease.info')">
 						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-purple">Disease</span>.info</h4>
 						<small>Disease Annotation As A Service</small>
+					</div>
+					<div class="p-2" v-on:mouseover="handleHover('MyTaxon.info')">
+						<h4 class="logoFont text-muted pointer hoverTitle">My<span class="text-taxon">Taxon</span>.info</h4>
+						<small>Taxonomy Annotation As A Service</small>
 					</div>
 				</div>
 				<!-- MOBILE -->
@@ -86,6 +90,10 @@
 					</div>
 					<div class="text-center m-2" v-on:mouseover="handleHover('MyDisease.info')">
 						<img src="/static/img/mydisease-logo-md.png" alt="mydisease" width="80px" />
+						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
+					</div>
+					<div class="text-center m-2" v-on:mouseover="handleHover('MyTaxon.info')">
+						<img src="/static/img/mytaxon-logo.png" alt="mytaxon" width="80px" />
 						<h6 class="badge badge-secondary d-block m-1">Learn More</h6>
 					</div>
 				</div>
@@ -120,7 +128,7 @@
 			</div>
 			<div class="container p-0">
 				<div class="d-flex flex-wrap justify-content-center my-5 no-border">
-					<div class="card col-sm-12 col-md-6 col-lg-4">
+					<!-- <div class="card col-sm-12 col-md-6 col-lg-4">
 						<div class="card-body logoFont text-muted" id="taxonomyapi">
 							<img src="/static/img/taxonomy.svg" alt="logo" class="mt-3" width="50px" />
 							<h5 class="card-title logoFont text-muted">Taxonomy API</h5>
@@ -130,7 +138,7 @@
 								class="btn btn-outline-secondary btn-lg font-weight-bold mb-2">Try&nbsp;It <i
 									class="fas fa-chevron-right"></i></a>
 						</div>
-					</div>
+					</div> -->
 					<div class="card col-sm-12 col-md-6 col-lg-4" style="background-color: #114068;">
 						<div class="card-body logoFont text-muted" id="outbreakapi">
 							<img src="/static/img/outbreak.svg" alt="logo" class="mt-3" width="250px" />
@@ -335,12 +343,12 @@
 				data-aos-delay="300">Learn More</a>
 		</div>
 	</div>
-	<section class="text-center bg-main-light jumbotron m-0">
+	<section v-if="showNews" class="text-center bg-main-light jumbotron m-0">
 		<h1 id="news" class="text-dark font-weight-bold p-2 anchorLink">What's New <a
 				style="font-size:small !important;opacity:0;" href="./#news"><i class="fas fa-tiny fa-link text-muted"
 					:data-clipboard-text="window.location.href+'#news'"></i></a></h1>
 	</section>
-	<section>
+	<section v-if="showNews">
 		<div class="main accent bg-dark pt-5">
 			<div class="container-fluid">
 				<div class="row d-flex justify-content-center row-cols-1 row-cols-md-3">
@@ -394,17 +402,15 @@
 	<section id="need-help" class="text-light bg-main-dark text-center">
 		<h4 class="text-light p-2 anchorLink">Need Help? <a style="opacity:0;" href="./#need-help"><i
 					class="fas fa-link"></i></a></h4>
-		<div class="d-flex justify-content-center flex-wrap">
+		<div class="d-flex justify-content-center flex-wrap py-3">
 			<div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="0">
-				<h1 class="m-0 text-main"><i class="fa fa-envelope" aria-hidden="true"></i></h1>
 				<h5 class="card-title text-muted">EMAIL</h5>
 				<h6 class="card-subtitle mb-2 text-muted">
 					<a class="" href='mailto:biothings@googlegroups.com'>biothings@googlegroups.com</a>
 				</h6>
 			</div>
 			<div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="100">
-				<h1 class="m-0 text-main"><i class="fab fa-twitter" aria-hidden="true"></i></h1>
-				<h5 class="card-title text-muted">TWITTER</h5>
+				<h5 class="card-title text-muted">X</h5>
 				<h6 class="card-subtitle mb-2 text-muted">
 					<a href="https://twitter.com/biothingsapi?ref_src=twsrc%5Etfw" class="twitter-follow-button"
 						data-show-screen-name="false" data-show-count="false">Follow @BioThingsAPI</a>
@@ -412,7 +418,6 @@
 				</h6>
 			</div>
 			<div class="p-3 text-center card m-1 col-sm-5 col-md-2 helpBox" data-aos="fade-up" data-aos-delay="150">
-				<h1 class="m-0 text-main"><i class="fa fa-star" aria-hidden="true"></i></h1>
 				<h5 class="card-title text-muted">BIOSTARS</h5>
 				<h6 class="card-subtitle mb-2 text-muted">
 					Post on <a target="_blank"
@@ -464,6 +469,7 @@
 				total: 0,
 				kibanaTotals:{},
 				requests: [],
+				showNews: false,
 				background: '',
 				showContributeDetails: false,
 				sites: [{
@@ -497,6 +503,14 @@
 						'website': 'http://mydisease.info/',
 						'description': 'MyDisease.info provides simple-to-use REST web services to query/retrieve disease annotation data. It’s designed with an emphasis on simplicity and performance.',
 						'color': 'var(--purple-light)'
+					},
+					{
+						'title': 'MyTaxon.info',
+						'tagline': 'Taxonomy Annotation As A Service',
+						'img': '/static/img/mytaxon-logo.png',
+						'website': 'http://mytaxon.info/',
+						'description': 'MyTaxon.info provides simple-to-use REST web services to query/retrieve taxonomy annotation data. It’s designed with an emphasis on simplicity and performance.',
+						'color': 'var(--taxon-light)'
 					},
 					{
 						'title': 'BioThings Explorer',
@@ -817,107 +831,28 @@
 				switch (item) {
 					case "MyGene.info":
 						this.textclss = 'text-blue';
-						this.hoverImg = '/static/img/mygene-logo-shiny-md.png'
+						this.hoverImg = '/static/img/mygene-logo-md.png'
 						this.backgroundclss = 'bg-blue'
-						// this.resetBoxes();
-						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
-
-						// this.box.color = '#3366CC' //dark
-						// this.box.leftFace = '#2A7FE2' //medium
-						// this.box.rightFace = '#3366CC' //dark
-						// this.box.topFace = '#669BE8' //light
-						// this.box.bottomFace = '#3366CC' //dark
-
-						// this.box5.color = '#3366CC' //dark
-						// this.box5.leftFace = '#2A7FE2' //medium
-						// this.box5.rightFace = '#3366CC' //dark
-						// this.box5.topFace = '#669BE8' //light
-						// this.box5.bottomFace = '#3366CC' //dark
-
-						// this.box7.color = '#3366CC' //dark
-						// this.box7.leftFace = '#2A7FE2' //medium
-						// this.box7.rightFace = '#3366CC' //dark
-						// this.box7.topFace = '#669BE8' //light
-						// this.box7.bottomFace = '#3366CC' //dark
-
 						break;
 					case "MyVariant.info":
 						this.textclss = 'text-green';
 						this.backgroundclss = 'bg-green'
-						this.hoverImg = '/static/img/myvariant-logo-shiny-md.png'
-						// this.resetBoxes();
-						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
-
-						// this.box.color = '#40B307' //dark
-						// this.box.leftFace = '#67CF2E' //medium
-						// this.box.rightFace = '#40B307' //dark
-						// this.box.topFace = '#85D958' //light
-						// this.box.bottomFace = '#40B307' //dark
-
-						// this.box2.color = '#40B307' //dark
-						// this.box2.leftFace = '#67CF2E' //medium
-						// this.box2.rightFace = '#40B307' //dark
-						// this.box2.topFace = '#85D958' //light
-						// this.box2.bottomFace = '#40B307' //dark
-
-						// this.box6.color = '#40B307' //dark
-						// this.box6.leftFace = '#67CF2E' //medium
-						// this.box6.rightFace = '#40B307' //dark
-						// this.box6.topFace = '#85D958' //light
-						// this.box6.bottomFace = '#40B307' //dark
-
+						this.hoverImg = '/static/img/myvariant-logo-md.png'
 						break;
 					case "MyChem.info":
 						this.textclss = 'text-orange';
 						this.backgroundclss = 'bg-orange'
-						this.hoverImg = '/static/img/mychem-logo-shiny-md.png'
-						// this.resetBoxes();
-						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
-
-						// this.box.color = '#CC6633' //dark
-						// this.box.leftFace = '#FD7400' //medium
-						// this.box.rightFace = '#CC6633' //dark
-						// this.box.topFace = '#FF8E39' //light
-						// this.box.bottomFace = '#CC6633' //dark
-
-						// this.box3.color = '#CC6633' //dark
-						// this.box3.leftFace = '#FD7400' //medium
-						// this.box3.rightFace = '#CC6633' //dark
-						// this.box3.topFace = '#FF8E39' //light
-						// this.box3.bottomFace = '#CC6633' //dark
-
-						// this.box4.color = '#CC6633' //dark
-						// this.box4.leftFace = '#FD7400' //medium
-						// this.box4.rightFace = '#CC6633' //dark
-						// this.box4.topFace = '#FF8E39' //light
-						// this.box4.bottomFace = '#CC6633' //dark
-
+						this.hoverImg = '/static/img/mychem-logo-md.png'
 						break;
 					case "MyDisease.info":
 						this.textclss = 'text-purple';
 						this.backgroundclss = 'bg-purple'
-						this.hoverImg = '/static/img/mydisease-logo-shiny-md.png'
-						// this.resetBoxes();
-						// this.box6.bottomFace = '#808080' //Glitches so must reset indiviadually
-
-						// this.box.color = '#CC6633' //dark
-						// this.box.leftFace = '#FD7400' //medium
-						// this.box.rightFace = '#CC6633' //dark
-						// this.box.topFace = '#FF8E39' //light
-						// this.box.bottomFace = '#CC6633' //dark
-
-						// this.box3.color = '#CC6633' //dark
-						// this.box3.leftFace = '#FD7400' //medium
-						// this.box3.rightFace = '#CC6633' //dark
-						// this.box3.topFace = '#FF8E39' //light
-						// this.box3.bottomFace = '#CC6633' //dark
-
-						// this.box4.color = '#CC6633' //dark
-						// this.box4.leftFace = '#FD7400' //medium
-						// this.box4.rightFace = '#CC6633' //dark
-						// this.box4.topFace = '#FF8E39' //light
-						// this.box4.bottomFace = '#CC6633' //dark
-
+						this.hoverImg = '/static/img/mydisease-logo-md.png'
+						break;
+					case "MyTaxon.info":
+						this.textclss = 'text-taxon';
+						this.backgroundclss = 'bg-taxon'
+						this.hoverImg = '/static/img/mytaxon-logo.png'
 						break;
 					case "BioThings":
 						this.textclss = 'text-warning';

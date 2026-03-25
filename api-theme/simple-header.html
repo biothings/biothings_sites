@@ -132,12 +132,12 @@
           <span class="link-text text-light">Docs</span>
         </a>
       </li>
-      <li class="nav-item d-none d-md-inline">
+      <!-- <li class="nav-item d-none d-md-inline">
         <a href="/blog" class="nav-link">
           <i class="fas fa-rss text-light link-icon"></i>
           <span class="link-text text-light">News</span>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item d-none d-md-inline">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">
           <i class="fas fa-bolt text-warning link-icon"></i>
@@ -166,6 +166,12 @@
         <a target="_blank" href="https://mydisease.info/" class="nav-link">
           <i class="fas fa-cube link-icon text-purple"></i>
           <span class="text-light link-text">My<span class="text-purple">Disease</span>.info</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a target="_blank" href="https://mytaxon.info/" class="nav-link">
+          <i class="fas fa-cube link-icon text-taxon"></i>
+          <span class="text-light link-text">My<span class="text-taxon">Taxon</span>.info</span>
         </a>
       </li>
       <li class="nav-item">
@@ -279,6 +285,15 @@ var app = new Vue({
           self.uptimeLink ='//status.mydisease.info/';
           self.logoImg= "/static/img/mydisease-logo-shiny-md.png";
           this.mainClss='text-purple';
+          break;
+        case "MyTaxon.info":
+          self.tryItLink='/v1/api';
+          self.snType='Taxon';
+          self.brandingLink = 'http://biothings.io/branding';
+          self.docsLink = 'https://biothings.io/specs/';
+          self.uptimeLink ='//status.mytaxon.info/';
+          self.logoImg= "/static/img/mytaxon-logo.png";
+          this.mainClss='text-taxon';
           break;
         default:
           // default is Mygene
