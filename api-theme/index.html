@@ -2899,31 +2899,31 @@ select {
             self.colors["light"] = "#817df0";
             self.apiExmaples = [{
                 'description': 'Retrieving by taxon id',
-                'query': '//t.biothings.io/v1/taxon/9606'
+                'query': '//mytaxon.info/v1/taxon/9606'
               },
               {
                 'description': 'Retrieve all taxa with rank "species"',
-                'query': '//t.biothings.io/v1/query?q=rank:species'
+                'query': '//mytaxon.info/v1/query?q=rank:species'
               },
               {
                 'description': 'Retrieve all taxa with lineage containing "9606" (human)',
-                'query': '//t.biothings.io/v1/query?q=lineage:9606'
+                'query': '//mytaxon.info/v1/query?q=lineage:9606'
               },
               {
                 'description': 'Retrieve all taxa with parent taxon "9606" (human)',
-                'query': '//t.biothings.io/v1/query?q=parent_taxid:9606'
+                'query': '//mytaxon.info/v1/query?q=parent_taxid:9606'
               },
               {
                 'description': 'Retrieve by Taxon ID',
-                'query': '//t.biothings.io/v1/query?q=taxid:63221'
+                'query': '//mytaxon.info/v1/query?q=taxid:63221'
               },
               {
                 'description': 'Get the list of all fields',
-                'query': '//t.biothings.io/v1/metadata/fields'
+                'query': '//mytaxon.info/v1/metadata/fields'
               },
               {
                 'description': 'Get data source metadata',
-                'query': '//t.biothings.io/v1/metadata'
+                'query': '//mytaxon.info/v1/metadata'
               },
             ]
             self.siteDescription = "Taxonomy Annotation as a Service"
@@ -2931,8 +2931,8 @@ select {
             self.integratedText = "Annotations for >27K taxa are pre-integrated.";
             self.snType = "Taxon";
             self.tryItLink = '/v1/api';
-            self.postLink = "http://t.biothings.io/v1/taxon"
-            self.postLink2 = "http://t.biothings.io/v1/query"
+            self.postLink = "http://mytaxon.info/v1/taxon"
+            self.postLink2 = "http://mytaxon.info/v1/query"
             self.lastUpdatedLink = '/v1/metadata';
             self.ghLink = "https://github.com/biothings/biothings.species"
             self.twitterLink = "https://twitter.com/biothings"
