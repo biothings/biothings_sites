@@ -32,6 +32,10 @@
   --purple-medium: #772FDD;
   --purple-light: #A267E5;
 
+  --taxon-dark: #1d16a6;
+  --taxon-medium: #5046e4;
+  --taxon-light: #817df0;
+
   /* MYGENE */
   /* --main-dark: #3366CC;
   --main-medium: #2A7FE2;
@@ -300,6 +304,15 @@ a:hover {
 
 .text-main {
   color: var(--main-medium);
+}
+
+.text-taxon{
+  color: var(--taxon-medium);
+}
+
+.bg-taxon{
+  background-color: var(--taxon-medium);
+  transition: all .7s;
 }
 
 .bg-dark {
